@@ -4,11 +4,15 @@ export const ScreenContainer = styled.div`
 	padding: 10px;
 `;
 
-export const Tile = styled.div`
+export const TileStyle = styled.div`
 	width: 10vh;
 	height: 10vh;
 	background-color: lightgreen;
 	outline: 2px solid green;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 4em;
 `;
 
 export const GridContainer = styled.div`
