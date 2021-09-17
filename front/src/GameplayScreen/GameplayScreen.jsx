@@ -8,15 +8,15 @@ export default function GameplayScreen() {
 		['', '', ''],
 		['', '', ''],
 	];
-
-	const [turnState, setTurnState] = useState('X');
+	const startingPlayer = 'X';
+	const [turnState, setTurnState] = useState(startingPlayer);
 	const [boardState, setBoardState] = useState(blankBoard);
 	const [winState, setWinState] = useState(false);
 	const sessionData = { turnState, setTurnState, boardState, setBoardState, winState, setWinState };
 
 	const resetGameState = () => {
 		setBoardState(blankBoard);
-		setTurnState('O');
+		setTurnState(startingPlayer);
 		setWinState(false);
 	};
 
