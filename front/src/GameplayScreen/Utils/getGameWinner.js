@@ -1,4 +1,4 @@
-export const checkForWins = boardState => {
+export const getGameWinner = boardState => {
 	let winner = false;
 
 	for (let i = 0; i < 3; i++) {

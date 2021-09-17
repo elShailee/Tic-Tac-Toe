@@ -5,7 +5,7 @@ export const ScreenContainer = styled.div`
 	display: flex;
 `;
 
-export const TileStyle = styled.div`
+export const TileContainer = styled.div`
 	width: 10vh;
 	height: 10vh;
 	background-color: lightgreen;

@@ -1,22 +1,24 @@
 import React from 'react';
-import { TileStyle } from './styles';
-import { checkForWins } from './Utils/checkForWins';
+import { TileContainer } from './styles';
+import { getGameWinner } from './Utils/getGameWinner';
 
 export default function Tile({ sessionData, row, col }) {
 	const { turnState, setTurnState, boardState, setBoardState, winState, setWinState } = sessionData;
 	const cellValue = boardState[row][col];
 
-	let clickHandler = () => {
+	let onPlayerClick = () => {
 		if (!cellValue && !winState) {
 			setTurnState(turnState === 'X' ? 'O' : 'X');
+
 			const newBoardState = Array.from(boardState);
 			newBoardState[row][col] = turnState;
 			setBoardState(newBoardState);
-			const winner = checkForWins(boardState);
-			if (winner) {
-				setWinState(winner);
+
+			const newWinState = getGameWinner(boardState);
+			if (newWinState) {
+				setWinState(newWinState);
 			}
 		}
 	};
-	return <TileStyle onClick={clickHandler}>{cellValue}</TileStyle>;
+	return <TileContainer onClick={onPlayerClick}>{cellValue}</TileContainer>;
 }

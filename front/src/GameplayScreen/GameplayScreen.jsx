@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import GameInterface from './GameInterface';
+import GameGrid from './GameGrid';
 import { DataUtilsContainer, ScreenContainer } from './styles';
 
 export default function GameplayScreen() {
 	const blankBoard = [
-		['', '', ''],
-		['', '', ''],
-		['', '', ''],
+		[false, false, false],
+		[false, false, false],
+		[false, false, false],
 	];
 	const startingPlayer = 'X';
 	const [turnState, setTurnState] = useState(startingPlayer);
@@ -22,7 +22,7 @@ export default function GameplayScreen() {
 
 	return (
 		<ScreenContainer>
-			<GameInterface sessionData={sessionData} />
+			<GameGrid sessionData={sessionData} />
 			<DataUtilsContainer>
 				{'Win State: ' + winState}
 				{winState && <button onClick={resetGameState}>Reset Board State</button>}
