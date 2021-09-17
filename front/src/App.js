@@ -1,5 +1,11 @@
+import GameplayScreen from 'GameplayScreen/GameplayScreen';
+
 function App() {
-	return <div></div>;
+	return (
+		<div>
+			<GameplayScreen />
+		</div>
+	);
 }
 
 export default App;
