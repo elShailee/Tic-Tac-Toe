@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ScreenContainer = styled.div`
 	padding: 10px;
+	display: flex;
 `;
 
 export const TileStyle = styled.div`
@@ -22,4 +23,10 @@ export const GridContainer = styled.div`
 
 export const GridRowContainer = styled.div`
 	display: flex;
+`;
+
+export const DataUtilsContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
 `;
