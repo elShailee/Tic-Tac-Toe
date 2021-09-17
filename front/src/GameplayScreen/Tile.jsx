@@ -14,7 +14,7 @@ export default function Tile({ sessionData, row, col }) {
 			setBoardState(newBoardState);
 			const winner = checkForWins(boardState);
 			if (winner) {
-				setWinState(winner === 'X' ? 'X' : 'O');
+				setWinState(winner);
 			}
 		}
 	};

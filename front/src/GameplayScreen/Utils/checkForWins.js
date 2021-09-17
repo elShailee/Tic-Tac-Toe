@@ -12,5 +12,12 @@ export const checkForWins = boardState => {
 	if (boardState[2][0] === boardState[1][1] && boardState[1][1] === boardState[0][2] && boardState[1][1])
 		winner = boardState[1][1];
 
+	let isBoardFull = true;
+	for (let row = 0; row < 3; row++) {
+		for (let col = 0; col < 3; col++) {
+			if (!boardState[row][col]) isBoardFull = false;
+		}
+	}
+	if (!winner && isBoardFull) winner = 'Tie';
 	return winner;
 };

@@ -25,7 +25,7 @@ export default function GameplayScreen() {
 			<GameInterface sessionData={sessionData} />
 			<DataUtilsContainer>
 				{'Win State: ' + winState}
-				<button onClick={resetGameState}>Reset Board State</button>
+				{winState && <button onClick={resetGameState}>Reset Board State</button>}
 			</DataUtilsContainer>
 		</ScreenContainer>
 	);
