@@ -6,35 +6,49 @@ const app = express();
 
 app.use(express.json());
 
-app.use((req, res, next) => {
-	const { error } = validate(req);
-	if (error) {
-		return res.status(400).send(error);
-	}
-	next();
-});
+// app.use((req, res, next) => {
+// 	const { error } = validate(req);
+// 	if (error) {
+// 		return res.status(400).send(error);
+// 	}
+// 	next();
+// });
 
-const games = {};
+let games = {};
 
-app.get('/api/games', (req, res) => {
+app.get('/api/game', (req, res) => {
 	return res.send(games);
 });
 
-app.post('/api/games', (req, res) => {
-	const state = req.body.state;
+app.post('/api/game', (req, res) => {
+	const gameState = req.body.gameState;
 	const id = uuid(10);
-	games[id] = state;
+	games[id] = gameState;
 	const response = {};
-	response[id] = state;
+	response[id] = gameState;
 	return res.send(response);
 });
 
-app.get('/api/games/:id', (req, res) => {
+app.get('/api/game/:id', (req, res) => {
 	const gameId = req.params.id;
 	if (!games[gameId]) {
 		return res.status(404).send(`game ${gameId} doesn't exist.`);
 	}
-	res.send(`Hello!  You Entered Game No.${gameId}`);
+	res.send(`gameState for game ${gameId}.`);
+});
+
+app.put('/api/game/:id', (req, res) => {
+	const gameState = req.body.gameState;
+	const id = req.params.id;
+	games[id] = gameState;
+	const response = {};
+	response[id] = gameState;
+	return res.send(response);
+});
+
+app.delete('/api/game', (req, res) => {
+	games = {};
+	return res.send(games);
 });
 
 const PORT = process.env.PORT || 8888;
