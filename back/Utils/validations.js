@@ -18,10 +18,14 @@ module.exports.gamePutValidation = (req, res, next) => {
 
 const hasPassedValidations = (validationsSuite, req, res) => {
 	let passed = true;
+	//refactor forEach into for, simply return false when fails
 	validationsSuite.forEach(validation => {
+		//unnecessarily runs after fails
 		const { error, customStatus, customMessage } = validation(req);
 		if (error && passed) {
-			res.status(customStatus ? customStatus : 400).send(customMessage ? customMessage : error.details[0].message);
+			res
+				.status(customStatus ? customStatus : 400)
+				.send(customMessage ? customMessage : error.details /*optional chaining?*/[0].message);
 			passed = false;
 		}
 	});
@@ -41,6 +45,6 @@ const matchGameId = req => {
 			.required(),
 	}).required();
 	const result = schema.validate(req.params);
-	if (result.error) return { ...result, customStatus: 404, customMessage: '"gameId" must equal an existing gameId' };
+	if (result.error) return { ...result, customMessage: '"gameId" must equal an existing gameId' };
 	return result;
 };

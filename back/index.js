@@ -12,27 +12,32 @@ app.get('/api/game', (req, res) => {
 });
 
 app.get('/api/game/:gameId', gameGetValidation, (req, res) => {
-	const gameId = req.params.gameId;
+	const { gameId } = req.params;
+	//no need, the caller knows the id he used.
 	const response = {};
 	response[gameId] = games[gameId];
 	res.send(response);
 });
 
 app.post('/api/game', gamePostValidation, (req, res) => {
-	const gameState = req.body.gameState;
+	//change name
+	const { gameState } = req.body;
 	const gameId = uuid(10);
 	games[gameId] = gameState;
+	//same as 16
 	const response = {};
 	response[gameId] = gameState;
 	res.send(response);
 });
 
 app.put('/api/game/:gameId', gamePutValidation, (req, res) => {
-	const gameState = req.body.gameState;
-	const id = req.params.gameId;
-	games[id] = gameState;
+	//cahnge name
+	const { gameState } = req.body;
+	const gameId = req.params.gameId;
+	games[gameId] = gameState;
+	//same as 16
 	const response = {};
-	response[id] = gameState;
+	response[gameId] = gameState;
 	res.send(response);
 });
 
