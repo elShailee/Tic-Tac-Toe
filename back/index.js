@@ -20,7 +20,7 @@ app.get('/api/games', (req, res) => {
 	return res.send(games);
 });
 
-app.post('/api/games/', (req, res) => {
+app.post('/api/games', (req, res) => {
 	const state = req.body.state;
 	const id = uuid(10);
 	games[id] = state;
@@ -29,12 +29,12 @@ app.post('/api/games/', (req, res) => {
 	return res.send(response);
 });
 
-app.get('/api/:id', (req, res) => {
+app.get('/api/games/:id', (req, res) => {
 	const gameId = req.params.id;
 	if (!games[gameId]) {
 		return res.status(404).send(`game ${gameId} doesn't exist.`);
 	}
-	res.send(`Hello!/nYou Entered Game No.${gameId}`);
+	res.send(`Hello!  You Entered Game No.${gameId}`);
 });
 
 const PORT = process.env.PORT || 8888;

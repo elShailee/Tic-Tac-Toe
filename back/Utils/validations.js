@@ -9,6 +9,9 @@ const validations = {
 			});
 			return schema.validate(reqBody);
 		},
+		GET: () => {
+			return {};
+		},
 	},
 };
 
