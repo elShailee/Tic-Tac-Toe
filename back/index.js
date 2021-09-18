@@ -1,9 +1,18 @@
 const express = require('express');
 const uuid = require('./Utils/uuidGenerator');
+const validate = require('./Utils/validations');
 
 const app = express();
 
 app.use(express.json());
+
+app.use((req, res, next) => {
+	const { error } = validate(req);
+	if (error) {
+		return res.status(400).send(error);
+	}
+	next();
+});
 
 const games = {};
 
