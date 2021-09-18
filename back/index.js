@@ -1,54 +1,47 @@
 const express = require('express');
 const uuid = require('./Utils/uuidGenerator');
-const validate = require('./Utils/validations');
+const games = require('./games');
+const { gamePostValidation, gamePutValidation } = require('./Utils/validations');
 
 const app = express();
 
 app.use(express.json());
 
-// app.use((req, res, next) => {
-// 	const { error } = validate(req);
-// 	if (error) {
-// 		return res.status(400).send(error);
-// 	}
-// 	next();
-// });
-
-let games = {};
-
 app.get('/api/game', (req, res) => {
-	return res.send(games);
+	res.send(games);
 });
 
-app.post('/api/game', (req, res) => {
+app.post('/api/game', gamePostValidation, (req, res) => {
 	const gameState = req.body.gameState;
 	const id = uuid(10);
 	games[id] = gameState;
 	const response = {};
 	response[id] = gameState;
-	return res.send(response);
+	res.send(response);
 });
 
-app.get('/api/game/:id', (req, res) => {
-	const gameId = req.params.id;
+app.get('/api/game/:gameId', (req, res) => {
+	const gameId = req.params.gameId;
 	if (!games[gameId]) {
-		return res.status(404).send(`game ${gameId} doesn't exist.`);
+		res.status(404).send(`game ${gameId} doesn't exist.`);
 	}
 	res.send(`gameState for game ${gameId}.`);
 });
 
-app.put('/api/game/:id', (req, res) => {
+app.put('/api/game/:gameId', gamePutValidation, (req, res) => {
 	const gameState = req.body.gameState;
-	const id = req.params.id;
+	const id = req.params.gameId;
 	games[id] = gameState;
 	const response = {};
 	response[id] = gameState;
-	return res.send(response);
+	res.send(response);
 });
 
 app.delete('/api/game', (req, res) => {
-	games = {};
-	return res.send(games);
+	Object.keys(games).forEach(key => {
+		delete games[key];
+	});
+	res.send(games);
 });
 
 const PORT = process.env.PORT || 8888;
