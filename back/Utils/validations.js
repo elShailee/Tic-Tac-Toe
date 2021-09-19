@@ -17,19 +17,14 @@ module.exports.gamePutValidation = (req, res, next) => {
 };
 
 const hasPassedValidations = (validationsSuite, req, res) => {
-	let passed = true;
-	//refactor forEach into for, simply return false when fails
-	validationsSuite.forEach(validation => {
-		//unnecessarily runs after fails
+	for (const validation of validationsSuite) {
 		const { error, customStatus, customMessage } = validation(req);
-		if (error && passed) {
-			res
-				.status(customStatus ? customStatus : 400)
-				.send(customMessage ? customMessage : error.details /*optional chaining?*/[0].message);
-			passed = false;
+		if (error) {
+			res.status(customStatus ?? 400).send(customMessage ?? error.details?.[0]?.message ?? 'Unknown Error');
+			return false;
 		}
-	});
-	return passed;
+	}
+	return true;
 };
 
 const validateGameState = req => {

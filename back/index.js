@@ -13,32 +13,21 @@ app.get('/api/game', (req, res) => {
 
 app.get('/api/game/:gameId', gameGetValidation, (req, res) => {
 	const { gameId } = req.params;
-	//no need, the caller knows the id he used.
-	const response = {};
-	response[gameId] = games[gameId];
-	res.send(response);
+	res.send(games[gameId]);
 });
 
 app.post('/api/game', gamePostValidation, (req, res) => {
-	//change name
-	const { gameState } = req.body;
+	const { gameState: newGameState } = req.body;
 	const gameId = uuid(10);
-	games[gameId] = gameState;
-	//same as 16
-	const response = {};
-	response[gameId] = gameState;
-	res.send(response);
+	games[gameId] = newGameState;
+	res.send({ [gameId]: newGameState });
 });
 
 app.put('/api/game/:gameId', gamePutValidation, (req, res) => {
-	//cahnge name
-	const { gameState } = req.body;
+	const { gameState: newGameState } = req.body;
 	const gameId = req.params.gameId;
-	games[gameId] = gameState;
-	//same as 16
-	const response = {};
-	response[gameId] = gameState;
-	res.send(response);
+	games[gameId] = newGameState;
+	res.send(newGameState);
 });
 
 app.delete('/api/game', (req, res) => {
@@ -48,7 +37,7 @@ app.delete('/api/game', (req, res) => {
 	res.send(games);
 });
 
-const PORT = process.env.PORT || 8888;
+const PORT = process.env.PORT ?? 8888;
 app.listen(PORT, () => {
 	console.log(`Listening on port ${PORT}...`);
 });
