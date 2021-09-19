@@ -39,7 +39,5 @@ const matchGameId = req => {
 			.valid('', ...Object.keys(games))
 			.required(),
 	}).required();
-	const result = schema.validate(req.params);
-	if (result.error) return { ...result, customMessage: '"gameId" must equal an existing gameId' };
-	return result;
+	return { ...schema.validate(req.params), customMessage: '"gameId" must equal an existing gameId' };
 };
