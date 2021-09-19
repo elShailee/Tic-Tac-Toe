@@ -1,5 +1,5 @@
 const express = require('express');
-const uuid = require('./Utils/uuidGenerator');
+const createUuid = require('./Utils/uuidGenerator');
 const games = require('./games');
 const { gamePostValidation, gamePutValidation, gameGetValidation } = require('./Utils/validations');
 
@@ -18,7 +18,7 @@ app.get('/api/game/:gameId', gameGetValidation, (req, res) => {
 
 app.post('/api/game', gamePostValidation, (req, res) => {
 	const { gameState: newGameState } = req.body;
-	const gameId = uuid(10);
+	const gameId = createUuid(10);
 	games[gameId] = newGameState;
 	res.send({ [gameId]: newGameState });
 });
