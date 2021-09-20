@@ -20,7 +20,7 @@ app.post('/api/game', gamePostValidation, (req, res) => {
 	const { gameState: newGameState } = req.body;
 	const gameId = createUuid(10);
 	games[gameId] = newGameState;
-	res.send({ [gameId]: newGameState });
+	res.send({ gameId, gameState: newGameState });
 });
 
 app.put('/api/game/:gameId', gamePutValidation, (req, res) => {
