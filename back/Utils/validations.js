@@ -29,7 +29,10 @@ const hasPassedValidations = (validationsSuite, req, res) => {
 
 const validateGameState = req => {
 	const rowScema = Joi.array().length(3).required().items(false, Joi.string().valid('X', 'O'));
-	const schema = Joi.object({ gameState: Joi.array().length(3).required().items(rowScema) }).required();
+	const schema = Joi.object({
+		boardState: Joi.array().length(3).required().items(rowScema),
+		turnState: Joi.string().valid('X', 'O').required(),
+	}).required();
 	return schema.validate(req.body);
 };
 
