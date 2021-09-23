@@ -2,19 +2,37 @@ import Axios from 'axios';
 
 const axios = Axios.create({ baseURL: 'http://localhost:8888' });
 
-export const apiCallsHandler = async ({ action, gameData }) => console.log(await calls[action](gameData));
+export const apiCallsHandler = async ({ action, gameState }) => {
+	const response = await calls[action](gameState);
+	return response.data;
+};
 
 const calls = {
-	getGames: async () => {
+	postGame: async gameState => {
 		try {
-			return await axios.get('/api/game');
+			return await axios.post('/api/game', {
+				boardState: gameState.boardState,
+				turnState: gameState.turnState,
+				winState: gameState.winState,
+			});
 		} catch (error) {
 			return error;
 		}
 	},
-	postGame: async gameData => {
+	putGame: async gameState => {
 		try {
-			return await axios.post('/api/game', { boardState: gameData.boardState, turnState: gameData.turnState });
+			return await axios.put(`/api/game/${gameState.gameId}`, {
+				boardState: gameState.boardState,
+				turnState: gameState.turnState,
+				winState: gameState.winState,
+			});
+		} catch (error) {
+			return error;
+		}
+	},
+	getGames: async () => {
+		try {
+			return await axios.get('/api/game');
 		} catch (error) {
 			return error;
 		}

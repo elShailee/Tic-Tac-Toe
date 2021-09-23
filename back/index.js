@@ -23,17 +23,17 @@ app.get('/api/game/:gameId', gameGetValidation, (req, res) => {
 });
 
 app.post('/api/game', gamePostValidation, (req, res) => {
-	const { boardState: newGameState, turnState: newTurnState } = req.body;
+	const { boardState, turnState, winState } = req.body;
 	const gameId = createUuid(10);
-	games[gameId] = { gameId, boardState: newGameState, turnState: newTurnState };
+	games[gameId] = { gameId, boardState, turnState, winState };
 	res.send(games[gameId]);
 });
 
 app.put('/api/game/:gameId', gamePutValidation, (req, res) => {
-	const { boardState: newGameState } = req.body;
+	const { boardState, turnState, winState } = req.body;
 	const { gameId } = req.params;
-	games[gameId] = newGameState;
-	res.send(newGameState);
+	games[gameId] = { gameId, boardState, turnState, winState };
+	res.send(games[gameId]);
 });
 
 app.delete('/api/game', (req, res) => {

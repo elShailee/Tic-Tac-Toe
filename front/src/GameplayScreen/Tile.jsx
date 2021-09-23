@@ -1,23 +1,28 @@
 import React from 'react';
 import { TileContainer } from './styles';
+import { apiCallsHandler } from './Utils/axiosFuncs';
 import { getGameWinner } from './Utils/getGameWinner';
 
-export default function Tile({ sessionData, row, col }) {
-	const { turnState, setTurnState, boardState, setBoardState, winState, setWinState } = sessionData;
+export default function Tile({ gameState, setGameState, row, col }) {
+	const { turnState, boardState, winState } = gameState;
 	const cellValue = boardState[row][col];
 
-	let onPlayerClick = () => {
+	let onPlayerClick = async () => {
 		if (!cellValue && !winState) {
-			setTurnState(turnState === 'X' ? 'O' : 'X');
-
 			const newBoardState = Array.from(boardState);
 			newBoardState[row][col] = turnState;
-			setBoardState(newBoardState);
-
 			const newWinState = getGameWinner(boardState);
-			if (newWinState) {
-				setWinState(newWinState);
-			}
+
+			const newGameState = await apiCallsHandler({
+				action: 'putGame',
+				gameState: {
+					gameId: gameState.gameId,
+					boardState: newBoardState,
+					turnState: gameState.turnState === 'X' ? 'O' : 'X',
+					winState: newWinState,
+				},
+			});
+			setGameState(newGameState);
 		}
 	};
 	return <TileContainer onClick={onPlayerClick}>{cellValue}</TileContainer>;

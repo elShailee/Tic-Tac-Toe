@@ -32,6 +32,7 @@ const validateGameState = req => {
 	const schema = Joi.object({
 		boardState: Joi.array().length(3).required().items(rowScema),
 		turnState: Joi.string().valid('X', 'O').required(),
+		winState: Joi.valid('X', 'O', false).required(),
 	}).required();
 	return schema.validate(req.body);
 };

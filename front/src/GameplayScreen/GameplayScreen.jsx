@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import GameGrid from './GameGrid';
-import { DataUtilsContainer, ScreenContainer } from './styles';
+import { DataUtilsContainer, GameContainer, ScreenContainer } from './styles';
 import { apiCallsHandler } from './Utils/axiosFuncs';
 
 export default function GameplayScreen() {
@@ -10,30 +10,52 @@ export default function GameplayScreen() {
 		[false, false, false],
 	];
 	const startingPlayer = 'X';
-	const [turnState, setTurnState] = useState(startingPlayer);
-	const [boardState, setBoardState] = useState(blankBoard);
-	const [winState, setWinState] = useState(false);
-	const sessionData = { turnState, setTurnState, boardState, setBoardState, winState, setWinState };
+	const blankGameState = { boardState: blankBoard, turnState: startingPlayer, winState: false };
+	const [gameState, setGameState] = useState(blankGameState);
 
-	const resetGameState = () => {
-		setBoardState(blankBoard);
-		setTurnState(startingPlayer);
-		setWinState(false);
+	const resetGameState = async () => {
+		const newGameState = await apiCallsHandler({
+			action: 'putGame',
+			gameState: { ...gameState, ...blankGameState },
+		});
+		setGameState(newGameState);
+	};
+
+	const createNewGame = async () => {
+		const newGameState = await apiCallsHandler({
+			action: 'postGame',
+			gameState: blankGameState,
+		});
+		setGameState({ ...newGameState, winState: false });
 	};
 
 	return (
 		<ScreenContainer>
-			<GameGrid sessionData={sessionData} />
-			<DataUtilsContainer>
-				{'Win State: ' + winState}
-				{winState && <button onClick={resetGameState}>Reset Board State</button>}
-			</DataUtilsContainer>
-
-			<button onClick={() => apiCallsHandler({ action: 'getGames' })}>GET Games</button>
-			<button onClick={() => apiCallsHandler({ action: 'postGame', gameData: { boardState, turnState } })}>POST Game</button>
-			<button>GET Game</button>
-			<button>PUT Game</button>
-			<button onClick={() => apiCallsHandler({ action: 'deleteGames' })}>DELETE Games</button>
+			<button onClick={() => console.log(gameState)}>log gameState</button>
+			<button onClick={async () => console.log(await apiCallsHandler({ action: 'getGames' }))}>GET Games</button>
+			<button
+				onClick={async () => {
+					console.log(await apiCallsHandler({ action: 'deleteGames' }));
+					setGameState(blankGameState);
+				}}
+			>
+				DELETE Games
+			</button>
+			<hr />
+			{gameState.gameId ? (
+				<GameContainer>
+					<GameGrid gameState={gameState} setGameState={setGameState} />
+					<DataUtilsContainer>
+						{'Win State: ' + (gameState.winState || 'awaiting results...')}
+						{gameState.winState && <button onClick={resetGameState}>Reset Board State</button>}
+					</DataUtilsContainer>
+				</GameContainer>
+			) : (
+				<div>
+					<h2>Starting screen</h2>
+					<button onClick={createNewGame}>new game</button>
+				</div>
+			)}
 		</ScreenContainer>
 	);
 }
