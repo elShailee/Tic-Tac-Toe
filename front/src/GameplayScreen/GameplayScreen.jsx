@@ -26,7 +26,7 @@ export default function GameplayScreen() {
 			action: 'postGame',
 			gameState: blankGameState,
 		});
-		setGameState({ ...newGameState, winState: false });
+		newGameState && setGameState({ ...newGameState, winState: false });
 	};
 
 	return (

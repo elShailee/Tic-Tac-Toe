@@ -7,6 +7,10 @@ export const apiCallsHandler = async ({ action, gameState }) => {
 	return response.data;
 };
 
+const logError = error => {
+	console.error(`Error message: ${error.response.data}`);
+};
+
 const calls = {
 	postGame: async gameState => {
 		try {
@@ -16,6 +20,7 @@ const calls = {
 				winState: gameState.winState,
 			});
 		} catch (error) {
+			logError(error);
 			return error;
 		}
 	},
@@ -27,6 +32,7 @@ const calls = {
 				winState: gameState.winState,
 			});
 		} catch (error) {
+			logError(error);
 			return error;
 		}
 	},
@@ -34,6 +40,7 @@ const calls = {
 		try {
 			return await axios.get('/api/game');
 		} catch (error) {
+			logError(error);
 			return error;
 		}
 	},
@@ -41,6 +48,7 @@ const calls = {
 		try {
 			return await axios.delete('api/game');
 		} catch (error) {
+			logError(error);
 			return error;
 		}
 	},
