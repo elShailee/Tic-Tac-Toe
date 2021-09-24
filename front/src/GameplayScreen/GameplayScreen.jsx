@@ -13,6 +13,8 @@ export default function GameplayScreen() {
 	const blankGameState = { boardState: blankBoard, turnState: startingPlayer, winState: false };
 	const [gameState, setGameState] = useState(blankGameState);
 
+	const [loadId, setLoadId] = useState('');
+
 	const resetGameState = async () => {
 		const newGameState = await apiCallsHandler({
 			action: 'putGame',
@@ -47,13 +49,25 @@ export default function GameplayScreen() {
 					<GameGrid gameState={gameState} setGameState={setGameState} />
 					<DataUtilsContainer>
 						{'Win State: ' + (gameState.winState || 'awaiting results...')}
-						{gameState.winState && <button onClick={resetGameState}>Reset Board State</button>}
+						<button onClick={resetGameState}>Reset Board State</button>
+						<br />
+						{'Game ID: '}
+						<input type='text' defaultValue={gameState.gameId} readOnly />
 					</DataUtilsContainer>
 				</GameContainer>
 			) : (
 				<div>
 					<h2>Starting screen</h2>
 					<button onClick={createNewGame}>new game</button>
+					<form
+						onSubmit={e => {
+							e.preventDefault();
+							console.log(loadId);
+						}}
+					>
+						<input type='text' onChange={e => setLoadId(e.target.value)} />
+						<input type='submit' value='Load Game' />
+					</form>
 				</div>
 			)}
 		</ScreenContainer>
