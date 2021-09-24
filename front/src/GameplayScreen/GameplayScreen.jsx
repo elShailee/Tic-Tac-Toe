@@ -20,7 +20,7 @@ export default function GameplayScreen() {
 			action: 'putGame',
 			data: { ...gameState, ...blankGameState },
 		});
-		setGameState(newGameState);
+		newGameState && setGameState(newGameState);
 	};
 
 	const createNewGame = async () => {
@@ -28,7 +28,7 @@ export default function GameplayScreen() {
 			action: 'postGame',
 			data: blankGameState,
 		});
-		newGameState && setGameState({ ...newGameState, winState: false });
+		newGameState && setGameState(newGameState);
 	};
 
 	return (
@@ -50,11 +50,18 @@ export default function GameplayScreen() {
 					<DataUtilsContainer>
 						{'Player Turn: ' + gameState.turnState}
 						<br />
+						<br />
+
 						{'Win State: ' + (gameState.winState || 'awaiting results...')}
+						<br />
+						<br />
 						<button onClick={resetGameState}>Reset Board State</button>
 						<br />
+
 						{'Game ID: '}
-						<input type='text' defaultValue={gameState.gameId} readOnly />
+						<input type='text' defaultValue={gameState.gameId} readOnly disabled />
+						<br />
+
 						<button onClick={() => setGameState(blankGameState)}>{'Save&Exit'}</button>
 					</DataUtilsContainer>
 				</GameContainer>
@@ -62,9 +69,11 @@ export default function GameplayScreen() {
 				<div>
 					<h2>Starting screen</h2>
 					<button onClick={createNewGame}>new game</button>
-					<form
-						onSubmit={async e => {
-							e.preventDefault();
+					<br />
+
+					<input type='text' onChange={e => setLoadId(e.target.value)} />
+					<button
+						onClick={async () => {
 							const gameInDB = await apiCallsHandler({ action: 'getGame', data: loadId });
 							if (gameInDB) {
 								setGameState(gameInDB);
@@ -72,10 +81,9 @@ export default function GameplayScreen() {
 							} else setLoadId(false);
 						}}
 					>
-						<input type='text' onChange={e => setLoadId(e.target.value)} />
-						<input type='submit' value='Load Game' />
-						{loadId === false && "  Game ID doesn't exist..."}
-					</form>
+						Load Game
+					</button>
+					{loadId === false && "  Game ID doesn't exist..."}
 				</div>
 			)}
 		</ScreenContainer>
