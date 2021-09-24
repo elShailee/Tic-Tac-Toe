@@ -15,7 +15,7 @@ export default function Tile({ gameState, setGameState, row, col }) {
 
 			const newGameState = await apiCallsHandler({
 				action: 'putGame',
-				gameState: {
+				data: {
 					gameId: gameState.gameId,
 					boardState: newBoardState,
 					turnState: gameState.turnState === 'X' ? 'O' : 'X',

@@ -2,8 +2,8 @@ import Axios from 'axios';
 
 const axios = Axios.create({ baseURL: 'http://localhost:8888' });
 
-export const apiCallsHandler = async ({ action, gameState }) => {
-	const response = await calls[action](gameState);
+export const apiCallsHandler = async ({ action, data }) => {
+	const response = await calls[action](data);
 	return response.data;
 };
 
@@ -31,6 +31,14 @@ const calls = {
 				turnState: gameState.turnState,
 				winState: gameState.winState,
 			});
+		} catch (error) {
+			logError(error);
+			return error;
+		}
+	},
+	getGame: async gameId => {
+		try {
+			return await axios.get(`/api/game/${gameId}`);
 		} catch (error) {
 			logError(error);
 			return error;

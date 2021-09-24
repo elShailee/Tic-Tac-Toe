@@ -18,7 +18,7 @@ export default function GameplayScreen() {
 	const resetGameState = async () => {
 		const newGameState = await apiCallsHandler({
 			action: 'putGame',
-			gameState: { ...gameState, ...blankGameState },
+			data: { ...gameState, ...blankGameState },
 		});
 		setGameState(newGameState);
 	};
@@ -26,7 +26,7 @@ export default function GameplayScreen() {
 	const createNewGame = async () => {
 		const newGameState = await apiCallsHandler({
 			action: 'postGame',
-			gameState: blankGameState,
+			data: blankGameState,
 		});
 		newGameState && setGameState({ ...newGameState, winState: false });
 	};
@@ -60,9 +60,9 @@ export default function GameplayScreen() {
 					<h2>Starting screen</h2>
 					<button onClick={createNewGame}>new game</button>
 					<form
-						onSubmit={e => {
+						onSubmit={async e => {
 							e.preventDefault();
-							console.log(loadId);
+							setGameState(await apiCallsHandler({ action: 'getGame', data: loadId }));
 						}}
 					>
 						<input type='text' onChange={e => setLoadId(e.target.value)} />
