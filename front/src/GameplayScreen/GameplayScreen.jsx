@@ -48,11 +48,14 @@ export default function GameplayScreen() {
 				<GameContainer>
 					<GameGrid gameState={gameState} setGameState={setGameState} />
 					<DataUtilsContainer>
+						{'Player Turn: ' + gameState.turnState}
+						<br />
 						{'Win State: ' + (gameState.winState || 'awaiting results...')}
 						<button onClick={resetGameState}>Reset Board State</button>
 						<br />
 						{'Game ID: '}
 						<input type='text' defaultValue={gameState.gameId} readOnly />
+						<button onClick={() => setGameState(blankGameState)}>{'Save&Exit'}</button>
 					</DataUtilsContainer>
 				</GameContainer>
 			) : (
@@ -62,11 +65,16 @@ export default function GameplayScreen() {
 					<form
 						onSubmit={async e => {
 							e.preventDefault();
-							setGameState(await apiCallsHandler({ action: 'getGame', data: loadId }));
+							const gameInDB = await apiCallsHandler({ action: 'getGame', data: loadId });
+							if (gameInDB) {
+								setGameState(gameInDB);
+								setLoadId('');
+							} else setLoadId(false);
 						}}
 					>
 						<input type='text' onChange={e => setLoadId(e.target.value)} />
 						<input type='submit' value='Load Game' />
+						{loadId === false && "  Game ID doesn't exist..."}
 					</form>
 				</div>
 			)}

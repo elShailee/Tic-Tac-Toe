@@ -38,6 +38,7 @@ const calls = {
 	},
 	getGame: async gameId => {
 		try {
+			if (gameId === '') return { data: null };
 			return await axios.get(`/api/game/${gameId}`);
 		} catch (error) {
 			logError(error);
