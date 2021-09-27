@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GameGrid from './GameGrid';
 import { DataUtilsContainer, GameContainer, ScreenContainer } from './styles';
-import { apiCallsHandler } from './Utils/axiosFuncs';
+import { apiCallsHandler } from 'Utils/axiosFuncs';
 
 export default function GameplayScreen() {
 	const blankBoard = [
@@ -74,7 +74,10 @@ export default function GameplayScreen() {
 					<input type='text' onChange={e => setLoadId(e.target.value)} />
 					<button
 						onClick={async () => {
-							const gameInDB = await apiCallsHandler({ action: 'getGame', data: loadId });
+							let gameInDB = null;
+							if (loadId) {
+								gameInDB = await apiCallsHandler({ action: 'getGame', data: loadId });
+							}
 							if (gameInDB) {
 								setGameState(gameInDB);
 								setLoadId('');
