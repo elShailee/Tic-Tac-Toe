@@ -2,7 +2,7 @@ import React from 'react';
 import { GridContainer, GridRowContainer } from './styles';
 import Tile from 'GameplayScreen/Tile';
 
-export default function GameGrid({ sessionData }) {
+export default function GameGrid({ gameState, setGameState }) {
 	const renderGameGrid = () => {
 		let resultGrid = [];
 
@@ -10,7 +10,7 @@ export default function GameGrid({ sessionData }) {
 			let resultRow = [];
 
 			for (let col = 0; col < 3; col++) {
-				resultRow.push(<Tile key={row + col} sessionData={sessionData} row={row} col={col} />);
+				resultRow.push(<Tile key={row + col} gameState={gameState} setGameState={setGameState} row={row} col={col} />);
 			}
 			resultRow = <GridRowContainer key={row}>{resultRow}</GridRowContainer>;
 			resultGrid.push(resultRow);

@@ -6,6 +6,12 @@ const { gamePostValidation, gamePutValidation, gameGetValidation } = require('./
 const app = express();
 
 app.use(express.json());
+app.use((req, res, next) => {
+	res.setHeader('access-control-allow-origin', '*');
+	res.setHeader('access-control-allow-headers', '*');
+	res.setHeader('access-control-allow-methods', '*');
+	next();
+});
 
 app.get('/api/game', (req, res) => {
 	res.send(games);
@@ -17,17 +23,17 @@ app.get('/api/game/:gameId', gameGetValidation, (req, res) => {
 });
 
 app.post('/api/game', gamePostValidation, (req, res) => {
-	const { gameState: newGameState } = req.body;
+	const { boardState, turnState, winState } = req.body;
 	const gameId = createUuid(10);
-	games[gameId] = newGameState;
-	res.send({ gameId, gameState: newGameState });
+	games[gameId] = { gameId, boardState, turnState, winState };
+	res.send(games[gameId]);
 });
 
 app.put('/api/game/:gameId', gamePutValidation, (req, res) => {
-	const { gameState: newGameState } = req.body;
+	const { boardState, turnState, winState } = req.body;
 	const { gameId } = req.params;
-	games[gameId] = newGameState;
-	res.send(newGameState);
+	games[gameId] = { gameId, boardState, turnState, winState };
+	res.send(games[gameId]);
 });
 
 app.delete('/api/game', (req, res) => {
