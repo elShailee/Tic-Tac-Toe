@@ -1,5 +1,5 @@
 const CONSTS = {
-	enviroment: 'developement2',
+	enviroment: 'developement',
 	developement: {
 		serverBaseUrl: 'http://localhost:8888',
 		gamesApi: '/api/game/',

@@ -19,7 +19,7 @@ export default function Tile({ gameState, setGameState, row, col }) {
 				turnState: gameState.turnState === 'X' ? 'O' : 'X',
 				winState: newWinState,
 			});
-			setGameState(newGameState);
+			newGameState && setGameState(newGameState);
 		}
 	};
 	return <TileContainer onClick={onPlayerClick}>{cellValue}</TileContainer>;
