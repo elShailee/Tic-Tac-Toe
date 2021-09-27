@@ -1,36 +1,42 @@
 import Axios from 'axios';
-import { CONSTS } from 'env';
+import CONSTS, { getServerBaseUrl, getGamesApi } from 'env';
 
-const axios = Axios.create({ baseURL: 'http://localhost:8888' });
+const axiosInstance = Axios.create({ baseURL: getServerBaseUrl() });
 
-export const apiCallsHandler = async ({ action, data }) => {
-	try {
-		const response = await calls[action](data);
+axiosInstance.interceptors.request.use(
+	function (config) {
+		return config;
+	},
+	function (error) {
+		logError(error);
+	},
+);
+
+axiosInstance.interceptors.response.use(
+	function (response) {
 		return response.data;
-	} catch (error) {
-		if (CONSTS.enviroment === 'developement') {
-			logError(error);
-		} else {
-			console.clear();
-		}
-		return error;
+	},
+	function (error) {
+		logError(error);
+	},
+);
+
+const logError = error => {
+	if (CONSTS.enviroment === 'developement') {
+		console.error(`Error message: ${error.response.data}`);
 	}
 };
 
-const logError = error => {
-	console.error(`Error message: ${error.response.data}`);
-};
-
-const calls = {
+const apiCallsHandler = {
 	postGame: async gameState => {
-		return await axios.post('/api/game', {
+		return axiosInstance.post(getGamesApi(), {
 			boardState: gameState.boardState,
 			turnState: gameState.turnState,
 			winState: gameState.winState,
 		});
 	},
 	putGame: async gameState => {
-		return await axios.put(`/api/game/${gameState.gameId}`, {
+		return axiosInstance.put(getGamesApi() + gameState.gameId, {
 			boardState: gameState.boardState,
 			turnState: gameState.turnState,
 			winState: gameState.winState,
@@ -38,12 +44,13 @@ const calls = {
 	},
 	getGame: async gameId => {
 		if (gameId === '') return { data: null };
-		return await axios.get(`/api/game/${gameId}`);
+		return axiosInstance.get(getGamesApi() + gameId);
 	},
 	getGames: async () => {
-		return await axios.get('/api/game');
+		return axiosInstance.get(getGamesApi());
 	},
 	deleteGames: async () => {
-		return await axios.delete('api/game');
+		return axiosInstance.delete(getGamesApi());
 	},
 };
+export default apiCallsHandler;

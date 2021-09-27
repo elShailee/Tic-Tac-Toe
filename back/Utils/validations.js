@@ -20,7 +20,7 @@ const hasPassedValidations = (validationsSuite, req, res) => {
 	for (const validation of validationsSuite) {
 		const { error, customStatus, customMessage } = validation(req);
 		if (error) {
-			res.status(customStatus ?? 400).send(customMessage ?? error.details?.[0]?.message ?? 'Unknown Error');
+			res.status(customStatus ?? 400).send(customMessage || error.details?.[0]?.message || 'Unknown Error');
 			return false;
 		}
 	}

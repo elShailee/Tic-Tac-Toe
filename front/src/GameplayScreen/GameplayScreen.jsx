@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GameGrid from './GameGrid';
 import { DataUtilsContainer, GameContainer, ScreenContainer } from './styles';
-import { apiCallsHandler } from 'Utils/axiosFuncs';
+import apiCallsHandler from 'Utils/axiosFuncs';
 
 export default function GameplayScreen() {
 	const blankBoard = [
@@ -16,28 +16,23 @@ export default function GameplayScreen() {
 	const [loadId, setLoadId] = useState('');
 
 	const resetGameState = async () => {
-		const newGameState = await apiCallsHandler({
-			action: 'putGame',
-			data: { ...gameState, ...blankGameState },
-		});
+		const newGameState = await apiCallsHandler.putGame({ ...gameState, ...blankGameState });
 		newGameState && setGameState(newGameState);
 	};
 
 	const createNewGame = async () => {
-		const newGameState = await apiCallsHandler({
-			action: 'postGame',
-			data: blankGameState,
-		});
+		setLoadId('');
+		const newGameState = await apiCallsHandler.postGame(blankGameState);
 		newGameState && setGameState(newGameState);
 	};
 
 	return (
 		<ScreenContainer>
 			<button onClick={() => console.log(gameState)}>log gameState</button>
-			<button onClick={async () => console.log(await apiCallsHandler({ action: 'getGames' }))}>GET Games</button>
+			<button onClick={async () => console.log(await apiCallsHandler.getGames())}>GET Games</button>
 			<button
 				onClick={async () => {
-					console.log(await apiCallsHandler({ action: 'deleteGames' }));
+					console.log(await apiCallsHandler.deleteGames());
 					setGameState(blankGameState);
 				}}
 			>
@@ -76,7 +71,7 @@ export default function GameplayScreen() {
 						onClick={async () => {
 							let gameInDB = null;
 							if (loadId) {
-								gameInDB = await apiCallsHandler({ action: 'getGame', data: loadId });
+								gameInDB = await apiCallsHandler.getGame(loadId);
 							}
 							if (gameInDB) {
 								setGameState(gameInDB);
