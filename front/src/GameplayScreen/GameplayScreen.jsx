@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import GameGrid from './GameGrid';
 import { DataUtilsContainer, GameContainer, ScreenContainer } from './styles';
 import apiCallsHandler from 'Utils/axiosFuncs';
+import CONSTS from 'env';
 
 export default function GameplayScreen() {
 	const blankBoard = [
@@ -28,17 +29,21 @@ export default function GameplayScreen() {
 
 	return (
 		<ScreenContainer>
-			<button onClick={() => console.log(gameState)}>log gameState</button>
-			<button onClick={async () => console.log(await apiCallsHandler.getGames())}>GET Games</button>
-			<button
-				onClick={async () => {
-					console.log(await apiCallsHandler.deleteGames());
-					setGameState(blankGameState);
-				}}
-			>
-				DELETE Games
-			</button>
-			<hr />
+			{CONSTS.enviroment === 'developement' && (
+				<div>
+					<button onClick={() => console.log(gameState)}>log gameState</button>
+					<button onClick={async () => console.log(await apiCallsHandler.getGames())}>GET Games</button>
+					<button
+						onClick={async () => {
+							console.log(await apiCallsHandler.deleteGames());
+							setGameState(blankGameState);
+						}}
+					>
+						DELETE Games
+					</button>
+					<hr />
+				</div>
+			)}
 			{gameState.gameId ? (
 				<GameContainer>
 					<GameGrid gameState={gameState} setGameState={setGameState} />

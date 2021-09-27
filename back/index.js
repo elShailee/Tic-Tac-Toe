@@ -2,48 +2,65 @@ const express = require('express');
 const createUuid = require('./Utils/uuidGenerator');
 const games = require('./games');
 const { gamePostValidation, gamePutValidation, gameGetValidation } = require('./Utils/validations');
+const path = require('path');
 
-const app = express();
+/*----------------*\
+|   Backend App    |
+\-----------------*/
+const backApp = express();
 
-app.use(express.json());
-app.use((req, res, next) => {
+backApp.use(express.json());
+backApp.use((req, res, next) => {
 	res.setHeader('access-control-allow-origin', '*');
 	res.setHeader('access-control-allow-headers', '*');
 	res.setHeader('access-control-allow-methods', '*');
 	next();
 });
 
-app.get('/api/game', (req, res) => {
+backApp.get('/api/game', (req, res) => {
 	res.send(games);
 });
 
-app.get('/api/game/:gameId', gameGetValidation, (req, res) => {
+backApp.get('/api/game/:gameId', gameGetValidation, (req, res) => {
 	const { gameId } = req.params;
 	res.send(games[gameId]);
 });
 
-app.post('/api/game', gamePostValidation, (req, res) => {
+backApp.post('/api/game', gamePostValidation, (req, res) => {
 	const { boardState, turnState, winState } = req.body;
 	const gameId = createUuid(10);
 	games[gameId] = { gameId, boardState, turnState, winState };
 	res.send(games[gameId]);
 });
 
-app.put('/api/game/:gameId', gamePutValidation, (req, res) => {
+backApp.put('/api/game/:gameId', gamePutValidation, (req, res) => {
 	const { boardState, turnState, winState } = req.body;
 	const { gameId } = req.params;
 	games[gameId] = { gameId, boardState, turnState, winState };
 	res.send(games[gameId]);
 });
 
-app.delete('/api/game', (req, res) => {
+backApp.delete('/api/game', (req, res) => {
 	Object.keys(games).forEach(key => {
 		delete games[key];
 	});
 	res.send(games);
 });
 
-const PORT = process.env.PORT ?? 8888;
-app.listen(PORT, () => {
-	console.log(`Listening on port ${PORT}...`);
+const BACK_PORT = process.env.PORT ?? 8888;
+backApp.listen(BACK_PORT, () => console.log(`Listening for back  requests on port ${BACK_PORT}...`));
+
+/*-----------------*\
+|   Frontend App    |
+\------------------*/
+
+const frontApp = express();
+
+frontApp.use(express.static(path.join(__dirname, 'build')));
+
+frontApp.get('/', function (req, res) {
+	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+const FRONT_PORT = 8889;
+frontApp.listen(FRONT_PORT, () => console.log(`listening for front requests on port ${FRONT_PORT}...`));

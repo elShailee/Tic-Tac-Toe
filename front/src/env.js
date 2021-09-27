@@ -1,6 +1,10 @@
 const CONSTS = {
-	enviroment: 'developement',
+	enviroment: 'production',
 	developement: {
+		serverBaseUrl: 'http://localhost:8888',
+		gamesApi: '/api/game/',
+	},
+	production: {
 		serverBaseUrl: 'http://localhost:8888',
 		gamesApi: '/api/game/',
 	},
