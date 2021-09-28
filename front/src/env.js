@@ -1,7 +1,11 @@
 const CONSTS = {
-	enviroment: 'developement',
+	enviroment: 'production',
 	developement: {
 		serverBaseUrl: 'http://localhost:8888',
+		gamesApi: '/api/game/',
+	},
+	production: {
+		serverBaseUrl: 'http://ec2-15-161-107-82.eu-south-1.compute.amazonaws.com:80',
 		gamesApi: '/api/game/',
 	},
 };

@@ -2,16 +2,16 @@ const express = require('express');
 const createUuid = require('./Utils/uuidGenerator');
 const games = require('./games');
 const { gamePostValidation, gamePutValidation, gameGetValidation } = require('./Utils/validations');
+const path = require('path');
+const cors = require('cors');
 
+/*----------------*\
+|   Backend App    |
+\-----------------*/
 const app = express();
 
 app.use(express.json());
-app.use((req, res, next) => {
-	res.setHeader('access-control-allow-origin', '*');
-	res.setHeader('access-control-allow-headers', '*');
-	res.setHeader('access-control-allow-methods', '*');
-	next();
-});
+app.use(cors());
 
 app.get('/api/game', (req, res) => {
 	res.send(games);
@@ -43,7 +43,15 @@ app.delete('/api/game', (req, res) => {
 	res.send(games);
 });
 
-const PORT = process.env.PORT ?? 8888;
-app.listen(PORT, () => {
-	console.log(`Listening on port ${PORT}...`);
+const BACK_PORT = process.env.PORT || 3000;
+app.listen(BACK_PORT, () => console.log(`Listening for back  requests on port ${BACK_PORT}...`));
+
+/*-----------------*\
+|   Frontend App    |
+\------------------*/
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function (req, res) {
+	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
