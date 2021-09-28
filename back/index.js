@@ -62,5 +62,5 @@ frontApp.get('/', function (req, res) {
 	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-const FRONT_PORT = 8889;
+const FRONT_PORT = 80;
 frontApp.listen(FRONT_PORT, () => console.log(`listening for front requests on port ${FRONT_PORT}...`));

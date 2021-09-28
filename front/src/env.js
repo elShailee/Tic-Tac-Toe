@@ -5,7 +5,7 @@ const CONSTS = {
 		gamesApi: '/api/game/',
 	},
 	production: {
-		serverBaseUrl: 'http://localhost:8888',
+		serverBaseUrl: 'ec2-15-161-235-180.eu-south-1.compute.amazonaws.com:8888',
 		gamesApi: '/api/game/',
 	},
 };
