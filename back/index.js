@@ -1,6 +1,7 @@
 const express = require('express');
 const createUuid = require('./Utils/uuidGenerator');
 const games = require('./games');
+const { enviroment, serverPort, gamesApi } = require('./envSelector');
 const { gamePostValidation, gamePutValidation, gameGetValidation } = require('./Utils/validations');
 const path = require('path');
 const cors = require('cors');
@@ -13,38 +14,38 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/api/game', (req, res) => {
+app.get(gamesApi, (req, res) => {
 	res.send(games);
 });
 
-app.get('/api/game/:gameId', gameGetValidation, (req, res) => {
+app.get(gamesApi + '/:gameId', gameGetValidation, (req, res) => {
 	const { gameId } = req.params;
 	res.send(games[gameId]);
 });
 
-app.post('/api/game', gamePostValidation, (req, res) => {
+app.post(gamesApi, gamePostValidation, (req, res) => {
 	const { boardState, turnState, winState } = req.body;
 	const gameId = createUuid(10);
 	games[gameId] = { gameId, boardState, turnState, winState };
-	res.send(games[gameId]);
+	res.status(201).send(games[gameId]);
 });
 
-app.put('/api/game/:gameId', gamePutValidation, (req, res) => {
+app.put(gamesApi + '/:gameId', gamePutValidation, (req, res) => {
 	const { boardState, turnState, winState } = req.body;
 	const { gameId } = req.params;
 	games[gameId] = { gameId, boardState, turnState, winState };
-	res.send(games[gameId]);
+	res.status(201).send(games[gameId]);
 });
 
-app.delete('/api/game', (req, res) => {
+app.delete(gamesApi, (req, res) => {
 	Object.keys(games).forEach(key => {
 		delete games[key];
 	});
 	res.send(games);
 });
 
-const BACK_PORT = process.env.PORT || 3000;
-app.listen(BACK_PORT, () => console.log(`Listening for back  requests on port ${BACK_PORT}...`));
+const PORT = serverPort;
+app.listen(PORT, () => enviroment === 'developement' && console.log(`Listening for requests on port ${PORT}...`));
 
 /*-----------------*\
 |   Frontend App    |

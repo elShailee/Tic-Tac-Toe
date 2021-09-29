@@ -20,7 +20,7 @@ const hasPassedValidations = (validationsSuite, req, res) => {
 	for (const validation of validationsSuite) {
 		const { error, customStatus, customMessage } = validation(req);
 		if (error) {
-			res.status(customStatus ?? 400).send(customMessage || error.details?.[0]?.message || 'Unknown Error');
+			res.status(customStatus || 400).send(customMessage || error.details?.[0]?.message || 'Unknown Error');
 			return false;
 		}
 	}
@@ -43,5 +43,5 @@ const matchGameId = req => {
 			.valid('', ...Object.keys(games))
 			.required(),
 	}).required();
-	return { ...schema.validate(req.params), customMessage: '"gameId" must equal an existing gameId' };
+	return { ...schema.validate(req.params), customStatus: 202, customMessage: '"gameId" must equal an existing gameId' };
 };
