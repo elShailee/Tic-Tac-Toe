@@ -1,36 +1,20 @@
 import React from 'react';
-import apiCallsHandler from 'Utils/axiosFuncs';
+import StartLocalGame from './StartLocalGame';
+import StartRemoteGame from './StartRemoteGame';
+import JoinLocalGame from './JoinLocalGame';
+import { HomeScreenContainer, GameCreationSegment, VerticalDivider } from './styles';
 
 export default function HomeScreen({ stateObject }) {
-	const { setGameState, blankGameState, loadIdState, setLoadIdState } = stateObject;
-	const createNewGame = async () => {
-		setLoadIdState('');
-		const newGameState = await apiCallsHandler.postGame(blankGameState);
-		newGameState && setGameState(newGameState);
-	};
-
 	return (
-		<div>
-			<h2>Starting screen</h2>
-			<button onClick={createNewGame}>new game</button>
-			<br />
-
-			<input type='text' onChange={e => setLoadIdState(e.target.value)} />
-			<button
-				onClick={async () => {
-					let gameInDB = null;
-					if (loadIdState) {
-						gameInDB = await apiCallsHandler.getGame(loadIdState);
-					}
-					if (gameInDB) {
-						setGameState(gameInDB);
-						setLoadIdState('');
-					} else setLoadIdState(false);
-				}}
-			>
-				Load Game
-			</button>
-			{loadIdState === false && "  Game ID doesn't exist..."}
-		</div>
+		<HomeScreenContainer>
+			<h1>Starting screen</h1>
+			<GameCreationSegment>
+				<StartLocalGame stateObject={stateObject} />
+				<VerticalDivider />
+				<StartRemoteGame />
+				<VerticalDivider />
+				<JoinLocalGame stateObject={stateObject} />
+			</GameCreationSegment>
+		</HomeScreenContainer>
 	);
 }
