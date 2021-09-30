@@ -11,16 +11,13 @@ function App() {
 		[false, false, false],
 		[false, false, false],
 	];
-	const [startingPlayerState, setStartingPlayerState] = useState('X');
-	const blankGameState = { boardState: blankBoard, turnState: startingPlayerState, winState: false };
+	const blankGameState = { boardState: blankBoard, winState: false };
 	const [gameState, setGameState] = useState(blankGameState);
 	const [loadIdState, setLoadIdState] = useState('');
 
 	const stateObject = {
 		blankBoard,
 		blankGameState,
-		startingPlayerState,
-		setStartingPlayerState,
 		gameState,
 		setGameState,
 		loadIdState,
