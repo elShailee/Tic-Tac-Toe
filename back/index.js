@@ -24,16 +24,14 @@ app.get(gamesApi + '/:gameId', gameGetValidation, (req, res) => {
 });
 
 app.post(gamesApi, gamePostValidation, (req, res) => {
-	const { boardState, turnState, winState } = req.body;
 	const gameId = createUuid(10);
-	games[gameId] = { gameId, boardState, turnState, winState };
+	games[gameId] = { gameId, ...req.body };
 	res.status(201).send(games[gameId]);
 });
 
 app.put(gamesApi + '/:gameId', gamePutValidation, (req, res) => {
-	const { boardState, turnState, winState } = req.body;
 	const { gameId } = req.params;
-	games[gameId] = { gameId, boardState, turnState, winState };
+	games[gameId] = { gameId, ...req.body };
 	res.status(201).send(games[gameId]);
 });
 

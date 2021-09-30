@@ -16,8 +16,11 @@ export default function Tile({ gameState, setGameState, row, col }) {
 			const newGameState = await apiCallsHandler.putGame({
 				gameId: gameState.gameId,
 				boardState: newBoardState,
+				startingPlayer: gameState.startingPlayer,
 				turnState: gameState.turnState === 'X' ? 'O' : 'X',
 				winState: newWinState,
+				gameMode: gameState.gameMode,
+				isBlankGame: false,
 			});
 			newGameState && setGameState(newGameState);
 		}

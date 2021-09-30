@@ -32,18 +32,10 @@ const logErrorMessage = response => {
 
 const apiCallsHandler = {
 	postGame: async gameState => {
-		return axiosInstance.post(gamesApi, {
-			boardState: gameState.boardState,
-			turnState: gameState.turnState,
-			winState: gameState.winState,
-		});
+		return axiosInstance.post(gamesApi, gameState);
 	},
 	putGame: async gameState => {
-		return axiosInstance.put(gamesApi + '/' + gameState.gameId, {
-			boardState: gameState.boardState,
-			turnState: gameState.turnState,
-			winState: gameState.winState,
-		});
+		return axiosInstance.put(gamesApi + '/' + gameState.gameId, gameState);
 	},
 	getGame: async gameId => {
 		if (gameId === '') return { data: null };

@@ -6,7 +6,11 @@ import apiCallsHandler from 'Utils/axiosFuncs';
 export default function GameplayScreen({ stateObject }) {
 	const { gameState, setGameState, blankGameState } = stateObject;
 	const resetGameState = async () => {
-		const newGameState = await apiCallsHandler.putGame({ ...gameState, ...blankGameState });
+		const newGameState = await apiCallsHandler.putGame({
+			...gameState,
+			...blankGameState,
+			turnState: gameState.startingPlayer,
+		});
 		newGameState && setGameState(newGameState);
 	};
 

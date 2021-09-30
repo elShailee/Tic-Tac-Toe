@@ -8,7 +8,12 @@ export default function StartLocalGame({ stateObject }) {
 
 	const createNewGame = async () => {
 		setLoadIdState('');
-		const newGameState = await apiCallsHandler.postGame({ ...blankGameState, turnState: assumedStartingPlayer });
+		const newGameState = await apiCallsHandler.postGame({
+			...blankGameState,
+			turnState: assumedStartingPlayer,
+			startingPlayer: assumedStartingPlayer,
+			gameMode: 'local',
+		});
 		newGameState && setGameState(newGameState);
 	};
 

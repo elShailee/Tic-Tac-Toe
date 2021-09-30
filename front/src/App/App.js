@@ -11,7 +11,13 @@ function App() {
 		[false, false, false],
 		[false, false, false],
 	];
-	const blankGameState = { boardState: blankBoard, winState: false };
+	const blankGameState = {
+		boardState: blankBoard,
+		winState: false,
+		gameMode: 'local',
+		startingPlayer: 'X',
+		isBlankGame: true,
+	};
 	const [gameState, setGameState] = useState(blankGameState);
 	const [loadIdState, setLoadIdState] = useState('');
 
