@@ -11,7 +11,7 @@ export default function HomeScreen({ stateObject }) {
 			<GameCreationSegment>
 				<StartLocalGame stateObject={stateObject} />
 				<VerticalDivider />
-				<StartRemoteGame />
+				<StartRemoteGame stateObject={stateObject} />
 				<VerticalDivider />
 				<JoinLocalGame stateObject={stateObject} />
 			</GameCreationSegment>

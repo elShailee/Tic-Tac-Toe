@@ -49,7 +49,6 @@ const validateGameState = req => {
 		winState: Joi.valid('X', 'O', 'Tie', false).required(),
 		gameMode: Joi.string().valid('local', 'remote').required(),
 		playerOne: Joi.when('gameMode', { is: 'remote', then: playersScema }),
-		playerTwo: Joi.when('gameMode', { is: 'remote', then: playersScema }),
 	}).required();
 	return schema.validate(req.body);
 };

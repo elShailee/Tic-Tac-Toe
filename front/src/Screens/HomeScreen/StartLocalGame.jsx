@@ -6,7 +6,7 @@ export default function StartLocalGame({ stateObject }) {
 	const { setLoadIdState, blankGameState, setGameState } = stateObject;
 	const [assumedStartingPlayer, setAssumedStartingPlayer] = useState('X');
 
-	const createNewGame = async () => {
+	const createLocalGame = async () => {
 		setLoadIdState('');
 		const newGameState = await apiCallsHandler.postGame({
 			...blankGameState,
@@ -33,7 +33,7 @@ export default function StartLocalGame({ stateObject }) {
 				<input type='radio' id='oStartsLocal' name='startingPlayerLocal' onChange={() => setAssumedStartingPlayer('O')} />
 				<label htmlFor='oStartsLocal'>O</label>
 			</div>
-			<button onClick={createNewGame}>Start Game</button>
+			<button onClick={createLocalGame}>Start Game</button>
 		</GameCreationContainer>
 	);
 }
