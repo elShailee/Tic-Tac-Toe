@@ -11,7 +11,7 @@ export default function StartRemoteGame() {
 			</div>
 
 			<div>
-				Choose Player:
+				Choose Your Player:
 				<input type='radio' id='xPlayerChoose' name='playerChooseRemote' defaultChecked />
 				<label htmlFor='xPlayerChoose'>X</label>
 				<input type='radio' id='oPlayerChoose' name='playerChooseRemote' />
@@ -20,10 +20,10 @@ export default function StartRemoteGame() {
 
 			<div>
 				Choose Starting Player:
-				<input type='radio' id='xStartsRemote' name='startingPlayerRemote' defaultChecked />
-				<label htmlFor='xStartsRemote'>X</label>
-				<input type='radio' id='oStartsRemote' name='startingPlayerRemote' />
-				<label htmlFor='oStartsRemote'>O</label>
+				<input type='radio' id='youStartRemote' name='startingPlayerRemote' defaultChecked />
+				<label htmlFor='youStartRemote'>You</label>
+				<input type='radio' id='opponentStartRemote' name='startingPlayerRemote' />
+				<label htmlFor='opponentStartRemote'>Opponent</label>
 			</div>
 
 			<button>Start Game</button>

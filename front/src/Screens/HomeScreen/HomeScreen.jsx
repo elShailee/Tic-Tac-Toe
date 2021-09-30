@@ -7,7 +7,7 @@ import { HomeScreenContainer, GameCreationSegment, VerticalDivider } from './sty
 export default function HomeScreen({ stateObject }) {
 	return (
 		<HomeScreenContainer>
-			<h1>Starting screen</h1>
+			<h1>Tic Tac Toe</h1>
 			<GameCreationSegment>
 				<StartLocalGame stateObject={stateObject} />
 				<VerticalDivider />

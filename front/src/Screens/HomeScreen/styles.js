@@ -20,7 +20,7 @@ export const GameCreationContainer = styled.div`
 	align-items: center;
 `;
 
-export const GameCreationSubHeader = styled.h4`
+export const GameCreationSubHeader = styled.h3`
 	margin: ${calcSizeUnits(0.3)};
 `;
 
