@@ -16,22 +16,31 @@ app.use(cors());
 
 app.post(API.createGame, validations.createGame, (req, res) => {
 	const gameId = createUuid(10);
-	const { boardState, startingPlayer, turnState, gameMode, playerOne, winState } = req.body;
-	games[gameId] = { gameId, boardState, startingPlayer, turnState, gameMode, winState };
-	if (gameMode === 'remote') {
-		games[gameId].playerOne = playerOne;
+	const { boardState, startingPlayer, turnState, winState, gameMode, playerOne, playerTwo } = req.body;
+	games[gameId] = { gameId, boardState, startingPlayer, turnState, winState, gameMode, playerOne };
+	if (gameMode === 'local') {
+		games[gameId].playerTwo = playerTwo;
 	}
 	res.status(201).send(games[gameId]);
 });
 
-/*app.post(API.changeNickname + ':gameId', validations.changeNickname, (req, res) => {});
+/*app.post(API.renamePlayer + ':gameId', validations.renamePlayer, (req, res) => {});
 
-app.post(API.playerMove + ':gameId', validations.playerMove, (req, res) => {});
+app.post(API.moveLocal + ':gameId', validations.moveLocal, (req, res) => {});
 
-app.delete(API.deleteLocal + ':gameId', validations.deleteLocal, (req, res) => {});
+app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {});
+*/
+app.delete(API.deleteLocal + ':gameId', validations.deleteLocal, (req, res) => {
+	const { gameId } = req.params;
+	games[gameId] = undefined;
+	res.send({});
+});
 
-app.get(API.loadLocal + ':gameId', validations.loadLocal, (req, res) => {});
-
+app.get(API.loadLocal + ':gameId', validations.loadLocal, (req, res) => {
+	const { gameId } = req.params;
+	res.send(games[gameId]);
+});
+/*
 app.post(API.joinRemote + ':gameId', validations.joinRemote, (req, res) => {});
 
 app.post(API.leaveRemote + ':gameId', validations.leaveRemote, (req, res) => {});
