@@ -2,36 +2,42 @@ const Joi = require('joi');
 const games = require('../games');
 
 module.exports = {
-	createGame: (req, res, next) => {
-		const validationsSuite = [validateBlankGame, validateGameMode];
-		if (hasPassedValidations(validationsSuite, req, res)) next();
-	},
-	changeNickname: (req, res, next) => {
-		const validationsSuite = [matchGameId];
-		if (hasPassedValidations(validationsSuite, req, res)) next();
-	},
-	moveLocal: (req, res, next) => {
-		const validationsSuite = [matchGameId, validateLocal];
-		if (hasPassedValidations(validationsSuite, req, res)) next();
-	},
-	moveRemote: (req, res, next) => {
-		const validationsSuite = [matchGameId];
-		if (hasPassedValidations(validationsSuite, req, res)) next();
-	},
-	deleteLocal: (req, res, next) => {
-		const validationsSuite = [matchGameId, validateLocal];
+	createLocal: (req, res, next) => {
+		const validationsSuite = [validateBlankGame, validateLocal];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	loadLocal: (req, res, next) => {
-		const validationsSuite = [matchGameId, validateLocal];
+		const validationsSuite = [matchGameId, validateLocalMatch];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	moveLocal: (req, res, next) => {
+		const validationsSuite = [matchGameId, validateLocalMatch];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	deleteLocal: (req, res, next) => {
+		const validationsSuite = [matchGameId, validateLocalMatch];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+
+	createRemote: (req, res, next) => {
+		const validationsSuite = [validateBlankGame, validateRemote];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	joinRemote: (req, res, next) => {
-		const validationsSuite = [matchGameId];
+		const validationsSuite = [matchGameId, validateRemoteMatch];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	moveRemote: (req, res, next) => {
+		const validationsSuite = [matchGameId, validateRemoteMatch];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	leaveRemote: (req, res, next) => {
-		const validationsSuite = [matchGameId];
+		const validationsSuite = [matchGameId, validateRemoteMatch];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+
+	renamePlayer: (req, res, next) => {
+		const validationsSuite = [matchGameId, validateGameMode];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 };
@@ -67,14 +73,28 @@ const schemas = {
 // 	}).required();
 // 	return schema.validate(req.body);
 // };
-
-const matchGameId = req => {
+const validateLocal = req => {
 	const schema = Joi.object({
-		gameId: Joi.string()
-			.valid('', ...Object.keys(games))
-			.required(),
-	}).required();
-	return { ...schema.validate(req.params), customMessage: '"gameId" must equal an existing gameId' };
+		gameMode: Joi.string().valid('local').required(),
+		playerOne: Joi.string().required(),
+		playerTwo: Joi.string().required(),
+	})
+		.required()
+		.unknown();
+
+	return schema.validate(req.body);
+};
+
+const validateRemote = req => {
+	const schema = Joi.object({
+		gameMode: Joi.string().valid('remote').required(),
+		playerOne: schemas.playersScema.required(),
+		playerTwo: schemas.playersScema,
+		userPlayer: Joi.equal(Joi.ref('playerOne')).required(),
+	})
+		.required()
+		.unknown();
+	return schema.validate(req.body);
 };
 
 const validateBlankGame = req => {
@@ -92,29 +112,29 @@ const validateBlankGame = req => {
 	return schema.validate(req.body);
 };
 
-const validateGameMode = req => {
+const matchGameId = req => {
 	const schema = Joi.object({
-		gameMode: Joi.string().valid('local', 'remote').required(),
-		playerOne: Joi.when('gameMode', [
-			{ is: 'remote', then: schemas.playersScema.required() },
-			{ is: 'local', then: Joi.string().required() },
-		]),
-		playerTwo: Joi.when('gameMode', [
-			{ is: 'remote', then: schemas.playersScema },
-			{ is: 'local', then: Joi.string().required() },
-		]),
-	})
-		.required()
-		.unknown();
-	return schema.validate(req.body);
+		gameId: Joi.string()
+			.valid('', ...Object.keys(games))
+			.required(),
+	}).required();
+	return { ...schema.validate(req.params), customMessage: '"gameId" must equal an existing gameId of same game mode.' };
 };
 
-const validateLocal = req => {
-	const schema = Joi.object({
-		gameMode: Joi.string().valid('local').required(),
-	})
-		.required()
-		.unknown();
+const validateLocalMatch = req => {
+	const { gameId } = req.params;
+	if (games[gameId].gameMode === 'local') {
+		return true;
+	} else {
+		return { error: true, customMessage: '"gameId" must equal an existing gameId of same game mode.' };
+	}
+};
 
-	return { ...schema.validate(games[req.params.gameId]), customMessage: '"gameId" must equal an existing gameId' };
+const validateRemoteMatch = req => {
+	const { gameId } = req.params;
+	if (games[gameId].gameMode === 'remote') {
+		return true;
+	} else {
+		return { error: true, customMessage: '"gameId" must equal an existing gameId of same game mode.' };
+	}
 };
