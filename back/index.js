@@ -1,8 +1,8 @@
 const express = require('express');
 const createUuid = require('./Utils/uuidGenerator');
 const games = require('./games');
-const { enviroment, serverPort, gamesApi } = require('./envSelector');
-const { gamePostValidation, gamePutValidation, gameGetValidation } = require('./Utils/validations');
+const { enviroment, serverPort, API } = require('./envSelector');
+const validations = require('./Utils/validations');
 const path = require('path');
 const cors = require('cors');
 
@@ -14,28 +14,33 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get(gamesApi, (req, res) => {
+app.post(API.createGame, validations.createGame, (req, res) => {
+	const gameId = createUuid(10);
+	const { boardState, startingPlayer, turnState, gameMode, playerOne, winState } = req.body;
+	games[gameId] = { gameId, boardState, startingPlayer, turnState, gameMode, winState };
+	if (gameMode === 'remote') {
+		games[gameId].playerOne = playerOne;
+	}
+	res.status(201).send(games[gameId]);
+});
+
+/*app.post(API.changeNickname + ':gameId', validations.changeNickname, (req, res) => {});
+
+app.post(API.playerMove + ':gameId', validations.playerMove, (req, res) => {});
+
+app.delete(API.deleteLocal + ':gameId', validations.deleteLocal, (req, res) => {});
+
+app.get(API.loadLocal + ':gameId', validations.loadLocal, (req, res) => {});
+
+app.post(API.joinRemote + ':gameId', validations.joinRemote, (req, res) => {});
+
+app.post(API.leaveRemote + ':gameId', validations.leaveRemote, (req, res) => {});
+*/
+app.get(API.getGames, (req, res) => {
 	res.send(games);
 });
 
-app.get(gamesApi + '/:gameId', gameGetValidation, (req, res) => {
-	const { gameId } = req.params;
-	res.send(games[gameId]);
-});
-
-app.post(gamesApi, gamePostValidation, (req, res) => {
-	const gameId = createUuid(10);
-	games[gameId] = { gameId, ...req.body };
-	res.status(201).send(games[gameId]);
-});
-
-app.put(gamesApi + '/:gameId', gamePutValidation, (req, res) => {
-	const { gameId } = req.params;
-	games[gameId] = { gameId, ...req.body };
-	res.status(201).send(games[gameId]);
-});
-
-app.delete(gamesApi, (req, res) => {
+app.delete(API.deleteGames, (req, res) => {
 	Object.keys(games).forEach(key => {
 		delete games[key];
 	});

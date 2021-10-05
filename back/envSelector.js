@@ -5,5 +5,5 @@ const enviroment = CONSTS.enviroment;
 module.exports = {
 	enviroment,
 	serverPort: CONSTS[enviroment].port,
-	gamesApi: CONSTS[enviroment].gamesApi,
+	API: CONSTS[enviroment].API,
 };

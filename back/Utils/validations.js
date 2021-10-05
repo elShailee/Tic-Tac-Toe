@@ -1,22 +1,50 @@
 const Joi = require('joi');
 const games = require('../games');
 
-module.exports.gameGetValidation = (req, res, next) => {
-	const validationsSuite = [matchGameId];
-	if (hasPassedValidations(validationsSuite, req, res)) next();
-};
-
-module.exports.gamePostValidation = (req, res, next) => {
-	const validationsSuite = [validateGameState, validateNewGame];
-	if (hasPassedValidations(validationsSuite, req, res)) next();
-};
-
-module.exports.gamePutValidation = (req, res, next) => {
-	const validationsSuite = [validateGameState, matchGameId];
-	if (req.body?.isBlankGame) {
-		validationsSuite.push(validateNewGame);
-	}
-	if (hasPassedValidations(validationsSuite, req, res)) next();
+module.exports = {
+	// gameGetValidation: (req, res, next) => {
+	// 	const validationsSuite = [matchGameId];
+	// 	if (hasPassedValidations(validationsSuite, req, res)) next();
+	// },
+	// gamePostValidation: (req, res, next) => {
+	// 	const validationsSuite = [validateGameState, validateNewGame];
+	// 	if (hasPassedValidations(validationsSuite, req, res)) next();
+	// },
+	// gamePutValidation: (req, res, next) => {
+	// 	const validationsSuite = [validateGameState, matchGameId];
+	// 	if (req.body?.isBlankGame) {
+	// 		validationsSuite.push(validateNewGame);
+	// 	}
+	// 	if (hasPassedValidations(validationsSuite, req, res)) next();
+	// },
+	createGame: (req, res, next) => {
+		const validationsSuite = [validateBlankGame, validateGameMode];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	changeNickname: (req, res, next) => {
+		const validationsSuite = [matchGameId];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	playerMove: (req, res, next) => {
+		const validationsSuite = [matchGameId];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	deleteLocal: (req, res, next) => {
+		const validationsSuite = [matchGameId];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	loadLocal: (req, res, next) => {
+		const validationsSuite = [matchGameId];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	joinRemote: (req, res, next) => {
+		const validationsSuite = [matchGameId];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	leaveRemote: (req, res, next) => {
+		const validationsSuite = [matchGameId];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
 };
 
 const hasPassedValidations = (validationsSuite, req, res) => {
@@ -30,28 +58,28 @@ const hasPassedValidations = (validationsSuite, req, res) => {
 	return true;
 };
 
-const validateGameState = req => {
-	const rowScema = Joi.array().length(3).required().items(false, Joi.string().valid('X', 'O'));
-
-	const playersScema = Joi.object()
+const schemas = {
+	playersScema: Joi.object()
 		.keys({
 			nickname: Joi.string().min(3).required(),
 			mark: Joi.valid('X', 'O').required(),
 		})
-		.required();
-
-	const schema = Joi.object({
-		gameId: Joi.string().allow(),
-		isBlankGame: Joi.boolean().required(),
-		boardState: Joi.array().length(3).required().items(rowScema),
-		startingPlayer: Joi.string().valid('X', 'O').required(),
-		turnState: Joi.string().valid('X', 'O').required(),
-		winState: Joi.valid('X', 'O', 'Tie', false).required(),
-		gameMode: Joi.string().valid('local', 'remote').required(),
-		playerOne: Joi.when('gameMode', { is: 'remote', then: playersScema }),
-	}).required();
-	return schema.validate(req.body);
+		.required(),
 };
+// const validateGameState = req => {
+// 	const rowScema = Joi.array().length(3).required().items(false, Joi.string().valid('X', 'O'));
+
+// 	const schema = Joi.object({
+// 		gameId: Joi.string().allow(),
+// 		boardState: Joi.array().length(3).required().items(rowScema),
+// 		startingPlayer: Joi.string().valid('X', 'O').required(),
+// 		turnState: Joi.string().valid('X', 'O').required(),
+// 		winState: Joi.valid('X', 'O', 'Tie', false).required(),
+// 		gameMode: Joi.string().valid('local', 'remote').required(),
+// 		playerOne: Joi.when('gameMode', { is: 'remote', then: playersScema }),
+// 	}).required();
+// 	return schema.validate(req.body);
+// };
 
 const matchGameId = req => {
 	const schema = Joi.object({
@@ -62,20 +90,27 @@ const matchGameId = req => {
 	return { ...schema.validate(req.params), customMessage: '"gameId" must equal an existing gameId' };
 };
 
-const validateNewGame = req => {
-	let errorMessage = '';
-	if (req.body?.startingPlayer !== req.body?.turnState) {
-		errorMessage = 'startingPlayer must equal turnState on new games.';
-	}
+const validateBlankGame = req => {
+	const schema = Joi.object({
+		boardState: Joi.array().length(3).required().items(Joi.array().length(3).required().items(false)),
+		startingPlayer: Joi.string().valid('X', 'O').required(),
+		winState: Joi.valid(false).required(),
+		turnState: Joi.string()
+			.when('startingPlayer', { is: Joi.exist(), then: Joi.equal(Joi.ref('startingPlayer')) })
+			.required(),
+	})
+		.required()
+		.unknown();
 
-	const blankBoardSchema = Joi.array().length(3).required().items(Joi.array().length(3).required().items(false));
-	const result = blankBoardSchema.validate(req.body?.boardState);
-	if (result.error) {
-		errorMessage = 'boardState must be a blankBoard on new games.';
-	}
-	if (errorMessage) {
-		return { error: true, customMessage: errorMessage };
-	} else {
-		return {};
-	}
+	return schema.validate(req.body);
+};
+
+const validateGameMode = req => {
+	const schema = Joi.object({
+		gameMode: Joi.string().valid('local', 'remote').required(),
+		playerOne: Joi.when('gameMode', { is: 'remote', then: schemas.playersScema }),
+	})
+		.required()
+		.unknown();
+	return schema.validate(req.body);
 };
