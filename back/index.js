@@ -112,12 +112,21 @@ app.post(API.leaveRemote + ':gameId', validations.leaveRemote, (req, res) => {
 	} else if (games[gameId].playerOne.id === userPlayer.id && !games[gameId].playerTwo) {
 		delete games[gameId];
 		res.send({});
-	} else {
-		res.status(202).send("userPlayer doesn't match any active player.");
 	}
 });
 
-// app.post(API.renameRemote + ':gameId', validations.renameRemote, (req, res) => {});
+app.post(API.renameRemote + ':gameId', validations.renameRemote, (req, res) => {
+	const { gameId } = req.params;
+	const { userPlayer } = req.body;
+
+	if (userPlayer.id === games[gameId].playerOne.id) {
+		games[gameId].playerOne.nickname = userPlayer.nickname;
+		res.send({ ...games[gameId], userPlayer });
+	} else if (userPlayer.id === games[gameId].playerTwo?.id) {
+		games[gameId].playerTwo.nickname = userPlayer.nickname;
+		res.send({ ...games[gameId], userPlayer });
+	}
+});
 
 //dev api calls
 app.get(API.getGames, (req, res) => {

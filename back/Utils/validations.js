@@ -32,7 +32,13 @@ module.exports = {
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	moveRemote: (req, res, next) => {
-		const validationsSuite = [matchGameId, validateRemoteMatch, validateRemote, validateGameData];
+		const validationsSuite = [
+			matchGameId,
+			validateRemoteMatch,
+			validateRemote,
+			validateGameData,
+			validateRemotePlayerActive,
+		];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	leaveRemote: (req, res, next) => {
@@ -41,11 +47,6 @@ module.exports = {
 	},
 	renameRemote: (req, res, next) => {
 		const validationsSuite = [matchGameId, validateRemoteMatch, validateRemote, validateRemotePlayerActive];
-		if (hasPassedValidations(validationsSuite, req, res)) next();
-	},
-
-	renamePlayer: (req, res, next) => {
-		const validationsSuite = [matchGameId, validateGameMode];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 };
@@ -157,9 +158,20 @@ const validateGameData = req => {
 
 const validateRemotePlayerActive = req => {
 	const { gameId } = req.params;
+
+	const schema = Joi.object({
+		userPlayer: schemas.remotePlayer.required(),
+	})
+		.required()
+		.unknown();
+
+	if (schema.validate(req.body).error) {
+		return schema.validate(req.body);
+	}
+
 	const { userPlayer } = req.body;
 
-	if (games[gameId]?.playerOne?.id === userPlayer?.id || games[gameId]?.playerTwo?.id === userPlayer?.id) {
+	if (games[gameId]?.playerOne?.id === userPlayer.id || games[gameId]?.playerTwo?.id === userPlayer.id) {
 		return true;
 	} else {
 		return { error: true, customMessage: "userPlayer isn't an active player" };
