@@ -43,7 +43,7 @@ app.post(API.createRemote, validations.createRemote, (req, res) => {
 	userPlayer.id = playerId;
 	games[gameId] = { gameId, boardState, startingPlayer, turnState, winState, gameMode, playerOne };
 
-	games[gameId] = res.status(201).send({ ...games[gameId], userPlayer });
+	res.status(201).send({ ...games[gameId], userPlayer });
 });
 
 // app.post(API.joinRemote + ':gameId', validations.joinRemote, (req, res) => {});
