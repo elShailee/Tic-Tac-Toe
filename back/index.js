@@ -30,7 +30,7 @@ app.get(API.loadLocal + ':gameId', validations.loadLocal, (req, res) => {
 
 app.delete(API.deleteLocal + ':gameId', validations.deleteLocal, (req, res) => {
 	const { gameId } = req.params;
-	games[gameId] = undefined;
+	delete games[gameId];
 	res.send({});
 });
 
