@@ -36,11 +36,11 @@ module.exports = {
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	leaveRemote: (req, res, next) => {
-		const validationsSuite = [matchGameId, validateRemoteMatch, validateRemote];
+		const validationsSuite = [matchGameId, validateRemoteMatch, validateRemote, validateRemotePlayerActive];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	renameRemote: (req, res, next) => {
-		const validationsSuite = [matchGameId, validateRemoteMatch, validateRemote];
+		const validationsSuite = [matchGameId, validateRemoteMatch, validateRemote, validateRemotePlayerActive];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 
@@ -153,4 +153,15 @@ const validateGameData = req => {
 		.required()
 		.unknown();
 	return schema.validate(req.body);
+};
+
+const validateRemotePlayerActive = req => {
+	const { gameId } = req.params;
+	const { userPlayer } = req.body;
+
+	if (games[gameId]?.playerOne?.id === userPlayer?.id || games[gameId]?.playerTwo?.id === userPlayer?.id) {
+		return true;
+	} else {
+		return { error: true, customMessage: "userPlayer isn't an active player" };
+	}
 };

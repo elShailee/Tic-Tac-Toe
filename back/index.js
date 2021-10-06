@@ -90,7 +90,7 @@ app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {
 	const { turnState, playerTwo } = games[gameId];
 
 	if (userPlayer.mark === turnState && playerTwo) {
-		games[gameId] = { ...games[gameId], boardState, turnState, winState };
+		games[gameId] = { ...games[gameId], boardState, turnState: getOppositeMark(turnState), winState };
 		res.status(201).send({ ...games[gameId], userPlayer });
 	} else if (userPlayer.mark !== turnState) {
 		res.status(202).send('cannot move out of turn.');
@@ -99,7 +99,23 @@ app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {
 	}
 });
 
-// app.post(API.leaveRemote + ':gameId', validations.leaveRemote, (req, res) => {});
+app.post(API.leaveRemote + ':gameId', validations.leaveRemote, (req, res) => {
+	const { gameId } = req.params;
+	const { userPlayer } = req.body;
+	if (games[gameId].playerTwo?.id === userPlayer.id) {
+		delete games[gameId].playerTwo;
+		res.send(games[gameId]);
+	} else if (games[gameId].playerOne.id === userPlayer.id && games[gameId].playerTwo) {
+		games[gameId].playerOne = games[gameId].playerTwo;
+		delete games[gameId].playerTwo;
+		res.send(games[gameId]);
+	} else if (games[gameId].playerOne.id === userPlayer.id && !games[gameId].playerTwo) {
+		delete games[gameId];
+		res.send({});
+	} else {
+		res.status(202).send("userPlayer doesn't match any active player.");
+	}
+});
 
 // app.post(API.renameRemote + ':gameId', validations.renameRemote, (req, res) => {});
 
