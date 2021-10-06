@@ -14,6 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+//local-games api calls
 app.post(API.createLocal, validations.createLocal, (req, res) => {
 	const gameId = createUuid(10);
 	const { boardState, startingPlayer, turnState, winState, gameMode, playerOne, playerTwo } = req.body;
@@ -26,7 +27,12 @@ app.get(API.loadLocal + ':gameId', validations.loadLocal, (req, res) => {
 	res.send(games[gameId]);
 });
 
-// app.post(API.moveLocal + ':gameId', validations.moveLocal, (req, res) => {});
+app.post(API.moveLocal + ':gameId', validations.moveLocal, (req, res) => {
+	const { gameId } = req.params;
+	const { boardState, turnState, winState } = req.body;
+	games[gameId] = { ...games[gameId], boardState, turnState, winState };
+	res.status(201).send(games[gameId]);
+});
 
 app.delete(API.deleteLocal + ':gameId', validations.deleteLocal, (req, res) => {
 	const { gameId } = req.params;
@@ -34,6 +40,14 @@ app.delete(API.deleteLocal + ':gameId', validations.deleteLocal, (req, res) => {
 	res.send({});
 });
 
+app.post(API.renameLocal + ':gameId', validations.renameLocal, (req, res) => {
+	const { gameId } = req.params;
+	const { playerOne, playerTwo } = req.body;
+	games[gameId] = { ...games[gameId], playerOne, playerTwo };
+	res.send(games[gameId]);
+});
+
+//remote-games api calls
 app.post(API.createRemote, validations.createRemote, (req, res) => {
 	const gameId = createUuid(10);
 	const { boardState, startingPlayer, turnState, winState, gameMode, playerOne, userPlayer } = req.body;
@@ -52,6 +66,9 @@ app.post(API.createRemote, validations.createRemote, (req, res) => {
 
 // app.post(API.leaveRemote + ':gameId', validations.leaveRemote, (req, res) => {});
 
+// app.post(API.renameRemote + ':gameId', validations.renameRemote, (req, res) => {});
+
+//dev api calls
 app.get(API.getGames, (req, res) => {
 	res.send(games);
 });
@@ -62,19 +79,6 @@ app.delete(API.deleteGames, (req, res) => {
 	});
 	res.send(games);
 });
-
-// app.post(API.renamePlayer + ':gameId', validations.renamePlayer, (req, res) => {
-// 	const { gameId } = req.params;
-// 	const { playerOne, playerTwo } = req.body;
-// 	if (gameMode === 'local') {
-// 		games[gameId] = { ...games[gameId], playerOne, playerTwo };
-// 	} else {
-// 		if ((req.body.userPlayer.id = games[gameId].playerOne.id)) {
-// 			games;
-// 		}
-// 	}
-// 	return games[gameId];
-// });
 
 const PORT = serverPort;
 app.listen(PORT, () => enviroment === 'developement' && console.log(`Listening for requests on port ${PORT}...`));

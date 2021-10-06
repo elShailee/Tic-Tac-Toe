@@ -11,11 +11,15 @@ module.exports = {
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	moveLocal: (req, res, next) => {
-		const validationsSuite = [matchGameId, validateLocalMatch];
+		const validationsSuite = [matchGameId, validateLocalMatch, validateLocal, validateGameData];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	deleteLocal: (req, res, next) => {
 		const validationsSuite = [matchGameId, validateLocalMatch];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	renameLocal: (req, res, next) => {
+		const validationsSuite = [matchGameId, validateLocalMatch, validateLocal];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 
@@ -32,6 +36,10 @@ module.exports = {
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	leaveRemote: (req, res, next) => {
+		const validationsSuite = [matchGameId, validateRemoteMatch];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	renameRemote: (req, res, next) => {
 		const validationsSuite = [matchGameId, validateRemoteMatch];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
@@ -137,4 +145,17 @@ const validateRemoteMatch = req => {
 	} else {
 		return { error: true, customMessage: '"gameId" must equal an existing gameId of same game mode.' };
 	}
+};
+
+const validateGameData = req => {
+	const rowScema = Joi.array().length(3).required().items(false, Joi.string().valid('X', 'O'));
+	const schema = Joi.object({
+		boardState: Joi.array().length(3).required().items(rowScema),
+		startingPlayer: Joi.string().valid('X', 'O').required(),
+		turnState: Joi.string().valid('X', 'O').required(),
+		winState: Joi.valid('X', 'O', 'Tie', false).required(),
+	})
+		.required()
+		.unknown();
+	return schema.validate(req.body);
 };
