@@ -18,8 +18,17 @@ app.use(cors());
 //local-games api calls
 app.post(API.createLocal, validations.createLocal, (req, res) => {
 	const gameId = createUuid(10);
-	const { boardState, startingPlayer, turnState, winState, gameMode, playerOne, playerTwo } = req.body;
-	games[gameId] = { gameId, boardState, startingPlayer, turnState, winState, gameMode, playerOne, playerTwo };
+	const { boardState, startingPlayer, winState, gameMode, playerOne, playerTwo } = req.body;
+	games[gameId] = {
+		gameId,
+		boardState,
+		startingPlayer,
+		turnState: startingPlayer,
+		winState,
+		gameMode,
+		playerOne,
+		playerTwo,
+	};
 	res.status(201).send(games[gameId]);
 });
 
@@ -30,8 +39,9 @@ app.get(API.loadLocal + ':gameId', validations.loadLocal, (req, res) => {
 
 app.post(API.moveLocal + ':gameId', validations.moveLocal, (req, res) => {
 	const { gameId } = req.params;
-	const { boardState, turnState, winState } = req.body;
-	games[gameId] = { ...games[gameId], boardState, turnState, winState };
+	const { boardState, winState } = req.body;
+
+	games[gameId] = { ...games[gameId], boardState, turnState: getOppositeMark(games[gameId].turnState), winState };
 	res.status(201).send(games[gameId]);
 });
 
@@ -51,25 +61,22 @@ app.post(API.renameLocal + ':gameId', validations.renameLocal, (req, res) => {
 //remote-games api calls
 app.post(API.createRemote, validations.createRemote, (req, res) => {
 	const gameId = createUuid(10);
-	const { boardState, startingPlayer, turnState, winState, gameMode, playerOne, userPlayer } = req.body;
+	const { boardState, startingPlayer, winState, gameMode, userPlayer } = req.body;
 	const playerId = createUuid(10);
 
-	playerOne.id = playerId;
 	userPlayer.id = playerId;
-	games[gameId] = { gameId, boardState, startingPlayer, turnState, winState, gameMode, playerOne };
+	const playerOne = userPlayer;
+	games[gameId] = { gameId, boardState, startingPlayer, turnState: startingPlayer, winState, gameMode, playerOne };
 
 	res.status(201).send({ ...games[gameId], userPlayer });
 });
 
 app.post(API.joinRemote + ':gameId', validations.joinRemote, (req, res) => {
 	const { gameId } = req.params;
-	let { userPlayer } = req.body;
+	const { userPlayer } = req.body;
 	if (!games[gameId].playerTwo) {
-		userPlayer = {
-			nickname: userPlayer,
-			mark: getOppositeMark(games[gameId].playerOne.mark),
-			id: createUuid(10),
-		};
+		userPlayer.mark = getOppositeMark(games[gameId].playerOne.mark);
+		userPlayer.id = createUuid(10);
 		games[gameId].playerTwo = userPlayer;
 		res.send({ ...games[gameId], userPlayer });
 	} else {
@@ -77,7 +84,20 @@ app.post(API.joinRemote + ':gameId', validations.joinRemote, (req, res) => {
 	}
 });
 
-// app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {});
+app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {
+	const { gameId } = req.params;
+	const { boardState, winState, userPlayer } = req.body;
+	const { turnState, playerTwo } = games[gameId];
+
+	if (userPlayer.mark === turnState && playerTwo) {
+		games[gameId] = { ...games[gameId], boardState, turnState, winState };
+		res.status(201).send({ ...games[gameId], userPlayer });
+	} else if (userPlayer.mark !== turnState) {
+		res.status(202).send('cannot move out of turn.');
+	} else {
+		res.status(202).send('game must contain both players in order to play.');
+	}
+});
 
 // app.post(API.leaveRemote + ':gameId', validations.leaveRemote, (req, res) => {});
 
