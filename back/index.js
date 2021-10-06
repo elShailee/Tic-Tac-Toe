@@ -1,5 +1,6 @@
 const express = require('express');
 const createUuid = require('./Utils/uuidGenerator');
+const { getOppositeMark } = require('./Utils/utilFuncs');
 const games = require('./games');
 const { enviroment, serverPort, API } = require('./envSelector');
 const validations = require('./Utils/validations');
@@ -60,7 +61,21 @@ app.post(API.createRemote, validations.createRemote, (req, res) => {
 	res.status(201).send({ ...games[gameId], userPlayer });
 });
 
-// app.post(API.joinRemote + ':gameId', validations.joinRemote, (req, res) => {});
+app.post(API.joinRemote + ':gameId', validations.joinRemote, (req, res) => {
+	const { gameId } = req.params;
+	let { userPlayer } = req.body;
+	if (!games[gameId].playerTwo) {
+		userPlayer = {
+			nickname: userPlayer,
+			mark: getOppositeMark(games[gameId].playerOne.mark),
+			id: createUuid(10),
+		};
+		games[gameId].playerTwo = userPlayer;
+		res.send({ ...games[gameId], userPlayer });
+	} else {
+		res.status(202).send('Target game is full, try againg later.');
+	}
+});
 
 // app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {});
 

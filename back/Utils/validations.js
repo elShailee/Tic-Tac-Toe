@@ -28,7 +28,7 @@ module.exports = {
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	joinRemote: (req, res, next) => {
-		const validationsSuite = [matchGameId, validateRemoteMatch];
+		const validationsSuite = [matchGameId, validateRemoteMatch, validateRemote, validateJoiningPlayer];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	moveRemote: (req, res, next) => {
@@ -62,25 +62,12 @@ const hasPassedValidations = (validationsSuite, req, res) => {
 };
 
 const schemas = {
-	playersScema: Joi.object().keys({
+	remotePlayer: Joi.object().keys({
 		nickname: Joi.string().min(3).required(),
 		mark: Joi.valid('X', 'O').required(),
 	}),
 };
-// const validateGameState = req => {
-// 	const rowScema = Joi.array().length(3).required().items(false, Joi.string().valid('X', 'O'));
 
-// 	const schema = Joi.object({
-// 		gameId: Joi.string().allow(),
-// 		boardState: Joi.array().length(3).required().items(rowScema),
-// 		startingPlayer: Joi.string().valid('X', 'O').required(),
-// 		turnState: Joi.string().valid('X', 'O').required(),
-// 		winState: Joi.valid('X', 'O', 'Tie', false).required(),
-// 		gameMode: Joi.string().valid('local', 'remote').required(),
-// 		playerOne: Joi.when('gameMode', { is: 'remote', then: playersScema }),
-// 	}).required();
-// 	return schema.validate(req.body);
-// };
 const validateLocal = req => {
 	const schema = Joi.object({
 		gameMode: Joi.string().valid('local').required(),
@@ -96,9 +83,9 @@ const validateLocal = req => {
 const validateRemote = req => {
 	const schema = Joi.object({
 		gameMode: Joi.string().valid('remote').required(),
-		playerOne: schemas.playersScema.required(),
-		playerTwo: schemas.playersScema,
-		userPlayer: Joi.equal(Joi.ref('playerOne')).required(),
+		playerOne: schemas.remotePlayer,
+		playerTwo: schemas.remotePlayer,
+		userPlayer: [schemas.remotePlayer.required(), Joi.string().required()],
 	})
 		.required()
 		.unknown();
@@ -113,6 +100,9 @@ const validateBlankGame = req => {
 			.when('startingPlayer', { is: Joi.exist(), then: Joi.equal(Joi.ref('startingPlayer')) })
 			.required(),
 		winState: Joi.valid(false).required(),
+		gameMode: Joi.string().valid('remote', 'local').required(),
+		playerOne: Joi.when('gameMode', { is: 'remote', then: schemas.remotePlayer.required() }),
+		userPlayer: Joi.when('gameMode', { is: 'remote', then: Joi.equal(Joi.ref('playerOne')).required() }),
 	})
 		.required()
 		.unknown();
@@ -154,6 +144,15 @@ const validateGameData = req => {
 		startingPlayer: Joi.string().valid('X', 'O').required(),
 		turnState: Joi.string().valid('X', 'O').required(),
 		winState: Joi.valid('X', 'O', 'Tie', false).required(),
+	})
+		.required()
+		.unknown();
+	return schema.validate(req.body);
+};
+
+const validateJoiningPlayer = req => {
+	const schema = Joi.object({
+		userPlayer: Joi.string(),
 	})
 		.required()
 		.unknown();
