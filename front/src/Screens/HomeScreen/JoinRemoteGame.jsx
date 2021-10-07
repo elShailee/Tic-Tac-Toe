@@ -7,7 +7,7 @@ export default function JoinLocalGame({ setGameState }) {
 	const [nicknameState, setNicknameState] = useState('');
 
 	const joinRemoteGame = async () => {
-		if (loadIdState) {
+		if (loadIdState && (nicknameState === '' || nicknameState?.length >= 3)) {
 			const newGameState = await apiCallsHandler.joinRemote({
 				gameId: loadIdState,
 				gameMode: 'remote',
@@ -20,6 +20,8 @@ export default function JoinLocalGame({ setGameState }) {
 			} else {
 				setLoadIdState(false);
 			}
+		} else if (nicknameState && nicknameState.length < 3) {
+			setNicknameState(false);
 		}
 	};
 
@@ -30,6 +32,7 @@ export default function JoinLocalGame({ setGameState }) {
 			<div>
 				Nickname: <input type='text' placeholder='Nickname' onChange={e => setNicknameState(e.target.value)} />
 			</div>
+			{nicknameState === false && '  Nickname must be at least 3 characters long'}
 
 			<div>
 				Game Id: <input type='text' placeholder='Game ID' onChange={e => setLoadIdState(e.target.value)} />

@@ -9,13 +9,17 @@ export default function StartRemoteGame({ setGameState }) {
 	const [nicknameState, setNicknameState] = useState('');
 
 	const createRemoteGame = async () => {
-		const startingMark = startingPlayer === 'one' ? userMark : getOppositeMark(userMark);
-		const newGameState = await apiCallsHandler.createRemote({
-			startingPlayer: startingMark,
-			gameMode: 'remote',
-			userPlayer: { nickname: nicknameState || 'HostingPlayer', mark: userMark },
-		});
-		newGameState && setGameState(newGameState);
+		if (nicknameState?.length >= 3 || nicknameState?.length === 0) {
+			const startingMark = startingPlayer === 'one' ? userMark : getOppositeMark(userMark);
+			const newGameState = await apiCallsHandler.createRemote({
+				startingPlayer: startingMark,
+				gameMode: 'remote',
+				userPlayer: { nickname: nicknameState || 'HostingPlayer', mark: userMark },
+			});
+			newGameState && setGameState(newGameState);
+		} else {
+			setNicknameState(false);
+		}
 	};
 
 	return (
@@ -25,6 +29,7 @@ export default function StartRemoteGame({ setGameState }) {
 			<div>
 				Nickname: <input type='text' placeholder='Nickname' onChange={e => setNicknameState(e.target.value)} />
 			</div>
+			{nicknameState === false && '  Nickname must be at least 3 characters long'}
 
 			<div>
 				Choose Your Player:
