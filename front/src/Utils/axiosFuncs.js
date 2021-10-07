@@ -16,6 +16,7 @@ axiosInstance.interceptors.response.use(
 	function (response) {
 		if (response.status === 202) {
 			logErrorMessage(response);
+			return null;
 		}
 		return response.data;
 	},
@@ -31,21 +32,46 @@ const logErrorMessage = response => {
 };
 
 const apiCallsHandler = {
-	postGame: async gameState => {
-		return axiosInstance.post(gamesApi, gameState);
+	// local calls
+	createLocal: async gameState => {
+		return axiosInstance.post(gamesApi.createLocal, gameState);
 	},
-	putGame: async gameState => {
-		return axiosInstance.put(gamesApi + '/' + gameState.gameId, gameState);
+	loadLocal: async gameState => {
+		return axiosInstance.get(gamesApi.loadLocal + gameState.gameId, gameState);
 	},
-	getGame: async gameId => {
-		if (gameId === '') return { data: null };
-		return axiosInstance.get(gamesApi + '/' + gameId);
+	moveLocal: async gameState => {
+		return axiosInstance.post(gamesApi.moveLocal + gameState.gameId, gameState);
 	},
+	deleteLocal: async gameState => {
+		return axiosInstance.delete(gamesApi.deleteLocal + gameState.gameId);
+	},
+	renameLocal: async gameState => {
+		return axiosInstance.post(gamesApi.renameLocal + gameState.gameId, gameState);
+	},
+
+	// remote calls
+	createRemote: async gameState => {
+		return axiosInstance.post(gamesApi.createRemote, gameState);
+	},
+	joinRemote: async gameState => {
+		return axiosInstance.post(gamesApi.joinRemote + gameState.gameId, gameState);
+	},
+	moveRemote: async gameState => {
+		return axiosInstance.post(gamesApi.moveRemote + gameState.gameId, gameState);
+	},
+	leaveRemote: async gameState => {
+		return axiosInstance.post(gamesApi.leaveRemote + gameState.gameId, gameState);
+	},
+	renameRemote: async gameState => {
+		return axiosInstance.post(gamesApi.renameRemote + gameState.gameId, gameState);
+	},
+
+	// dev calls
 	getGames: async () => {
-		return axiosInstance.get(gamesApi);
+		return axiosInstance.get(gamesApi.getGames);
 	},
 	deleteGames: async () => {
-		return axiosInstance.delete(gamesApi);
+		return axiosInstance.delete(gamesApi.deleteGames);
 	},
 };
 export default apiCallsHandler;

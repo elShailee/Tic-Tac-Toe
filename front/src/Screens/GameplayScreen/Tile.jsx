@@ -1,7 +1,7 @@
 import React from 'react';
 import { TileContainer } from './styles';
 import apiCallsHandler from 'Utils/axiosFuncs';
-import { getGameWinner } from 'Utils/getGameWinner';
+import { getGameWinner } from 'Utils/gameUtils';
 
 export default function Tile({ gameState, setGameState, row, col }) {
 	const { turnState, boardState, winState } = gameState;

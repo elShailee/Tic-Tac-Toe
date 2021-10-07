@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 import apiCallsHandler from 'Utils/axiosFuncs';
 import { GameCreationContainer, GameCreationSubHeader } from './styles';
 
-export default function StartLocalGame({ stateObject }) {
-	const { setLoadIdState, blankGameState, setGameState } = stateObject;
+export default function StartLocalGame({ setGameState }) {
 	const [assumedStartingPlayer, setAssumedStartingPlayer] = useState('X');
 
 	const createLocalGame = async () => {
-		setLoadIdState('');
-		const newGameState = await apiCallsHandler.postGame({
-			...blankGameState,
-			turnState: assumedStartingPlayer,
+		const newGameState = await apiCallsHandler.createLocal({
 			startingPlayer: assumedStartingPlayer,
 			gameMode: 'local',
+			playerOne: 'Player1',
+			playerTwo: 'Player2',
 		});
 		newGameState && setGameState(newGameState);
 	};

@@ -1,24 +1,19 @@
 import React, { useState } from 'react';
 import apiCallsHandler from 'Utils/axiosFuncs';
-import { getOppositeMark } from 'Utils/generalUtils';
+import { getOppositeMark } from 'Utils/gameUtils';
 import { GameCreationContainer, GameCreationSubHeader } from './styles';
 
-export default function StartRemoteGame({ stateObject }) {
-	const { setLoadIdState, blankGameState, setGameState } = stateObject;
-
-	const [playerMark, setPlayerMark] = useState('X');
+export default function StartRemoteGame({ setGameState }) {
+	const [userMark, setUserMark] = useState('X');
 	const [startingPlayer, setStartingPlayer] = useState('one');
 	const [nicknameState, setNicknameState] = useState('');
 
 	const createRemoteGame = async () => {
-		setLoadIdState('');
-		const startingMark = startingPlayer === 'one' ? playerMark : getOppositeMark(playerMark);
-		const newGameState = await apiCallsHandler.postGame({
-			...blankGameState,
-			turnState: startingMark,
+		const startingMark = startingPlayer === 'one' ? userMark : getOppositeMark(userMark);
+		const newGameState = await apiCallsHandler.createRemote({
 			startingPlayer: startingMark,
 			gameMode: 'remote',
-			playerOne: { nickname: nicknameState, mark: playerMark },
+			userPlayer: { nickname: nicknameState || 'HostingPlayer', mark: userMark },
 		});
 		newGameState && setGameState(newGameState);
 	};
@@ -33,15 +28,9 @@ export default function StartRemoteGame({ stateObject }) {
 
 			<div>
 				Choose Your Player:
-				<input
-					type='radio'
-					id='xPlayerChoose'
-					name='playerChooseRemote'
-					onChange={() => setPlayerMark('X')}
-					defaultChecked
-				/>
+				<input type='radio' id='xPlayerChoose' name='playerChooseRemote' onChange={() => setUserMark('X')} defaultChecked />
 				<label htmlFor='xPlayerChoose'>X</label>
-				<input type='radio' id='oPlayerChoose' name='playerChooseRemote' onChange={() => setPlayerMark('O')} />
+				<input type='radio' id='oPlayerChoose' name='playerChooseRemote' onChange={() => setUserMark('O')} />
 				<label htmlFor='oPlayerChoose'>O</label>
 			</div>
 

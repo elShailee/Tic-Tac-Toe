@@ -1,8 +1,7 @@
 import React from 'react';
 import apiCallsHandler from 'Utils/axiosFuncs';
 
-export default function DemelopementToolbar({ stateObject }) {
-	const { gameState, setGameState, blankGameState } = stateObject;
+export default function DemelopementToolbar({ gameState, setGameState }) {
 	return (
 		<div>
 			<button onClick={() => console.log(gameState)}>log gameState</button>
@@ -10,7 +9,7 @@ export default function DemelopementToolbar({ stateObject }) {
 			<button
 				onClick={async () => {
 					console.log(await apiCallsHandler.deleteGames());
-					setGameState(blankGameState);
+					setGameState({});
 				}}
 			>
 				DELETE Games

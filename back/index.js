@@ -18,13 +18,17 @@ app.use(cors());
 //local-games api calls
 app.post(API.createLocal, validations.createLocal, (req, res) => {
 	const gameId = createUuid(10);
-	const { boardState, startingPlayer, winState, gameMode, playerOne, playerTwo } = req.body;
+	const { startingPlayer, gameMode, playerOne, playerTwo } = req.body;
 	games[gameId] = {
 		gameId,
-		boardState,
+		boardState: [
+			[false, false, false],
+			[false, false, false],
+			[false, false, false],
+		],
 		startingPlayer,
 		turnState: startingPlayer,
-		winState,
+		winState: false,
 		gameMode,
 		playerOne,
 		playerTwo,
@@ -61,12 +65,24 @@ app.post(API.renameLocal + ':gameId', validations.renameLocal, (req, res) => {
 //remote-games api calls
 app.post(API.createRemote, validations.createRemote, (req, res) => {
 	const gameId = createUuid(10);
-	const { boardState, startingPlayer, winState, gameMode, userPlayer } = req.body;
+	const { startingPlayer, gameMode, userPlayer } = req.body;
 	const playerId = createUuid(10);
 
 	userPlayer.id = playerId;
 	const playerOne = userPlayer;
-	games[gameId] = { gameId, boardState, startingPlayer, turnState: startingPlayer, winState, gameMode, playerOne };
+	games[gameId] = {
+		gameId,
+		boardState: [
+			[false, false, false],
+			[false, false, false],
+			[false, false, false],
+		],
+		startingPlayer,
+		turnState: startingPlayer,
+		winState: false,
+		gameMode,
+		playerOne,
+	};
 
 	res.status(201).send({ ...games[gameId], userPlayer });
 });

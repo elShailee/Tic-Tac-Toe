@@ -100,9 +100,7 @@ const validateRemote = req => {
 
 const validateBlankGame = req => {
 	const schema = Joi.object({
-		boardState: Joi.array().length(3).required().items(Joi.array().length(3).required().items(false)),
 		startingPlayer: Joi.string().valid('X', 'O').required(),
-		winState: Joi.valid(false).required(),
 		gameMode: Joi.string().valid('remote', 'local').required(),
 		userPlayer: Joi.when('gameMode', {
 			is: 'remote',
@@ -123,7 +121,9 @@ const matchGameId = req => {
 		gameId: Joi.string()
 			.valid('', ...Object.keys(games))
 			.required(),
-	}).required();
+	})
+		.required()
+		.unknown();
 	return { ...schema.validate(req.params), customMessage: '"gameId" must equal an existing gameId of same game mode.' };
 };
 
