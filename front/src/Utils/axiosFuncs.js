@@ -1,56 +1,85 @@
 import Axios from 'axios';
-import CONSTS, { getServerBaseUrl, getGamesApi } from 'env';
+import { enviroment, gamesApi, serverPort, serverBaseUrl } from 'envSelector';
 
-const axiosInstance = Axios.create({ baseURL: getServerBaseUrl() });
+const axiosInstance = Axios.create({ baseURL: serverBaseUrl + ':' + serverPort });
 
 axiosInstance.interceptors.request.use(
 	function (config) {
 		return config;
 	},
 	function (error) {
-		logError(error);
+		console.log(error);
 	},
 );
 
 axiosInstance.interceptors.response.use(
 	function (response) {
+		if (response.status === 202) {
+			logErrorMessage(response);
+			return null;
+		}
 		return response.data;
 	},
 	function (error) {
-		logError(error);
+		logErrorMessage(error.response);
 	},
 );
 
-const logError = error => {
-	if (CONSTS.enviroment === 'developement') {
-		console.error(`Error message: ${error.response.data}`);
+const logErrorMessage = response => {
+	if (enviroment === 'developement') {
+		console.error(`Error message: ${response.data}`);
 	}
 };
 
 const apiCallsHandler = {
-	postGame: async gameState => {
-		return axiosInstance.post(getGamesApi(), {
-			boardState: gameState.boardState,
-			turnState: gameState.turnState,
-			winState: gameState.winState,
-		});
+	//games calls
+	resetGame: async gameState => {
+		return axiosInstance.post(gamesApi.resetGame + gameState.gameId, gameState);
 	},
-	putGame: async gameState => {
-		return axiosInstance.put(getGamesApi() + gameState.gameId, {
-			boardState: gameState.boardState,
-			turnState: gameState.turnState,
-			winState: gameState.winState,
-		});
+
+	// local calls
+	createLocal: async gameState => {
+		return axiosInstance.post(gamesApi.createLocal, gameState);
 	},
-	getGame: async gameId => {
-		if (gameId === '') return { data: null };
-		return axiosInstance.get(getGamesApi() + gameId);
+	loadLocal: async gameState => {
+		return axiosInstance.get(gamesApi.loadLocal + gameState.gameId, gameState);
 	},
+	moveLocal: async gameState => {
+		return axiosInstance.post(gamesApi.moveLocal + gameState.gameId, gameState);
+	},
+	deleteLocal: async gameState => {
+		return axiosInstance.delete(gamesApi.deleteLocal + gameState.gameId);
+	},
+	renameLocal: async gameState => {
+		return axiosInstance.post(gamesApi.renameLocal + gameState.gameId, gameState);
+	},
+
+	// remote calls
+	createRemote: async gameState => {
+		return axiosInstance.post(gamesApi.createRemote, gameState);
+	},
+	joinRemote: async gameState => {
+		return axiosInstance.post(gamesApi.joinRemote + gameState.gameId, gameState);
+	},
+	refreshRemote: async gameState => {
+		return axiosInstance.post(gamesApi.refreshRemote + gameState.gameId, gameState);
+	},
+	moveRemote: async gameState => {
+		return axiosInstance.post(gamesApi.moveRemote + gameState.gameId, gameState);
+	},
+	leaveRemote: async gameState => {
+		return axiosInstance.post(gamesApi.leaveRemote + gameState.gameId, gameState);
+	},
+	renameRemote: async gameState => {
+		return axiosInstance.post(gamesApi.renameRemote + gameState.gameId, gameState);
+	},
+
+	// dev calls
 	getGames: async () => {
-		return axiosInstance.get(getGamesApi());
+		return axiosInstance.get(gamesApi.getGames);
 	},
 	deleteGames: async () => {
-		return axiosInstance.delete(getGamesApi());
+		return axiosInstance.delete(gamesApi.deleteGames);
 	},
 };
 export default apiCallsHandler;

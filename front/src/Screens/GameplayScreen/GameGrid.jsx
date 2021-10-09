@@ -1,6 +1,6 @@
 import React from 'react';
 import { GridContainer, GridRowContainer } from './styles';
-import Tile from 'GameplayScreen/Tile';
+import Tile from './Tile';
 
 export default function GameGrid({ gameState, setGameState }) {
 	const renderGameGrid = () => {

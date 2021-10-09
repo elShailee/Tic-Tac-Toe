@@ -21,3 +21,7 @@ export const getGameWinner = boardState => {
 	if (!winner && isBoardFull) winner = 'Tie';
 	return winner;
 };
+
+export const getOppositeMark = mark => {
+	return mark === 'X' ? 'O' : 'X';
+};
