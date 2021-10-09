@@ -1,4 +1,5 @@
 const express = require('express');
+const moment = require('moment');
 const createUuid = require('./Utils/uuidGenerator');
 const { getOppositeMark } = require('./Utils/utilFuncs');
 const games = require('./games');
@@ -6,6 +7,7 @@ const { enviroment, serverPort, API } = require('./envSelector');
 const validations = require('./Utils/validations');
 const path = require('path');
 const cors = require('cors');
+const { makePlayerLeave } = require('./Utils/gameActions');
 
 /*----------------*\
 |   Backend App    |
@@ -63,6 +65,13 @@ app.get(API.loadLocal + ':gameId', validations.loadLocal, (req, res) => {
 app.post(API.moveLocal + ':gameId', validations.moveLocal, (req, res) => {
 	const { gameId } = req.params;
 	const { boardState, winState } = req.body;
+
+	if (winState === 'X') {
+		games[gameId].playerOne.winCount++;
+	}
+	if (winState === 'O') {
+		games[gameId].playerTwo.winCount++;
+	}
 
 	games[gameId] = { ...games[gameId], boardState, turnState: getOppositeMark(games[gameId].turnState), winState };
 	res.status(201).send(games[gameId]);
@@ -124,6 +133,21 @@ app.post(API.joinRemote + ':gameId', validations.joinRemote, (req, res) => {
 app.post(API.refreshRemote + ':gameId', validations.refreshRemote, (req, res) => {
 	const { gameId } = req.params;
 	const { userPlayer } = req.body;
+
+	userPlayer.lastCheckIn = moment();
+	if (games[gameId].playerOne.id === userPlayer.id) {
+		games[gameId].playerOne = userPlayer;
+		if (games[gameId].playerTwo?.lastCheckIn && moment(moment().diff(games[gameId].playerTwo?.lastCheckIn)).seconds() > 5) {
+			makePlayerLeave({ player: games[gameId].playerTwo, gameId });
+		}
+	}
+	if (games[gameId].playerTwo?.id === userPlayer.id) {
+		games[gameId].playerTwo = userPlayer;
+		if (games[gameId].playerOne.lastCheckIn && moment(moment().diff(games[gameId].playerOne.lastCheckIn)).seconds() > 5) {
+			makePlayerLeave({ player: games[gameId].playerOne, gameId });
+		}
+	}
+
 	res.send({ ...games[gameId], userPlayer });
 });
 
@@ -131,6 +155,16 @@ app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {
 	const { gameId } = req.params;
 	const { boardState, winState, userPlayer } = req.body;
 	const { turnState, playerTwo } = games[gameId];
+
+	if (winState === userPlayer.mark) {
+		userPlayer.winCount++;
+		if (games[gameId].playerOne.id === userPlayer.id) {
+			games[gameId].playerOne = userPlayer;
+		}
+		if (games[gameId].playerTwo?.id === userPlayer.id) {
+			games[gameId].playerTwo = userPlayer;
+		}
+	}
 
 	if (userPlayer.mark === turnState && playerTwo) {
 		games[gameId] = { ...games[gameId], boardState, turnState: getOppositeMark(turnState), winState };
@@ -146,25 +180,8 @@ app.post(API.leaveRemote + ':gameId', validations.leaveRemote, (req, res) => {
 	const { gameId } = req.params;
 	const { userPlayer } = req.body;
 
-	games[gameId].boardState = [
-		[false, false, false],
-		[false, false, false],
-		[false, false, false],
-	];
-	games[gameId].turnState = games[gameId].startingPlayer;
-	games[gameId].winState = false;
-
-	if (games[gameId].playerTwo?.id === userPlayer.id) {
-		delete games[gameId].playerTwo;
-		res.send(games[gameId]);
-	} else if (games[gameId].playerOne.id === userPlayer.id && games[gameId].playerTwo) {
-		games[gameId].playerOne = games[gameId].playerTwo;
-		delete games[gameId].playerTwo;
-		res.send(games[gameId]);
-	} else if (games[gameId].playerOne.id === userPlayer.id && !games[gameId].playerTwo) {
-		delete games[gameId];
-		res.send({});
-	}
+	const result = makePlayerLeave({ player: userPlayer, gameId });
+	res.send(result);
 });
 
 //

@@ -7,19 +7,21 @@ export default function PlayersScores({ gameState, setGameState }) {
 	const breakIfRemote = !isLocal && <br />;
 
 	const playerOne = {
-		nick: isLocal ? gameState.playerOne : gameState.playerOne.nickname,
+		nick: gameState.playerOne.nickname,
 		mark: isLocal ? gameState.startingPlayer : gameState.playerOne.mark,
 		isWinner:
 			(isLocal ? gameState.winState === gameState.startingPlayer : gameState.winState === gameState.playerOne.mark) &&
 			'Winner!',
+		winCount: gameState.playerOne.winCount || 0,
 	};
 	const playerTwo = {
-		nick: isLocal ? gameState.playerTwo : gameState.playerTwo?.nickname,
+		nick: gameState.playerTwo?.nickname,
 		mark: isLocal ? getOppositeMark(gameState.startingPlayer) : gameState.playerTwo?.mark,
 		isWinner:
 			(isLocal
 				? gameState.winState === getOppositeMark(gameState.startingPlayer)
 				: gameState.winState === gameState.playerTwo?.mark) && 'Winner!',
+		winCount: gameState.playerTwo?.winCount || 0,
 	};
 
 	return (
@@ -32,8 +34,11 @@ export default function PlayersScores({ gameState, setGameState }) {
 				<br />
 				<br />
 				{playerOne.nick}
-				{playerOne.isWinner && <br />}
-				{playerOne.isWinner && <br />}
+				<br />
+				<br />
+				{playerOne.winCount}
+				<br />
+				<br />
 				{playerOne.isWinner}
 			</PlayerContainer>
 			<PlayerContainer>
@@ -44,8 +49,11 @@ export default function PlayersScores({ gameState, setGameState }) {
 				<br />
 				<br />
 				{playerTwo.nick}
-				{playerTwo.isWinner && <br />}
-				{playerTwo.isWinner && <br />}
+				<br />
+				<br />
+				{playerTwo.winCount}
+				<br />
+				<br />
 				{playerTwo.isWinner}
 			</PlayerContainer>
 		</PlayersScoresContainer>

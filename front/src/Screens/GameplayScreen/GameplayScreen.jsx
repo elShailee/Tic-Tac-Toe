@@ -10,6 +10,7 @@ export default function GameplayScreen({ gameState, setGameState }) {
 			if (gameState.gameMode === 'remote') {
 				const newGameState = await apiCallsHandler.refreshRemote(gameState);
 				newGameState && setGameState(newGameState);
+				!newGameState && setGameState({});
 			}
 		};
 

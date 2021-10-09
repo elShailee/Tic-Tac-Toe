@@ -6,8 +6,8 @@ export const GameContainer = styled.div`
 `;
 
 export const TileContainer = styled.div`
-	width: 10vh;
-	height: 10vh;
+	width: ${calcSizeUnits(2.5)};
+	height: ${calcSizeUnits(2.5)};
 	background-color: lightgreen;
 	outline: 2px solid green;
 	display: flex;
@@ -42,4 +42,5 @@ export const PlayerContainer = styled.div`
 export const PlayersScoresContainer = styled.div`
 	display: flex;
 	flex-direction: row;
+	margin-left: ${calcSizeUnits(0.5)};
 `;

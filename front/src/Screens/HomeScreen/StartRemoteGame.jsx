@@ -14,7 +14,7 @@ export default function StartRemoteGame({ setGameState }) {
 			const newGameState = await apiCallsHandler.createRemote({
 				startingPlayer: startingMark,
 				gameMode: 'remote',
-				userPlayer: { nickname: nicknameState || 'HostingPlayer', mark: userMark },
+				userPlayer: { nickname: nicknameState || 'HostingPlayer', mark: userMark, winCount: 0 },
 			});
 			newGameState && setGameState(newGameState);
 		} else {

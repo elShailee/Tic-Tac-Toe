@@ -13,6 +13,7 @@ export default function JoinLocalGame({ setGameState }) {
 				gameMode: 'remote',
 				userPlayer: {
 					nickname: nicknameState || 'JoiningPlayer',
+					winCount: 0,
 				},
 			});
 			if (newGameState) {

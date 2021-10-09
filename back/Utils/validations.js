@@ -72,18 +72,27 @@ const hasPassedValidations = (validationsSuite, req, res) => {
 };
 
 const schemas = {
-	remotePlayer: Joi.object().keys({
-		nickname: Joi.string().min(3).required(),
-		mark: Joi.valid('X', 'O').required(),
-		id: Joi.string().length(10).required(),
-	}),
+	remotePlayer: Joi.object()
+		.keys({
+			nickname: Joi.string().min(3).required(),
+			mark: Joi.valid('X', 'O').required(),
+			id: Joi.string().length(10).required(),
+			winCount: Joi.number().required(),
+		})
+		.unknown(),
 };
 
 const validateLocal = req => {
 	const schema = Joi.object({
 		gameMode: Joi.string().valid('local').required(),
-		playerOne: Joi.string().required(),
-		playerTwo: Joi.string().required(),
+		playerOne: Joi.object({
+			nickname: Joi.string().required(),
+			winCount: Joi.number().required(),
+		}).required(),
+		playerTwo: Joi.object({
+			nickname: Joi.string().required(),
+			winCount: Joi.number().required(),
+		}).required(),
 	})
 		.required()
 		.unknown();
@@ -100,7 +109,9 @@ const validateRemote = req => {
 			nickname: Joi.string().min(3).required(),
 			mark: Joi.valid('X', 'O'),
 			id: Joi.string().length(10),
-		}).required(),
+		})
+			.unknown()
+			.required(),
 	})
 		.required()
 		.unknown();
@@ -116,6 +127,7 @@ const validateBlankGame = req => {
 			then: Joi.object({
 				nickname: Joi.string().required(),
 				mark: Joi.string().valid('X', 'O').required(),
+				winCount: Joi.valid(0).required(),
 			}).required(),
 		}),
 	})

@@ -9,8 +9,8 @@ export default function StartLocalGame({ setGameState }) {
 		const newGameState = await apiCallsHandler.createLocal({
 			startingPlayer: assumedStartingPlayer,
 			gameMode: 'local',
-			playerOne: 'Player1',
-			playerTwo: 'Player2',
+			playerOne: { nickname: 'Player1', winCount: 0 },
+			playerTwo: { nickname: 'Player2', winCount: 0 },
 		});
 		newGameState && setGameState(newGameState);
 	};
