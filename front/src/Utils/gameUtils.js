@@ -23,5 +23,5 @@ export const getGameWinner = boardState => {
 };
 
 export const getOppositeMark = mark => {
-	return mark === 'X' ? 'O' : mark;
+	return mark === 'X' ? 'O' : 'X';
 };

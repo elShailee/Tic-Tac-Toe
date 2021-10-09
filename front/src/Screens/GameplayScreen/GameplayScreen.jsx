@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import GameGrid from './GameGrid';
 import { DataUtilsContainer, GameContainer } from './styles';
 import apiCallsHandler from 'Utils/axiosFuncs';
+import PlayersScores from './PlayersScores';
 
 export default function GameplayScreen({ gameState, setGameState }) {
 	useEffect(() => {
@@ -26,6 +27,11 @@ export default function GameplayScreen({ gameState, setGameState }) {
 		newGameState && setGameState({});
 	};
 
+	const deleteLocal = async () => {
+		const newGameState = await apiCallsHandler.deleteLocal(gameState);
+		newGameState && setGameState(newGameState);
+	};
+
 	return (
 		<GameContainer>
 			<GameGrid gameState={gameState} setGameState={setGameState} />
@@ -44,9 +50,11 @@ export default function GameplayScreen({ gameState, setGameState }) {
 				<input type='text' defaultValue={gameState.gameId} readOnly disabled />
 				<br />
 
+				{gameState.gameMode === 'local' && <button onClick={deleteLocal}>{'Delete Game'}</button>}
 				{gameState.gameMode === 'local' && <button onClick={() => setGameState({})}>{'Save&Exit'}</button>}
 				{gameState.gameMode === 'remote' && <button onClick={leaveRemote}>{'Leave Game'}</button>}
 			</DataUtilsContainer>
+			<PlayersScores gameState={gameState} setGameState={setGameState} />
 		</GameContainer>
 	);
 }

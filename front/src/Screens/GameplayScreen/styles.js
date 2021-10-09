@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { calcSizeUnits } from 'Utils/stylingUtils';
 
 export const GameContainer = styled.div`
 	display: flex;
@@ -28,4 +29,17 @@ export const DataUtilsContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-left: 10px;
+`;
+
+//playersScores
+export const PlayerContainer = styled.div`
+	border: 1px solid black;
+	width: ${calcSizeUnits(4)};
+	padding: ${calcSizeUnits(0.5)};
+	text-align: center;
+`;
+
+export const PlayersScoresContainer = styled.div`
+	display: flex;
+	flex-direction: row;
 `;
