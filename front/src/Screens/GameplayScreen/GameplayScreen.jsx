@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import GameGrid from './GameGrid';
 import { DataUtilsContainer, GameContainer } from './styles';
 import apiCallsHandler from 'Utils/axiosFuncs';
 
 export default function GameplayScreen({ gameState, setGameState }) {
+	useEffect(() => {
+		const refreshRemote = async () => {
+			if (gameState.gameMode === 'remote') {
+				const newGameState = await apiCallsHandler.refreshRemote(gameState);
+				newGameState && setGameState(newGameState);
+			}
+		};
+
+		const interval = setInterval(refreshRemote, 1500);
+		return () => clearInterval(interval);
+	}, [gameState, setGameState]);
+
 	const resetGameState = async () => {
-		const newGameState = 'need a call';
+		const newGameState = await apiCallsHandler.resetGame(gameState);
 		newGameState && setGameState(newGameState);
+	};
+
+	const leaveRemote = async () => {
+		const newGameState = await apiCallsHandler.leaveRemote(gameState);
+		newGameState && setGameState({});
 	};
 
 	return (
@@ -27,7 +44,8 @@ export default function GameplayScreen({ gameState, setGameState }) {
 				<input type='text' defaultValue={gameState.gameId} readOnly disabled />
 				<br />
 
-				<button onClick={() => setGameState({})}>{'Save&Exit'}</button>
+				{gameState.gameMode === 'local' && <button onClick={() => setGameState({})}>{'Save&Exit'}</button>}
+				{gameState.gameMode === 'remote' && <button onClick={leaveRemote}>{'Leave Game'}</button>}
 			</DataUtilsContainer>
 		</GameContainer>
 	);

@@ -15,6 +15,25 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+//games api calls
+app.post(API.resetGame + ':gameId', validations.resetGame, (req, res) => {
+	const { gameId } = req.params;
+	games[gameId].boardState = [
+		[false, false, false],
+		[false, false, false],
+		[false, false, false],
+	];
+	games[gameId].turnState = games[gameId].startingPlayer;
+	games[gameId].winState = false;
+
+	if (games[gameId].gameMode === 'local') {
+		res.send(games[gameId]);
+	} else {
+		const { userPlayer } = req.body;
+		res.send({ ...games[gameId], userPlayer });
+	}
+});
+
 //local-games api calls
 app.post(API.createLocal, validations.createLocal, (req, res) => {
 	const gameId = createUuid(10);
@@ -49,12 +68,14 @@ app.post(API.moveLocal + ':gameId', validations.moveLocal, (req, res) => {
 	res.status(201).send(games[gameId]);
 });
 
+//
 app.delete(API.deleteLocal + ':gameId', validations.deleteLocal, (req, res) => {
 	const { gameId } = req.params;
 	delete games[gameId];
 	res.send({});
 });
 
+//
 app.post(API.renameLocal + ':gameId', validations.renameLocal, (req, res) => {
 	const { gameId } = req.params;
 	const { playerOne, playerTwo } = req.body;
@@ -100,6 +121,12 @@ app.post(API.joinRemote + ':gameId', validations.joinRemote, (req, res) => {
 	}
 });
 
+app.post(API.refreshRemote + ':gameId', validations.refreshRemote, (req, res) => {
+	const { gameId } = req.params;
+	const { userPlayer } = req.body;
+	res.send({ ...games[gameId], userPlayer });
+});
+
 app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {
 	const { gameId } = req.params;
 	const { boardState, winState, userPlayer } = req.body;
@@ -118,6 +145,15 @@ app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {
 app.post(API.leaveRemote + ':gameId', validations.leaveRemote, (req, res) => {
 	const { gameId } = req.params;
 	const { userPlayer } = req.body;
+
+	games[gameId].boardState = [
+		[false, false, false],
+		[false, false, false],
+		[false, false, false],
+	];
+	games[gameId].turnState = games[gameId].startingPlayer;
+	games[gameId].winState = false;
+
 	if (games[gameId].playerTwo?.id === userPlayer.id) {
 		delete games[gameId].playerTwo;
 		res.send(games[gameId]);
@@ -131,6 +167,7 @@ app.post(API.leaveRemote + ':gameId', validations.leaveRemote, (req, res) => {
 	}
 });
 
+//
 app.post(API.renameRemote + ':gameId', validations.renameRemote, (req, res) => {
 	const { gameId } = req.params;
 	const { userPlayer } = req.body;

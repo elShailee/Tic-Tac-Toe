@@ -2,6 +2,11 @@ const Joi = require('joi');
 const games = require('../games');
 
 module.exports = {
+	resetGame: (req, res, next) => {
+		const validationsSuite = [matchGameId, validateGameData];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+
 	createLocal: (req, res, next) => {
 		const validationsSuite = [validateBlankGame, validateLocal];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
@@ -28,6 +33,10 @@ module.exports = {
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},
 	joinRemote: (req, res, next) => {
+		const validationsSuite = [matchGameId, validateRemoteMatch, validateRemote];
+		if (hasPassedValidations(validationsSuite, req, res)) next();
+	},
+	refreshRemote: (req, res, next) => {
 		const validationsSuite = [matchGameId, validateRemoteMatch, validateRemote];
 		if (hasPassedValidations(validationsSuite, req, res)) next();
 	},

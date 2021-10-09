@@ -3,7 +3,7 @@ import StartLocalGame from './StartLocalGame';
 import LoadLocalGame from './LoadLocalGame';
 import StartRemoteGame from './StartRemoteGame';
 import JoinRemoteGame from './JoinRemoteGame';
-import { HomeScreenContainer, GameCreationSegment, VerticalDivider } from './styles';
+import { HomeScreenContainer, GameCreationSegment, VerticalDivider, RowsDivider } from './styles';
 
 export default function HomeScreen({ setGameState }) {
 	return (
@@ -12,9 +12,11 @@ export default function HomeScreen({ setGameState }) {
 			<GameCreationSegment>
 				<StartLocalGame setGameState={setGameState} />
 				<VerticalDivider />
-				<LoadLocalGame setGameState={setGameState} />
-				<VerticalDivider />
 				<StartRemoteGame setGameState={setGameState} />
+			</GameCreationSegment>
+			<RowsDivider />
+			<GameCreationSegment>
+				<LoadLocalGame setGameState={setGameState} />
 				<VerticalDivider />
 				<JoinRemoteGame setGameState={setGameState} />
 			</GameCreationSegment>

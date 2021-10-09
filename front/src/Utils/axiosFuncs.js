@@ -32,6 +32,11 @@ const logErrorMessage = response => {
 };
 
 const apiCallsHandler = {
+	//games calls
+	resetGame: async gameState => {
+		return axiosInstance.post(gamesApi.resetGame + gameState.gameId, gameState);
+	},
+
 	// local calls
 	createLocal: async gameState => {
 		return axiosInstance.post(gamesApi.createLocal, gameState);
@@ -55,6 +60,9 @@ const apiCallsHandler = {
 	},
 	joinRemote: async gameState => {
 		return axiosInstance.post(gamesApi.joinRemote + gameState.gameId, gameState);
+	},
+	refreshRemote: async gameState => {
+		return axiosInstance.post(gamesApi.refreshRemote + gameState.gameId, gameState);
 	},
 	moveRemote: async gameState => {
 		return axiosInstance.post(gamesApi.moveRemote + gameState.gameId, gameState);

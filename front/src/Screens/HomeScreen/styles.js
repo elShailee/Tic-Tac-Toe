@@ -27,7 +27,14 @@ export const GameCreationSubHeader = styled.h3`
 export const VerticalDivider = styled.div`
 	top: 0;
 	bottom: 0;
-	margin: ${calcSizeUnits(0.15)};
+	margin: 0 ${calcSizeUnits(0.15)};
+	background-color: #000;
+	border: ${calcSizeUnits(0.085)} solid black;
+`;
+export const RowsDivider = styled.div`
+	top: 0;
+	bottom: 0;
+	margin: ${calcSizeUnits(0.5)};
 	background-color: #000;
 	border: ${calcSizeUnits(0.085)} solid black;
 `;

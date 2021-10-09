@@ -1,26 +1,32 @@
 import React from 'react';
 import { TileContainer } from './styles';
 import apiCallsHandler from 'Utils/axiosFuncs';
-import { getGameWinner } from 'Utils/gameUtils';
+import { getGameWinner, getOppositeMark } from 'Utils/gameUtils';
 
 export default function Tile({ gameState, setGameState, row, col }) {
-	const { turnState, boardState, winState } = gameState;
-	const cellValue = boardState[row][col];
+	const cellValue = gameState.boardState[row][col];
 
 	let onPlayerClick = async () => {
-		if (!cellValue && !winState) {
-			const newBoardState = Array.from(boardState);
-			newBoardState[row][col] = turnState;
-			const newWinState = getGameWinner(boardState);
+		if (!cellValue && !gameState.winState) {
+			if (
+				gameState.gameMode === 'local' ||
+				(gameState.gameMode === 'remote' && gameState.turnState === gameState.userPlayer.mark)
+			) {
+				const gameStateAfterMove = gameState;
+				gameStateAfterMove.boardState[row][col] = gameState.turnState;
+				gameStateAfterMove.turnState = getOppositeMark(gameState.turnState);
+				gameStateAfterMove.winState = getGameWinner(gameStateAfterMove.boardState);
 
-			const newGameState = await apiCallsHandler.putGame({
-				...gameState,
-				boardState: newBoardState,
-				turnState: gameState.turnState === 'X' ? 'O' : 'X',
-				winState: newWinState,
-				isBlankGame: false,
-			});
-			newGameState && setGameState(newGameState);
+				let newGameState = null;
+				if (gameState.gameMode === 'local') {
+					newGameState = await apiCallsHandler.moveLocal(gameStateAfterMove);
+				}
+				if (gameState.gameMode === 'remote') {
+					newGameState = await apiCallsHandler.moveRemote(gameStateAfterMove);
+				}
+
+				newGameState && setGameState(newGameState);
+			}
 		}
 	};
 	return <TileContainer onClick={onPlayerClick}>{cellValue}</TileContainer>;
