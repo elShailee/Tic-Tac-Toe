@@ -26,15 +26,15 @@
      showgrid="true"
      inkscape:snap-object-midpoints="false"
      inkscape:snap-page="true"
-     inkscape:zoom="1.2761314"
-     inkscape:cx="636.2981"
-     inkscape:cy="-700.94662"
-     inkscape:window-width="1920"
-     inkscape:window-height="1080"
+     inkscape:zoom="0.70918864"
+     inkscape:cx="960.25226"
+     inkscape:cy="531.5934"
+     inkscape:window-width="1837"
+     inkscape:window-height="1051"
      inkscape:window-x="1366"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g172416"
+     inkscape:current-layer="g172411"
      inkscape:lockguides="true"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -242,16 +242,6 @@
        gradientTransform="matrix(0.48950964,0,0,0.48950964,72.731305,100.13452)" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1671"
-       id="linearGradient1673"
-       x1="474.53903"
-       y1="-601.43659"
-       x2="723.03377"
-       y2="-601.43659"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.48950964,0,0,0.48950964,72.731305,100.13452)" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient1785"
        id="linearGradient1787"
        x1="797.81506"
@@ -291,9 +281,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan103278"><tspan
+           id="tspan853"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan103276">Tic Tac Toe</tspan></tspan></text>
+             id="tspan851">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -307,9 +297,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan103282"><tspan
+           id="tspan857"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan103280">Tic Tac Toe</tspan></tspan></text>
+             id="tspan855">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -323,9 +313,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan103286"><tspan
+           id="tspan861"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan103284">Tic Tac Toe</tspan></tspan></text>
+             id="tspan859">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <rect
        x="440.4793"
@@ -561,6 +551,36 @@
        width="916.29228"
        height="297.13546"
        id="rect102603" />
+    <rect
+       x="780.7406"
+       y="75.899132"
+       width="916.29228"
+       height="297.13546"
+       id="rect1533" />
+    <rect
+       x="780.7406"
+       y="75.899132"
+       width="916.29228"
+       height="297.13546"
+       id="rect1541" />
+    <rect
+       x="780.7406"
+       y="75.899132"
+       width="916.29228"
+       height="297.13546"
+       id="rect1555" />
+    <rect
+       x="780.7406"
+       y="75.899132"
+       width="916.29228"
+       height="297.13546"
+       id="rect1557" />
+    <rect
+       x="780.7406"
+       y="75.899132"
+       width="916.2923"
+       height="297.13547"
+       id="rect102597-0" />
   </defs>
   <g
      inkscape:groupmode="layer"
@@ -601,7 +621,7 @@
          transform="translate(-3.0517578e-5,116.82187)"><tspan
            x="839.14941"
            y="331.69141"
-           id="tspan103288">game board
+           id="tspan863">game board
 </tspan></text>
     </g>
     <g
@@ -621,13 +641,13 @@
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect123085);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
          x="61.767578"
          y="0"
-         transform="translate(-3.0517578e-5,121.53864)"><tspan
+         transform="translate(23.1754,121.53864)"><tspan
            x="455.05371"
            y="305.85156"
-           id="tspan103290">player </tspan><tspan
+           id="tspan865">player </tspan><tspan
            x="480.70801"
            y="355.85156"
-           id="tspan103292">one</tspan></text>
+           id="tspan867">one</tspan></text>
     </g>
     <g
        id="g172401"
@@ -649,17 +669,17 @@
          y="0"><tspan
            x="455.05371"
            y="305.85156"
-           id="tspan103294">player </tspan><tspan
+           id="tspan869">player </tspan><tspan
            x="481.48926"
            y="355.85156"
-           id="tspan103296">two</tspan></text>
+           id="tspan871">two</tspan></text>
     </g>
     <g
        id="g172416"
-       inkscape:label="headline"
+       inkscape:label="title"
        transform="matrix(0.99452153,0,0,1,5.2594181,0)">
       <rect
-         style="display:inline;opacity:1;fill:#666666;fill-opacity:1;stroke-width:3;paint-order:fill markers stroke"
+         style="display:none;opacity:1;fill:#666666;fill-opacity:1;stroke-width:3;paint-order:fill markers stroke"
          id="rect131593"
          width="543.88873"
          height="98.674225"
@@ -667,256 +687,14 @@
          y="75.899132" />
       <text
          xml:space="preserve"
-         id="text140512"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:127.015px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect140514);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
+         id="text102567-8"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:140.385px;line-height:1.25;font-family:Dorsa;-inkscape-font-specification:'Dorsa, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;letter-spacing:9.02475px;white-space:pre;shape-inside:url(#rect102597-0);display:inline;fill:#dfcda7;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
          x="83.164055"
          y="0"
-         transform="translate(-275.13302,-15.68916)"><tspan
-           x="901.06899"
-           y="188.27694"
-           id="tspan103300"><tspan
-             style="fill:#ffffff"
-             id="tspan103298">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text98353"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:'Amatic SC';-inkscape-font-specification:'Amatic SC, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect98355);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-718.91254,-1034.8508)"><tspan
-           x="1159.1751"
-           y="125.67279"
-           id="tspan103304"><tspan
-             style="fill:#ffffff"
-             id="tspan103302">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102467"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:Bellefair;-inkscape-font-specification:'Bellefair, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102469);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-718.91254,-984.52136)"><tspan
-           x="1123.1564"
-           y="123.13677"
-           id="tspan103308"><tspan
-             style="fill:#ffffff"
-             id="tspan103306">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102473"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:C059;-inkscape-font-specification:'C059, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102475);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-718.91254,-929.56246)"><tspan
-           x="1097.486"
-           y="121.9982"
-           id="tspan103312"><tspan
-             style="fill:#ffffff"
-             id="tspan103310">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102479"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102481);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-718.91254,-875.85411)"><tspan
-           x="1062.374"
-           y="123.48374"
-           id="tspan103316"><tspan
-             style="fill:#ffffff"
-             id="tspan103314">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102491"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:serif;-inkscape-font-specification:'serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102503);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-718.91254,-772.92184)"><tspan
-           x="1086.1632"
-           y="123.2157"
-           id="tspan103320"><tspan
-             style="fill:#ffffff"
-             id="tspan103318">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102495"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:'Standard Symbols PS';-inkscape-font-specification:'Standard Symbols PS, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102505);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-718.91254,-717.96294)"><tspan
-           x="1095.0526"
-           y="124.19088"
-           id="tspan103324"><tspan
-             style="fill:#ffffff"
-             id="tspan103322">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102499"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:'Suez One';-inkscape-font-specification:'Suez One, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102507);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-718.91254,-664.25459)"><tspan
-           x="1093.9028"
-           y="123.00056"
-           id="tspan103328"><tspan
-             style="fill:#ffffff"
-             id="tspan103326">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102511"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:'Liberation Serif';-inkscape-font-specification:'Liberation Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102525);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-718.91254,-823.25128)"><tspan
-           x="1113.8824"
-           y="123.3684"
-           id="tspan103332"><tspan
-             style="fill:#ffffff"
-             id="tspan103330">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102535"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102581);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-1034.8508)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103336"><tspan
-             style="fill:#ffffff"
-             id="tspan103334">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102539"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102583);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-984.52136)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103340"><tspan
-             style="fill:#ffffff"
-             id="tspan103338">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102543"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102585);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-929.56246)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103344"><tspan
-             style="fill:#ffffff"
-             id="tspan103342">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102547"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102587);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-875.85411)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103348"><tspan
-             style="fill:#ffffff"
-             id="tspan103346">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102551"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102589);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-823.25128)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103352"><tspan
-             style="fill:#ffffff"
-             id="tspan103350">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102555"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102591);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-772.92184)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103356"><tspan
-             style="fill:#ffffff"
-             id="tspan103354">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102559"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102593);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-717.96294)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103360"><tspan
-             style="fill:#ffffff"
-             id="tspan103358">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102563"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102595);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-664.25459)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103364"><tspan
-             style="fill:#ffffff"
-             id="tspan103362">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102567"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102597);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-823.25128)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103368"><tspan
-             style="fill:#ffffff"
-             id="tspan103366">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102571"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102599);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-772.92184)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103372"><tspan
-             style="fill:#ffffff"
-             id="tspan103370">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102575"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102601);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-717.96294)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103376"><tspan
-             style="fill:#ffffff"
-             id="tspan103374">Tic Tac Toe</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         id="text102579"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.48px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect102603);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="83.164055"
-         y="0"
-         transform="translate(-392.23325,-664.25459)"><tspan
-           x="1096.6477"
-           y="123.2157"
-           id="tspan103380"><tspan
-             style="fill:#ffffff"
-             id="tspan103378">Tic Tac Toe</tspan></tspan></text>
+         transform="translate(-278.62897,-33.248614)"><tspan
+           x="1071.2078"
+           y="207.26864"
+           id="tspan873">Tic Tac Toe</tspan></text>
     </g>
     <g
        id="g33352"
@@ -937,7 +715,7 @@
          transform="matrix(0.99609919,0,0,1,-229.34496,603.60945)"><tspan
            x="864.14941"
            y="331.69141"
-           id="tspan103382">about me</tspan></text>
+           id="tspan875">about me</tspan></text>
     </g>
     <g
        id="g33347"
@@ -958,7 +736,7 @@
          transform="matrix(0.99229492,0,0,1,334.1448,603.60945)"><tspan
            x="862.28418"
            y="331.69141"
-           id="tspan103384">advanced</tspan></text>
+           id="tspan877">advanced</tspan></text>
     </g>
   </g>
   <g
@@ -1072,7 +850,7 @@
        x="144.09689"
        y="-255.09479" />
     <rect
-       style="opacity:1;fill:url(#linearGradient1673);fill-opacity:1;stroke-width:1.46853"
+       style="opacity:1;fill:#042f4f;fill-opacity:1;stroke-width:1.46853"
        id="rect1375"
        width="121.64057"
        height="121.64057"
