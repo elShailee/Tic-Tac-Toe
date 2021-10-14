@@ -26,15 +26,15 @@
      showgrid="true"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-page="true"
-     inkscape:zoom="0.26814705"
-     inkscape:cx="1376.1106"
-     inkscape:cy="367.33576"
+     inkscape:zoom="0.25137401"
+     inkscape:cx="533.07021"
+     inkscape:cy="415.7152"
      inkscape:window-width="1920"
      inkscape:window-height="1080"
      inkscape:window-x="1366"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="layer3"
      inkscape:lockguides="true"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -57,6 +57,56 @@
      inkscape:snap-text-baseline="true" />
   <defs
      id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient347478">
+      <stop
+         style="stop-color:#9e4d11;stop-opacity:1;"
+         offset="0"
+         id="stop347474" />
+      <stop
+         style="stop-color:#9e4d11;stop-opacity:0.65882353;"
+         offset="0.14104009"
+         id="stop348840" />
+      <stop
+         style="stop-color:#9e4d11;stop-opacity:0;"
+         offset="1"
+         id="stop347476" />
+    </linearGradient>
+    <rect
+       x="482.87504"
+       y="417.8687"
+       width="150.72651"
+       height="235.17302"
+       id="rect266223" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient260933">
+      <stop
+         style="stop-color:#042f4f;stop-opacity:1"
+         offset="0"
+         id="stop260929" />
+      <stop
+         style="stop-color:#042f4f;stop-opacity:0.49803922;"
+         offset="0.15913408"
+         id="stop261419" />
+      <stop
+         style="stop-color:#042f4f;stop-opacity:0;"
+         offset="1"
+         id="stop260931" />
+    </linearGradient>
+    <rect
+       x="452.50434"
+       y="347.71615"
+       width="160.02624"
+       height="218.68257"
+       id="rect235637" />
+    <rect
+       x="445.50516"
+       y="263.62869"
+       width="233.14993"
+       height="161.14259"
+       id="rect206748" />
     <linearGradient
        id="linearGradient3826"
        inkscape:swatch="solid">
@@ -279,9 +329,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan158260"><tspan
+           id="tspan360165"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan158258">Tic Tac Toe</tspan></tspan></text>
+             id="tspan360163">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -295,9 +345,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan158264"><tspan
+           id="tspan360169"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan158262">Tic Tac Toe</tspan></tspan></text>
+             id="tspan360167">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -311,9 +361,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan158268"><tspan
+           id="tspan360173"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan158266">Tic Tac Toe</tspan></tspan></text>
+             id="tspan360171">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <rect
        x="440.4793"
@@ -579,6 +629,37 @@
        width="916.2923"
        height="297.13547"
        id="rect102597-0" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient260933"
+       id="linearGradient260405"
+       gradientUnits="userSpaceOnUse"
+       x1="410"
+       y1="294.11255"
+       x2="518.10443"
+       y2="294.11255"
+       gradientTransform="matrix(1,0,0,0.98062038,0,3.0148761)" />
+    <rect
+       x="445.50516"
+       y="263.62869"
+       width="233.14993"
+       height="161.14259"
+       id="rect206748-8" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient347478"
+       id="linearGradient347480"
+       x1="1510"
+       y1="285.98349"
+       x2="1332.8672"
+       y2="285.98349"
+       gradientUnits="userSpaceOnUse" />
+    <rect
+       x="482.87504"
+       y="417.8687"
+       width="150.72651"
+       height="235.17302"
+       id="rect349178" />
   </defs>
   <g
      inkscape:groupmode="layer"
@@ -602,7 +683,7 @@
     <g
        id="g172406"
        inkscape:label="game"
-       transform="matrix(0.99452132,0,0,0.99452132,5.2595707,1.3452013)"
+       transform="matrix(0.99452132,0,0,0.99452132,5.3188374,9.5709974)"
        style="opacity:1"
        sodipodi:insensitive="true">
       <rect
@@ -624,8 +705,7 @@
       <g
          id="g1832"
          inkscape:label="grid"
-         style="display:inline"
-         sodipodi:insensitive="true">
+         style="display:inline">
         <rect
            style="display:inline;fill:#dfcda7;fill-opacity:1;stroke-width:1.74255;paint-order:markers fill stroke"
            id="rect5448"
@@ -665,8 +745,7 @@
       <g
          id="g3332"
          inkscape:label="tiles"
-         style="display:none;opacity:1"
-         sodipodi:insensitive="true">
+         style="display:none;opacity:1">
         <rect
            style="fill:#ffffff;stroke-width:3.01653;paint-order:markers fill stroke"
            id="rect3232"
@@ -742,8 +821,7 @@
       </g>
       <g
          id="g29942"
-         inkscape:label="marks"
-         sodipodi:insensitive="true">
+         inkscape:label="marks">
         <g
            id="g29283"
            transform="rotate(45,271.77127,887.745)"
@@ -856,9 +934,10 @@
     <g
        id="g172411"
        inkscape:label="p1"
-       transform="matrix(0.98318644,0,0,0.99452144,6.8935588,1.345171)">
+       transform="matrix(0.98318644,0,0,0.99452144,6.8935588,1.345171)"
+       sodipodi:insensitive="true">
       <rect
-         style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:3.36282;paint-order:fill markers stroke"
+         style="display:none;opacity:1;fill:#666666;fill-opacity:1;stroke-width:3.36282;paint-order:fill markers stroke"
          id="rect113883"
          width="265.83334"
          height="543.88873"
@@ -866,24 +945,36 @@
          y="245.53372" />
       <text
          xml:space="preserve"
-         id="text123083"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect123085);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         x="61.767578"
-         y="0"
-         transform="translate(23.1754,121.53864)"><tspan
-           x="455.05371"
-           y="305.85156"
-           id="tspan158270">player </tspan><tspan
-           x="480.70801"
-           y="355.85156"
-           id="tspan158272">one</tspan></text>
+         transform="matrix(1.0171011,0,0,1.0055087,-24.952291,-7.7427912)"
+         id="text206746"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect206748);fill:#042f4f;fill-opacity:1;stroke:none"><tspan
+           x="445.50586"
+           y="311.67485"
+           id="tspan360175">Player 1</tspan></text>
+      <rect
+         style="fill:url(#linearGradient260405);fill-opacity:1;stroke:none;stroke-width:2.24105;paint-order:markers fill stroke"
+         id="rect238427"
+         width="177.13277"
+         height="44.33577"
+         x="410"
+         y="263.50998"
+         ry="0" />
+      <text
+         xml:space="preserve"
+         transform="matrix(1.0171011,0,0,1.0055087,22.087877,-74.940131)"
+         id="text266221"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:126.667px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect266223);fill:#042f4f;fill-opacity:1;stroke:none"><tspan
+           x="482.875"
+           y="531.97864"
+           id="tspan360177">7</tspan></text>
     </g>
     <g
        id="g172401"
        inkscape:label="p2"
-       transform="matrix(0.983186,0,0,0.99452143,26.405975,-12.651102)">
+       transform="matrix(0.983186,0,0,0.99452143,25.389266,1.0412327)"
+       sodipodi:insensitive="true">
       <rect
-         style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:3.36282;paint-order:fill markers stroke"
+         style="display:none;opacity:1;fill:#666666;fill-opacity:1;stroke-width:3.36282;paint-order:fill markers stroke"
          id="rect113965"
          width="265.83334"
          height="543.88873"
@@ -891,22 +982,34 @@
          y="245.53372" />
       <text
          xml:space="preserve"
-         id="text127812"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect127814);fill:#000000;fill-opacity:1;stroke:none;paint-order:fill markers stroke"
-         transform="translate(847.03179,121.53864)"
-         x="62.333984"
-         y="0"><tspan
-           x="455.05371"
-           y="305.85156"
-           id="tspan158274">player </tspan><tspan
-           x="481.48926"
-           y="355.85156"
-           id="tspan158276">two</tspan></text>
+         transform="matrix(1.0171011,0,0,1.0055087,856.19015,-73.870326)"
+         id="text349176"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:126.667px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect349178);fill:#9e4d11;fill-opacity:1;stroke:none"><tspan
+           x="482.875"
+           y="531.97864"
+           id="tspan360179">3</tspan></text>
+      <rect
+         style="fill:url(#linearGradient347480);fill-opacity:1;stroke:none;stroke-width:2.24105;paint-order:markers fill stroke"
+         id="rect343385"
+         width="177.13277"
+         height="44.33577"
+         x="1332.8672"
+         y="263.81558"
+         ry="0" />
+      <text
+         xml:space="preserve"
+         transform="translate(856.49489,-6.6582117)"
+         id="text206746-5"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect206748-8);display:inline;fill:#9e4d11;fill-opacity:1;stroke:none"><tspan
+           x="445.50586"
+           y="311.67485"
+           id="tspan360181">Player 2</tspan></text>
     </g>
     <g
        id="g172416"
        inkscape:label="title"
-       transform="matrix(0.99452153,0,0,1,5.2594181,0)">
+       transform="matrix(0.99452153,0,0,1,5.2594181,0)"
+       sodipodi:insensitive="true">
       <rect
          style="display:none;opacity:1;fill:#666666;fill-opacity:1;stroke-width:3;paint-order:fill markers stroke"
          id="rect131593"
@@ -923,7 +1026,7 @@
          transform="translate(-278.62897,-33.248614)"><tspan
            x="1071.2078"
            y="207.26864"
-           id="tspan158278">Tic Tac Toe</tspan></text>
+           id="tspan360183">Tic Tac Toe</tspan></text>
     </g>
     <g
        id="g33352"
@@ -944,7 +1047,7 @@
          transform="matrix(0.99609919,0,0,1,-229.34496,603.60945)"><tspan
            x="864.14941"
            y="331.69141"
-           id="tspan158280">about me</tspan></text>
+           id="tspan360185">about me</tspan></text>
     </g>
     <g
        id="g33347"
@@ -965,7 +1068,7 @@
          transform="matrix(0.99229492,0,0,1,334.1448,603.60945)"><tspan
            x="862.28418"
            y="331.69141"
-           id="tspan158282">advanced</tspan></text>
+           id="tspan360187">advanced</tspan></text>
     </g>
   </g>
   <g
@@ -1093,6 +1196,15 @@
          transform="rotate(90)" />
     </g>
     <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:3;paint-order:markers fill stroke"
+       id="rect167822"
+       width="18.181854"
+       height="18.181854"
+       x="-382.42218"
+       y="-209.16393"
+       ry="1.6011099e-05"
+       inkscape:label="spacer" />
+    <rect
        style="opacity:1;fill:url(#linearGradient1463);fill-opacity:1;stroke-width:1.46853"
        id="rect245"
        width="121.64057"
@@ -1148,12 +1260,5 @@
        height="121.64057"
        x="1095.5836"
        y="-255.09479" />
-    <rect
-       style="fill:#000000;fill-opacity:0;stroke-width:3;paint-order:markers fill stroke"
-       id="rect2874"
-       width="266.38184"
-       height="123.63123"
-       x="281.57489"
-       y="600.17834" />
   </g>
 </svg>
