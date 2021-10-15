@@ -26,15 +26,15 @@
      showgrid="true"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-page="true"
-     inkscape:zoom="0.19108678"
-     inkscape:cx="-2082.8233"
-     inkscape:cy="405.57489"
+     inkscape:zoom="0.45555578"
+     inkscape:cx="1110.7312"
+     inkscape:cy="424.75589"
      inkscape:window-width="1920"
      inkscape:window-height="1080"
      inkscape:window-x="1366"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g33352"
+     inkscape:current-layer="layer4"
      inkscape:lockguides="true"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -397,9 +397,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan3058"><tspan
+           id="tspan55255"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan3056">Tic Tac Toe</tspan></tspan></text>
+             id="tspan55253">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -413,9 +413,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan3062"><tspan
+           id="tspan55259"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan3060">Tic Tac Toe</tspan></tspan></text>
+             id="tspan55257">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -429,9 +429,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan3066"><tspan
+           id="tspan55263"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan3064">Tic Tac Toe</tspan></tspan></text>
+             id="tspan55261">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <rect
        x="440.4793"
@@ -1323,7 +1323,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect206748);fill:#114d8b;fill-opacity:1;stroke:none"><tspan
            x="445.50586"
            y="311.67485"
-           id="tspan3068">Player 1</tspan></text>
+           id="tspan55265">Player 1</tspan></text>
       <rect
          style="opacity:0.6;fill:url(#linearGradient97886);fill-opacity:1;stroke:none;stroke-width:2.24105;paint-order:markers fill stroke"
          id="rect238427"
@@ -1339,7 +1339,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:126.667px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect266223);fill:#114d8b;fill-opacity:1;stroke:none"><tspan
            x="482.875"
            y="531.97864"
-           id="tspan3070">7</tspan></text>
+           id="tspan55267">7</tspan></text>
     </g>
     <g
        id="g172401"
@@ -1360,7 +1360,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:126.667px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect349178);fill:#9e4d11;fill-opacity:1;stroke:none"><tspan
            x="482.875"
            y="531.97864"
-           id="tspan3072">3</tspan></text>
+           id="tspan55269">3</tspan></text>
       <rect
          style="opacity:0.6;fill:url(#linearGradient347480);fill-opacity:1;stroke:none;stroke-width:2.24105;paint-order:markers fill stroke"
          id="rect343385"
@@ -1376,7 +1376,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect206748-8);display:inline;fill:#9e4d11;fill-opacity:1;stroke:none"><tspan
            x="445.50586"
            y="311.67485"
-           id="tspan3074">Player 2</tspan></text>
+           id="tspan55271">Player 2</tspan></text>
     </g>
     <g
        id="g172416"
@@ -1399,11 +1399,12 @@
          transform="translate(-278.62897,-33.248614)"><tspan
            x="1071.2078"
            y="207.26864"
-           id="tspan3076">Tic Tac Toe</tspan></text>
+           id="tspan55273">Tic Tac Toe</tspan></text>
     </g>
     <g
        id="g33352"
-       inkscape:label="about me">
+       inkscape:label="about me"
+       sodipodi:insensitive="true">
       <g
          id="g575"
          style="display:none"
@@ -1457,9 +1458,9 @@
          transform="translate(-3.4892554e-4)"><tspan
            x="616.01591"
            y="874.497"
-           id="tspan3080"><tspan
+           id="tspan55277"><tspan
              style="font-family:Dorsa;-inkscape-font-specification:'Dorsa, Normal';text-align:center;text-anchor:middle"
-             id="tspan3078">Shailee Eliyahu</tspan></tspan></text>
+             id="tspan55275">Shailee Eliyahu</tspan></tspan></text>
       <path
          id="rect89719"
          style="display:none;fill:#a34d8b;fill-opacity:1;stroke-width:3.49568;paint-order:markers fill stroke"
@@ -1470,24 +1471,24 @@
          style="font-style:normal;font-weight:normal;font-size:21.3333px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect89719);fill:#1764b5;fill-opacity:1;stroke:none"><tspan
            x="566.77094"
            y="914.02927"
-           id="tspan3082">Lorem ipsum dolor sit amet, consectetur </tspan><tspan
+           id="tspan55279">Lorem ipsum dolor sit amet, consectetur </tspan><tspan
            x="556.2981"
            y="940.69589"
-           id="tspan3084">adipiscing elit. Duis at ligula quis augue </tspan><tspan
+           id="tspan55281">adipiscing elit. Duis at ligula quis augue </tspan><tspan
            x="529.49786"
            y="967.36252"
-           id="tspan3086">luctus feugiat vitae nec purus. Ut ac sapien </tspan><tspan
+           id="tspan55283">luctus feugiat vitae nec purus. Ut ac sapien </tspan><tspan
            x="420"
            y="994.02914"
-           id="tspan3088">quam. Ut tincidunt lectus in lorem efficitur accumsan. </tspan><tspan
+           id="tspan55285">quam. Ut tincidunt lectus in lorem efficitur accumsan. </tspan><tspan
            x="420"
            y="1020.6958"
-           id="tspan3090">Nullam a turpis egestas tellus dignissim consequat ac </tspan><tspan
+           id="tspan55287">Nullam a turpis egestas tellus dignissim consequat ac </tspan><tspan
            x="420"
            y="1045.0273"
-           id="tspan3094"><tspan
+           id="tspan55291"><tspan
              dx="0 13.541645 13.052063 11.114567 13.520813 13.124977 8.3020706 13.124977 6.7812424 11.114563 13.124977 20.781219 6.7812347 6.78125 14.593719 5.9270782 5.9270782 13.541641 13.520813 13.072891 20.781219 6.7812347 12.749985 12.624969 6.78125 13.520813 13.520813 13.520813 11.729156 6.7812195 6.78125 7.5104065 13.124969 13.520813 13.541656 5.927063 13.072906 8.364563 6.78125 13.541626 13.520813 5.9270935 11.114563 6.7812195 0 13.4375 13.520813 5.927063 13.541656 13.520813 11.114563 6.78125 13.520813 8.364563 6.78125 6.781189 7.510437 13.125 13.520813 13.541626 5.927063 13.072876 8.364563 6.78125 13.520813 13.125 11.729126 6.78125 13.541626 5.927124 13.072876 20.781189 6.78125 6.78125 12.864563 13.520813 13.072876 11.114563 13.125 5.927063 5.927063 13.520813 11.114563 6.78125 13.072937 11.729126 6.78125 13.520813 8.395813 13.520813 13.072876 6.78125 12.625 5.927063 8.364563 13.072876 13.125 6.78125 20.78125 13.124878 8.364624 13.520874 11.114502 6.78125 13.125 5.927002 13.125 20.78125 13.125 13.520752 8.364624 13.520752 20.78125 6.78125 12.625 13.052002 5.927124 13.520752 8.364624 13.541626 13.072876 8.364624 6.78125 6.78125 18.406128 13.072998 13.124878 11.729248 13.124878 13.520874 13.072876 11.114624 6.7811279 13.541748 13.052002 11.114624 13.520752 13.125 8.302124 13.124878 6.78125 13.125 8.770874 13.072876 8.364502 6.78125 5.927124 13.125 11.729126 8.364502 13.520874 11.114502 6.78125 6.78125 13.520874 13.052002 13.520874 6.78125 11.729126 13.052002 20.78125 20.78125 13.052002 13.541748 13.052002 6.78125 13.541626 13.520874 13.072876 20.781128 6.78125 11.729248 13.520752 8.770874 11.114502 13.520874 11.114502 6.78125 5.927124 13.541626 6.78125 6.78125 13.541626 13.125 13.541504 6.78125 13.072998 6.78125 13.541504 13.520996 8.770752 13.520752 11.114746 6.7810059 13.125 5.9272461 13.125 20.781006 13.125 13.520996 8.364502 13.520752 20.78125 6.78125 13.052002 8.302002 11.729248 5.927002 6.78125 12.625 13.072998 8.770752 5.927002 13.520996 11.114502 6.78125 13.541504 5.9272461 11.729004 8.3647461 13.520752 20.78125 6.78125 13.520752 13.052002 13.520752 6.78125 13.125 13.541748 13.125 8.364502 6.78125 20.78125 13.072754 13.541748 13.520752 13.072998"
-             id="tspan3092">posuere sem. Aliquam ex nunc, feugiat quis finibus ut, feugiat nec diam. Phasellus ac urna vitae metus elementum volutpat. Maecenas posuere erat lectus, non commodo quam cursus id. Sed a purus elementum orci varius dictum non eget magna.</tspan></tspan></text>
+             id="tspan55289">posuere sem. Aliquam ex nunc, feugiat quis finibus ut, feugiat nec diam. Phasellus ac urna vitae metus elementum volutpat. Maecenas posuere erat lectus, non commodo quam cursus id. Sed a purus elementum orci varius dictum non eget magna.</tspan></tspan></text>
     </g>
     <g
        id="g33347"
@@ -1508,7 +1509,7 @@
          transform="matrix(0.99229492,0,0,1,334.1448,603.60945)"><tspan
            x="862.28418"
            y="331.69141"
-           id="tspan3096">advanced</tspan></text>
+           id="tspan55293">advanced</tspan></text>
     </g>
   </g>
   <g
@@ -1605,8 +1606,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer4"
-     inkscape:label="swatch"
-     sodipodi:insensitive="true">
+     inkscape:label="swatch">
     <path
        id="circle12955-3"
        style="display:inline;fill:#114d8b;fill-opacity:1;stroke-width:1.76701;paint-order:markers fill stroke"
@@ -1699,6 +1699,20 @@
        width="121.64057"
        height="121.64057"
        x="1095.5836"
+       y="-255.09479" />
+    <rect
+       style="fill:#b95a14;fill-opacity:1;stroke:none;stroke-width:7;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect3324"
+       width="60.820282"
+       height="121.64056"
+       x="678.98474"
+       y="-255.09479" />
+    <rect
+       style="fill:#1764b5;fill-opacity:1;stroke:none;stroke-width:7;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect32781"
+       width="60.820282"
+       height="121.64056"
+       x="365.84302"
        y="-255.09479" />
   </g>
 </svg>
