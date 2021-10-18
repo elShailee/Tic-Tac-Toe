@@ -11,6 +11,7 @@ node_modules
 # production
 /build
 env.js
+/env_backups
 
 # misc
 .DS_Store

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { calcSizeUnits } from 'Utils/stylingUtils';
+import { calcSizeUnits } from 'theme';
 
 export const HomeScreenContainer = styled.div`
 	display: flex;

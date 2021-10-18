@@ -6,30 +6,6 @@ import GameplayScreen from 'Screens/GameplayScreen/GameplayScreen';
 import HomeScreen from 'Screens/HomeScreen/HomeScreen';
 
 function App() {
-	// const blankBoard = [
-	// 	[false, false, false],
-	// 	[false, false, false],
-	// 	[false, false, false],
-	// ];
-	// const blankGameState = {
-	// 	boardState: blankBoard,
-	// 	winState: false,
-	// 	gameMode: 'local',
-	// 	startingPlayer: 'X',
-	// 	isBlankGame: true,
-	// };
-	// const [gameState, setGameState] = useState(blankGameState);
-	// const [loadIdState, setLoadIdState] = useState('');
-
-	// const stateObject = {
-	// 	blankBoard,
-	// 	blankGameState,
-	// 	gameState,
-	// 	setGameState,
-	// 	loadIdState,
-	// 	setLoadIdState,
-	// };
-
 	const [gameState, setGameState] = useState({});
 
 	return (
