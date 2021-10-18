@@ -79,77 +79,7 @@ const theme = {
 		shading: {
 			border: palette.black[103],
 		},
-		gameplayScreen: {
-			spacer: palette.blue[200],
-		},
-		generalCloseButton: {
-			bg: palette.brown[830],
-		},
-		generalNavBar: {
-			defaultBG: palette.gray[500],
-		},
-		generalWindow: {
-			bg: palette.yellow[350],
-			contentBg: palette.yellow[750],
-		},
-		actions: {
-			button: palette.yellow[750],
-			itemBg: palette.brown[910],
-			tabBg: palette.brown[750],
-			moreActionsButton: palette.orange[500],
-		},
-		coins: {
-			button: palette.orange[500],
-			tab: palette.brown[750],
-			moreCoinsButton: palette.orange[500],
-		},
-		energy: {
-			button: palette.blue[970],
-			tab: palette.blue[550],
-			dataDisplay: palette.blue[930],
-			moreEnergyButton: palette.blue[970],
-		},
-		characterInfoBar: {
-			bg: palette.red[500],
-			xp: palette.blue[970],
-			xpbg: palette.gray[500],
-			text: palette.white[900],
-		},
-		disasters: {
-			image: palette.purple[800],
-			counter: palette.purple[800],
-		},
-		discovery: {
-			button: palette.green[680],
-			window: {
-				borders: palette.green[350],
-				closeButton: palette.green[910],
-				container: palette.green[680],
-				contentContainer: palette.green[910],
-				droppableBG: palette.green[950],
-				droppableOutline: palette.gray[400],
-				navBar: palette.green[950],
-				pressedNavButton: palette.green[910],
-				navSpacer: palette.green[350],
-			},
-			crafting: {
-				arrow: palette.green[950],
-			},
-		},
-		map: {
-			bg: palette.blue[350],
-			zoomSlider: palette.gray[500],
-			compass: palette.gray[300],
-		},
-		seen: {
-			bg: palette.blue[500],
-		},
-		settings: {
-			button: palette.gray[500],
-		},
-		focusedMap: {
-			border: palette.blue[200],
-		},
+		BG: palette.blue[110],
 	},
 };
 

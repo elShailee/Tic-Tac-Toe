@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-import { calcSizeUnits } from 'theme';
 
 export const AppContainer = styled.div`
-	width: ${calcSizeUnits(32)};
-	height: ${calcSizeUnits(18)};
-	background-color: #ddd;
-	padding: 10px;
+	width: 100vh;
+	height: 100vh;
+	background-color: pink;
 	box-sizing: border-box;
 `;
