@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-import { AppContainer } from './styles';
+import { AppContainer, Left, Game, Right, GameContainer } from './styles';
 // import { enviroment } from 'envSelector';
 // import DevelopemetToolbar from './DemelopementToolbar';
 // import GameplayScreen from 'Screens/GameplayScreen/GameplayScreen';
@@ -13,6 +13,11 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<AppContainer>
+				<Left></Left>
+				<GameContainer>
+					<Game></Game>
+				</GameContainer>
+				<Right></Right>
 				{/* {enviroment === 'developement' && <DevelopemetToolbar gameState={gameState} setGameState={setGameState} />}
 				{gameState.gameId ? (
 					<GameplayScreen gameState={gameState} setGameState={setGameState} />
