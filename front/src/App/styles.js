@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import darkBG from 'Assets/dark_bg.svg';
 
 export const AppContainer = styled.div`
 	width: 100vw;
 	${({ theme }) => theme.customStyles.centerItems}
-	background: url(${darkBG});
+	background: url(${({ theme }) => theme.images.appBG});
 `;
 
 export const Game = styled.div`

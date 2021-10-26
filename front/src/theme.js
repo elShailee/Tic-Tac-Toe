@@ -1,9 +1,10 @@
 import palette from 'palette';
+import assetsLib from 'Assets/lib';
 
 const sizeUnit = `min(calc(100vh / 18), calc(100vw / 32))`;
 export const calcSizeUnits = num => `calc(${num} * ${sizeUnit})`;
 
-const theme = {
+const sharedTheme = {
 	calcSizeUnits,
 	sizes: {
 		border: {
@@ -74,13 +75,31 @@ const theme = {
 			border-color: ${palette.transparent};
 		`,
 	},
+};
+
+export const darkTheme = {
+	...sharedTheme,
 	colors: {
 		transparent: palette.transparent,
 		shading: {
 			border: palette.black[103],
 		},
-		BG: palette.blue[110],
+	},
+	images: {
+		appBG: assetsLib.darkBG,
 	},
 };
 
-export default theme;
+export const lightTheme = {
+	...sharedTheme,
+	colors: {
+		transparent: palette.transparent,
+		shading: {
+			border: palette.black[103],
+		},
+	},
+
+	images: {
+		appBG: assetsLib.lightBG,
+	},
+};

@@ -5,13 +5,13 @@ import { AppContainer, Game, GameContainer } from './styles';
 // import GameplayScreen from 'Screens/GameplayScreen/GameplayScreen';
 // import HomeScreen from 'Screens/HomeScreen/HomeScreen';
 import { ThemeProvider } from 'styled-components';
-import theme from 'theme';
+import { darkTheme, lightTheme } from 'theme';
 
 function App() {
 	// const [gameState, setGameState] = useState({});
 
 	return (
-		<ThemeProvider theme={theme}>
+		<ThemeProvider theme={lightTheme}>
 			<AppContainer>
 				<GameContainer>
 					<Game></Game>
