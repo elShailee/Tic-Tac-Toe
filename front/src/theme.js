@@ -86,7 +86,13 @@ export const darkTheme = {
 		},
 	},
 	images: {
-		appBG: assetsLib.darkBG,
+		BG: {
+			appBG: assetsLib.darkBG,
+			topShadow: assetsLib.darkTopBGShadow,
+			bottomShadow: assetsLib.darkBottomBGShadow,
+			rightShadow: assetsLib.darkRightBGShadow,
+			leftShadow: assetsLib.darkLeftBGShadow,
+		},
 	},
 };
 
@@ -100,6 +106,12 @@ export const lightTheme = {
 	},
 
 	images: {
-		appBG: assetsLib.lightBG,
+		BG: {
+			appBG: assetsLib.lightBG,
+			topShadow: assetsLib.lightTopBGShadow,
+			bottomShadow: assetsLib.lightBottomBGShadow,
+			rightShadow: assetsLib.lightRightBGShadow,
+			leftShadow: assetsLib.lightLeftBGShadow,
+		},
 	},
 };
