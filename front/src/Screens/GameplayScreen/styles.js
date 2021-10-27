@@ -2,7 +2,16 @@ import styled from 'styled-components';
 import { calcSizeUnits } from 'theme';
 
 export const GameContainer = styled.div`
-	display: flex;
+	width: 100%;
+	height: 100%;
+	max-width: 100vw;
+	max-height: 100vw;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	box-sizing: border-box;
+	background-color: ${({ theme }) => theme.colors.bg};
 `;
 
 export const TileContainer = styled.div`

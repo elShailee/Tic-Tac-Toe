@@ -75,15 +75,19 @@ const sharedTheme = {
 			border-color: ${palette.transparent};
 		`,
 	},
-};
-
-export const darkTheme = {
-	...sharedTheme,
 	colors: {
 		transparent: palette.transparent,
 		shading: {
 			border: palette.black[103],
 		},
+	},
+};
+
+export const darkTheme = {
+	...sharedTheme,
+	colors: {
+		...sharedTheme.colors,
+		bg: palette.blue[110],
 	},
 	images: {
 		BG: {
@@ -99,10 +103,8 @@ export const darkTheme = {
 export const lightTheme = {
 	...sharedTheme,
 	colors: {
-		transparent: palette.transparent,
-		shading: {
-			border: palette.black[103],
-		},
+		...sharedTheme.colors,
+		bg: palette.white[900],
 	},
 
 	images: {

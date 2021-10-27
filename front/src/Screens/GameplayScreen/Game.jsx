@@ -4,7 +4,7 @@ import { DataUtilsContainer, GameContainer } from './styles';
 import apiCallsHandler from 'Utils/axiosFuncs';
 import PlayersScores from './PlayersScores';
 
-export default function GameplayScreen({ gameState, setGameState }) {
+export default function Game({ gameState, setGameState }) {
 	useEffect(() => {
 		const refreshRemote = async () => {
 			if (gameState.gameMode === 'remote') {
@@ -35,7 +35,7 @@ export default function GameplayScreen({ gameState, setGameState }) {
 
 	return (
 		<GameContainer>
-			<GameGrid gameState={gameState} setGameState={setGameState} />
+			{/* <GameGrid gameState={gameState} setGameState={setGameState} />
 			<DataUtilsContainer>
 				{'Player Turn: ' + gameState.turnState}
 				<br />
@@ -55,7 +55,7 @@ export default function GameplayScreen({ gameState, setGameState }) {
 				{gameState.gameMode === 'local' && <button onClick={() => setGameState({})}>{'Save&Exit'}</button>}
 				{gameState.gameMode === 'remote' && <button onClick={leaveRemote}>{'Leave Game'}</button>}
 			</DataUtilsContainer>
-			<PlayersScores gameState={gameState} setGameState={setGameState} />
+			<PlayersScores gameState={gameState} setGameState={setGameState} /> */}
 		</GameContainer>
 	);
 }

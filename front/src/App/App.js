@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { AppContainer, GameContainer, Game, RightShadow, LeftShadow, TopShadow, BotShadow } from './styles';
+import { AppContainer, GameContainer, RightShadow, LeftShadow, TopShadow, BotShadow } from './styles';
+import Game from 'Screens/GameplayScreen/Game';
 import { enviroment } from 'envSelector';
 import DevelopemetToolbar from './DevelopementToolbar';
 // import GameplayScreen from 'Screens/GameplayScreen/GameplayScreen';
