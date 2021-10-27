@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AppContainer, Game, GameContainer, RightShadow, LeftShadow } from './styles';
+import { AppContainer, GameContainer, Game, RightShadow, LeftShadow, TopShadow, BotShadow } from './styles';
 import { enviroment } from 'envSelector';
 import DevelopemetToolbar from './DevelopementToolbar';
 // import GameplayScreen from 'Screens/GameplayScreen/GameplayScreen';
@@ -8,7 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from 'theme';
 
 function App() {
-	const [themeState, setThemeState] = useState('light');
+	const [themeState, setThemeState] = useState('dark');
 	const [gameState, setGameState] = useState({});
 
 	const getCurrentTheme = () => {
@@ -32,11 +32,13 @@ function App() {
 	return (
 		<ThemeProvider theme={getCurrentTheme}>
 			<AppContainer>
-				<LeftShadow></LeftShadow>
 				<GameContainer>
-					<Game></Game>
+					<LeftShadow />
+					<TopShadow />
+					<Game />
+					<BotShadow />
+					<RightShadow />
 				</GameContainer>
-				<RightShadow></RightShadow>
 
 				{enviroment === 'developement' && (
 					<DevelopemetToolbar gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
