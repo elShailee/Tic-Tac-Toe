@@ -88,6 +88,7 @@ export const darkTheme = {
 	colors: {
 		...sharedTheme.colors,
 		bg: palette.blue[110],
+		title: palette.yellow[950],
 	},
 	images: {
 		BG: {
@@ -105,6 +106,7 @@ export const lightTheme = {
 	colors: {
 		...sharedTheme.colors,
 		bg: palette.white[900],
+		title: palette.green[330],
 	},
 
 	images: {

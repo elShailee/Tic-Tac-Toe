@@ -20,7 +20,11 @@ export const GameContainer = styled.div`
 export const TitleContainer = styled.div`
 	grid-column: span 12;
 	grid-row: span 4;
-	background-color: crimson;
+	color: ${({ theme }) => theme.colors.title};
+	${({ theme }) => theme.customStyles.centerItems};
+	font-family: 'Dorsa', sans-serif;
+	font-size: ${({ theme }) => theme.calcSizeUnits(2.5)};
+	letter-spacing: ${({ theme }) => theme.calcSizeUnits(0.175)};
 `;
 
 export const PlayerOneStatsContainer = styled.div`

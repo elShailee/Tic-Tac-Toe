@@ -43,7 +43,7 @@ export default function Game({ gameState, setGameState }) {
 
 	return (
 		<GameContainer>
-			<TitleContainer />
+			<TitleContainer>Tic Tac Toe</TitleContainer>
 			<PlayerOneStatsContainer />
 			<GameBoardContainer />
 			<PlayerTwoStatsContainer />
