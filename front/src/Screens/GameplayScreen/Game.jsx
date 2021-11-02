@@ -1,8 +1,16 @@
 import React, { useEffect } from 'react';
-import GameGrid from './GameGrid';
-import { DataUtilsContainer, GameContainer } from './styles';
+// import GameGrid from './GameGrid';
+import {
+	GameContainer,
+	TitleContainer,
+	PlayerOneStatsContainer,
+	GameBoardContainer,
+	PlayerTwoStatsContainer,
+	AboutContainer,
+	SettingsContainer,
+} from './styles';
 import apiCallsHandler from 'Utils/axiosFuncs';
-import PlayersScores from './PlayersScores';
+// import PlayersScores from './PlayersScores';
 
 export default function Game({ gameState, setGameState }) {
 	// useEffect(() => {
@@ -35,6 +43,12 @@ export default function Game({ gameState, setGameState }) {
 
 	return (
 		<GameContainer>
+			<TitleContainer />
+			<PlayerOneStatsContainer />
+			<GameBoardContainer />
+			<PlayerTwoStatsContainer />
+			<AboutContainer />
+			<SettingsContainer />
 			{/* <GameGrid gameState={gameState} setGameState={setGameState} />
 			<DataUtilsContainer>
 				{'Player Turn: ' + gameState.turnState}
