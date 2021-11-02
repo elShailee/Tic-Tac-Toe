@@ -5,33 +5,33 @@ import apiCallsHandler from 'Utils/axiosFuncs';
 import PlayersScores from './PlayersScores';
 
 export default function Game({ gameState, setGameState }) {
-	useEffect(() => {
-		const refreshRemote = async () => {
-			if (gameState.gameMode === 'remote') {
-				const newGameState = await apiCallsHandler.refreshRemote(gameState);
-				newGameState && setGameState(newGameState);
-				!newGameState && setGameState({});
-			}
-		};
+	// useEffect(() => {
+	// 	const refreshRemote = async () => {
+	// 		if (gameState.gameMode === 'remote') {
+	// 			const newGameState = await apiCallsHandler.refreshRemote(gameState);
+	// 			newGameState && setGameState(newGameState);
+	// 			!newGameState && setGameState({});
+	// 		}
+	// 	};
 
-		const interval = setInterval(refreshRemote, 1500);
-		return () => clearInterval(interval);
-	}, [gameState, setGameState]);
+	// 	const interval = setInterval(refreshRemote, 1500);
+	// 	return () => clearInterval(interval);
+	// }, [gameState, setGameState]);
 
-	const resetGameState = async () => {
-		const newGameState = await apiCallsHandler.resetGame(gameState);
-		newGameState && setGameState(newGameState);
-	};
+	// const resetGameState = async () => {
+	// 	const newGameState = await apiCallsHandler.resetGame(gameState);
+	// 	newGameState && setGameState(newGameState);
+	// };
 
-	const leaveRemote = async () => {
-		const newGameState = await apiCallsHandler.leaveRemote(gameState);
-		newGameState && setGameState({});
-	};
+	// const leaveRemote = async () => {
+	// 	const newGameState = await apiCallsHandler.leaveRemote(gameState);
+	// 	newGameState && setGameState({});
+	// };
 
-	const deleteLocal = async () => {
-		const newGameState = await apiCallsHandler.deleteLocal(gameState);
-		newGameState && setGameState(newGameState);
-	};
+	// const deleteLocal = async () => {
+	// 	const newGameState = await apiCallsHandler.deleteLocal(gameState);
+	// 	newGameState && setGameState(newGameState);
+	// };
 
 	return (
 		<GameContainer>

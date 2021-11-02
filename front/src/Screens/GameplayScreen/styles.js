@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { calcSizeUnits } from 'theme';
 
 export const GameContainer = styled.div`
+	display: flex;
 	width: 100%;
 	height: 100%;
 	max-width: 100vw;
@@ -11,7 +12,8 @@ export const GameContainer = styled.div`
 	grid-column-start: 2;
 	grid-column-end: 3;
 	box-sizing: border-box;
-	background-color: ${({ theme }) => theme.colors.bg};
+	/* background-color: ${({ theme }) => theme.colors.bg}; */
+	background-color: aliceblue;
 `;
 
 export const TileContainer = styled.div`
