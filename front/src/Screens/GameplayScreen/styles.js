@@ -15,6 +15,7 @@ export const GameContainer = styled.div`
 	grid-column-end: 3;
 	box-sizing: border-box;
 	background-color: ${({ theme }) => theme.colors.bg};
+	padding: calc(100% / 60) 0px;
 `;
 
 export const TitleContainer = styled.div`
