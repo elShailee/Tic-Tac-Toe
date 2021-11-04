@@ -41,7 +41,6 @@ export const RightShadow = styled.div`
 	grid-column: 3 / 4;
 	/* background: url(${({ theme }) => theme.images.BG.rightShadow}); */
 	background-repeat: repeat-y;
-	background: rgb(0, 0, 0);
 	background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, ${({ theme }) => theme.colors.bg} 100%);
 `;
 export const LeftShadow = styled.div`
@@ -53,7 +52,6 @@ export const LeftShadow = styled.div`
 	background-position: right;
 	justify-self: right;
 	background-repeat: repeat-y;
-	background: rgb(0, 0, 0);
 	background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, ${({ theme }) => theme.colors.bg} 100%);
 `;
 export const TopShadow = styled.div`
@@ -65,7 +63,6 @@ export const TopShadow = styled.div`
 	align-self: flex-end;
 	background-position: bottom;
 	background-repeat: repeat-x;
-	background: rgb(0, 0, 0);
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, ${({ theme }) => theme.colors.bg} 100%);
 `;
 export const BotShadow = styled.div`
@@ -76,7 +73,6 @@ export const BotShadow = styled.div`
 	/* background: url(${({ theme }) => theme.images.BG.bottomShadow}); */
 	align-self: flex-start;
 	background-repeat: repeat-x;
-	background: rgb(0, 0, 0);
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, ${({ theme }) => theme.colors.bg} 100%);
 `;
 
