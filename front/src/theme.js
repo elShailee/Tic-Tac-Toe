@@ -26,6 +26,7 @@ const sharedTheme = {
 			S: calcSizeUnits(0.15),
 		},
 		text: {
+			XXXL: calcSizeUnits(2),
 			XXL: calcSizeUnits(1.25),
 			XL: calcSizeUnits(0.75),
 			L: calcSizeUnits(0.5),
@@ -89,6 +90,7 @@ export const darkTheme = {
 		...sharedTheme.colors,
 		bg: palette.blue[110],
 		title: palette.yellow[950],
+		playerOneText: palette.blue[400],
 	},
 	images: {
 		BG: {
@@ -107,6 +109,7 @@ export const lightTheme = {
 		...sharedTheme.colors,
 		bg: palette.white[900],
 		title: palette.green[330],
+		playerOneText: palette.blue[980],
 	},
 
 	images: {

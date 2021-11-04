@@ -3,12 +3,12 @@ import React, { useEffect } from 'react';
 import {
 	GameContainer,
 	TitleContainer,
-	PlayerOneStatsContainer,
 	GameBoardContainer,
 	PlayerTwoStatsContainer,
 	AboutContainer,
 	SettingsContainer,
 } from './styles';
+import PlayerOneStats from './PlayerOneStats';
 import apiCallsHandler from 'Utils/axiosFuncs';
 // import PlayersScores from './PlayersScores';
 
@@ -44,7 +44,7 @@ export default function Game({ gameState, setGameState }) {
 	return (
 		<GameContainer>
 			<TitleContainer>Tic Tac Toe</TitleContainer>
-			<PlayerOneStatsContainer />
+			<PlayerOneStats />
 			<GameBoardContainer />
 			<PlayerTwoStatsContainer />
 			<AboutContainer />

@@ -31,7 +31,32 @@ export const TitleContainer = styled.div`
 export const PlayerOneStatsContainer = styled.div`
 	grid-column: span 3;
 	grid-row: span 9;
-	background-color: aquamarine;
+	/* background-color: aquamarine; */
+`;
+
+export const PlayerOneNameContainer = styled.div`
+	height: ${({ theme }) => theme.calcSizeUnits(0.6)};
+	margin-top: ${({ theme }) => theme.calcSizeUnits(0.6)};
+	${({ theme }) => theme.customStyles.centerItems}
+	background: linear-gradient(90deg, ${({ theme }) => theme.colors.playerOneText} 0%, rgba(0, 0, 0, 0) 75%);
+	opacity: 0.65;
+`;
+export const PlayerOneName = styled.div`
+	height: 35%;
+	/* background-color: #ff0; */
+	overflow: hidden;
+	font-size: ${({ theme }) => theme.sizes.text.XL};
+	font-family: 'Crete Round', serif;
+	color: ${({ theme }) => theme.colors.playerOneText};
+	margin-top: ${({ theme }) => theme.calcSizeUnits(-0.75)};
+`;
+
+export const PlayerOneScore = styled.div`
+	margin-top: ${({ theme }) => theme.calcSizeUnits(-0.5)};
+	font-size: ${({ theme }) => theme.sizes.text.XXXL};
+	font-family: 'Crete Round', serif;
+	color: ${({ theme }) => theme.colors.playerOneText};
+	/* background-color: #f00; */
 `;
 
 export const GameBoardContainer = styled.div`
