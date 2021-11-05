@@ -24,11 +24,12 @@ const sharedTheme = {
 			L: calcSizeUnits(0.38),
 			M: calcSizeUnits(0.25),
 			S: calcSizeUnits(0.15),
+			XS: calcSizeUnits(0.09),
 		},
 		text: {
 			XXXL: calcSizeUnits(2),
 			XXL: calcSizeUnits(1.25),
-			XL: calcSizeUnits(0.75),
+			XL: calcSizeUnits(0.7),
 			L: calcSizeUnits(0.5),
 			M: calcSizeUnits(0.35),
 			S: calcSizeUnits(0.3),
@@ -92,6 +93,7 @@ export const darkTheme = {
 		title: palette.yellow[950],
 		playerOneText: palette.blue[400],
 		playerTwoText: palette.orange[450],
+		gameBoardGrid: palette.yellow[959],
 	},
 	images: {
 		BG: {
@@ -112,6 +114,7 @@ export const lightTheme = {
 		title: palette.green[330],
 		playerOneText: palette.blue[980],
 		playerTwoText: palette.orange[900],
+		gameBoardGrid: palette.green[339],
 	},
 
 	images: {

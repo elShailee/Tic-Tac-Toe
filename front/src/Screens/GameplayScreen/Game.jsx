@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-// import GameGrid from './GameGrid';
-import { GameContainer, TitleContainer, GameBoardContainer, AboutContainer, SettingsContainer } from './styles';
+import React /*, { useEffect }*/ from 'react';
+import GameBoard from './GameBoard';
+import { GameContainer, TitleContainer, AboutContainer, SettingsContainer } from './styles';
 import PlayerOneStats from './PlayerOneStats';
 import PlayerTwoStats from './PlayerTwoStats';
-import apiCallsHandler from 'Utils/axiosFuncs';
+// import apiCallsHandler from 'Utils/axiosFuncs';
 // import PlayersScores from './PlayersScores';
 
 export default function Game({ gameState, setGameState }) {
@@ -39,7 +39,7 @@ export default function Game({ gameState, setGameState }) {
 		<GameContainer>
 			<TitleContainer>Tic Tac Toe</TitleContainer>
 			<PlayerOneStats />
-			<GameBoardContainer />
+			<GameBoard />
 			<PlayerTwoStats />
 			<AboutContainer />
 			<SettingsContainer />

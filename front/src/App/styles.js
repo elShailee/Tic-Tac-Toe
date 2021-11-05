@@ -17,6 +17,7 @@ export const GameContainer = styled.div`
 	display: grid;
 	grid-template-columns: ${shadowsWidth} ${gameSize} ${shadowsWidth};
 	grid-auto-rows: ${shafowsHeight} ${gameSize} ${shafowsHeight};
+	${({ theme }) => theme.customStyles.nonSelectable}
 `;
 
 export const Game = styled.div`

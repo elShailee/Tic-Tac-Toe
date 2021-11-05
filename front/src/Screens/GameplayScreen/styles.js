@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const GameContainer = styled.div`
 	display: grid;
-	grid-template-columns: repeat(12, 1fr);
-	grid-template-rows: repeat(18, 1fr);
+	grid-template-columns: repeat(36, 1fr);
+	grid-template-rows: repeat(36, 1fr);
 	grid-gap: calc(100% / 60);
 	width: 100%;
 	height: 100%;
@@ -15,12 +15,12 @@ export const GameContainer = styled.div`
 	grid-column-end: 3;
 	box-sizing: border-box;
 	background-color: ${({ theme }) => theme.colors.bg};
-	padding: calc(100% / 60) 0px;
+	padding: calc(100% / 60);
 `;
 
 export const TitleContainer = styled.div`
-	grid-column: span 12;
-	grid-row: span 4;
+	grid-column: span 36;
+	grid-row: span 8;
 	color: ${({ theme }) => theme.colors.title};
 	${({ theme }) => theme.customStyles.centerItems};
 	font-family: 'Dorsa', sans-serif;
@@ -29,8 +29,8 @@ export const TitleContainer = styled.div`
 `;
 
 export const PlayerOneStatsContainer = styled.div`
-	grid-column: span 3;
-	grid-row: span 9;
+	grid-column: span 9;
+	grid-row: span 20;
 `;
 
 export const PlayerOneNameContainer = styled.div`
@@ -41,12 +41,12 @@ export const PlayerOneNameContainer = styled.div`
 	opacity: 0.65;
 `;
 export const PlayerOneName = styled.div`
-	height: 35%;
+	height: 29%;
 	overflow: hidden;
 	font-size: ${({ theme }) => theme.sizes.text.XL};
 	font-family: 'Crete Round', serif;
 	color: ${({ theme }) => theme.colors.playerOneText};
-	margin-top: ${({ theme }) => theme.calcSizeUnits(-0.75)};
+	margin-top: ${({ theme }) => theme.calcSizeUnits(-0.7)};
 `;
 
 export const PlayerOneScore = styled.div`
@@ -57,14 +57,26 @@ export const PlayerOneScore = styled.div`
 `;
 
 export const GameBoardContainer = styled.div`
-	grid-column: span 6;
-	grid-row: span 9;
-	background-color: thistle;
+	grid-column: span 18;
+	grid-row: span 18;
+	display: grid;
+	grid-gap: ${({ theme }) => theme.sizes.padding.XS};
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	background-color: ${({ theme }) => theme.colors.gameBoardGrid};
+	overflow: hidden;
+`;
+
+export const Tile = styled.div`
+	width: 100%;
+	height: 100%;
+	background-color: ${({ theme }) => theme.colors.bg};
+	${({ theme }) => theme.customStyles.centerItems}
 `;
 
 export const PlayerTwoStatsContainer = styled.div`
-	grid-column: span 3;
-	grid-row: span 9;
+	grid-column: span 9;
+	grid-row: span 20;
 `;
 
 export const PlayerTwoNameContainer = styled.div`
@@ -75,12 +87,12 @@ export const PlayerTwoNameContainer = styled.div`
 	opacity: 0.65;
 `;
 export const PlayerTwoName = styled.div`
-	height: 35%;
+	height: 29%;
 	overflow: hidden;
 	font-size: ${({ theme }) => theme.sizes.text.XL};
 	font-family: 'Crete Round', serif;
 	color: ${({ theme }) => theme.colors.playerTwoText};
-	margin-top: ${({ theme }) => theme.calcSizeUnits(-0.75)};
+	margin-top: ${({ theme }) => theme.calcSizeUnits(-0.7)};
 `;
 
 export const PlayerTwoScore = styled.div`
@@ -91,14 +103,14 @@ export const PlayerTwoScore = styled.div`
 `;
 
 export const AboutContainer = styled.div`
-	grid-column: span 7;
-	grid-row: span 5;
+	grid-column: span 20;
+	grid-row: span 8;
 	background-color: blueviolet;
 `;
 
 export const SettingsContainer = styled.div`
-	grid-column: span 5;
-	grid-row: span 5;
+	grid-column: span 16;
+	grid-row: span 8;
 	background-color: darkcyan;
 `;
 
