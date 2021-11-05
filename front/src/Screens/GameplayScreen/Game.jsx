@@ -1,14 +1,8 @@
 import React, { useEffect } from 'react';
 // import GameGrid from './GameGrid';
-import {
-	GameContainer,
-	TitleContainer,
-	GameBoardContainer,
-	PlayerTwoStatsContainer,
-	AboutContainer,
-	SettingsContainer,
-} from './styles';
+import { GameContainer, TitleContainer, GameBoardContainer, AboutContainer, SettingsContainer } from './styles';
 import PlayerOneStats from './PlayerOneStats';
+import PlayerTwoStats from './PlayerTwoStats';
 import apiCallsHandler from 'Utils/axiosFuncs';
 // import PlayersScores from './PlayersScores';
 
@@ -46,7 +40,7 @@ export default function Game({ gameState, setGameState }) {
 			<TitleContainer>Tic Tac Toe</TitleContainer>
 			<PlayerOneStats />
 			<GameBoardContainer />
-			<PlayerTwoStatsContainer />
+			<PlayerTwoStats />
 			<AboutContainer />
 			<SettingsContainer />
 			{/* <GameGrid gameState={gameState} setGameState={setGameState} />

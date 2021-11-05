@@ -31,7 +31,6 @@ export const TitleContainer = styled.div`
 export const PlayerOneStatsContainer = styled.div`
 	grid-column: span 3;
 	grid-row: span 9;
-	/* background-color: aquamarine; */
 `;
 
 export const PlayerOneNameContainer = styled.div`
@@ -43,7 +42,6 @@ export const PlayerOneNameContainer = styled.div`
 `;
 export const PlayerOneName = styled.div`
 	height: 35%;
-	/* background-color: #ff0; */
 	overflow: hidden;
 	font-size: ${({ theme }) => theme.sizes.text.XL};
 	font-family: 'Crete Round', serif;
@@ -56,7 +54,6 @@ export const PlayerOneScore = styled.div`
 	font-size: ${({ theme }) => theme.sizes.text.XXXL};
 	font-family: 'Crete Round', serif;
 	color: ${({ theme }) => theme.colors.playerOneText};
-	/* background-color: #f00; */
 `;
 
 export const GameBoardContainer = styled.div`
@@ -68,7 +65,29 @@ export const GameBoardContainer = styled.div`
 export const PlayerTwoStatsContainer = styled.div`
 	grid-column: span 3;
 	grid-row: span 9;
-	background-color: darkgreen;
+`;
+
+export const PlayerTwoNameContainer = styled.div`
+	height: ${({ theme }) => theme.calcSizeUnits(0.6)};
+	margin-top: ${({ theme }) => theme.calcSizeUnits(0.6)};
+	${({ theme }) => theme.customStyles.centerItems}
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0) 25%, ${({ theme }) => theme.colors.playerTwoText} 100%);
+	opacity: 0.65;
+`;
+export const PlayerTwoName = styled.div`
+	height: 35%;
+	overflow: hidden;
+	font-size: ${({ theme }) => theme.sizes.text.XL};
+	font-family: 'Crete Round', serif;
+	color: ${({ theme }) => theme.colors.playerTwoText};
+	margin-top: ${({ theme }) => theme.calcSizeUnits(-0.75)};
+`;
+
+export const PlayerTwoScore = styled.div`
+	margin-top: ${({ theme }) => theme.calcSizeUnits(-0.5)};
+	font-size: ${({ theme }) => theme.sizes.text.XXXL};
+	font-family: 'Crete Round', serif;
+	color: ${({ theme }) => theme.colors.playerTwoText};
 `;
 
 export const AboutContainer = styled.div`
