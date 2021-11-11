@@ -3,6 +3,7 @@ import GameBoard from './GameBoard';
 import { GameContainer, TitleContainer, AboutContainer, SettingsContainer } from './styles';
 import PlayerOneStats from './PlayerOneStats';
 import PlayerTwoStats from './PlayerTwoStats';
+import HomeScreen from 'Screens/HomeScreen/HomeScreen';
 // import apiCallsHandler from 'Utils/axiosFuncs';
 // import PlayersScores from './PlayersScores';
 
@@ -43,6 +44,7 @@ export default function Game({ gameState, setGameState }) {
 			<PlayerTwoStats />
 			<AboutContainer />
 			<SettingsContainer />
+			<HomeScreen />
 			{/* <GameGrid gameState={gameState} setGameState={setGameState} />
 			<DataUtilsContainer>
 				{'Player Turn: ' + gameState.turnState}

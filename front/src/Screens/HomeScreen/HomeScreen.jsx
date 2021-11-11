@@ -1,14 +1,16 @@
 import React from 'react';
-import StartLocalGame from './StartLocalGame';
-import LoadLocalGame from './LoadLocalGame';
-import StartRemoteGame from './StartRemoteGame';
-import JoinRemoteGame from './JoinRemoteGame';
-import { HomeScreenContainer, GameCreationSegment, VerticalDivider, RowsDivider } from './styles';
+import ModeSelectionModal from './Modals/ModeSelectionModal';
+// import StartLocalGame from './StartLocalGame';
+// import LoadLocalGame from './LoadLocalGame';
+// import StartRemoteGame from './StartRemoteGame';
+// import JoinRemoteGame from './JoinRemoteGame';
+import { HomeScreenContainer } from './styles';
 
 export default function HomeScreen({ setGameState }) {
 	return (
 		<HomeScreenContainer>
-			<h1>Tic Tac Toe</h1>
+			<ModeSelectionModal />
+			{/* <h1>Tic Tac Toe</h1>
 			<GameCreationSegment>
 				<StartLocalGame setGameState={setGameState} />
 				<VerticalDivider />
@@ -19,7 +21,7 @@ export default function HomeScreen({ setGameState }) {
 				<LoadLocalGame setGameState={setGameState} />
 				<VerticalDivider />
 				<JoinRemoteGame setGameState={setGameState} />
-			</GameCreationSegment>
+			</GameCreationSegment> */}
 		</HomeScreenContainer>
 	);
 }

@@ -91,8 +91,8 @@ export const darkTheme = {
 		...sharedTheme.colors,
 		bg: palette.blue[110],
 		title: palette.yellow[950],
-		playerOneText: palette.blue[400],
-		playerTwoText: palette.orange[450],
+		playerOneText: palette.blue[406],
+		playerTwoText: palette.orange[456],
 		gameBoardGrid: palette.yellow[959],
 	},
 	images: {
@@ -112,8 +112,8 @@ export const lightTheme = {
 		...sharedTheme.colors,
 		bg: palette.white[900],
 		title: palette.green[330],
-		playerOneText: palette.blue[980],
-		playerTwoText: palette.orange[900],
+		playerOneText: palette.blue[986],
+		playerTwoText: palette.orange[906],
 		gameBoardGrid: palette.green[339],
 	},
 

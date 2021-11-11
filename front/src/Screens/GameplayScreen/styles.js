@@ -19,8 +19,8 @@ export const GameContainer = styled.div`
 `;
 
 export const TitleContainer = styled.div`
-	grid-column: span 36;
-	grid-row: span 8;
+	grid-column: 1 / 37;
+	grid-row: 1 / 9;
 	color: ${({ theme }) => theme.colors.title};
 	${({ theme }) => theme.customStyles.centerItems};
 	font-family: 'Dorsa', sans-serif;
@@ -29,8 +29,8 @@ export const TitleContainer = styled.div`
 `;
 
 export const PlayerOneStatsContainer = styled.div`
-	grid-column: span 9;
-	grid-row: span 20;
+	grid-column: 1 / 10;
+	grid-row: 9 / 27;
 `;
 
 export const PlayerOneNameContainer = styled.div`
@@ -38,7 +38,6 @@ export const PlayerOneNameContainer = styled.div`
 	margin-top: ${({ theme }) => theme.calcSizeUnits(0.6)};
 	${({ theme }) => theme.customStyles.centerItems}
 	background: linear-gradient(90deg, ${({ theme }) => theme.colors.playerOneText} 0%, rgba(0, 0, 0, 0) 75%);
-	opacity: 0.65;
 `;
 export const PlayerOneName = styled.div`
 	height: 29%;
@@ -57,8 +56,8 @@ export const PlayerOneScore = styled.div`
 `;
 
 export const GameBoardContainer = styled.div`
-	grid-column: span 18;
-	grid-row: span 18;
+	grid-column: 10 / 28;
+	grid-row: 9 / 27;
 	display: grid;
 	grid-gap: ${({ theme }) => theme.sizes.padding.XS};
 	grid-template-columns: repeat(3, 1fr);
@@ -75,8 +74,8 @@ export const Tile = styled.div`
 `;
 
 export const PlayerTwoStatsContainer = styled.div`
-	grid-column: span 9;
-	grid-row: span 20;
+	grid-column: 28 / 37;
+	grid-row: 9 / 27;
 `;
 
 export const PlayerTwoNameContainer = styled.div`
@@ -84,7 +83,6 @@ export const PlayerTwoNameContainer = styled.div`
 	margin-top: ${({ theme }) => theme.calcSizeUnits(0.6)};
 	${({ theme }) => theme.customStyles.centerItems}
 	background: linear-gradient(90deg, rgba(0, 0, 0, 0) 25%, ${({ theme }) => theme.colors.playerTwoText} 100%);
-	opacity: 0.65;
 `;
 export const PlayerTwoName = styled.div`
 	height: 29%;
@@ -103,14 +101,14 @@ export const PlayerTwoScore = styled.div`
 `;
 
 export const AboutContainer = styled.div`
-	grid-column: span 20;
-	grid-row: span 8;
+	grid-column: 1/21;
+	grid-row: 27/37;
 	background-color: blueviolet;
 `;
 
 export const SettingsContainer = styled.div`
-	grid-column: span 16;
-	grid-row: span 8;
+	grid-column: 21/37;
+	grid-row: 27/37;
 	background-color: darkcyan;
 `;
 

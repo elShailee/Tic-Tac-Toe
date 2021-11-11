@@ -4,7 +4,6 @@ import Game from 'Screens/GameplayScreen/Game';
 import { enviroment } from 'envSelector';
 import DevelopemetToolbar from './DevelopementToolbar';
 // import GameplayScreen from 'Screens/GameplayScreen/GameplayScreen';
-// import HomeScreen from 'Screens/HomeScreen/HomeScreen';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from 'theme';
 
