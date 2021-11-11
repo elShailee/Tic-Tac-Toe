@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const ModalBG = styled.div`
-	height: ${({ theme }) => theme.calcSizeUnits(8.63)};
-	width: 100%;
-	margin-top: ${({ theme }) => theme.calcSizeUnits(3.9)};
-	padding: 20px 30px;
+	height: ${({ theme }) => theme.calcSizeUnits(9.8)};
+	width: 90%;
+	margin: auto;
+	margin-top: ${({ theme }) => theme.calcSizeUnits(2.8)};
+	padding: ${({ theme }) => theme.calcSizeUnits(0.5)} ${({ theme }) => theme.calcSizeUnits(1)};
 	box-sizing: border-box;
-	background-color: lightblue;
-	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
+	background-color: ${({ theme }) => theme.colors.modalsBG};
+	border-radius: ${({ theme }) => theme.sizes.borderRadius.XL};
 	display: flex;
 	flex-direction: row;
 `;
@@ -16,13 +17,20 @@ const GeneralCard = styled.div`
 	height: 100%;
 	width: 100%;
 	box-sizing: border-box;
+	border-radius: ${({ theme }) => theme.sizes.borderRadius.XL};
 	${({ theme }) => theme.customStyles.centerItems}
 `;
 
 export const SelectLocalModeButton = styled(GeneralCard)`
-	background-color: #f00;
-	margin-right: 30px;
+	background-color: ${({ theme }) => theme.colors.localCard};
+	&:hover {
+		background-color: ${({ theme }) => theme.colors.localCardHover};
+	}
+	margin-right: ${({ theme }) => theme.calcSizeUnits(1)};
 `;
 export const SelectOnlineModeButton = styled(GeneralCard)`
-	background-color: #0ff;
+	background-color: ${({ theme }) => theme.colors.onlineCard};
+	&:hover {
+		background-color: ${({ theme }) => theme.colors.onlineCardHover};
+	}
 `;

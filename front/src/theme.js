@@ -14,6 +14,7 @@ const sharedTheme = {
 		borderRadius: {
 			Max: '50%',
 			XXL: calcSizeUnits(0.5),
+			XL: calcSizeUnits(0.35),
 			L: calcSizeUnits(0.2),
 			M: calcSizeUnits(0.1),
 			S: calcSizeUnits(0.05),
@@ -94,6 +95,11 @@ export const darkTheme = {
 		playerOneText: palette.blue[406],
 		playerTwoText: palette.orange[456],
 		gameBoardGrid: palette.yellow[959],
+		modalsBG: palette.yellow[950],
+		localCard: palette.blue[400],
+		localCardHover: palette.blue[880],
+		onlineCard: palette.orange[450],
+		onlineCardHover: palette.orange[750],
 	},
 	images: {
 		BG: {
@@ -115,6 +121,11 @@ export const lightTheme = {
 		playerOneText: palette.blue[986],
 		playerTwoText: palette.orange[906],
 		gameBoardGrid: palette.green[339],
+		modalsBG: palette.green[330],
+		localCard: palette.blue[570],
+		localCardHover: palette.blue[980],
+		onlineCard: palette.orange[800],
+		onlineCardHover: palette.orange[900],
 	},
 
 	images: {
