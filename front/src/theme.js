@@ -100,15 +100,14 @@ export const darkTheme = {
 		localCardHover: palette.blue[880],
 		onlineCard: palette.orange[450],
 		onlineCardHover: palette.orange[750],
+		modalsText: palette.yellow[950],
 	},
 	images: {
 		BG: {
 			appBG: assetsLib.darkBG,
-			topShadow: assetsLib.darkTopBGShadow,
-			bottomShadow: assetsLib.darkBottomBGShadow,
-			rightShadow: assetsLib.darkRightBGShadow,
-			leftShadow: assetsLib.darkLeftBGShadow,
 		},
+		localIcon: assetsLib.darkLocalIcon,
+		onlineIcon: assetsLib.darkOnlineIcon,
 	},
 };
 
@@ -126,15 +125,14 @@ export const lightTheme = {
 		localCardHover: palette.blue[980],
 		onlineCard: palette.orange[800],
 		onlineCardHover: palette.orange[900],
+		modalsText: palette.white[900],
 	},
 
 	images: {
 		BG: {
 			appBG: assetsLib.lightBG,
-			topShadow: assetsLib.lightTopBGShadow,
-			bottomShadow: assetsLib.lightBottomBGShadow,
-			rightShadow: assetsLib.lightRightBGShadow,
-			leftShadow: assetsLib.lightLeftBGShadow,
 		},
+		localIcon: assetsLib.lightLocalIcon,
+		onlineIcon: assetsLib.lightOnlineIcon,
 	},
 };

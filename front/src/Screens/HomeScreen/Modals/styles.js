@@ -18,7 +18,9 @@ const GeneralCard = styled.div`
 	width: 100%;
 	box-sizing: border-box;
 	border-radius: ${({ theme }) => theme.sizes.borderRadius.XL};
-	${({ theme }) => theme.customStyles.centerItems}
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 `;
 
 export const SelectLocalModeButton = styled(GeneralCard)`
@@ -33,4 +35,23 @@ export const SelectOnlineModeButton = styled(GeneralCard)`
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.onlineCardHover};
 	}
+`;
+
+export const LocalIcon = styled.img`
+	height: ${({ theme }) => theme.calcSizeUnits(3)};
+`;
+
+export const OnlineIcon = styled.img`
+	height: ${({ theme }) => theme.calcSizeUnits(4)};
+`;
+
+export const CardHeader = styled.div`
+	color: ${({ theme }) => theme.colors.modalsText};
+	font-size: ${({ theme }) => theme.sizes.text.XXL};
+	font-family: 'Crete Round', serif;
+`;
+export const CardText = styled.div`
+	color: ${({ theme }) => theme.colors.modalsText};
+	font-size: ${({ theme }) => theme.sizes.text.L};
+	font-family: 'Crete Round', serif;
 `;
