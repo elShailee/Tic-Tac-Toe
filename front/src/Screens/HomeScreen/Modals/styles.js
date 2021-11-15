@@ -115,7 +115,7 @@ LocalStartButton.defaultProps = {
 };
 
 export const LocalStartingMarkSelectionContainer = styled.div`
-	${({ theme }) => theme.customStyles.centerItems}/* flex-direction:row; */
+	${({ theme }) => theme.customStyles.centerItems}
 `;
 
 export const LocalMarkImage = styled.img`
@@ -207,15 +207,16 @@ OnlineStartButton.defaultProps = {
 };
 
 export const OnlineStartingMarkSelectionContainer = styled.div`
-	${({ theme }) => theme.customStyles.centerItems}/* flex-direction:row; */
+	${({ theme }) => theme.customStyles.centerItems}
+	margin-bottom: ${({ theme }) => theme.calcSizeUnits(0.2)};
 `;
 
 export const OnlineMarkImage = styled.img`
 	width: ${({ theme, size }) => theme.calcSizeUnits(size)};
 	height: ${({ theme, size }) => theme.calcSizeUnits(size)};
 	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
-	padding: ${({ theme }) => theme.sizes.padding.M};
-	margin: ${({ theme }) => theme.sizes.padding.XS};
+	padding: ${({ theme }) => theme.sizes.padding.S};
+	margin: ${({ theme }) => theme.sizes.padding.XXS};
 	${({ theme }) => theme.customStyles.highlighted}
 	${({ theme }) => theme.customStyles.nonSelectable}
 	cursor: pointer;
@@ -227,15 +228,15 @@ export const OnlineMarkImage = styled.img`
 
 export const OnlineRandomMark = styled.div`
 	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
-	padding: ${({ theme }) => theme.sizes.padding.M};
-	height: ${({ theme }) => theme.calcSizeUnits(1)};
-	width: ${({ theme }) => theme.calcSizeUnits(0.6)};
-	margin: ${({ theme }) => theme.sizes.padding.XS};
+	padding: ${({ theme }) => theme.sizes.padding.XXS};
+	height: ${({ theme }) => theme.calcSizeUnits(0.7)};
+	width: ${({ theme }) => theme.calcSizeUnits(0.5)};
+	margin: ${({ theme }) => theme.sizes.padding.XXS};
 	margin-right: ${({ theme }) => theme.sizes.padding.XXS};
 	${({ theme }) => theme.customStyles.highlighted}
 	${({ theme }) => theme.customStyles.nonSelectable}
 	${({ theme }) => theme.customStyles.centerItems}
-	font-size: ${({ theme }) => theme.calcSizeUnits(1.5)};
+	font-size: ${({ theme }) => theme.calcSizeUnits(0.7)};
 	font-family: 'Crete Round', serif;
 	color: ${({ theme }) => theme.colors.modalsText};
 	cursor: pointer;
@@ -253,8 +254,8 @@ export const OnlineSelectedMarkImage = styled.img`
 	height: ${({ theme, size }) => theme.calcSizeUnits(size)};
 	background-color: ${({ theme }) => theme.colors.modalsText};
 	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
-	padding: ${({ theme }) => theme.sizes.padding.M};
-	margin: ${({ theme }) => theme.sizes.padding.XS};
+	padding: ${({ theme }) => theme.sizes.padding.S};
+	margin: ${({ theme }) => theme.sizes.padding.XXS};
 	${({ theme }) => theme.customStyles.highlighted}
 	${({ theme }) => theme.customStyles.nonSelectable}
 	cursor: pointer;
@@ -262,15 +263,14 @@ export const OnlineSelectedMarkImage = styled.img`
 
 export const OnlineSelectedRandomMark = styled.div`
 	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
-	padding: ${({ theme }) => theme.sizes.padding.M};
-	height: ${({ theme }) => theme.calcSizeUnits(1)};
-	width: ${({ theme }) => theme.calcSizeUnits(0.6)};
-	margin: ${({ theme }) => theme.sizes.padding.XS};
-	margin-right: ${({ theme }) => theme.sizes.padding.XXS};
+	padding: ${({ theme }) => theme.sizes.padding.XXS};
+	height: ${({ theme }) => theme.calcSizeUnits(0.7)};
+	width: ${({ theme }) => theme.calcSizeUnits(0.5)};
+	margin: ${({ theme }) => theme.sizes.padding.XXS};
 	${({ theme }) => theme.customStyles.highlighted}
 	${({ theme }) => theme.customStyles.nonSelectable}
 ${({ theme }) => theme.customStyles.centerItems}
-font-size: ${({ theme }) => theme.calcSizeUnits(1.5)};
+font-size: ${({ theme }) => theme.calcSizeUnits(0.7)};
 	font-family: 'Crete Round', serif;
 	color: ${({ theme }) => theme.colors.localCardHover};
 	background-color: ${({ theme }) => theme.colors.modalsText};
@@ -279,3 +279,55 @@ font-size: ${({ theme }) => theme.calcSizeUnits(1.5)};
 OnlineSelectedRandomMark.defaultProps = {
 	children: '?',
 };
+
+export const ShowMoreContainer = styled.div`
+	${({ theme }) => theme.customStyles.centerItems}
+	width:fit-content;
+	font-size: ${({ theme }) => theme.calcSizeUnits(0.4)};
+	font-family: 'Crete Round', serif;
+	color: ${({ theme }) => theme.colors.modalsText};
+	cursor: pointer;
+	margin-bottom: ${({ theme }) => theme.calcSizeUnits(0.2)};
+`;
+
+export const OnlineStartingPlayerSelectionContainer = styled.div``;
+export const OnlineNicknameInputContainer = styled.div`
+	color: ${({ theme }) => theme.colors.modalsText};
+	${({ theme }) => theme.customStyles.centerItems}
+	font-size: ${({ theme }) => theme.sizes.text.L};
+	font-family: 'Crete Round', serif;
+	margin-bottom: ${({ theme }) => theme.calcSizeUnits(0.3)};
+`;
+
+export const NicknameInputBox = styled.input`
+	width: ${({ theme }) => theme.calcSizeUnits(3)};
+	/* height: ${({ theme }) => theme.calcSizeUnits(0.5)}; */
+	background-color: ${({ theme }) => theme.colors.modalsText};
+	margin-left: ${({ theme }) => theme.calcSizeUnits(0.1)};
+	border: 0px;
+	border-radius: ${({ theme }) => theme.sizes.borderRadius.S};
+	font-size: ${({ theme }) => theme.sizes.text.M};
+	font-family: 'Crete Round', serif;
+	color: ${({ theme }) => theme.colors.onlineCardHover};
+	padding: ${({ theme }) => theme.calcSizeUnits(0.1)};
+	box-sizing: border-box;
+	outline: none;
+	letter-spacing: ${({ theme }) => theme.calcSizeUnits(0.01)};
+	&::selection {
+		color: ${({ theme }) => theme.colors.modalsText};
+		background-color: ${({ theme }) => theme.colors.onlineCardHover};
+	}
+	&::placeholder {
+		color: ${({ theme }) => theme.colors.modalsPlaceholderText};
+	}
+`;
+NicknameInputBox.defaultProps = {
+	type: 'text',
+	placeholder: 'cool name idk',
+	spellCheck: false,
+};
+
+export const OnlineInputsContainer = styled.div`
+	${({ theme }) => theme.customStyles.centerItems}
+	flex-direction:column;
+`;

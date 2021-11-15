@@ -95,11 +95,12 @@ export const darkTheme = {
 		playerTwoText: palette.orange[456],
 		gameBoardGrid: palette.yellow[959],
 		modalsBG: palette.yellow[950],
+		modalsText: palette.yellow[950],
+		modalsPlaceholderText: palette.orange[456],
 		localCard: palette.blue[400],
 		localCardHover: palette.blue[880],
 		onlineCard: palette.orange[450],
 		onlineCardHover: palette.orange[750],
-		modalsText: palette.yellow[950],
 	},
 	images: {
 		BG: {
@@ -127,11 +128,12 @@ export const lightTheme = {
 		playerTwoText: palette.orange[906],
 		gameBoardGrid: palette.green[339],
 		modalsBG: palette.green[330],
+		modalsText: palette.white[900],
+		modalsPlaceholderText: palette.orange[806],
 		localCard: palette.blue[570],
 		localCardHover: palette.blue[980],
 		onlineCard: palette.orange[800],
 		onlineCardHover: palette.orange[900],
-		modalsText: palette.white[900],
 	},
 
 	images: {
