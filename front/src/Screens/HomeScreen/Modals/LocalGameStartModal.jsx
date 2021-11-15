@@ -4,14 +4,14 @@ import {
 	LocalGameStartCard,
 	ModalBG,
 	BackButton,
-	RightArrowIcon,
+	LeftArrowIcon,
 	BackButtonContainer,
 	LocalStartButton,
-	StartingMarkSelectionContainer,
-	MarkImage,
-	RandomMark,
-	SelectedMarkImage,
-	SelectedRandomMark,
+	LocalStartingMarkSelectionContainer,
+	LocalMarkImage,
+	LocalRandomMark,
+	LocalSelectedMarkImage,
+	LocalSelectedRandomMark,
 } from './styles';
 
 export default function LocalGameStartModal({ unselectMode }) {
@@ -23,23 +23,27 @@ export default function LocalGameStartModal({ unselectMode }) {
 			<LocalGameStartCard>
 				<BackButtonContainer>
 					<BackButton onClick={unselectMode}>
-						<RightArrowIcon src={theme.images.backArrow} />
+						<LeftArrowIcon src={theme.images.backArrow} />
 						Back
 					</BackButton>
 				</BackButtonContainer>
-				<StartingMarkSelectionContainer>
+				<LocalStartingMarkSelectionContainer>
 					{selectedMarkState === 'X' ? (
-						<SelectedMarkImage src={theme.images.blueXIcon} alt='' size={1} />
+						<LocalSelectedMarkImage src={theme.images.colorfulXIcon} alt='' size={1} />
 					) : (
-						<MarkImage src={theme.images.colorlessXIcon} alt='' size={1} onClick={() => setSelectedMarkState('X')} />
+						<LocalMarkImage src={theme.images.colorlessXIcon} alt='' size={1} onClick={() => setSelectedMarkState('X')} />
 					)}
-					{selectedMarkState === '?' ? <SelectedRandomMark /> : <RandomMark onClick={() => setSelectedMarkState('?')} />}
+					{selectedMarkState === '?' ? (
+						<LocalSelectedRandomMark />
+					) : (
+						<LocalRandomMark onClick={() => setSelectedMarkState('?')} />
+					)}
 					{selectedMarkState === 'O' ? (
-						<SelectedMarkImage src={theme.images.colorfulOIcon} alt='' size={1.1} />
+						<LocalSelectedMarkImage src={theme.images.orangeOIcon} alt='' size={1.1} />
 					) : (
-						<MarkImage src={theme.images.colorlessOIcon} alt='' size={1.1} onClick={() => setSelectedMarkState('O')} />
+						<LocalMarkImage src={theme.images.colorlessOIcon} alt='' size={1.1} onClick={() => setSelectedMarkState('O')} />
 					)}
-				</StartingMarkSelectionContainer>
+				</LocalStartingMarkSelectionContainer>
 				<LocalStartButton />
 			</LocalGameStartCard>
 		</ModalBG>
