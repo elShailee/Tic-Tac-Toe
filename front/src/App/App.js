@@ -8,7 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from 'theme';
 
 function App() {
-	const [themeState, setThemeState] = useState('dark');
+	const [themeState, setThemeState] = useState('light');
 	const [gameState, setGameState] = useState({});
 
 	const getCurrentTheme = () => {

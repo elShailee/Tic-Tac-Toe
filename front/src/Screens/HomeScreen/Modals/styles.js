@@ -28,6 +28,7 @@ export const SelectLocalModeButton = styled(GeneralCard)`
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.localCardHover};
 	}
+	cursor: pointer;
 	margin-right: ${({ theme }) => theme.calcSizeUnits(1)};
 `;
 export const SelectOnlineModeButton = styled(GeneralCard)`
@@ -35,6 +36,7 @@ export const SelectOnlineModeButton = styled(GeneralCard)`
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.onlineCardHover};
 	}
+	cursor: pointer; ;
 `;
 
 export const LocalIcon = styled.img`
@@ -104,4 +106,78 @@ export const LocalStartButton = styled.div`
 `;
 LocalStartButton.defaultProps = {
 	children: 'Start!',
+};
+
+export const StartingMarkSelectionContainer = styled.div`
+	${({ theme }) => theme.customStyles.centerItems}/* flex-direction:row; */
+`;
+
+export const MarkImage = styled.img`
+	width: ${({ theme, size }) => theme.calcSizeUnits(size)};
+	height: ${({ theme, size }) => theme.calcSizeUnits(size)};
+	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
+	padding: ${({ theme }) => theme.sizes.padding.M};
+	margin: ${({ theme }) => theme.sizes.padding.XS};
+	${({ theme }) => theme.customStyles.highlighted}
+	${({ theme }) => theme.customStyles.nonSelectable}
+	cursor: pointer;
+
+	&:hover {
+		background-color: ${({ theme }) => theme.colors.shadow};
+	}
+`;
+
+export const RandomMark = styled.div`
+	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
+	padding: ${({ theme }) => theme.sizes.padding.M};
+	height: ${({ theme }) => theme.calcSizeUnits(1)};
+	width: ${({ theme }) => theme.calcSizeUnits(0.6)};
+	margin: ${({ theme }) => theme.sizes.padding.XS};
+	margin-right: ${({ theme }) => theme.sizes.padding.XXS};
+	${({ theme }) => theme.customStyles.highlighted}
+	${({ theme }) => theme.customStyles.nonSelectable}
+	${({ theme }) => theme.customStyles.centerItems}
+	font-size: ${({ theme }) => theme.calcSizeUnits(1.5)};
+	font-family: 'Crete Round', serif;
+	color: ${({ theme }) => theme.colors.modalsText};
+	cursor: pointer;
+
+	&:hover {
+		background-color: ${({ theme }) => theme.colors.shadow};
+	}
+`;
+RandomMark.defaultProps = {
+	children: '?',
+};
+
+export const SelectedMarkImage = styled.img`
+	width: ${({ theme, size }) => theme.calcSizeUnits(size)};
+	height: ${({ theme, size }) => theme.calcSizeUnits(size)};
+	background-color: ${({ theme }) => theme.colors.modalsText};
+	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
+	padding: ${({ theme }) => theme.sizes.padding.M};
+	margin: ${({ theme }) => theme.sizes.padding.XS};
+	${({ theme }) => theme.customStyles.highlighted}
+	${({ theme }) => theme.customStyles.nonSelectable}
+	cursor: pointer;
+`;
+
+export const SelectedRandomMark = styled.div`
+	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
+	padding: ${({ theme }) => theme.sizes.padding.M};
+	height: ${({ theme }) => theme.calcSizeUnits(1)};
+	width: ${({ theme }) => theme.calcSizeUnits(0.6)};
+	margin: ${({ theme }) => theme.sizes.padding.XS};
+	margin-right: ${({ theme }) => theme.sizes.padding.XXS};
+	${({ theme }) => theme.customStyles.highlighted}
+	${({ theme }) => theme.customStyles.nonSelectable}
+${({ theme }) => theme.customStyles.centerItems}
+font-size: ${({ theme }) => theme.calcSizeUnits(1.5)};
+	font-family: 'Crete Round', serif;
+	color: ${({ theme }) => theme.colors.localCard};
+	background-color: ${({ theme }) => theme.colors.modalsText};
+	cursor: pointer;
+`;
+SelectedRandomMark.defaultProps = {
+	children: '?',
 };

@@ -26,6 +26,7 @@ const sharedTheme = {
 			M: calcSizeUnits(0.25),
 			S: calcSizeUnits(0.15),
 			XS: calcSizeUnits(0.09),
+			XXS: calcSizeUnits(0.04),
 		},
 		text: {
 			XXXL: calcSizeUnits(2),
@@ -72,7 +73,7 @@ const sharedTheme = {
 			cursor: pointer;
 		`,
 		borderShading: _theme => `
-			border: ${_theme.sizes.border.L} solid ${_theme.colors.shading.border};
+			border: ${_theme.sizes.border.L} solid ${_theme.colors.shadow};
 		`,
 		noBorderShading: `
 			border-color: ${palette.transparent};
@@ -80,9 +81,7 @@ const sharedTheme = {
 	},
 	colors: {
 		transparent: palette.transparent,
-		shading: {
-			border: palette.black[103],
-		},
+		shadow: palette.black[103],
 	},
 };
 
@@ -109,6 +108,12 @@ export const darkTheme = {
 		localIcon: assetsLib.darkLocalIcon,
 		onlineIcon: assetsLib.darkOnlineIcon,
 		backArrow: assetsLib.darkBackArrowIcon,
+		colorfulOIcon: assetsLib.darkColorfulOIcon,
+		colorlessOIcon: assetsLib.darkColorlessOIcon,
+		colorfulXIcon: assetsLib.darkColorfulXIcon,
+		colorlessXIcon: assetsLib.darkColorlessXIcon,
+		blueXIcon: assetsLib.darkBlueXIcon,
+		orangeOIcon: assetsLib.darkOrangeOIcon,
 	},
 };
 
@@ -136,5 +141,11 @@ export const lightTheme = {
 		localIcon: assetsLib.lightLocalIcon,
 		onlineIcon: assetsLib.lightOnlineIcon,
 		backArrow: assetsLib.lightBackArrowIcon,
+		colorfulOIcon: assetsLib.lightColorfulOIcon,
+		colorlessOIcon: assetsLib.lightColorlessOIcon,
+		colorfulXIcon: assetsLib.lightColorfulXIcon,
+		colorlessXIcon: assetsLib.lightColorlessXIcon,
+		blueXIcon: assetsLib.lightBlueXIcon,
+		orangeOIcon: assetsLib.lightOrangeOIcon,
 	},
 };
