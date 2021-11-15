@@ -1,4 +1,5 @@
 import React from 'react';
+import LocalGameStartModal from './Modals/LocalGameStartModal';
 import ModeSelectionModal from './Modals/ModeSelectionModal';
 // import StartLocalGame from './StartLocalGame';
 // import LoadLocalGame from './LoadLocalGame';
@@ -9,7 +10,8 @@ import { HomeScreenContainer } from './styles';
 export default function HomeScreen({ setGameState }) {
 	return (
 		<HomeScreenContainer>
-			<ModeSelectionModal />
+			{/* <ModeSelectionModal /> */}
+			<LocalGameStartModal />
 			{/* <h1>Tic Tac Toe</h1>
 			<GameCreationSegment>
 				<StartLocalGame setGameState={setGameState} />

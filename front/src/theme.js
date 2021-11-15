@@ -108,6 +108,7 @@ export const darkTheme = {
 		},
 		localIcon: assetsLib.darkLocalIcon,
 		onlineIcon: assetsLib.darkOnlineIcon,
+		backArrow: assetsLib.darkBackArrowIcon,
 	},
 };
 
@@ -134,5 +135,6 @@ export const lightTheme = {
 		},
 		localIcon: assetsLib.lightLocalIcon,
 		onlineIcon: assetsLib.lightOnlineIcon,
+		backArrow: assetsLib.lightBackArrowIcon,
 	},
 };

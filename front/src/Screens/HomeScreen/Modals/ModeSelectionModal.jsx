@@ -5,8 +5,8 @@ import {
 	SelectOnlineModeButton,
 	OnlineIcon,
 	LocalIcon,
-	CardHeader,
-	CardText,
+	ModeSelectionCardHeader,
+	ModeSelectionCardText,
 } from './styles';
 import { useTheme } from 'styled-components';
 
@@ -15,14 +15,14 @@ export default function ModeSelectionModal() {
 	return (
 		<ModalBG>
 			<SelectLocalModeButton>
-				<CardHeader>Local</CardHeader>
+				<ModeSelectionCardHeader>Local</ModeSelectionCardHeader>
 				<LocalIcon src={theme.images.localIcon} alt='' />
-				<CardText>(play on this device)</CardText>
+				<ModeSelectionCardText>(play on this device)</ModeSelectionCardText>
 			</SelectLocalModeButton>
 			<SelectOnlineModeButton>
-				<CardHeader>Online</CardHeader>
+				<ModeSelectionCardHeader>Online</ModeSelectionCardHeader>
 				<OnlineIcon src={theme.images.onlineIcon} alt='' />
-				<CardText>(send link to a friend)</CardText>
+				<ModeSelectionCardText>(send link to a friend)</ModeSelectionCardText>
 			</SelectOnlineModeButton>
 		</ModalBG>
 	);
