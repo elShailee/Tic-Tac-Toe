@@ -29,7 +29,7 @@ export default function LocalGameStartModal({ unselectMode }) {
 				</BackButtonContainer>
 				<LocalStartingMarkSelectionContainer>
 					{selectedMarkState === 'X' ? (
-						<LocalSelectedMarkImage src={theme.images.colorfulXIcon} alt='' size={1} />
+						<LocalSelectedMarkImage src={theme.images.blueXIcon} alt='' size={1} />
 					) : (
 						<LocalMarkImage src={theme.images.colorlessXIcon} alt='' size={1} onClick={() => setSelectedMarkState('X')} />
 					)}
@@ -39,7 +39,7 @@ export default function LocalGameStartModal({ unselectMode }) {
 						<LocalRandomMark onClick={() => setSelectedMarkState('?')} />
 					)}
 					{selectedMarkState === 'O' ? (
-						<LocalSelectedMarkImage src={theme.images.orangeOIcon} alt='' size={1.1} />
+						<LocalSelectedMarkImage src={theme.images.colorfulOIcon} alt='' size={1.1} />
 					) : (
 						<LocalMarkImage src={theme.images.colorlessOIcon} alt='' size={1.1} onClick={() => setSelectedMarkState('O')} />
 					)}

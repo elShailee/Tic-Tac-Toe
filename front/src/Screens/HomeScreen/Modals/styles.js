@@ -24,17 +24,17 @@ const GeneralCard = styled.div`
 `;
 
 export const SelectLocalModeButton = styled(GeneralCard)`
-	background-color: ${({ theme }) => theme.colors.localCard};
+	background-color: ${({ theme }) => theme.colors.localCardHover};
 	&:hover {
-		background-color: ${({ theme }) => theme.colors.localCardHover};
+		background-color: ${({ theme }) => theme.colors.localCard};
 	}
 	cursor: pointer;
 	margin-right: ${({ theme }) => theme.calcSizeUnits(1)};
 `;
 export const SelectOnlineModeButton = styled(GeneralCard)`
-	background-color: ${({ theme }) => theme.colors.onlineCard};
+	background-color: ${({ theme }) => theme.colors.onlineCardHover};
 	&:hover {
-		background-color: ${({ theme }) => theme.colors.onlineCardHover};
+		background-color: ${({ theme }) => theme.colors.onlineCard};
 	}
 	cursor: pointer; ;
 `;
@@ -86,6 +86,7 @@ export const BackButton = styled.div`
 	font-family: 'Crete Round', serif;
 	margin-top: ${({ theme }) => theme.calcSizeUnits(0.3)};
 	margin-left: ${({ theme }) => theme.calcSizeUnits(0.2)};
+	letter-spacing: ${({ theme }) => theme.calcSizeUnits(0.015)};
 
 	${({ theme }) => theme.customStyles.highlighted}
 	cursor: pointer;
@@ -109,6 +110,9 @@ export const LocalStartButton = styled.div`
 	margin-bottom: ${({ theme }) => theme.calcSizeUnits(1.3)};
 	${({ theme }) => theme.customStyles.highlighted}
 	cursor: pointer;
+	letter-spacing: ${({ theme }) => theme.calcSizeUnits(0.02)};
+	padding-right: ${({ theme }) => theme.calcSizeUnits(0.1)};
+	box-sizing: border-box;
 `;
 LocalStartButton.defaultProps = {
 	children: 'Start!',
@@ -180,7 +184,7 @@ export const LocalSelectedRandomMark = styled.div`
 ${({ theme }) => theme.customStyles.centerItems}
 font-size: ${({ theme }) => theme.calcSizeUnits(1.5)};
 	font-family: 'Crete Round', serif;
-	color: ${({ theme }) => theme.colors.onlineCardHover};
+	color: ${({ theme }) => theme.colors.localCard};
 	background-color: ${({ theme }) => theme.colors.modalsText};
 	cursor: pointer;
 `;
@@ -201,6 +205,9 @@ export const OnlineStartButton = styled.div`
 	margin-bottom: ${({ theme }) => theme.calcSizeUnits(1.3)};
 	${({ theme }) => theme.customStyles.highlighted}
 	cursor: pointer;
+	letter-spacing: ${({ theme }) => theme.calcSizeUnits(0.02)};
+	padding-right: ${({ theme }) => theme.calcSizeUnits(0.1)};
+	box-sizing: border-box;
 `;
 OnlineStartButton.defaultProps = {
 	children: 'Start!',
@@ -272,7 +279,7 @@ export const OnlineSelectedRandomMark = styled.div`
 ${({ theme }) => theme.customStyles.centerItems}
 font-size: ${({ theme }) => theme.calcSizeUnits(0.7)};
 	font-family: 'Crete Round', serif;
-	color: ${({ theme }) => theme.colors.localCardHover};
+	color: ${({ theme }) => theme.colors.onlineCard};
 	background-color: ${({ theme }) => theme.colors.modalsText};
 	cursor: pointer;
 `;
@@ -301,18 +308,17 @@ export const OnlineNicknameInputContainer = styled.div`
 
 export const NicknameInputBox = styled.input`
 	width: ${({ theme }) => theme.calcSizeUnits(3)};
-	/* height: ${({ theme }) => theme.calcSizeUnits(0.5)}; */
 	background-color: ${({ theme }) => theme.colors.modalsText};
 	margin-left: ${({ theme }) => theme.calcSizeUnits(0.1)};
 	border: 0px;
 	border-radius: ${({ theme }) => theme.sizes.borderRadius.S};
 	font-size: ${({ theme }) => theme.sizes.text.M};
 	font-family: 'Crete Round', serif;
-	color: ${({ theme }) => theme.colors.onlineCardHover};
+	color: ${({ theme }) => theme.colors.onlineCard};
 	padding: ${({ theme }) => theme.calcSizeUnits(0.1)};
 	box-sizing: border-box;
 	outline: none;
-	letter-spacing: ${({ theme }) => theme.calcSizeUnits(0.01)};
+	letter-spacing: ${({ theme }) => theme.calcSizeUnits(0.007)};
 	&::selection {
 		color: ${({ theme }) => theme.colors.modalsText};
 		background-color: ${({ theme }) => theme.colors.onlineCardHover};

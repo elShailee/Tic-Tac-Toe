@@ -44,7 +44,7 @@ export default function OnlineGameStartModal({ unselectMode }) {
 						<div>
 							<OnlineStartingMarkSelectionContainer>
 								{selectedMarkState === 'X' ? (
-									<OnlineSelectedMarkImage src={theme.images.blueXIcon} alt='' size={0.5} />
+									<OnlineSelectedMarkImage src={theme.images.colorfulXIcon} alt='' size={0.5} />
 								) : (
 									<OnlineMarkImage
 										src={theme.images.colorlessXIcon}
@@ -59,7 +59,7 @@ export default function OnlineGameStartModal({ unselectMode }) {
 									<OnlineRandomMark onClick={() => setSelectedMarkState('?')} />
 								)}
 								{selectedMarkState === 'O' ? (
-									<OnlineSelectedMarkImage src={theme.images.colorfulOIcon} alt='' size={0.55} />
+									<OnlineSelectedMarkImage src={theme.images.orangeOIcon} alt='' size={0.55} />
 								) : (
 									<OnlineMarkImage
 										src={theme.images.colorlessOIcon}
