@@ -37,7 +37,8 @@ export const PlayerOneNameContainer = styled.div`
 	height: ${({ theme }) => theme.calcSizeUnits(0.6)};
 	margin-top: ${({ theme }) => theme.calcSizeUnits(0.6)};
 	${({ theme }) => theme.customStyles.centerItems}
-	background: linear-gradient(90deg, ${({ theme }) => theme.colors.playerOneText} 0%, rgba(0, 0, 0, 0) 75%);
+	background: linear-gradient(90deg, ${({ theme }) => theme.colors.playerOneBG} 0%, rgba(0, 0, 0, 0) 75%);
+	${({ shouldShowBG }) => (shouldShowBG ? '' : 'background: none;')}
 `;
 export const PlayerOneName = styled.div`
 	height: 29%;
@@ -82,7 +83,8 @@ export const PlayerTwoNameContainer = styled.div`
 	height: ${({ theme }) => theme.calcSizeUnits(0.6)};
 	margin-top: ${({ theme }) => theme.calcSizeUnits(0.6)};
 	${({ theme }) => theme.customStyles.centerItems}
-	background: linear-gradient(90deg, rgba(0, 0, 0, 0) 25%, ${({ theme }) => theme.colors.playerTwoText} 100%);
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0) 25%, ${({ theme }) => theme.colors.playerTwoBG} 100%);
+	${({ shouldShowBG }) => (shouldShowBG ? '' : 'background: none;')}
 `;
 export const PlayerTwoName = styled.div`
 	height: 29%;
