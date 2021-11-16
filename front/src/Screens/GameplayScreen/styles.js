@@ -66,7 +66,7 @@ export const GameBoardContainer = styled.div`
 	overflow: hidden;
 `;
 
-export const Tile = styled.div`
+export const TileContainer = styled.div`
 	width: 100%;
 	height: 100%;
 	background-color: ${({ theme }) => theme.colors.bg};

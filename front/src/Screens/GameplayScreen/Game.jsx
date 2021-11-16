@@ -8,6 +8,8 @@ import HomeScreen from 'Screens/HomeScreen/HomeScreen';
 // import PlayersScores from './PlayersScores';
 
 export default function Game({ gameState, setGameState }) {
+	const isJoining =
+		gameState?.gameMode === 'remote' && gameState?.playerOne && !gameState?.playerTwo && !gameState?.userPlayer;
 	// useEffect(() => {
 	// 	const refreshRemote = async () => {
 	// 		if (gameState.gameMode === 'remote') {
@@ -39,12 +41,13 @@ export default function Game({ gameState, setGameState }) {
 	return (
 		<GameContainer>
 			<TitleContainer>Tic Tac Toe</TitleContainer>
-			<PlayerOneStats />
-			<GameBoard />
-			<PlayerTwoStats />
+			{gameState?.gameId && !isJoining && <PlayerOneStats />}
+			{gameState?.gameId && !isJoining && <GameBoard />}
+			{gameState?.gameId && !isJoining && <PlayerTwoStats />}
+
 			<AboutContainer />
 			<SettingsContainer />
-			<HomeScreen />
+			<HomeScreen gameState={gameState} setGameState={setGameState} isJoining={isJoining} />
 			{/* <GameGrid gameState={gameState} setGameState={setGameState} />
 			<DataUtilsContainer>
 				{'Player Turn: ' + gameState.turnState}

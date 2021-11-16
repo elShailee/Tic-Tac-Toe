@@ -1,5 +1,6 @@
 import React from 'react';
-import { GameBoardContainer, Tile /*, GridContainer, GridRowContainer*/ } from './styles';
+import { GameBoardContainer /*, Tile , GridContainer, GridRowContainer*/ } from './styles';
+import Tile from './Tile';
 // import Tile from './Tile';
 
 export default function GameBoard({ gameState, setGameState }) {
@@ -24,15 +25,15 @@ export default function GameBoard({ gameState, setGameState }) {
 
 	return (
 		<GameBoardContainer>
-			<Tile />
-			<Tile />
-			<Tile />
-			<Tile />
-			<Tile />
-			<Tile />
-			<Tile />
-			<Tile />
-			<Tile />
+			<Tile gameState={gameState} setGameState={setGameState} row={0} col={0} />
+			<Tile gameState={gameState} setGameState={setGameState} row={0} col={1} />
+			<Tile gameState={gameState} setGameState={setGameState} row={0} col={2} />
+			<Tile gameState={gameState} setGameState={setGameState} row={1} col={0} />
+			<Tile gameState={gameState} setGameState={setGameState} row={1} col={1} />
+			<Tile gameState={gameState} setGameState={setGameState} row={1} col={2} />
+			<Tile gameState={gameState} setGameState={setGameState} row={2} col={0} />
+			<Tile gameState={gameState} setGameState={setGameState} row={2} col={1} />
+			<Tile gameState={gameState} setGameState={setGameState} row={2} col={2} />
 		</GameBoardContainer>
 	);
 }

@@ -6,7 +6,6 @@ export const AppContainer = styled.div`
 	height: 100vh;
 	background: url(${({ theme }) => theme.images.BG.appBG});
 	overflow: hidden;
-	${({ theme }) => theme.customStyles.centerItems}
 `;
 
 const gameSize = 'min(100vh, 100vw)';
