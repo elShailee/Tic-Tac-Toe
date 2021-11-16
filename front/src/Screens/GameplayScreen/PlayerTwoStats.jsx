@@ -3,12 +3,14 @@ import { PlayerTwoStatsContainer, PlayerTwoNameContainer, PlayerTwoName, PlayerT
 
 export default function PlayerTwoStats({ gameState }) {
 	const isThisPlayerTurn = gameState.turnState === 'X' && !gameState.winState;
+	const isThisPlayerWinner = gameState.winState === 'X';
 
 	return (
 		<PlayerTwoStatsContainer>
 			<PlayerTwoNameContainer shouldShowBG={isThisPlayerTurn} />
 			<PlayerTwoName>John Blow</PlayerTwoName>
 			<PlayerTwoScore>2</PlayerTwoScore>
+			{isThisPlayerWinner && 'Winner!'}
 		</PlayerTwoStatsContainer>
 	);
 }
