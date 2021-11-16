@@ -370,3 +370,8 @@ export const StartingPlayerSelection = styled.div`
 	}
 	cursor: pointer;
 `;
+
+export const OnlineJoinButton = styled(OnlineStartButton)``;
+OnlineJoinButton.defaultProps = {
+	children: 'Join!',
+};
