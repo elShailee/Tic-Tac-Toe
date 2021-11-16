@@ -3,10 +3,6 @@ import LocalGameStartModal from './Modals/LocalGameStartModal';
 import ModeSelectionModal from './Modals/ModeSelectionModal';
 import OnlineGameJoinModal from './Modals/OnlineGameJoinModal';
 import OnlineGameStartModal from './Modals/OnlineGameStartModal';
-// import StartLocalGame from './StartLocalGame';
-// import LoadLocalGame from './LoadLocalGame';
-// import StartRemoteGame from './StartRemoteGame';
-// import JoinRemoteGame from './JoinRemoteGame';
 import { HomeScreenContainer } from './styles';
 
 export default function HomeScreen({ gameState, setGameState, isJoining }) {
@@ -23,7 +19,7 @@ export default function HomeScreen({ gameState, setGameState, isJoining }) {
 			<HomeScreenContainer>
 				{modeState === 'select' && <ModeSelectionModal selectLocal={selectLocal} selectOnline={selectOnline} />}
 				{modeState === 'local' && <LocalGameStartModal unselectMode={unselectMode} setGameState={setGameState} />}
-				{modeState === 'online' && <OnlineGameStartModal unselectMode={unselectMode} />}
+				{modeState === 'online' && <OnlineGameStartModal unselectMode={unselectMode} setGameState={setGameState} />}
 			</HomeScreenContainer>
 		);
 	else if (isJoining) {
@@ -33,16 +29,4 @@ export default function HomeScreen({ gameState, setGameState, isJoining }) {
 			</HomeScreenContainer>
 		);
 	} else return null;
-	/* <h1>Tic Tac Toe</h1>
-			<GameCreationSegment>
-				<StartLocalGame setGameState={setGameState} />
-				<VerticalDivider />
-				<StartRemoteGame setGameState={setGameState} />
-			</GameCreationSegment>
-			<RowsDivider />
-			<GameCreationSegment>
-				<LoadLocalGame setGameState={setGameState} />
-				<VerticalDivider />
-				<JoinRemoteGame setGameState={setGameState} />
-			</GameCreationSegment> */
 }

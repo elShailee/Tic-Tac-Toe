@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useTheme } from 'styled-components';
+import apiCallsHandler from 'Utils/axiosFuncs';
+import { getOppositeMark, randomizeMark } from 'Utils/gameUtils';
 import {
 	OnlineGameStartCard,
 	ModalBG,
@@ -22,11 +24,35 @@ import {
 	StartingPlayerSelection,
 } from './styles';
 
-export default function OnlineGameStartModal({ unselectMode }) {
+export default function OnlineGameStartModal({ unselectMode, setGameState }) {
 	const theme = useTheme();
 	const [selectedMarkState, setSelectedMarkState] = useState('?');
 	const [startingPlayerState, setStartingPlayerState] = useState('?');
+	const [nicknameState, setNicknameState] = useState('');
 	const [showMoreState, setShowMoreState] = useState(false);
+
+	const createRemoteGame = async () => {
+		if (nicknameState?.length >= 3) {
+			const userMark = selectedMarkState !== '?' ? selectedMarkState : randomizeMark();
+			const actualStartingPlayer = startingPlayerState !== '?' ? startingPlayerState : randomizeStartingPlayer();
+			const startingMark = actualStartingPlayer === 'you' ? userMark : getOppositeMark(userMark);
+
+			const newGameState = await apiCallsHandler.createRemote({
+				startingPlayer: startingMark,
+				gameMode: 'remote',
+				userPlayer: { nickname: nicknameState, mark: userMark, winCount: 0 },
+			});
+			newGameState && setGameState(newGameState);
+		} else {
+			setNicknameState(false);
+		}
+	};
+
+	const randomizeStartingPlayer = () => {
+		const num = Math.random();
+		return num < 0.5 ? 'opponent' : 'you';
+	};
+
 	return (
 		<ModalBG>
 			<OnlineGameStartCard>
@@ -39,7 +65,7 @@ export default function OnlineGameStartModal({ unselectMode }) {
 				<OnlineInputsContainer>
 					<OnlineNicknameInputContainer>
 						Nickname
-						<NicknameInputBox />
+						<NicknameInputBox onChange={e => setNicknameState(e.target.value)} />
 					</OnlineNicknameInputContainer>
 					<ShowMoreContainer onClick={() => setShowMoreState(!showMoreState)}>
 						{showMoreState ? '- show less' : '+ show more'}
@@ -89,8 +115,8 @@ export default function OnlineGameStartModal({ unselectMode }) {
 									Opponent
 								</StartingPlayerSelection>
 								<StartingPlayerSelection
-									isSelected={startingPlayerState === 'random'}
-									onClick={() => setStartingPlayerState('random')}
+									isSelected={startingPlayerState === '?'}
+									onClick={() => setStartingPlayerState('?')}
 								>
 									?
 								</StartingPlayerSelection>
@@ -98,7 +124,7 @@ export default function OnlineGameStartModal({ unselectMode }) {
 						</div>
 					)}
 				</OnlineInputsContainer>
-				<OnlineStartButton />
+				<OnlineStartButton onClick={createRemoteGame} />
 			</OnlineGameStartCard>
 		</ModalBG>
 	);

@@ -8,7 +8,7 @@ import { darkTheme, lightTheme } from 'theme';
 
 function App() {
 	const [themeState, setThemeState] = useState('light');
-	const [gameState, setGameState] = useState({ gameId: 'asd', gameMode: 'remote', playerOne: true });
+	const [gameState, setGameState] = useState({});
 
 	const getCurrentTheme = () => {
 		if (themeState === 'light') {
