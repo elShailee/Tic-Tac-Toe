@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useTheme } from 'styled-components';
+import apiCallsHandler from 'Utils/axiosFuncs';
+import { randomizeMark } from 'Utils/gameUtils';
 import {
 	LocalGameStartCard,
 	ModalBG,
@@ -14,9 +16,20 @@ import {
 	LocalSelectedRandomMark,
 } from './styles';
 
-export default function LocalGameStartModal({ unselectMode }) {
+export default function LocalGameStartModal({ unselectMode, setGameState }) {
 	const theme = useTheme();
 	const [selectedMarkState, setSelectedMarkState] = useState('?');
+
+	const createLocalGame = async () => {
+		const startingPlayer = selectedMarkState !== '?' ? selectedMarkState : randomizeMark();
+		const newGameState = await apiCallsHandler.createLocal({
+			startingPlayer,
+			gameMode: 'local',
+			playerOne: { nickname: 'Player1', winCount: 0 },
+			playerTwo: { nickname: 'Player2', winCount: 0 },
+		});
+		newGameState && setGameState(newGameState);
+	};
 
 	return (
 		<ModalBG>
@@ -44,7 +57,7 @@ export default function LocalGameStartModal({ unselectMode }) {
 						<LocalMarkImage src={theme.images.colorlessOIcon} alt='' size={1.1} onClick={() => setSelectedMarkState('O')} />
 					)}
 				</LocalStartingMarkSelectionContainer>
-				<LocalStartButton />
+				<LocalStartButton onClick={createLocalGame} />
 			</LocalGameStartCard>
 		</ModalBG>
 	);

@@ -10,10 +10,10 @@ export default function Tile({ gameState, setGameState, row, col }) {
 	const cellValue = gameState.boardState[row][col];
 	let cellMark;
 	if (cellValue === 'X') {
-		cellMark = theme.images.colorfulXIcon;
+		cellMark = <img src={theme.images.colorfulXIcon} alt='X' />;
 	}
 	if (cellValue === 'O') {
-		cellMark = theme.images.colorfulOIcon;
+		cellMark = <img src={theme.images.colorfulOIcon} alt='O' />;
 	}
 
 	let onPlayerClick = async () => {

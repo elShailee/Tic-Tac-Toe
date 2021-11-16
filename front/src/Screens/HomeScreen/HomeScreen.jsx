@@ -22,7 +22,7 @@ export default function HomeScreen({ gameState, setGameState, isJoining }) {
 		return (
 			<HomeScreenContainer>
 				{modeState === 'select' && <ModeSelectionModal selectLocal={selectLocal} selectOnline={selectOnline} />}
-				{modeState === 'local' && <LocalGameStartModal unselectMode={unselectMode} />}
+				{modeState === 'local' && <LocalGameStartModal unselectMode={unselectMode} setGameState={setGameState} />}
 				{modeState === 'online' && <OnlineGameStartModal unselectMode={unselectMode} />}
 			</HomeScreenContainer>
 		);

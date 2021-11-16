@@ -25,3 +25,8 @@ export const getGameWinner = boardState => {
 export const getOppositeMark = mark => {
 	return mark === 'X' ? 'O' : 'X';
 };
+
+export const randomizeMark = () => {
+	const num = Math.random();
+	return num < 0.5 ? 'X' : 'O';
+};
