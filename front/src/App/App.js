@@ -3,7 +3,6 @@ import { AppContainer, GameContainer, RightShadow, LeftShadow, TopShadow, BotSha
 import Game from 'Screens/GameplayScreen/Game';
 import { enviroment } from 'envSelector';
 import DevelopemetToolbar from './DevelopementToolbar';
-// import GameplayScreen from 'Screens/GameplayScreen/GameplayScreen';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from 'theme';
 
@@ -43,11 +42,6 @@ function App() {
 				{enviroment === 'developement' && (
 					<DevelopemetToolbar gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
 				)}
-				{/*{gameState.gameId ? (
-					<GameplayScreen gameState={gameState} setGameState={setGameState} />
-				) : (
-					<HomeScreen setGameState={setGameState} />
-				)} */}
 			</AppContainer>
 		</ThemeProvider>
 	);

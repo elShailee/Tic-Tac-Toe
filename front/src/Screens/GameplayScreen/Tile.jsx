@@ -1,33 +1,43 @@
 import React from 'react';
+import { useTheme } from 'styled-components';
 import { TileContainer } from './styles';
-// import apiCallsHandler from 'Utils/axiosFuncs';
-// import { getGameWinner, getOppositeMark } from 'Utils/gameUtils';
+import apiCallsHandler from 'Utils/axiosFuncs';
+import { getGameWinner, getOppositeMark } from 'Utils/gameUtils';
 
 export default function Tile({ gameState, setGameState, row, col }) {
-	// const cellValue = gameState.boardState[row][col];
+	const theme = useTheme();
 
-	// let onPlayerClick = async () => {
-	// 	if (!cellValue && !gameState.winState) {
-	// 		if (
-	// 			gameState.gameMode === 'local' ||
-	// 			(gameState.gameMode === 'remote' && gameState.turnState === gameState.userPlayer.mark)
-	// 		) {
-	// 			const gameStateAfterMove = gameState;
-	// 			gameStateAfterMove.boardState[row][col] = gameState.turnState;
-	// 			gameStateAfterMove.turnState = getOppositeMark(gameState.turnState);
-	// 			gameStateAfterMove.winState = getGameWinner(gameStateAfterMove.boardState);
+	const cellValue = gameState.boardState[row][col];
+	let cellMark;
+	if (cellValue === 'X') {
+		cellMark = theme.images.colorfulXIcon;
+	}
+	if (cellValue === 'O') {
+		cellMark = theme.images.colorfulOIcon;
+	}
 
-	// 			let newGameState = null;
-	// 			if (gameState.gameMode === 'local') {
-	// 				newGameState = await apiCallsHandler.moveLocal(gameStateAfterMove);
-	// 			}
-	// 			if (gameState.gameMode === 'remote') {
-	// 				newGameState = await apiCallsHandler.moveRemote(gameStateAfterMove);
-	// 			}
+	let onPlayerClick = async () => {
+		if (!cellValue && !gameState.winState) {
+			if (
+				gameState.gameMode === 'local' ||
+				(gameState.gameMode === 'remote' && gameState.turnState === gameState.userPlayer.mark)
+			) {
+				const gameStateAfterMove = gameState;
+				gameStateAfterMove.boardState[row][col] = gameState.turnState;
+				gameStateAfterMove.turnState = getOppositeMark(gameState.turnState);
+				gameStateAfterMove.winState = getGameWinner(gameStateAfterMove.boardState);
 
-	// 			newGameState && setGameState(newGameState);
-	// 		}
-	// 	}
-	// };
-	return <TileContainer /*onClick={onPlayerClick}*/>{/*cellValue*/}</TileContainer>;
+				let newGameState = null;
+				if (gameState.gameMode === 'local') {
+					newGameState = await apiCallsHandler.moveLocal(gameStateAfterMove);
+				}
+				if (gameState.gameMode === 'remote') {
+					newGameState = await apiCallsHandler.moveRemote(gameStateAfterMove);
+				}
+
+				newGameState && setGameState(newGameState);
+			}
+		}
+	};
+	return <TileContainer onClick={onPlayerClick}>{cellMark}</TileContainer>;
 }
