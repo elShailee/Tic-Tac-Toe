@@ -297,7 +297,6 @@ export const ShowMoreContainer = styled.div`
 	margin-bottom: ${({ theme }) => theme.calcSizeUnits(0.2)};
 `;
 
-export const OnlineStartingPlayerSelectionContainer = styled.div``;
 export const OnlineNicknameInputContainer = styled.div`
 	color: ${({ theme }) => theme.colors.modalsText};
 	${({ theme }) => theme.customStyles.centerItems}
@@ -336,4 +335,38 @@ NicknameInputBox.defaultProps = {
 export const OnlineInputsContainer = styled.div`
 	${({ theme }) => theme.customStyles.centerItems}
 	flex-direction:column;
+`;
+
+export const OnlineStartingPlayerSelectionContainer = styled.div`
+	color: ${({ theme }) => theme.colors.modalsText};
+	font-family: 'Crete Round', serif;
+	font-size: ${({ theme }) => theme.sizes.text.M};
+	${({ theme }) => theme.customStyles.centerItems}
+`;
+
+export const StartingPlayerText = styled.div`
+	width: ${({ theme }) => theme.calcSizeUnits(1.4)};
+`;
+StartingPlayerText.defaultProps = {
+	children: 'Starting Player',
+};
+
+export const BigColon = styled.div`
+	font-size: ${({ theme }) => theme.sizes.text.XL};
+`;
+BigColon.defaultProps = {
+	children: ':',
+};
+
+export const StartingPlayerSelection = styled.div`
+	padding: ${({ theme }) => theme.calcSizeUnits(0.1)};
+	background-color: ${({ theme, isSelected }) => (isSelected ? theme.colors.modalsText : '')};
+	font-size: ${({ theme }) => theme.sizes.text.L};
+	border-radius: ${({ theme }) => theme.sizes.borderRadius.M};
+	margin: ${({ theme }) => theme.calcSizeUnits(0.1)};
+	color: ${({ theme, isSelected }) => (isSelected ? theme.colors.onlineCard : theme.colors.modalsText)};
+	&:hover {
+		background-color: ${({ theme, isSelected }) => (isSelected ? '' : theme.colors.shadow)};
+	}
+	cursor: pointer;
 `;

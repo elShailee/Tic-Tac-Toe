@@ -17,11 +17,15 @@ import {
 	OnlineSelectedRandomMark,
 	ShowMoreContainer,
 	OnlineStartingPlayerSelectionContainer,
+	StartingPlayerText,
+	BigColon,
+	StartingPlayerSelection,
 } from './styles';
 
 export default function OnlineGameStartModal({ unselectMode }) {
 	const theme = useTheme();
 	const [selectedMarkState, setSelectedMarkState] = useState('?');
+	const [startingPlayerState, setStartingPlayerState] = useState('?');
 	const [showMoreState, setShowMoreState] = useState(false);
 	return (
 		<ModalBG>
@@ -69,7 +73,28 @@ export default function OnlineGameStartModal({ unselectMode }) {
 									/>
 								)}
 							</OnlineStartingMarkSelectionContainer>
-							<OnlineStartingPlayerSelectionContainer>starting player selection</OnlineStartingPlayerSelectionContainer>
+							<OnlineStartingPlayerSelectionContainer>
+								<StartingPlayerText />
+								<BigColon />
+								<StartingPlayerSelection
+									isSelected={startingPlayerState === 'you'}
+									onClick={() => setStartingPlayerState('you')}
+								>
+									You
+								</StartingPlayerSelection>
+								<StartingPlayerSelection
+									isSelected={startingPlayerState === 'opponent'}
+									onClick={() => setStartingPlayerState('opponent')}
+								>
+									Opponent
+								</StartingPlayerSelection>
+								<StartingPlayerSelection
+									isSelected={startingPlayerState === 'random'}
+									onClick={() => setStartingPlayerState('random')}
+								>
+									?
+								</StartingPlayerSelection>
+							</OnlineStartingPlayerSelectionContainer>
 						</div>
 					)}
 				</OnlineInputsContainer>
