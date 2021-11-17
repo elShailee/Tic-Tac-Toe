@@ -73,7 +73,13 @@ app.post(API.moveLocal + ':gameId', validations.moveLocal, (req, res) => {
 		games[gameId].playerTwo.winCount++;
 	}
 
-	games[gameId] = { ...games[gameId], boardState, turnState: getOppositeMark(games[gameId].turnState), winState };
+	games[gameId] = {
+		...games[gameId],
+		boardState,
+		turnState: getOppositeMark(games[gameId].turnState),
+		winState,
+		startingPlayer: winState ? getOppositeMark(games[gameId].startingPlayer) : games[gameId].startingPlayer,
+	};
 	res.status(201).send(games[gameId]);
 });
 
@@ -168,7 +174,13 @@ app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {
 
 	if (userPlayer.mark === turnState && playerTwo) {
 		games[gameId] = { ...games[gameId], boardState, turnState: getOppositeMark(turnState), winState };
-		res.status(201).send({ ...games[gameId], userPlayer });
+		res
+			.status(201)
+			.send({
+				...games[gameId],
+				userPlayer,
+				startingPlayer: winState ? getOppositeMark(games[gameId].startingPlayer) : games[gameId].startingPlayer,
+			});
 	} else if (userPlayer.mark !== turnState) {
 		res.status(202).send('cannot move out of turn.');
 	} else {
