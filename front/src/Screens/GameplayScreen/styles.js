@@ -134,11 +134,18 @@ WinnerLabel.defaultProps = {
 	children: 'Winner!',
 };
 
-export const RestartButton = styled.div`
+export const TieLabel = styled(WinnerLabel)``;
+TieLabel.defaultProps = {
+	children: 'Tie!',
+};
+
+export const RestartButton = styled.img`
 	grid-row: 1 / 4;
 	grid-column: 1 / 4;
-	background-color: blue;
-	opacity: 0.5;
+	width: ${({ theme }) => theme.calcSizeUnits(7)};
+	height: ${({ theme }) => theme.calcSizeUnits(7)};
+	margin: auto;
+	margin-left: ${({ theme }) => theme.calcSizeUnits(1.13)};
 `;
 // export const TileContainer = styled.div`
 // 	width: ${calcSizeUnits(2.5)};

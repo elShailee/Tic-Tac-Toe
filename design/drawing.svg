@@ -29,19 +29,19 @@
      showgrid="true"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-page="true"
-     inkscape:zoom="0.24675722"
-     inkscape:cx="-156.0238"
-     inkscape:cy="1246.1641"
-     inkscape:window-width="1920"
-     inkscape:window-height="1080"
+     inkscape:zoom="0.62010023"
+     inkscape:cx="533.78467"
+     inkscape:cy="799.87069"
+     inkscape:window-width="1837"
+     inkscape:window-height="1051"
      inkscape:window-x="1366"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g47101"
+     inkscape:current-layer="layer6"
      inkscape:lockguides="true"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:snap-center="false"
+     inkscape:snap-center="true"
      inkscape:snap-grids="false"
      inkscape:snap-to-guides="true"
      inkscape:snap-others="true"
@@ -60,6 +60,176 @@
      inkscape:snap-text-baseline="true" />
   <defs
      id="defs2">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect127821"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,12.037022,0,1 @ F,0,1,1,0,12.037022,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect123812"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,0,1,0,13.520697,0,1 @ F,0,1,1,0,14.606105,0,1 @ F,0,0,1,0,14.606105,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect70773"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,14.949494,0,1 @ F,0,1,1,0,14.949494,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect70769"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,1,1,0,30.673864,0,1 @ F,0,1,1,0,30.673864,0,1 @ F,0,0,1,0,16.541059,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="true"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect41226"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,59.130526,0,1 @ F,0,1,1,0,59.130526,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect40897"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,1,1,0,83.238758,0,1 @ F,0,1,1,0,83.238758,0,1 @ F,0,0,1,0,54.755288,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect16414"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,14.949494,0,1 @ F,0,1,1,0,14.949494,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect16410"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,1,1,0,30.673864,0,1 @ F,0,1,1,0,30.673864,0,1 @ F,0,0,1,0,16.541059,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="true"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect16003"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,14.949494,0,1 @ F,0,1,1,0,14.949494,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect13964"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,1,1,0,30.673864,0,1 @ F,0,1,1,0,30.673864,0,1 @ F,0,0,1,0,16.541059,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="true"
+       hide_knots="false" />
     <inkscape:path-effect
        effect="fillet_chamfer"
        id="path-effect24010"
@@ -944,9 +1114,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan85089"><tspan
+           id="tspan140475"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan85087">Tic Tac Toe</tspan></tspan></text>
+             id="tspan140473">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -960,9 +1130,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan85093"><tspan
+           id="tspan140479"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan85091">Tic Tac Toe</tspan></tspan></text>
+             id="tspan140477">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -976,9 +1146,9 @@
          transform="translate(68.208003,-25.097922)"><tspan
            x="701.52124"
            y="162.1737"
-           id="tspan85097"><tspan
+           id="tspan140483"><tspan
              style="font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact, Condensed';text-align:center;text-anchor:middle"
-             id="tspan85095">Tic Tac Toe</tspan></tspan></text>
+             id="tspan140481">Tic Tac Toe</tspan></tspan></text>
     </clipPath>
     <rect
        x="440.4793"
@@ -2281,8 +2451,7 @@
        id="g5951"
        inkscape:label="FG"
        style="display:inline;opacity:1"
-       transform="translate(0,1694.2036)"
-       sodipodi:insensitive="true">
+       transform="translate(0,1694.2036)">
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.2;stroke-linecap:round;paint-order:markers fill stroke"
          id="rect171633"
@@ -2557,7 +2726,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect5955);fill:#096eb9;fill-opacity:1;stroke:none"><tspan
              x="445.50586"
              y="311.67485"
-             id="tspan85099">Player 1</tspan></text>
+             id="tspan140485">Player 1</tspan></text>
         <rect
            style="opacity:0.6;fill:url(#linearGradient20131);fill-opacity:1;stroke:none;stroke-width:2.24105;paint-order:markers fill stroke"
            id="rect5875"
@@ -2573,7 +2742,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:126.667px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect5957);fill:#096eb9;fill-opacity:1;stroke:none"><tspan
              x="482.875"
              y="531.97864"
-             id="tspan85101">7</tspan></text>
+             id="tspan140487">7</tspan></text>
       </g>
       <g
          id="g5895"
@@ -2593,7 +2762,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:126.667px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect5959);fill:#dd6911;fill-opacity:1;stroke:none"><tspan
              x="482.875"
              y="531.97864"
-             id="tspan85103">3</tspan></text>
+             id="tspan140489">3</tspan></text>
         <rect
            style="opacity:0.6;fill:url(#linearGradient20507);fill-opacity:1;stroke:none;stroke-width:2.24105;paint-order:markers fill stroke"
            id="rect5889"
@@ -2609,7 +2778,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect5961);display:inline;fill:#dd6911;fill-opacity:1;stroke:none"><tspan
              x="445.50586"
              y="311.67485"
-             id="tspan85105">Player 2</tspan></text>
+             id="tspan140491">Player 2</tspan></text>
       </g>
       <g
          id="g5903"
@@ -2632,7 +2801,7 @@
            transform="translate(-278.62897,-33.248614)"><tspan
              x="1071.2078"
              y="207.26864"
-             id="tspan85107">Tic Tac Toe</tspan></text>
+             id="tspan140493">Tic Tac Toe</tspan></text>
       </g>
       <g
          id="g5941"
@@ -2696,9 +2865,9 @@
            inkscape:label="name"><tspan
              x="616.01591"
              y="874.497"
-             id="tspan85111"><tspan
+             id="tspan140497"><tspan
                style="font-family:Dorsa;-inkscape-font-specification:'Dorsa, Normal';text-align:center;text-anchor:middle"
-               id="tspan85109">Shailee Eliyahu</tspan></tspan></text>
+               id="tspan140495">Shailee Eliyahu</tspan></tspan></text>
         <text
            xml:space="preserve"
            id="text5937"
@@ -2708,24 +2877,24 @@
            inkscape:label="paragraph"><tspan
              x="563.83344"
              y="914.02927"
-             id="tspan85113">Lorem ipsum dolor sit amet, consectetur </tspan><tspan
+             id="tspan140499">Lorem ipsum dolor sit amet, consectetur </tspan><tspan
              x="553.35901"
              y="940.69589"
-             id="tspan85115">adipiscing elit. Duis at ligula quis augue </tspan><tspan
+             id="tspan140501">adipiscing elit. Duis at ligula quis augue </tspan><tspan
              x="526.55896"
              y="967.36252"
-             id="tspan85117">luctus feugiat vitae nec purus. Ut ac sapien </tspan><tspan
+             id="tspan140503">luctus feugiat vitae nec purus. Ut ac sapien </tspan><tspan
              x="420"
              y="994.02914"
-             id="tspan85119">quam. Ut tincidunt lectus in lorem efficitur accumsan. </tspan><tspan
+             id="tspan140505">quam. Ut tincidunt lectus in lorem efficitur accumsan. </tspan><tspan
              x="420"
              y="1020.6958"
-             id="tspan85121">Nullam a turpis egestas tellus dignissim consequat ac </tspan><tspan
+             id="tspan140507">Nullam a turpis egestas tellus dignissim consequat ac </tspan><tspan
              x="420"
              y="1045.0273"
-             id="tspan85125"><tspan
+             id="tspan140511"><tspan
                dx="0 13.541645 13.052063 11.114567 13.520813 13.124977 8.3020706 13.124977 6.7812424 11.114563 13.124977 20.781219 6.7812347 6.78125 14.593719 5.9270782 5.9270782 13.541641 13.520813 13.072891 20.781219 6.7812347 12.749985 12.624969 6.78125 13.520813 13.520813 13.520813 11.729156 6.7812195 6.78125 7.5104065 13.124969 13.520813 13.541656 5.927063 13.072906 8.364563 6.78125 13.541626 13.520813 5.9270935 11.114563 6.7812195 0 13.4375 13.520813 5.927063 13.541656 13.520813 11.114563 6.78125 13.520813 8.364563 6.78125 6.781189 7.510437 13.125 13.520813 13.541626 5.927063 13.072876 8.364563 6.78125 13.520813 13.125 11.729126 6.78125 13.541626 5.927124 13.072876 20.781189 6.78125 6.78125 12.864563 13.520813 13.072876 11.114563 13.125 5.927063 5.927063 13.520813 11.114563 6.78125 13.072937 11.729126 6.78125 13.520813 8.395813 13.520813 13.072876 6.78125 12.625 5.927063 8.364563 13.072876 13.125 6.78125 20.78125 13.124878 8.364624 13.520874 11.114502 6.78125 13.125 5.927002 13.125 20.78125 13.125 13.520752 8.364624 13.520752 20.78125 6.78125 12.625 13.052002 5.927124 13.520752 8.364624 13.541626 13.072876 8.364624 6.78125 6.78125 18.406128 13.072998 13.124878 11.729248 13.124878 13.520874 13.072876 11.114624 6.7811279 13.541748 13.052002 11.114624 13.520752 13.125 8.302124 13.124878 6.78125 13.125 8.770874 13.072876 8.364502 6.78125 5.927124 13.125 11.729126 8.364502 13.520874 11.114502 6.78125 6.78125 13.520874 13.052002 13.520874 6.78125 11.729126 13.052002 20.78125 20.78125 13.052002 13.541748 13.052002 6.78125 13.541626 13.520874 13.072876 20.781128 6.78125 11.729248 13.520752 8.770874 11.114502 13.520874 11.114502 6.78125 5.927124 13.541626 6.78125 6.78125 13.541626 13.125 13.541504 6.78125 13.072998 6.78125 13.541504 13.520996 8.770752 13.520752 11.114746 6.7810059 13.125 5.9272461 13.125 20.781006 13.125 13.520996 8.364502 13.520752 20.78125 6.78125 13.052002 8.302002 11.729248 5.927002 6.78125 12.625 13.072998 8.770752 5.927002 13.520996 11.114502 6.78125 13.541504 5.9272461 11.729004 8.3647461 13.520752 20.78125 6.78125 13.520752 13.052002 13.520752 6.78125 13.125 13.541748 13.125 8.364502 6.78125 20.78125 13.072754 13.541748 13.520752 13.072998"
-               id="tspan85123">posuere sem. Aliquam ex nunc, feugiat quis finibus ut, feugiat nec diam. Phasellus ac urna vitae metus elementum volutpat. Maecenas posuere erat lectus, non commodo quam cursus id. Sed a purus elementum orci varius dictum non eget magna.</tspan></tspan></text>
+               id="tspan140509">posuere sem. Aliquam ex nunc, feugiat quis finibus ut, feugiat nec diam. Phasellus ac urna vitae metus elementum volutpat. Maecenas posuere erat lectus, non commodo quam cursus id. Sed a purus elementum orci varius dictum non eget magna.</tspan></tspan></text>
         <path
            id="path5939"
            style="display:none;fill:#a34d8b;fill-opacity:1;stroke-width:3.39724;paint-order:markers fill stroke"
@@ -2752,7 +2921,7 @@
            transform="matrix(0.99229492,0,0,1,334.1448,603.60945)"><tspan
              x="862.28418"
              y="331.69141"
-             id="tspan85127">advanced</tspan></text>
+             id="tspan140513">advanced</tspan></text>
       </g>
     </g>
   </g>
@@ -3289,8 +3458,7 @@
     <g
        id="layer3"
        inkscape:label="FG"
-       style="display:inline;opacity:1"
-       sodipodi:insensitive="true">
+       style="display:inline;opacity:1">
       <rect
          style="fill:#00060d;fill-opacity:1;stroke-width:0.2;stroke-linecap:round;paint-order:markers fill stroke"
          id="rect95185"
@@ -3565,7 +3733,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect206748);fill:#114d8b;fill-opacity:0.945641;stroke:none"><tspan
              x="445.50586"
              y="311.67485"
-             id="tspan85129">Player 1</tspan></text>
+             id="tspan140515">Player 1</tspan></text>
         <rect
            style="opacity:0.6;fill:url(#linearGradient3052);fill-opacity:1;stroke:none;stroke-width:2.24105;paint-order:markers fill stroke"
            id="rect238427"
@@ -3581,7 +3749,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:126.667px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect266223);fill:#114d8b;fill-opacity:1;stroke:none"><tspan
              x="482.875"
              y="531.97864"
-             id="tspan85131">7</tspan></text>
+             id="tspan140517">7</tspan></text>
       </g>
       <g
          id="g172401"
@@ -3601,7 +3769,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:126.667px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect349178);fill:#9e4d11;fill-opacity:1;stroke:none"><tspan
              x="482.875"
              y="531.97864"
-             id="tspan85133">3</tspan></text>
+             id="tspan140519">3</tspan></text>
         <rect
            style="opacity:0.6;fill:url(#linearGradient347480);fill-opacity:1;stroke:none;stroke-width:2.24105;paint-order:markers fill stroke"
            id="rect343385"
@@ -3617,7 +3785,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;line-height:1.25;font-family:'Crete Round';-inkscape-font-specification:'Crete Round, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect206748-8);display:inline;fill:#9e4d11;fill-opacity:1;stroke:none"><tspan
              x="445.50586"
              y="311.67485"
-             id="tspan85135">Player 2</tspan></text>
+             id="tspan140521">Player 2</tspan></text>
       </g>
       <g
          id="g172416"
@@ -3639,7 +3807,7 @@
            transform="translate(-278.62897,-33.248614)"><tspan
              x="1071.2078"
              y="207.26864"
-             id="tspan85137">Tic Tac Toe</tspan></text>
+             id="tspan140523">Tic Tac Toe</tspan></text>
       </g>
       <g
          id="g33352"
@@ -3703,9 +3871,9 @@
            inkscape:label="name"><tspan
              x="616.01591"
              y="874.497"
-             id="tspan85141"><tspan
+             id="tspan140527"><tspan
                style="font-family:Dorsa;-inkscape-font-specification:'Dorsa, Normal';text-align:center;text-anchor:middle"
-               id="tspan85139">Shailee Eliyahu</tspan></tspan></text>
+               id="tspan140525">Shailee Eliyahu</tspan></tspan></text>
         <text
            xml:space="preserve"
            id="text6260"
@@ -3715,24 +3883,24 @@
            inkscape:label="paragraph"><tspan
              x="563.83344"
              y="914.02927"
-             id="tspan85143">Lorem ipsum dolor sit amet, consectetur </tspan><tspan
+             id="tspan140529">Lorem ipsum dolor sit amet, consectetur </tspan><tspan
              x="553.35901"
              y="940.69589"
-             id="tspan85145">adipiscing elit. Duis at ligula quis augue </tspan><tspan
+             id="tspan140531">adipiscing elit. Duis at ligula quis augue </tspan><tspan
              x="526.55896"
              y="967.36252"
-             id="tspan85147">luctus feugiat vitae nec purus. Ut ac sapien </tspan><tspan
+             id="tspan140533">luctus feugiat vitae nec purus. Ut ac sapien </tspan><tspan
              x="420"
              y="994.02914"
-             id="tspan85149">quam. Ut tincidunt lectus in lorem efficitur accumsan. </tspan><tspan
+             id="tspan140535">quam. Ut tincidunt lectus in lorem efficitur accumsan. </tspan><tspan
              x="420"
              y="1020.6958"
-             id="tspan85151">Nullam a turpis egestas tellus dignissim consequat ac </tspan><tspan
+             id="tspan140537">Nullam a turpis egestas tellus dignissim consequat ac </tspan><tspan
              x="420"
              y="1045.0273"
-             id="tspan85155"><tspan
+             id="tspan140541"><tspan
                dx="0 13.541645 13.052063 11.114567 13.520813 13.124977 8.3020706 13.124977 6.7812424 11.114563 13.124977 20.781219 6.7812347 6.78125 14.593719 5.9270782 5.9270782 13.541641 13.520813 13.072891 20.781219 6.7812347 12.749985 12.624969 6.78125 13.520813 13.520813 13.520813 11.729156 6.7812195 6.78125 7.5104065 13.124969 13.520813 13.541656 5.927063 13.072906 8.364563 6.78125 13.541626 13.520813 5.9270935 11.114563 6.7812195 0 13.4375 13.520813 5.927063 13.541656 13.520813 11.114563 6.78125 13.520813 8.364563 6.78125 6.781189 7.510437 13.125 13.520813 13.541626 5.927063 13.072876 8.364563 6.78125 13.520813 13.125 11.729126 6.78125 13.541626 5.927124 13.072876 20.781189 6.78125 6.78125 12.864563 13.520813 13.072876 11.114563 13.125 5.927063 5.927063 13.520813 11.114563 6.78125 13.072937 11.729126 6.78125 13.520813 8.395813 13.520813 13.072876 6.78125 12.625 5.927063 8.364563 13.072876 13.125 6.78125 20.78125 13.124878 8.364624 13.520874 11.114502 6.78125 13.125 5.927002 13.125 20.78125 13.125 13.520752 8.364624 13.520752 20.78125 6.78125 12.625 13.052002 5.927124 13.520752 8.364624 13.541626 13.072876 8.364624 6.78125 6.78125 18.406128 13.072998 13.124878 11.729248 13.124878 13.520874 13.072876 11.114624 6.7811279 13.541748 13.052002 11.114624 13.520752 13.125 8.302124 13.124878 6.78125 13.125 8.770874 13.072876 8.364502 6.78125 5.927124 13.125 11.729126 8.364502 13.520874 11.114502 6.78125 6.78125 13.520874 13.052002 13.520874 6.78125 11.729126 13.052002 20.78125 20.78125 13.052002 13.541748 13.052002 6.78125 13.541626 13.520874 13.072876 20.781128 6.78125 11.729248 13.520752 8.770874 11.114502 13.520874 11.114502 6.78125 5.927124 13.541626 6.78125 6.78125 13.541626 13.125 13.541504 6.78125 13.072998 6.78125 13.541504 13.520996 8.770752 13.520752 11.114746 6.7810059 13.125 5.9272461 13.125 20.781006 13.125 13.520996 8.364502 13.520752 20.78125 6.78125 13.052002 8.302002 11.729248 5.927002 6.78125 12.625 13.072998 8.770752 5.927002 13.520996 11.114502 6.78125 13.541504 5.9272461 11.729004 8.3647461 13.520752 20.78125 6.78125 13.520752 13.052002 13.520752 6.78125 13.125 13.541748 13.125 8.364502 6.78125 20.78125 13.072754 13.541748 13.520752 13.072998"
-               id="tspan85153">posuere sem. Aliquam ex nunc, feugiat quis finibus ut, feugiat nec diam. Phasellus ac urna vitae metus elementum volutpat. Maecenas posuere erat lectus, non commodo quam cursus id. Sed a purus elementum orci varius dictum non eget magna.</tspan></tspan></text>
+               id="tspan140539">posuere sem. Aliquam ex nunc, feugiat quis finibus ut, feugiat nec diam. Phasellus ac urna vitae metus elementum volutpat. Maecenas posuere erat lectus, non commodo quam cursus id. Sed a purus elementum orci varius dictum non eget magna.</tspan></tspan></text>
         <path
            id="rect102225"
            style="display:none;fill:#a34d8b;fill-opacity:1;stroke-width:3.39724;paint-order:markers fill stroke"
@@ -3759,7 +3927,7 @@
            transform="matrix(0.99229492,0,0,1,334.1448,603.60945)"><tspan
              x="862.28418"
              y="331.69141"
-             id="tspan85157">advanced</tspan></text>
+             id="tspan140543">advanced</tspan></text>
       </g>
     </g>
   </g>
@@ -3771,11 +3939,16 @@
     <g
        id="g47101"
        inkscape:label="light"
-       style="display:inline">
+       style="display:inline;opacity:1">
+      <path
+         id="path128273"
+         style="opacity:1;fill:#07444b;fill-opacity:0.85;stroke:none;stroke-width:13.7326;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.988887;paint-order:markers fill stroke"
+         d="m 816.52472,1825.046 c -28.70025,0 -51.80572,23.1037 -51.80572,51.8043 v 286.5783 c 0,28.7004 23.10547,51.8057 51.80572,51.8057 h 283.58088 c 28.7001,0 51.8043,-23.1053 51.8043,-51.8057 v -77.4511 a 8.9335461,8.9335461 0 0 0 -8.9337,-8.9336 h -13.0345 a 8.9335461,8.9335461 0 0 0 -8.9334,8.9336 v 65.9649 c 0,18.8294 -15.1585,33.9893 -33.9877,33.9893 H 829.60979 c -18.82934,0 -33.98911,-15.1599 -33.98911,-33.9893 v -263.606 c 0,-18.8294 15.15977,-33.9878 33.98911,-33.9878 h 257.41081 c 18.8292,0 33.9877,15.1584 33.9877,33.9878 v 73.4157 h -39.2801 a 4.4901817,4.4901817 0 0 0 -3.1746,7.6651 l 50.8098,50.8113 a 10.034682,10.034682 0 0 0 14.1911,0 l 50.8098,-50.8113 a 4.4901781,4.4901781 0 0 0 -3.1745,-7.6651 h -39.2799 v -84.9018 c 0,-28.7006 -23.1042,-51.8043 -51.8043,-51.8043 z"
+         inkscape:label="resetIcon" />
       <g
          id="g2519-5"
          inkscape:label="local"
-         style="display:inline"
+         style="display:none"
          transform="translate(0,1499.9998)">
         <rect
            style="fill:#07444b;fill-opacity:1;stroke-width:0.186748;stroke-linecap:round;paint-order:markers fill stroke"
@@ -3812,9 +3985,9 @@
              transform="translate(6,-3.0082054)"><tspan
                x="772.83789"
                y="262.5873"
-               id="tspan85161"><tspan
+               id="tspan140547"><tspan
                  style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                 id="tspan85159">Back</tspan></tspan></text>
+                 id="tspan140545">Back</tspan></tspan></text>
         </g>
         <g
            id="g2422-1"
@@ -3836,9 +4009,9 @@
              transform="translate(43.981134,85.781155)"><tspan
                x="850.70703"
                y="573.67881"
-               id="tspan85165"><tspan
+               id="tspan140551"><tspan
                  style="font-style:italic;-inkscape-font-specification:'Crete Round Italic'"
-                 id="tspan85163">Start!</tspan></tspan></text>
+                 id="tspan140549">Start!</tspan></tspan></text>
         </g>
         <g
            id="g2449-0"
@@ -3873,9 +4046,9 @@
                transform="matrix(0.86955779,0,0,0.86955779,108.10384,48.81204)"><tspan
                  x="1050.0664"
                  y="517.53246"
-                 id="tspan85169"><tspan
+                 id="tspan140555"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85167">?</tspan></tspan></text>
+                   id="tspan140553">?</tspan></tspan></text>
           </g>
         </g>
       </g>
@@ -3921,9 +4094,9 @@
              transform="translate(6,-3.0082054)"><tspan
                x="772.83789"
                y="262.5873"
-               id="tspan85173"><tspan
+               id="tspan140559"><tspan
                  style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                 id="tspan85171">Back</tspan></tspan></text>
+                 id="tspan140557">Back</tspan></tspan></text>
         </g>
         <g
            id="g154560-0"
@@ -3945,9 +4118,9 @@
              transform="translate(43.981134,85.781155)"><tspan
                x="850.70703"
                y="573.67881"
-               id="tspan85177"><tspan
+               id="tspan140563"><tspan
                  style="font-style:italic;-inkscape-font-specification:'Crete Round Italic'"
-                 id="tspan85175">Start!</tspan></tspan></text>
+                 id="tspan140561">Start!</tspan></tspan></text>
         </g>
         <g
            id="g28814-7"
@@ -3966,9 +4139,9 @@
                transform="translate(-4,-14.28432)"><tspan
                  x="980.76953"
                  y="453.22434"
-                 id="tspan85181"><tspan
+                 id="tspan140567"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85179">less options</tspan></tspan></text>
+                   id="tspan140565">less options</tspan></tspan></text>
             <rect
                style="fill:#ffffff;fill-opacity:1;stroke-width:1.68983;stroke-linecap:round"
                id="rect70617-5"
@@ -4011,9 +4184,9 @@
                  transform="matrix(0.86955779,0,0,0.86955779,108.10384,48.81204)"><tspan
                    x="1050.0664"
                    y="517.53246"
-                   id="tspan85185"><tspan
+                   id="tspan140571"><tspan
                      style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                     id="tspan85183">?</tspan></tspan></text>
+                     id="tspan140569">?</tspan></tspan></text>
             </g>
           </g>
           <g
@@ -4028,9 +4201,9 @@
                transform="translate(-8.045945,-10.213342)"><tspan
                  x="884.64258"
                  y="556.9623"
-                 id="tspan85189"><tspan
+                 id="tspan140575"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85187">:</tspan></tspan></text>
+                   id="tspan140573">:</tspan></tspan></text>
             <text
                xml:space="preserve"
                id="text9541-6-6"
@@ -4038,15 +4211,15 @@
                transform="matrix(1,0,0,0.98944685,26.77041,287.15344)"><tspan
                  x="772.83789"
                  y="248.15839"
-                 id="tspan85193"><tspan
+                 id="tspan140579"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85191">Starting
+                   id="tspan140577">Starting
 </tspan></tspan><tspan
                  x="772.83789"
                  y="268.58842"
-                 id="tspan85197"><tspan
+                 id="tspan140583"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85195">player</tspan></tspan></text>
+                   id="tspan140581">player</tspan></tspan></text>
             <text
                xml:space="preserve"
                id="text56063-3"
@@ -4054,9 +4227,9 @@
                transform="matrix(1,0,0,0.98944685,134.13233,297.26129)"><tspan
                  x="772.83789"
                  y="248.15839"
-                 id="tspan85201"><tspan
+                 id="tspan140587"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85199">you</tspan></tspan></text>
+                   id="tspan140585">you</tspan></tspan></text>
             <text
                xml:space="preserve"
                id="text56423-9"
@@ -4064,9 +4237,9 @@
                transform="matrix(1,0,0,0.98944685,182.29115,296.74341)"><tspan
                  x="772.83789"
                  y="248.15839"
-                 id="tspan85205"><tspan
+                 id="tspan140591"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85203">opponent</tspan></tspan></text>
+                   id="tspan140589">opponent</tspan></tspan></text>
             <g
                id="g57013-4"
                transform="matrix(0.51026834,0,0,0.51026834,539.7241,290.73269)"
@@ -4086,9 +4259,9 @@
                  transform="matrix(0.86955779,0,0,0.86955779,108.10384,48.81204)"><tspan
                    x="1050.0664"
                    y="517.53246"
-                   id="tspan85209"><tspan
+                   id="tspan140595"><tspan
                      style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                     id="tspan85207">?</tspan></tspan></text>
+                     id="tspan140593">?</tspan></tspan></text>
             </g>
           </g>
         </g>
@@ -4108,9 +4281,9 @@
              transform="translate(-4,-14.28432)"><tspan
                x="980.76953"
                y="453.22434"
-               id="tspan85213"><tspan
+               id="tspan140599"><tspan
                  style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                 id="tspan85211">more options</tspan></tspan></text>
+                 id="tspan140597">more options</tspan></tspan></text>
         </g>
         <g
            id="g112240-6"
@@ -4124,9 +4297,9 @@
              transform="matrix(1,0,0,0.98944685,8.7556023,144.84172)"><tspan
                x="772.83789"
                y="262.74702"
-               id="tspan85217"><tspan
+               id="tspan140603"><tspan
                  style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                 id="tspan85215">Nickname</tspan></tspan></text>
+                 id="tspan140601">Nickname</tspan></tspan></text>
           <rect
              style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.85617;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
              id="rect52966-8"
@@ -4142,7 +4315,7 @@
              transform="translate(4.8995728,7.7963609)"><tspan
                x="944.74414"
                y="394.09732"
-               id="tspan85219">Some Cool Name</tspan></text>
+               id="tspan140605">Some Cool Name</tspan></text>
           <rect
              style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.469;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
              id="rect112152-6"
@@ -4190,33 +4363,33 @@
              inkscape:label="local text"><tspan
                x="607.77059"
                y="334.52039"
-               id="tspan85223"><tspan
+               id="tspan140609"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85221">Local
+                 id="tspan140607">Local
 </tspan></tspan><tspan
                x="685.53711"
                y="417.85377"
-               id="tspan85227"><tspan
+               id="tspan140613"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85225">
+                 id="tspan140611">
 </tspan></tspan><tspan
                x="685.53711"
                y="501.18714"
-               id="tspan85231"><tspan
+               id="tspan140617"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85229">
+                 id="tspan140615">
 </tspan></tspan><tspan
                x="685.53711"
                y="548.48603"
-               id="tspan85233">
+               id="tspan140619">
 </tspan><tspan
                x="685.53711"
                y="581.81941"
-               id="tspan85235">
+               id="tspan140621">
 </tspan><tspan
                x="567.21728"
                y="615.15278"
-               id="tspan85237">(play on this device)</tspan></text>
+               id="tspan140623">(play on this device)</tspan></text>
           <g
              id="g2400"
              inkscape:label="local icon"
@@ -4282,33 +4455,33 @@
              inkscape:label="online text"><tspan
                x="586.304"
                y="334.52039"
-               id="tspan85241"><tspan
+               id="tspan140627"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85239">Online
+                 id="tspan140625">Online
 </tspan></tspan><tspan
                x="685.53711"
                y="417.85377"
-               id="tspan85245"><tspan
+               id="tspan140631"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85243">
+                 id="tspan140629">
 </tspan></tspan><tspan
                x="685.53711"
                y="501.18714"
-               id="tspan85249"><tspan
+               id="tspan140635"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85247">
+                 id="tspan140633">
 </tspan></tspan><tspan
                x="685.53711"
                y="548.48603"
-               id="tspan85251">
+               id="tspan140637">
 </tspan><tspan
                x="685.53711"
                y="581.81941"
-               id="tspan85253">
+               id="tspan140639">
 </tspan><tspan
                x="558.19066"
                y="615.15278"
-               id="tspan85255">(send link to a friend)</tspan></text>
+               id="tspan140641">(send link to a friend)</tspan></text>
           <g
              id="g2442"
              transform="matrix(1.2797043,0,0,1.2797043,-446.52998,1142.5582)"
@@ -4371,6 +4544,11 @@
         </g>
       </g>
     </g>
+    <path
+       id="path128936"
+       style="opacity:1;fill:#dfcda7;fill-opacity:0.85000002;stroke:none;stroke-width:13.7326;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.988887;paint-order:markers fill stroke"
+       d="m 816.52472,325.046 c -28.70025,0 -51.80572,23.1037 -51.80572,51.8043 v 286.5783 c 0,28.7004 23.10547,51.8057 51.80572,51.8057 h 283.58088 c 28.7001,0 51.8043,-23.1053 51.8043,-51.8057 v -77.4511 a 8.9335461,8.9335461 0 0 0 -8.9337,-8.9336 h -13.0345 a 8.9335461,8.9335461 0 0 0 -8.9334,8.9336 v 65.9649 c 0,18.8294 -15.1585,33.9893 -33.9877,33.9893 H 829.60979 c -18.82934,0 -33.98911,-15.1599 -33.98911,-33.9893 v -263.606 c 0,-18.8294 15.15977,-33.9878 33.98911,-33.9878 h 257.41081 c 18.8292,0 33.9877,15.1584 33.9877,33.9878 v 73.4157 h -39.2801 a 4.4901817,4.4901817 0 0 0 -3.1746,7.6651 l 50.8098,50.8113 a 10.034682,10.034682 0 0 0 14.1911,0 l 50.8098,-50.8113 a 4.4901781,4.4901781 0 0 0 -3.1745,-7.6651 h -39.2799 v -84.9018 c 0,-28.7006 -23.1042,-51.8043 -51.8043,-51.8043 z"
+       inkscape:label="resetIcon" />
     <g
        id="g47057"
        inkscape:label="dark"
@@ -4378,7 +4556,7 @@
       <g
          id="g2519"
          inkscape:label="local"
-         style="display:inline">
+         style="display:none">
         <rect
            style="fill:#dfcda7;fill-opacity:1;stroke-width:0.186748;stroke-linecap:round;paint-order:markers fill stroke"
            id="rect2400"
@@ -4414,9 +4592,9 @@
              transform="translate(6,-3.0082054)"><tspan
                x="772.83789"
                y="262.5873"
-               id="tspan85259"><tspan
+               id="tspan140645"><tspan
                  style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                 id="tspan85257">Back</tspan></tspan></text>
+                 id="tspan140643">Back</tspan></tspan></text>
         </g>
         <g
            id="g2422"
@@ -4438,9 +4616,9 @@
              transform="translate(43.981134,85.781155)"><tspan
                x="850.70703"
                y="573.67881"
-               id="tspan85263"><tspan
+               id="tspan140649"><tspan
                  style="font-style:italic;-inkscape-font-specification:'Crete Round Italic'"
-                 id="tspan85261">Start!</tspan></tspan></text>
+                 id="tspan140647">Start!</tspan></tspan></text>
         </g>
         <g
            id="g2449"
@@ -4474,9 +4652,9 @@
                transform="matrix(0.86955779,0,0,0.86955779,108.10384,48.81204)"><tspan
                  x="1050.0664"
                  y="517.53246"
-                 id="tspan85267"><tspan
+                 id="tspan140653"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85265">?</tspan></tspan></text>
+                   id="tspan140651">?</tspan></tspan></text>
           </g>
         </g>
       </g>
@@ -4519,9 +4697,9 @@
              transform="translate(6,-3.0082054)"><tspan
                x="772.83789"
                y="262.5873"
-               id="tspan85271"><tspan
+               id="tspan140657"><tspan
                  style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                 id="tspan85269">Back</tspan></tspan></text>
+                 id="tspan140655">Back</tspan></tspan></text>
         </g>
         <g
            id="g154560"
@@ -4543,9 +4721,9 @@
              transform="translate(43.981134,85.781155)"><tspan
                x="850.70703"
                y="573.67881"
-               id="tspan85275"><tspan
+               id="tspan140661"><tspan
                  style="font-style:italic;-inkscape-font-specification:'Crete Round Italic'"
-                 id="tspan85273">Start!</tspan></tspan></text>
+                 id="tspan140659">Start!</tspan></tspan></text>
         </g>
         <g
            id="g28814"
@@ -4564,9 +4742,9 @@
                transform="translate(-4,-14.28432)"><tspan
                  x="980.76953"
                  y="453.22434"
-                 id="tspan85279"><tspan
+                 id="tspan140665"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85277">less options</tspan></tspan></text>
+                   id="tspan140663">less options</tspan></tspan></text>
             <rect
                style="fill:#dfcda7;fill-opacity:1;stroke-width:1.68983;stroke-linecap:round"
                id="rect70617"
@@ -4607,9 +4785,9 @@
                  transform="matrix(0.86955779,0,0,0.86955779,108.10384,48.81204)"><tspan
                    x="1050.0664"
                    y="517.53246"
-                   id="tspan85283"><tspan
+                   id="tspan140669"><tspan
                      style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                     id="tspan85281">?</tspan></tspan></text>
+                     id="tspan140667">?</tspan></tspan></text>
             </g>
           </g>
           <g
@@ -4624,9 +4802,9 @@
                transform="translate(-8.045945,-10.213342)"><tspan
                  x="884.64258"
                  y="556.9623"
-                 id="tspan85287"><tspan
+                 id="tspan140673"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85285">:</tspan></tspan></text>
+                   id="tspan140671">:</tspan></tspan></text>
             <text
                xml:space="preserve"
                id="text9541-6"
@@ -4634,15 +4812,15 @@
                transform="matrix(1,0,0,0.98944685,26.77041,287.15344)"><tspan
                  x="772.83789"
                  y="248.15839"
-                 id="tspan85291"><tspan
+                 id="tspan140677"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85289">Starting
+                   id="tspan140675">Starting
 </tspan></tspan><tspan
                  x="772.83789"
                  y="268.58842"
-                 id="tspan85295"><tspan
+                 id="tspan140681"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85293">player</tspan></tspan></text>
+                   id="tspan140679">player</tspan></tspan></text>
             <text
                xml:space="preserve"
                id="text56063"
@@ -4650,9 +4828,9 @@
                transform="matrix(1,0,0,0.98944685,134.13233,297.26129)"><tspan
                  x="772.83789"
                  y="248.15839"
-                 id="tspan85299"><tspan
+                 id="tspan140685"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85297">you</tspan></tspan></text>
+                   id="tspan140683">you</tspan></tspan></text>
             <text
                xml:space="preserve"
                id="text56423"
@@ -4660,9 +4838,9 @@
                transform="matrix(1,0,0,0.98944685,182.29115,296.74341)"><tspan
                  x="772.83789"
                  y="248.15839"
-                 id="tspan85303"><tspan
+                 id="tspan140689"><tspan
                    style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                   id="tspan85301">opponent</tspan></tspan></text>
+                   id="tspan140687">opponent</tspan></tspan></text>
             <g
                id="g57013"
                transform="matrix(0.51026834,0,0,0.51026834,539.7241,290.73269)">
@@ -4681,9 +4859,9 @@
                  transform="matrix(0.86955779,0,0,0.86955779,108.10384,48.81204)"><tspan
                    x="1050.0664"
                    y="517.53246"
-                   id="tspan85307"><tspan
+                   id="tspan140693"><tspan
                      style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                     id="tspan85305">?</tspan></tspan></text>
+                     id="tspan140691">?</tspan></tspan></text>
             </g>
           </g>
         </g>
@@ -4703,9 +4881,9 @@
              transform="translate(-4,-14.28432)"><tspan
                x="980.76953"
                y="453.22434"
-               id="tspan85311"><tspan
+               id="tspan140697"><tspan
                  style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                 id="tspan85309">more options</tspan></tspan></text>
+                 id="tspan140695">more options</tspan></tspan></text>
         </g>
         <g
            id="g112240"
@@ -4718,9 +4896,9 @@
              transform="matrix(1,0,0,0.98944685,8.7556023,144.84172)"><tspan
                x="772.83789"
                y="262.74702"
-               id="tspan85315"><tspan
+               id="tspan140701"><tspan
                  style="font-family:'Crete Round';-inkscape-font-specification:'Crete Round'"
-                 id="tspan85313">Nickname</tspan></tspan></text>
+                 id="tspan140699">Nickname</tspan></tspan></text>
           <rect
              style="fill:#dfcda7;fill-opacity:1;stroke:none;stroke-width:1.85617;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
              id="rect52966"
@@ -4736,7 +4914,7 @@
              transform="translate(4.8995728,7.7963609)"><tspan
                x="944.74414"
                y="394.09732"
-               id="tspan85317">Some Cool Name</tspan></text>
+               id="tspan140703">Some Cool Name</tspan></text>
           <rect
              style="opacity:1;fill:#9e4d11;fill-opacity:1;stroke:none;stroke-width:1.469;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
              id="rect112152"
@@ -4782,33 +4960,33 @@
              inkscape:label="local text"><tspan
                x="607.77059"
                y="334.52039"
-               id="tspan85321"><tspan
+               id="tspan140707"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85319">Local
+                 id="tspan140705">Local
 </tspan></tspan><tspan
                x="685.53711"
                y="417.85377"
-               id="tspan85325"><tspan
+               id="tspan140711"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85323">
+                 id="tspan140709">
 </tspan></tspan><tspan
                x="685.53711"
                y="501.18714"
-               id="tspan85329"><tspan
+               id="tspan140715"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85327">
+                 id="tspan140713">
 </tspan></tspan><tspan
                x="685.53711"
                y="548.48603"
-               id="tspan85331">
+               id="tspan140717">
 </tspan><tspan
                x="685.53711"
                y="581.81941"
-               id="tspan85333">
+               id="tspan140719">
 </tspan><tspan
                x="567.21728"
                y="615.15278"
-               id="tspan85335">(play on this device)</tspan></text>
+               id="tspan140721">(play on this device)</tspan></text>
           <g
              id="g2277"
              inkscape:label="local icon"
@@ -4874,33 +5052,33 @@
              inkscape:label="online text"><tspan
                x="586.304"
                y="334.52039"
-               id="tspan85339"><tspan
+               id="tspan140725"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85337">Online
+                 id="tspan140723">Online
 </tspan></tspan><tspan
                x="685.53711"
                y="417.85377"
-               id="tspan85343"><tspan
+               id="tspan140729"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85341">
+                 id="tspan140727">
 </tspan></tspan><tspan
                x="685.53711"
                y="501.18714"
-               id="tspan85347"><tspan
+               id="tspan140733"><tspan
                  style="font-size:66.6667px"
-                 id="tspan85345">
+                 id="tspan140731">
 </tspan></tspan><tspan
                x="685.53711"
                y="548.48603"
-               id="tspan85349">
+               id="tspan140735">
 </tspan><tspan
                x="685.53711"
                y="581.81941"
-               id="tspan85351">
+               id="tspan140737">
 </tspan><tspan
                x="558.19066"
                y="615.15278"
-               id="tspan85353">(send link to a friend)</tspan></text>
+               id="tspan140739">(send link to a friend)</tspan></text>
           <g
              id="g2319"
              transform="matrix(1.2797043,0,0,1.2797043,-446.52998,1142.5582)"
@@ -14782,15 +14960,15 @@
        y="0"><tspan
          x="20.730469"
          y="-233.86133"
-         id="tspan85357"><tspan
+         id="tspan140743"><tspan
            style="text-align:center;text-anchor:middle;fill:#ffffff"
-           id="tspan85355">blue
+           id="tspan140741">blue
 </tspan></tspan><tspan
          x="23.765625"
          y="-203.86133"
-         id="tspan85361"><tspan
+         id="tspan140747"><tspan
            style="text-align:center;text-anchor:middle;fill:#ffffff"
-           id="tspan85359">110</tspan></tspan></text>
+           id="tspan140745">110</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text13823"
@@ -14799,59 +14977,59 @@
        y="0"><tspan
          x="166.60938"
          y="-233.86133"
-         id="tspan85365"><tspan
+         id="tspan140751"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan85363">yellow
+           id="tspan140749">yellow
 </tspan></tspan><tspan
          x="182.01367"
          y="-203.86133"
-         id="tspan85369"><tspan
+         id="tspan140755"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan85367">950</tspan></tspan></text>
+           id="tspan140753">950</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text20123"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect20125);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="305.02344"
          y="-233.86133"
-         id="tspan85371">blue
+         id="tspan140757">blue
 </tspan><tspan
          x="305.02344"
          y="-203.86133"
-         id="tspan85373">400</tspan></text>
+         id="tspan140759">400</tspan></text>
     <text
        xml:space="preserve"
        id="text28567"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect28569);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="365.84375"
          y="-233.86133"
-         id="tspan85375">blue
+         id="tspan140761">blue
 </tspan><tspan
          x="365.84375"
          y="-203.86133"
-         id="tspan85377">880</tspan></text>
+         id="tspan140763">880</tspan></text>
     <text
        xml:space="preserve"
        id="text47109"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect47111);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="524.08984"
          y="-233.86133"
-         id="tspan85379">orng
+         id="tspan140765">orng
 </tspan><tspan
          x="524.08984"
          y="-203.86133"
-         id="tspan85381">750</tspan></text>
+         id="tspan140767">750</tspan></text>
     <text
        xml:space="preserve"
        id="text36971"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect36973);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="463.26953"
          y="-233.86133"
-         id="tspan85383">orng
+         id="tspan140769">orng
 </tspan><tspan
          x="463.26953"
          y="-203.86133"
-         id="tspan85385">450</tspan></text>
+         id="tspan140771">450</tspan></text>
     <text
        xml:space="preserve"
        id="text51323"
@@ -14861,15 +15039,15 @@
        transform="translate(0,1532.5811)"><tspan
          x="13.828125"
          y="-233.86133"
-         id="tspan85389"><tspan
+         id="tspan140775"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan85387">white
+           id="tspan140773">white
 </tspan></tspan><tspan
          x="23.765625"
          y="-203.86133"
-         id="tspan85393"><tspan
+         id="tspan140779"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan85391">900</tspan></tspan></text>
+           id="tspan140777">900</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text51327"
@@ -14879,15 +15057,15 @@
        transform="translate(0,1532.5811)"><tspan
          x="170.25977"
          y="-233.86133"
-         id="tspan85397"><tspan
+         id="tspan140783"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan85395">green
+           id="tspan140781">green
 </tspan></tspan><tspan
          x="182.01367"
          y="-203.86133"
-         id="tspan85401"><tspan
+         id="tspan140787"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan85399">330
+           id="tspan140785">330
 </tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -14896,11 +15074,11 @@
        transform="translate(0,1532.5811)"><tspan
          x="305.02344"
          y="-233.86133"
-         id="tspan85403">blue
+         id="tspan140789">blue
 </tspan><tspan
          x="305.02344"
          y="-203.86133"
-         id="tspan85405">980</tspan></text>
+         id="tspan140791">980</tspan></text>
     <text
        xml:space="preserve"
        id="text51335"
@@ -14908,11 +15086,11 @@
        transform="translate(0,1532.5811)"><tspan
          x="365.84375"
          y="-233.86133"
-         id="tspan85407">blue
+         id="tspan140793">blue
 </tspan><tspan
          x="365.84375"
          y="-203.86133"
-         id="tspan85409">570</tspan></text>
+         id="tspan140795">570</tspan></text>
     <text
        xml:space="preserve"
        id="text51339"
@@ -14920,11 +15098,11 @@
        transform="translate(0,1532.5811)"><tspan
          x="524.08984"
          y="-233.86133"
-         id="tspan85411">orng
+         id="tspan140797">orng
 </tspan><tspan
          x="524.08984"
          y="-203.86133"
-         id="tspan85413">800</tspan></text>
+         id="tspan140799">800</tspan></text>
     <text
        xml:space="preserve"
        id="text51343"
@@ -14932,20 +15110,10 @@
        transform="translate(0,1532.5811)"><tspan
          x="463.26953"
          y="-233.86133"
-         id="tspan85415">orng
+         id="tspan140801">orng
 </tspan><tspan
          x="463.26953"
          y="-203.86133"
-         id="tspan85417">900</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
-       x="682.45508"
-       y="1223.7799"
-       id="text62839"><tspan
-         sodipodi:role="line"
-         id="tspan62837"
-         x="682.45508"
-         y="1223.7799" /></text>
+         id="tspan140803">900</tspan></text>
   </g>
 </svg>

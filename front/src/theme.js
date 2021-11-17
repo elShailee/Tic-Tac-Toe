@@ -117,6 +117,7 @@ export const darkTheme = {
 		colorlessXIcon: assetsLib.darkColorlessXIcon,
 		blueXIcon: assetsLib.darkBlueXIcon,
 		orangeOIcon: assetsLib.darkOrangeOIcon,
+		restartIcon: assetsLib.darkRestartIcon,
 	},
 };
 
@@ -153,5 +154,6 @@ export const lightTheme = {
 		colorlessXIcon: assetsLib.lightColorlessXIcon,
 		blueXIcon: assetsLib.lightBlueXIcon,
 		orangeOIcon: assetsLib.lightOrangeOIcon,
+		restartIcon: assetsLib.lightRestartIcon,
 	},
 };
