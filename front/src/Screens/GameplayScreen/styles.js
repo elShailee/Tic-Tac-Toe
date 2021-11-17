@@ -114,6 +114,24 @@ export const SettingsContainer = styled.div`
 	background-color: darkcyan;
 `;
 
+export const WinnerLabel = styled.div`
+	font-size: ${({ theme }) => theme.sizes.text.XL};
+	font-family: 'Crete Round', serif;
+	color: ${({ theme, player }) => {
+		if (player === 'one') {
+			console.log('object');
+			return theme.colors.playerOneText;
+		} else if (player === 'two') {
+			return theme.colors.playerTwoText;
+		} else {
+			return null;
+		}
+	}};
+`;
+WinnerLabel.defaultProps = {
+	children: 'Winner!',
+};
+
 // export const TileContainer = styled.div`
 // 	width: ${calcSizeUnits(2.5)};
 // 	height: ${calcSizeUnits(2.5)};

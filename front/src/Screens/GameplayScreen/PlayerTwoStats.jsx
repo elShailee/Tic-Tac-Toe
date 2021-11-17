@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlayerTwoStatsContainer, PlayerTwoNameContainer, PlayerTwoName, PlayerTwoScore } from './styles';
+import { PlayerTwoStatsContainer, PlayerTwoNameContainer, PlayerTwoName, PlayerTwoScore, WinnerLabel } from './styles';
 
 export default function PlayerTwoStats({ gameState }) {
 	const isThisPlayerTurn = gameState.turnState === 'X' && !gameState.winState;
@@ -7,10 +7,10 @@ export default function PlayerTwoStats({ gameState }) {
 
 	return (
 		<PlayerTwoStatsContainer>
-			<PlayerTwoNameContainer shouldShowBG={isThisPlayerTurn} />
+			<PlayerTwoNameContainer shouldShowBG={isThisPlayerTurn || isThisPlayerWinner} />
 			<PlayerTwoName>John Blow</PlayerTwoName>
 			<PlayerTwoScore>2</PlayerTwoScore>
-			{isThisPlayerWinner && 'Winner!'}
+			{isThisPlayerWinner && <WinnerLabel player='two' />}
 		</PlayerTwoStatsContainer>
 	);
 }
