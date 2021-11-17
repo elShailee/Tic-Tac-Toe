@@ -70,6 +70,8 @@ export const GameBoardContainer = styled.div`
 export const TileContainer = styled.div`
 	width: 100%;
 	height: 100%;
+	grid-row: ${({ row }) => row + 1} / ${({ row }) => row + 2};
+	grid-column: ${({ column }) => column + 1} / ${({ column }) => column + 2};
 	background-color: ${({ theme }) => theme.colors.bg};
 	${({ theme }) => theme.customStyles.centerItems}
 `;
@@ -132,6 +134,12 @@ WinnerLabel.defaultProps = {
 	children: 'Winner!',
 };
 
+export const RestartButton = styled.div`
+	grid-row: 1 / 4;
+	grid-column: 1 / 4;
+	background-color: blue;
+	opacity: 0.5;
+`;
 // export const TileContainer = styled.div`
 // 	width: ${calcSizeUnits(2.5)};
 // 	height: ${calcSizeUnits(2.5)};

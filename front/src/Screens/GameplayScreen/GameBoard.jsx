@@ -1,9 +1,15 @@
 import React from 'react';
-import { GameBoardContainer /*, Tile , GridContainer, GridRowContainer*/ } from './styles';
+import apiCallsHandler from 'Utils/axiosFuncs';
+import { GameBoardContainer, RestartButton /*, Tile , GridContainer, GridRowContainer*/ } from './styles';
 import Tile from './Tile';
 // import Tile from './Tile';
 
 export default function GameBoard({ gameState, setGameState }) {
+	const resetGameState = async () => {
+		const newGameState = await apiCallsHandler.resetGame(gameState);
+		newGameState && setGameState(newGameState);
+	};
+
 	// const renderGameGrid = () => {
 	// 	let resultGrid = [];
 
@@ -34,6 +40,7 @@ export default function GameBoard({ gameState, setGameState }) {
 			<Tile gameState={gameState} setGameState={setGameState} row={2} col={0} />
 			<Tile gameState={gameState} setGameState={setGameState} row={2} col={1} />
 			<Tile gameState={gameState} setGameState={setGameState} row={2} col={2} />
+			{gameState?.winState && <RestartButton onClick={resetGameState} />}
 		</GameBoardContainer>
 	);
 }

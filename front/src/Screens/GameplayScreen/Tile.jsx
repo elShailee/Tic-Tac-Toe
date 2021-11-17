@@ -39,5 +39,9 @@ export default function Tile({ gameState, setGameState, row, col }) {
 			}
 		}
 	};
-	return <TileContainer onClick={onPlayerClick}>{cellMark}</TileContainer>;
+	return (
+		<TileContainer onClick={onPlayerClick} row={row} column={col}>
+			{cellMark}
+		</TileContainer>
+	);
 }
