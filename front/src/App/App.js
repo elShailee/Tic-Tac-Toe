@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { AppContainer, GameContainer, RightShadow, LeftShadow, TopShadow, BotShadow } from './styles';
 import Game from 'Screens/GameplayScreen/Game';
 import { enviroment } from 'envSelector';
 import DevelopemetToolbar from './DevelopementToolbar';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from 'theme';
+import { checkForGameJoining } from 'Utils/axiosFuncs';
 
 function App() {
 	const [themeState, setThemeState] = useState('light');
 	const [gameState, setGameState] = useState({});
+
+	useMemo(() => {
+		checkForGameJoining(setGameState);
+	}, []);
 
 	const getCurrentTheme = () => {
 		if (themeState === 'light') {

@@ -25,7 +25,7 @@ export default function HomeScreen({ gameState, setGameState, isJoining }) {
 	else if (isJoining) {
 		return (
 			<HomeScreenContainer>
-				<OnlineGameJoinModal unselectMode={unselectMode} />
+				<OnlineGameJoinModal unselectMode={unselectMode} gameState={gameState} setGameState={setGameState} />
 			</HomeScreenContainer>
 		);
 	} else return null;

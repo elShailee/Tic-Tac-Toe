@@ -76,6 +76,11 @@ export const TileContainer = styled.div`
 	${({ theme }) => theme.customStyles.centerItems}
 `;
 
+export const TileMark = styled.img`
+	width: ${({ theme }) => theme.calcSizeUnits(2)};
+	height: ${({ theme }) => theme.calcSizeUnits(2)};
+`;
+
 export const PlayerTwoStatsContainer = styled.div`
 	grid-column: 28 / 37;
 	grid-row: 9 / 27;
@@ -121,7 +126,6 @@ export const WinnerLabel = styled.div`
 	font-family: 'Crete Round', serif;
 	color: ${({ theme, player }) => {
 		if (player === 'one') {
-			console.log('object');
 			return theme.colors.playerOneText;
 		} else if (player === 'two') {
 			return theme.colors.playerTwoText;

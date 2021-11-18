@@ -25,6 +25,9 @@ app.post(API.resetGame + ':gameId', validations.resetGame, (req, res) => {
 		[false, false, false],
 		[false, false, false],
 	];
+	if (games[gameId].winState) {
+		games[gameId].startingPlayer = getOppositeMark(games[gameId].startingPlayer);
+	}
 	games[gameId].turnState = games[gameId].startingPlayer;
 	games[gameId].winState = false;
 
@@ -78,7 +81,6 @@ app.post(API.moveLocal + ':gameId', validations.moveLocal, (req, res) => {
 		boardState,
 		turnState: getOppositeMark(games[gameId].turnState),
 		winState,
-		startingPlayer: winState ? getOppositeMark(games[gameId].startingPlayer) : games[gameId].startingPlayer,
 	};
 	res.status(201).send(games[gameId]);
 });
@@ -121,6 +123,16 @@ app.post(API.createRemote, validations.createRemote, (req, res) => {
 	};
 
 	res.status(201).send({ ...games[gameId], userPlayer });
+});
+
+app.get(API.getRemote + ':gameId', (req, res) => {
+	const { gameId } = req.params;
+	const targetGame = games[gameId];
+	if (targetGame?.gameMode !== 'remote' || !targetGame?.playerOne || targetGame?.playerTwo) {
+		res.send('noGame');
+	} else {
+		res.send(games[gameId]);
+	}
 });
 
 app.post(API.joinRemote + ':gameId', validations.joinRemote, (req, res) => {
@@ -174,13 +186,10 @@ app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {
 
 	if (userPlayer.mark === turnState && playerTwo) {
 		games[gameId] = { ...games[gameId], boardState, turnState: getOppositeMark(turnState), winState };
-		res
-			.status(201)
-			.send({
-				...games[gameId],
-				userPlayer,
-				startingPlayer: winState ? getOppositeMark(games[gameId].startingPlayer) : games[gameId].startingPlayer,
-			});
+		res.status(201).send({
+			...games[gameId],
+			userPlayer,
+		});
 	} else if (userPlayer.mark !== turnState) {
 		res.status(202).send('cannot move out of turn.');
 	} else {

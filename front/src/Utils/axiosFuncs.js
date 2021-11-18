@@ -58,6 +58,9 @@ const apiCallsHandler = {
 	createRemote: async gameState => {
 		return axiosInstance.post(gamesApi.createRemote, gameState);
 	},
+	getRemote: async gameState => {
+		return axiosInstance.get(gamesApi.getRemote + gameState.gameId, gameState);
+	},
 	joinRemote: async gameState => {
 		return axiosInstance.post(gamesApi.joinRemote + gameState.gameId, gameState);
 	},
@@ -83,3 +86,18 @@ const apiCallsHandler = {
 	},
 };
 export default apiCallsHandler;
+
+export const checkForGameJoining = async setGameState => {
+	const url_string = window.location.href;
+	const url = new URL(url_string);
+	const gameId = url.searchParams.get('game');
+	if (gameId) {
+		const newGameState = await apiCallsHandler.getRemote({ gameId });
+
+		if (newGameState === 'noGame') {
+			setGameState({ errorMessage: "Online Game either doesn't exist or full." });
+		} else if (newGameState?.gameMode === 'remote') {
+			setGameState(newGameState);
+		}
+	}
+};

@@ -1,27 +1,28 @@
-import React /*, { useEffect }*/ from 'react';
+import React, { useEffect } from 'react';
 import GameBoard from './GameBoard';
 import { GameContainer, TitleContainer, AboutContainer, SettingsContainer } from './styles';
 import PlayerOneStats from './PlayerOneStats';
 import PlayerTwoStats from './PlayerTwoStats';
 import HomeScreen from 'Screens/HomeScreen/HomeScreen';
-// import apiCallsHandler from 'Utils/axiosFuncs';
+import apiCallsHandler from 'Utils/axiosFuncs';
 // import PlayersScores from './PlayersScores';
 
 export default function Game({ gameState, setGameState }) {
 	const isJoining =
 		gameState?.gameMode === 'remote' && gameState?.playerOne && !gameState?.playerTwo && !gameState?.userPlayer;
-	// useEffect(() => {
-	// 	const refreshRemote = async () => {
-	// 		if (gameState.gameMode === 'remote') {
-	// 			const newGameState = await apiCallsHandler.refreshRemote(gameState);
-	// 			newGameState && setGameState(newGameState);
-	// 			!newGameState && setGameState({});
-	// 		}
-	// 	};
 
-	// 	const interval = setInterval(refreshRemote, 1500);
-	// 	return () => clearInterval(interval);
-	// }, [gameState, setGameState]);
+	useEffect(() => {
+		const refreshRemote = async () => {
+			if (gameState.gameMode === 'remote' && gameState.userPlayer) {
+				const newGameState = await apiCallsHandler.refreshRemote(gameState);
+				newGameState && setGameState(newGameState);
+				!newGameState && setGameState({});
+			}
+		};
+
+		const interval = setInterval(refreshRemote, 1500);
+		return () => clearInterval(interval);
+	}, [gameState, setGameState]);
 
 	// const resetGameState = async () => {
 	// 	const newGameState = await apiCallsHandler.resetGame(gameState);

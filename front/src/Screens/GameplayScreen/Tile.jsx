@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
-import { TileContainer } from './styles';
+import { TileContainer, TileMark } from './styles';
 import apiCallsHandler from 'Utils/axiosFuncs';
 import { getGameWinner, getOppositeMark } from 'Utils/gameUtils';
 
@@ -10,10 +10,10 @@ export default function Tile({ gameState, setGameState, row, col }) {
 	const cellValue = gameState.boardState[row][col];
 	let cellMark;
 	if (cellValue === 'X') {
-		cellMark = <img src={theme.images.colorfulXIcon} alt='X' />;
+		cellMark = <TileMark src={theme.images.colorfulXIcon} alt='X' />;
 	}
 	if (cellValue === 'O') {
-		cellMark = <img src={theme.images.colorfulOIcon} alt='O' />;
+		cellMark = <TileMark src={theme.images.colorfulOIcon} alt='O' />;
 	}
 
 	let onPlayerClick = async () => {
