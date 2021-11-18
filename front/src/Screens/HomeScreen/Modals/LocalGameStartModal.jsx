@@ -25,8 +25,8 @@ export default function LocalGameStartModal({ unselectMode, setGameState }) {
 		const newGameState = await apiCallsHandler.createLocal({
 			startingPlayer,
 			gameMode: 'local',
-			playerOne: { nickname: 'Player1', winCount: 0 },
-			playerTwo: { nickname: 'Player2', winCount: 0 },
+			playerOne: { nickname: 'Player1', winCount: 0, mark: 'O' },
+			playerTwo: { nickname: 'Player2', winCount: 0, mark: 'X' },
 		});
 		newGameState && setGameState(newGameState);
 	};

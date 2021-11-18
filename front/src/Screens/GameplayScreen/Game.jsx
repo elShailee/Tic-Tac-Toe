@@ -8,8 +8,14 @@ import apiCallsHandler from 'Utils/axiosFuncs';
 // import PlayersScores from './PlayersScores';
 
 export default function Game({ gameState, setGameState }) {
-	const isJoining =
-		gameState?.gameMode === 'remote' && gameState?.playerOne && !gameState?.playerTwo && !gameState?.userPlayer;
+	let numOfPlayers = 0;
+	if (gameState.playerOne) {
+		numOfPlayers++;
+	}
+	if (gameState.playerTwo) {
+		numOfPlayers++;
+	}
+	const isJoining = gameState?.gameMode === 'remote' && numOfPlayers === 1 && !gameState?.userPlayer;
 
 	useEffect(() => {
 		const refreshRemote = async () => {

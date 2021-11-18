@@ -16,8 +16,8 @@ export default function PlayerTwoStats({ gameState }) {
 	return (
 		<PlayerTwoStatsContainer>
 			<PlayerTwoNameContainer shouldShowBG={isThisPlayerTurn || isThisPlayerWinner} />
-			<PlayerTwoName>John Blow</PlayerTwoName>
-			<PlayerTwoScore>2</PlayerTwoScore>
+			<PlayerTwoName>{gameState?.playerTwo?.nickname}</PlayerTwoName>
+			<PlayerTwoScore>{gameState?.playerTwo?.winCount}</PlayerTwoScore>
 			{isThisPlayerWinner && <WinnerLabel player='two' />}
 			{isTie && <TieLabel player='one' />}
 		</PlayerTwoStatsContainer>
