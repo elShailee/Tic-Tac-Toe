@@ -8,6 +8,7 @@ const sharedTheme = {
 	calcSizeUnits,
 	sizes: {
 		border: {
+			XL: calcSizeUnits(0.175),
 			L: calcSizeUnits(0.1),
 			S: calcSizeUnits(0.03),
 		},
@@ -103,6 +104,9 @@ export const darkTheme = {
 		localCardHover: palette.blue[880],
 		onlineCard: palette.orange[450],
 		onlineCardHover: palette.orange[750],
+		advancedBorder: palette.yellow[959],
+		inviteButton: palette.orange[750],
+		usedInviteButton: palette.orange[450],
 	},
 	images: {
 		BG: {
@@ -141,6 +145,9 @@ export const lightTheme = {
 		localCardHover: palette.blue[980],
 		onlineCard: palette.orange[800],
 		onlineCardHover: palette.orange[900],
+		advancedBorder: palette.green[339],
+		inviteButton: palette.orange[900],
+		usedInviteButton: palette.orange[800],
 	},
 
 	images: {

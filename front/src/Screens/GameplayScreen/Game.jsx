@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import GameBoard from './GameBoard';
-import { GameContainer, TitleContainer, AboutContainer, SettingsContainer } from './styles';
+import { GameContainer, TitleContainer, AboutContainer } from './styles';
 import PlayerOneStats from './PlayerOneStats';
 import PlayerTwoStats from './PlayerTwoStats';
 import HomeScreen from 'Screens/HomeScreen/HomeScreen';
 import apiCallsHandler from 'Utils/axiosFuncs';
+import AdvancedOptions from 'Screens/AdvancedScreen/AdvancedOptions';
 // import PlayersScores from './PlayersScores';
 
 export default function Game({ gameState, setGameState }) {
@@ -53,7 +54,7 @@ export default function Game({ gameState, setGameState }) {
 			{gameState?.gameId && !isJoining && <PlayerTwoStats gameState={gameState} />}
 
 			<AboutContainer />
-			<SettingsContainer />
+			<AdvancedOptions gameState={gameState} />
 			<HomeScreen gameState={gameState} setGameState={setGameState} isJoining={isJoining} />
 			{/* <GameGrid gameState={gameState} setGameState={setGameState} />
 			<DataUtilsContainer>

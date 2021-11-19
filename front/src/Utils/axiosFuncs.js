@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { enviroment, gamesApi, serverPort, serverBaseUrl } from 'envSelector';
+import { enviroment, gamesApi, serverPort, serverBaseUrl, frontBaseUrl } from 'envSelector';
 
 const axiosInstance = Axios.create({ baseURL: serverBaseUrl + ':' + serverPort });
 
@@ -100,4 +100,8 @@ export const checkForGameJoining = async setGameState => {
 			setGameState(newGameState);
 		}
 	}
+};
+
+export const getInviteLink = gameId => {
+	return frontBaseUrl + '/?game=' + gameId;
 };

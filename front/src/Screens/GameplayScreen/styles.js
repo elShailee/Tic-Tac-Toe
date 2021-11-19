@@ -85,6 +85,7 @@ export const TileContainer = styled.div`
 export const TileMark = styled.img`
 	width: ${({ theme }) => theme.calcSizeUnits(2)};
 	height: ${({ theme }) => theme.calcSizeUnits(2)};
+	${({ theme }) => theme.customStyles.nonSelectable}
 `;
 
 export const PlayerTwoStatsContainer = styled.div`
@@ -121,12 +122,6 @@ export const AboutContainer = styled.div`
 	background-color: blueviolet;
 `;
 
-export const SettingsContainer = styled.div`
-	grid-column: 21/37;
-	grid-row: 27/37;
-	background-color: darkcyan;
-`;
-
 export const WinnerLabel = styled.div`
 	font-size: ${({ theme }) => theme.sizes.text.XL};
 	font-family: 'Crete Round', serif;
@@ -156,6 +151,7 @@ export const RestartButton = styled.img`
 	height: ${({ theme }) => theme.calcSizeUnits(7)};
 	margin: auto;
 	margin-left: ${({ theme }) => theme.calcSizeUnits(1.13)};
+	${({ theme }) => theme.customStyles.nonSelectable}
 `;
 // export const TileContainer = styled.div`
 // 	width: ${calcSizeUnits(2.5)};
