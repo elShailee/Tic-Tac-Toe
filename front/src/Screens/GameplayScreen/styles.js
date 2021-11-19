@@ -74,6 +74,12 @@ export const TileContainer = styled.div`
 	grid-column: ${({ column }) => column + 1} / ${({ column }) => column + 2};
 	background-color: ${({ theme }) => theme.colors.bg};
 	${({ theme }) => theme.customStyles.centerItems}
+	&:hover {
+		background-image: url(${({ shouldHint, hintImage }) => shouldHint && hintImage});
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: ${({ theme }) => theme.calcSizeUnits(1.8)};
+	}
 `;
 
 export const TileMark = styled.img`

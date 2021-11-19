@@ -8,7 +8,7 @@ export default function Tile({ gameState, setGameState, row, col }) {
 	const theme = useTheme();
 
 	const cellValue = gameState.boardState[row][col];
-	let cellMark;
+	let cellMark = false;
 	if (cellValue === 'X') {
 		cellMark = <TileMark src={theme.images.colorfulXIcon} alt='X' />;
 	}
@@ -39,8 +39,25 @@ export default function Tile({ gameState, setGameState, row, col }) {
 			}
 		}
 	};
+
+	const shouldHint = () => {
+		if (cellMark || gameState.winState) return false;
+		if (gameState.gameMode === 'local') {
+			return gameState.turnState;
+		}
+		if (gameState.gameMode === 'remote' && gameState.userPlayer.mark === gameState.turnState) {
+			return gameState.turnState;
+		}
+		return null;
+	};
+
+	const hintImage = () => {
+		if (shouldHint() === 'O') return theme.images.hintOIcon;
+		if (shouldHint() === 'X') return theme.images.hintXIcon;
+	};
+
 	return (
-		<TileContainer onClick={onPlayerClick} row={row} column={col}>
+		<TileContainer onClick={onPlayerClick} row={row} column={col} shouldHint={shouldHint()} hintImage={hintImage()}>
 			{cellMark}
 		</TileContainer>
 	);

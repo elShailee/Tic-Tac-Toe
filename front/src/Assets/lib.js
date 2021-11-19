@@ -20,6 +20,10 @@ import lightBlueXIcon from 'Assets/Images/light_blue_x_icon.svg';
 import lightOrangeOIcon from 'Assets/Images/light_orange_o_icon.svg';
 import darkRestartIcon from 'Assets/Images/dark_restart_icon.svg';
 import lightRestartIcon from 'Assets/Images/light_restart_icon.svg';
+import darkHintXIcon from 'Assets/Images/dark_hint_x_icon.svg';
+import darkHintOIcon from 'Assets/Images/dark_hint_o_icon.svg';
+import lightHintXIcon from 'Assets/Images/light_hint_x_icon.svg';
+import lightHintOIcon from 'Assets/Images/light_hint_o_icon.svg';
 
 const lib = {
 	darkBG,
@@ -44,6 +48,10 @@ const lib = {
 	lightOrangeOIcon,
 	darkRestartIcon,
 	lightRestartIcon,
+	darkHintXIcon,
+	darkHintOIcon,
+	lightHintXIcon,
+	lightHintOIcon,
 };
 
 export default lib;
