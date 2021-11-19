@@ -11,6 +11,7 @@ import {
 	OnlineNicknameInputContainer,
 	NicknameInputBox,
 	OnlineJoinButton,
+	NicknameLengthAlert,
 } from './styles';
 
 export default function OnlineGameJoinModal({ unselectMode, gameState, setGameState }) {
@@ -18,7 +19,7 @@ export default function OnlineGameJoinModal({ unselectMode, gameState, setGameSt
 	const [nicknameState, setNicknameState] = useState('');
 
 	const joinRemoteGame = async () => {
-		if (nicknameState === '' || nicknameState?.length >= 3) {
+		if (nicknameState?.length >= 3 && nicknameState?.length <= 30) {
 			const newGameState = await apiCallsHandler.joinRemote({
 				gameId: gameState.gameId,
 				gameMode: 'remote',
@@ -30,7 +31,7 @@ export default function OnlineGameJoinModal({ unselectMode, gameState, setGameSt
 			if (newGameState) {
 				setGameState(newGameState);
 			}
-		} else if (nicknameState && nicknameState.length < 3) {
+		} else {
 			setNicknameState(false);
 		}
 	};
@@ -49,6 +50,7 @@ export default function OnlineGameJoinModal({ unselectMode, gameState, setGameSt
 						Nickname
 						<NicknameInputBox onChange={e => setNicknameState(e.target.value)} />
 					</OnlineNicknameInputContainer>
+					{nicknameState === false && <NicknameLengthAlert />}
 				</OnlineInputsContainer>
 				<OnlineJoinButton onClick={joinRemoteGame} />
 			</OnlineGameStartCard>

@@ -41,7 +41,7 @@ export const PlayerOneNameContainer = styled.div`
 	${({ shouldShowBG }) => (shouldShowBG ? '' : 'background: none;')}
 `;
 export const PlayerOneName = styled.div`
-	height: 29%;
+	height: 33%;
 	overflow: hidden;
 	font-size: ${({ theme }) => theme.sizes.text.XL};
 	font-family: 'Crete Round', serif;
@@ -100,7 +100,7 @@ export const PlayerTwoNameContainer = styled.div`
 	${({ shouldShowBG }) => (shouldShowBG ? '' : 'background: none;')}
 `;
 export const PlayerTwoName = styled.div`
-	height: 29%;
+	height: 33%;
 	overflow: hidden;
 	font-size: ${({ theme }) => theme.sizes.text.XL};
 	font-family: 'Crete Round', serif;

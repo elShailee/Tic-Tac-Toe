@@ -294,6 +294,7 @@ export const ShowMoreContainer = styled.div`
 	font-family: 'Crete Round', serif;
 	color: ${({ theme }) => theme.colors.modalsText};
 	cursor: pointer;
+	margin-top: ${({ theme }) => theme.calcSizeUnits(0.2)};
 	margin-bottom: ${({ theme }) => theme.calcSizeUnits(0.2)};
 `;
 
@@ -302,7 +303,7 @@ export const OnlineNicknameInputContainer = styled.div`
 	${({ theme }) => theme.customStyles.centerItems}
 	font-size: ${({ theme }) => theme.sizes.text.L};
 	font-family: 'Crete Round', serif;
-	margin-bottom: ${({ theme }) => theme.calcSizeUnits(0.3)};
+	margin-bottom: ${({ theme }) => theme.calcSizeUnits(0.1)};
 `;
 
 export const NicknameInputBox = styled.input`
@@ -330,6 +331,15 @@ NicknameInputBox.defaultProps = {
 	type: 'text',
 	placeholder: 'cool name idk',
 	spellCheck: false,
+};
+
+export const NicknameLengthAlert = styled.div`
+	color: ${({ theme }) => theme.colors.modalsBG};
+	font-family: 'Crete Round', serif;
+	font-size: ${({ theme }) => theme.sizes.text.S};
+`;
+NicknameLengthAlert.defaultProps = {
+	children: 'Nickname must be 3-30 letters long',
 };
 
 export const OnlineInputsContainer = styled.div`

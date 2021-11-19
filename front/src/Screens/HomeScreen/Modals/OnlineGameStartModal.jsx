@@ -11,6 +11,7 @@ import {
 	OnlineInputsContainer,
 	OnlineNicknameInputContainer,
 	NicknameInputBox,
+	NicknameLengthAlert,
 	OnlineStartButton,
 	OnlineStartingMarkSelectionContainer,
 	OnlineMarkImage,
@@ -32,7 +33,7 @@ export default function OnlineGameStartModal({ unselectMode, setGameState }) {
 	const [showMoreState, setShowMoreState] = useState(false);
 
 	const createRemoteGame = async () => {
-		if (nicknameState?.length >= 3) {
+		if (nicknameState?.length >= 3 && nicknameState?.length <= 30) {
 			const userMark = selectedMarkState !== '?' ? selectedMarkState : randomizeMark();
 			const actualStartingPlayer = startingPlayerState !== '?' ? startingPlayerState : randomizeStartingPlayer();
 			const startingMark = actualStartingPlayer === 'you' ? userMark : getOppositeMark(userMark);
@@ -67,6 +68,7 @@ export default function OnlineGameStartModal({ unselectMode, setGameState }) {
 						Nickname
 						<NicknameInputBox onChange={e => setNicknameState(e.target.value)} />
 					</OnlineNicknameInputContainer>
+					{nicknameState === false && <NicknameLengthAlert />}
 					<ShowMoreContainer onClick={() => setShowMoreState(!showMoreState)}>
 						{showMoreState ? '- show less' : '+ show more'}
 					</ShowMoreContainer>
