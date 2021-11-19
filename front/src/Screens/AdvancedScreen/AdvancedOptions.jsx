@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { getInviteLink } from 'Utils/axiosFuncs';
-import { AdvancedContainer, InviteButton, UsedInviteButton } from './styles';
+import { AdvancedContainer, InviteButton, UsedInviteButton, ChangeThemesButton } from './styles';
 
-export default function AdvancedOptions({ gameState }) {
+export default function AdvancedOptions({ gameState, changeThemes }) {
 	const [didJustCopyLinkState, setDidJustCopyLinkState] = useState(false);
 
 	let numOfPlayers = 0;
@@ -30,6 +30,7 @@ export default function AdvancedOptions({ gameState }) {
 				) : (
 					<InviteButton onClick={copyLink}>Invite a friend!</InviteButton>
 				))}
+			<ChangeThemesButton onClick={changeThemes} />
 		</AdvancedContainer>
 	);
 }

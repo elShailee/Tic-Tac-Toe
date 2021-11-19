@@ -8,7 +8,7 @@ import apiCallsHandler from 'Utils/axiosFuncs';
 import AdvancedOptions from 'Screens/AdvancedScreen/AdvancedOptions';
 // import PlayersScores from './PlayersScores';
 
-export default function Game({ gameState, setGameState }) {
+export default function Game({ gameState, setGameState, changeThemes }) {
 	let numOfPlayers = 0;
 	if (gameState.playerOne) {
 		numOfPlayers++;
@@ -27,7 +27,7 @@ export default function Game({ gameState, setGameState }) {
 			}
 		};
 
-		const interval = setInterval(refreshRemote, 1500);
+		const interval = setInterval(refreshRemote, 250);
 		return () => clearInterval(interval);
 	}, [gameState, setGameState]);
 
@@ -54,7 +54,7 @@ export default function Game({ gameState, setGameState }) {
 			{gameState?.gameId && !isJoining && <PlayerTwoStats gameState={gameState} />}
 
 			<AboutContainer />
-			<AdvancedOptions gameState={gameState} />
+			<AdvancedOptions gameState={gameState} changeThemes={changeThemes} />
 			<HomeScreen gameState={gameState} setGameState={setGameState} isJoining={isJoining} />
 			{/* <GameGrid gameState={gameState} setGameState={setGameState} />
 			<DataUtilsContainer>

@@ -107,6 +107,8 @@ export const darkTheme = {
 		advancedBorder: palette.yellow[959],
 		inviteButton: palette.orange[750],
 		usedInviteButton: palette.orange[450],
+		changeThemesButton: palette.white[900],
+		changeThemesButtonBorder: palette.white[800],
 	},
 	images: {
 		BG: {
@@ -124,6 +126,7 @@ export const darkTheme = {
 		blueXIcon: assetsLib.darkBlueXIcon,
 		orangeOIcon: assetsLib.darkOrangeOIcon,
 		restartIcon: assetsLib.darkRestartIcon,
+		themeIcon: assetsLib.lightThemeIcon,
 	},
 };
 
@@ -148,6 +151,8 @@ export const lightTheme = {
 		advancedBorder: palette.green[339],
 		inviteButton: palette.orange[900],
 		usedInviteButton: palette.orange[800],
+		changeThemesButton: palette.blue[110],
+		changeThemesButtonBorder: palette.blue[210],
 	},
 
 	images: {
@@ -166,5 +171,6 @@ export const lightTheme = {
 		blueXIcon: assetsLib.lightBlueXIcon,
 		orangeOIcon: assetsLib.lightOrangeOIcon,
 		restartIcon: assetsLib.lightRestartIcon,
+		themeIcon: assetsLib.darkThemeIcon,
 	},
 };

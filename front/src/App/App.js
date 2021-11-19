@@ -39,7 +39,7 @@ function App() {
 				<GameContainer>
 					<LeftShadow />
 					<TopShadow />
-					<Game gameState={gameState} setGameState={setGameState} />
+					<Game gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
 					<BotShadow />
 					<RightShadow />
 				</GameContainer>
