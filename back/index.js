@@ -168,13 +168,13 @@ app.post(API.refreshRemote + ':gameId', validations.refreshRemote, (req, res) =>
 	userPlayer.lastCheckIn = moment();
 	if (games[gameId].playerOne?.id === userPlayer.id) {
 		games[gameId].playerOne = userPlayer;
-		if (games[gameId].playerTwo?.lastCheckIn && moment(moment().diff(games[gameId].playerTwo?.lastCheckIn)).seconds() > 5) {
+		if (games[gameId].playerTwo?.lastCheckIn && moment(moment().diff(games[gameId].playerTwo?.lastCheckIn)).seconds() > 2) {
 			makePlayerLeave({ player: games[gameId].playerTwo, gameId });
 		}
 	}
 	if (games[gameId].playerTwo?.id === userPlayer.id) {
 		games[gameId].playerTwo = userPlayer;
-		if (games[gameId].playerOne?.lastCheckIn && moment(moment().diff(games[gameId].playerOne.lastCheckIn)).seconds() > 5) {
+		if (games[gameId].playerOne?.lastCheckIn && moment(moment().diff(games[gameId].playerOne.lastCheckIn)).seconds() > 2) {
 			makePlayerLeave({ player: games[gameId].playerOne, gameId });
 		}
 	}

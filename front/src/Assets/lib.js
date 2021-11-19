@@ -26,6 +26,8 @@ import lightHintXIcon from 'Assets/Images/light_hint_x_icon.svg';
 import lightHintOIcon from 'Assets/Images/light_hint_o_icon.svg';
 import darkThemeIcon from 'Assets/Images/dark_theme_icon.svg';
 import lightThemeIcon from 'Assets/Images/light_theme_icon.svg';
+import darkExitIcon from 'Assets/Images/dark_exit_icon.svg';
+import lightExitIcon from 'Assets/Images/light_exit_icon.svg';
 
 const lib = {
 	darkBG,
@@ -56,6 +58,8 @@ const lib = {
 	lightHintOIcon,
 	darkThemeIcon,
 	lightThemeIcon,
+	darkExitIcon,
+	lightExitIcon,
 };
 
 export default lib;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { getInviteLink } from 'Utils/axiosFuncs';
-import { AdvancedContainer, InviteButton, UsedInviteButton, ChangeThemesButton } from './styles';
+import { AdvancedContainer, InviteButton, UsedInviteButton, ChangeThemesButton, ExitGameButton } from './styles';
 
-export default function AdvancedOptions({ gameState, changeThemes }) {
+export default function AdvancedOptions({ gameState, setGameState, changeThemes }) {
 	const [didJustCopyLinkState, setDidJustCopyLinkState] = useState(false);
 
 	let numOfPlayers = 0;
@@ -13,6 +13,7 @@ export default function AdvancedOptions({ gameState, changeThemes }) {
 		numOfPlayers++;
 	}
 	const isInvitingPossible = gameState?.gameMode === 'remote' && numOfPlayers === 1 && gameState?.userPlayer;
+	const isPlaying = gameState.gameMode === 'local' || (gameState.gameMode === 'remote' && gameState.userPlayer);
 
 	const copyLink = async () => {
 		navigator.clipboard.writeText(getInviteLink(gameState.gameId));
@@ -30,6 +31,7 @@ export default function AdvancedOptions({ gameState, changeThemes }) {
 				) : (
 					<InviteButton onClick={copyLink}>Invite a friend!</InviteButton>
 				))}
+			{isPlaying && <ExitGameButton onClick={() => setGameState({})} />}
 			<ChangeThemesButton onClick={changeThemes} />
 		</AdvancedContainer>
 	);

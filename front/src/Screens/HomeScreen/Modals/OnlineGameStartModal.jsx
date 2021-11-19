@@ -44,6 +44,7 @@ export default function OnlineGameStartModal({ unselectMode, setGameState }) {
 				userPlayer: { nickname: nicknameState, mark: userMark, winCount: 0 },
 			});
 			newGameState && setGameState(newGameState);
+			unselectMode();
 		} else {
 			setNicknameState(false);
 		}

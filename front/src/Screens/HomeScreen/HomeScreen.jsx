@@ -9,7 +9,6 @@ export default function HomeScreen({ gameState, setGameState, isJoining }) {
 	const [modeState, setModeState] = useState('select');
 	const unselectMode = () => {
 		setModeState('select');
-		setGameState({});
 	};
 	const selectLocal = () => setModeState('local');
 	const selectOnline = () => setModeState('online');

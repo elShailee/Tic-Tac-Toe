@@ -49,3 +49,14 @@ export const ChangeThemesButton = styled(GeneralButton)`
 	grid-row: 1/3;
 	grid-column: 7/9;
 `;
+
+export const ExitGameButton = styled(GeneralButton)`
+	background-color: ${({ theme }) => theme.colors.exitButtonBG};
+	background-image: url(${({ theme }) => theme.images.exitIcon});
+	${({ theme }) => theme.customStyles.highlighted}
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: ${({ theme }) => theme.calcSizeUnits(0.8)};
+	grid-row: 1/3;
+	grid-column: 5/7;
+`;

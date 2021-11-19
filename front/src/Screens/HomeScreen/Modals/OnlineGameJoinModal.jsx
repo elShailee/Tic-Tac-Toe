@@ -30,6 +30,7 @@ export default function OnlineGameJoinModal({ unselectMode, gameState, setGameSt
 			});
 			if (newGameState) {
 				setGameState(newGameState);
+				unselectMode();
 			}
 		} else {
 			setNicknameState(false);

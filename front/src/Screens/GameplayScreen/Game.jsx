@@ -54,7 +54,7 @@ export default function Game({ gameState, setGameState, changeThemes }) {
 			{gameState?.gameId && !isJoining && <PlayerTwoStats gameState={gameState} />}
 
 			<AboutContainer />
-			<AdvancedOptions gameState={gameState} changeThemes={changeThemes} />
+			<AdvancedOptions gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
 			<HomeScreen gameState={gameState} setGameState={setGameState} isJoining={isJoining} />
 			{/* <GameGrid gameState={gameState} setGameState={setGameState} />
 			<DataUtilsContainer>

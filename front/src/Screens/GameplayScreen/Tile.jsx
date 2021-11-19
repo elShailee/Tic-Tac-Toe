@@ -45,7 +45,12 @@ export default function Tile({ gameState, setGameState, row, col }) {
 		if (gameState.gameMode === 'local') {
 			return gameState.turnState;
 		}
-		if (gameState.gameMode === 'remote' && gameState.userPlayer.mark === gameState.turnState) {
+		if (
+			gameState.gameMode === 'remote' &&
+			gameState.userPlayer.mark === gameState.turnState &&
+			gameState.playerOne &&
+			gameState.playerTwo
+		) {
 			return gameState.turnState;
 		}
 		return null;

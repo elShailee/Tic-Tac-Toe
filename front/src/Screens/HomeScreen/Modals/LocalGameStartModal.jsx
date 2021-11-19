@@ -29,6 +29,7 @@ export default function LocalGameStartModal({ unselectMode, setGameState }) {
 			playerTwo: { nickname: 'Player2', winCount: 0, mark: 'X' },
 		});
 		newGameState && setGameState(newGameState);
+		unselectMode();
 	};
 
 	return (
