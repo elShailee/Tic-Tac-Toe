@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { getInviteLink } from 'Utils/axiosFuncs';
-import { AdvancedContainer, InviteButton, UsedInviteButton, ChangeThemesButton, ExitGameButton } from './styles';
+import {
+	AdvancedContainer,
+	InviteButton,
+	UsedInviteButton,
+	ChangeThemesButton,
+	ExitGameButton,
+	GithubButton,
+} from './styles';
 
 export default function AdvancedOptions({ gameState, setGameState, changeThemes }) {
 	const [didJustCopyLinkState, setDidJustCopyLinkState] = useState(false);
@@ -33,6 +40,7 @@ export default function AdvancedOptions({ gameState, setGameState, changeThemes 
 				))}
 			{isPlaying && <ExitGameButton onClick={() => setGameState({})} />}
 			<ChangeThemesButton onClick={changeThemes} />
+			<GithubButton target='_blank' href='https://github.com/elShailee/Tic-Tac-Toe' />
 		</AdvancedContainer>
 	);
 }

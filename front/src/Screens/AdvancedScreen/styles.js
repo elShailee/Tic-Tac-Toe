@@ -50,6 +50,24 @@ export const ChangeThemesButton = styled(GeneralButton)`
 	grid-column: 7/9;
 `;
 
+export const GithubButton = styled.a`
+	background-color: ${({ theme }) => theme.colors.githubButton};
+	background-image: url(${({ theme }) => theme.images.githubIcon});
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: ${({ theme }) => theme.calcSizeUnits(1.75)};
+	border: ${({ theme }) => theme.sizes.padding.S} solid ${({ theme }) => theme.colors.githubButtonBorder};
+	border-width: ${({ theme }) => theme.sizes.padding.S};
+	grid-row: 3 / 6;
+	grid-column: 6 / 9;
+	${({ theme }) => theme.customStyles.highlighted}
+	padding: ${({ theme }) => theme.sizes.padding.S};
+	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
+	${({ theme }) => theme.customStyles.centerItems}
+	${({ theme }) => theme.customStyles.nonSelectable}
+  ${({ theme }) => theme.customStyles.clickable}
+`;
+
 export const ExitGameButton = styled(GeneralButton)`
 	background-color: ${({ theme }) => theme.colors.exitButtonBG};
 	background-image: url(${({ theme }) => theme.images.exitIcon});
