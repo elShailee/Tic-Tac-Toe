@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import GameBoard from './GameBoard';
-import { GameContainer, TitleContainer, AboutContainer } from './styles';
+import { GameContainer, TitleContainer } from './styles';
 import PlayerOneStats from './PlayerOneStats';
 import PlayerTwoStats from './PlayerTwoStats';
 import HomeScreen from 'Screens/HomeScreen/HomeScreen';
 import apiCallsHandler from 'Utils/axiosFuncs';
 import AdvancedOptions from 'Screens/AdvancedScreen/AdvancedOptions';
+import AboutMe from '../AboutSection/AboutMe';
 // import PlayersScores from './PlayersScores';
 
 export default function Game({ gameState, setGameState, changeThemes }) {
@@ -53,7 +54,7 @@ export default function Game({ gameState, setGameState, changeThemes }) {
 			{gameState?.gameId && !isJoining && <GameBoard gameState={gameState} setGameState={setGameState} />}
 			{gameState?.gameId && !isJoining && <PlayerTwoStats gameState={gameState} />}
 
-			<AboutContainer />
+			<AboutMe />
 			<AdvancedOptions gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
 			<HomeScreen gameState={gameState} setGameState={setGameState} isJoining={isJoining} />
 			{/* <GameGrid gameState={gameState} setGameState={setGameState} />

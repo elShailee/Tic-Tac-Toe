@@ -84,6 +84,7 @@ const sharedTheme = {
 		transparent: palette.transparent,
 		shadow: palette.black[103],
 	},
+	images: { profilePic: assetsLib.profilePic },
 };
 
 export const darkTheme = {
@@ -110,8 +111,11 @@ export const darkTheme = {
 		changeThemesButton: palette.white[900],
 		changeThemesButtonBorder: palette.white[800],
 		exitButtonBG: palette.yellow[950],
+		aboutNameText: palette.orange[750],
+		aboutParagraphText: palette.blue[880],
 	},
 	images: {
+		...sharedTheme.images,
 		BG: {
 			appBG: assetsLib.darkBG,
 		},
@@ -156,9 +160,12 @@ export const lightTheme = {
 		changeThemesButton: palette.blue[110],
 		changeThemesButtonBorder: palette.blue[210],
 		exitButtonBG: palette.green[330],
+		aboutNameText: palette.orange[800],
+		aboutParagraphText: palette.blue[570],
 	},
 
 	images: {
+		...sharedTheme.images,
 		BG: {
 			appBG: assetsLib.lightBG,
 		},

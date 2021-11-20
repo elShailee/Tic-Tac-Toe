@@ -116,12 +116,6 @@ export const PlayerTwoScore = styled.div`
 	color: ${({ theme }) => theme.colors.playerTwoText};
 `;
 
-export const AboutContainer = styled.div`
-	grid-column: 1/21;
-	grid-row: 27/37;
-	background-color: blueviolet;
-`;
-
 export const WinnerLabel = styled.div`
 	font-size: ${({ theme }) => theme.sizes.text.XL};
 	font-family: 'Crete Round', serif;
