@@ -50,9 +50,9 @@ export default function Game({ gameState, setGameState, changeThemes }) {
 	return (
 		<GameContainer>
 			<TitleContainer>Tic Tac Toe</TitleContainer>
-			{gameState?.gameId && !isJoining && <PlayerOneStats gameState={gameState} />}
+			{gameState?.gameId && !isJoining && <PlayerOneStats gameState={gameState} setGameState={setGameState} />}
 			{gameState?.gameId && !isJoining && <GameBoard gameState={gameState} setGameState={setGameState} />}
-			{gameState?.gameId && !isJoining && <PlayerTwoStats gameState={gameState} />}
+			{gameState?.gameId && !isJoining && <PlayerTwoStats gameState={gameState} setGameState={setGameState} />}
 
 			<AboutMe />
 			<AdvancedOptions gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />

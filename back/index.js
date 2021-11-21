@@ -218,16 +218,17 @@ app.post(API.leaveRemote + ':gameId', validations.leaveRemote, (req, res) => {
 	res.send(result);
 });
 
-//
 app.post(API.renameRemote + ':gameId', validations.renameRemote, (req, res) => {
 	const { gameId } = req.params;
-	const { userPlayer } = req.body;
+	const { playerOne, playerTwo, userPlayer } = req.body;
 
 	if (userPlayer.id === games[gameId].playerOne?.id) {
-		games[gameId].playerOne.nickname = userPlayer.nickname;
+		games[gameId].playerOne.nickname = playerOne.nickname;
+		userPlayer.nickname = playerOne.nickname;
 		res.send({ ...games[gameId], userPlayer });
 	} else if (userPlayer.id === games[gameId].playerTwo?.id) {
-		games[gameId].playerTwo.nickname = userPlayer.nickname;
+		games[gameId].playerTwo.nickname = playerTwo.nickname;
+		userPlayer.nickname = playerTwo.nickname;
 		res.send({ ...games[gameId], userPlayer });
 	}
 });

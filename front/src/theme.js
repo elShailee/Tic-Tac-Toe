@@ -120,6 +120,12 @@ export const darkTheme = {
 		connectionToggleButton: palette.white[600],
 		logsButton: palette.blue[880],
 		logsButtonText: palette.black[100],
+		nicknameInputBox: {
+			BG: palette.white[903],
+			text: palette.blue[110],
+			selectedBG: palette.white[903],
+			selectedText: palette.white[900],
+		},
 	},
 	images: {
 		...sharedTheme.images,
@@ -177,6 +183,12 @@ export const lightTheme = {
 		aboutParagraphText: palette.blue[570],
 		connectionToggleButton: palette.white[400],
 		logsButton: palette.blue[980],
+		nicknameInputBox: {
+			BG: palette.blue[113],
+			text: palette.blue[110],
+			selectedBG: palette.blue[113],
+			selectedText: palette.white[900],
+		},
 	},
 
 	images: {

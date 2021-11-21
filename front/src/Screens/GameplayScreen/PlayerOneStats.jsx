@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import apiCallsHandler from 'Utils/axiosFuncs';
 import {
 	PlayerOneStatsContainer,
 	PlayerOneNameContainer,
@@ -6,17 +7,65 @@ import {
 	PlayerOneScore,
 	WinnerLabel,
 	TieLabel,
+	NicknameInputBox,
+	NameTextBoxContaier,
 } from './styles';
 
-export default function PlayerOneStats({ gameState }) {
+export default function PlayerOneStats({ gameState, setGameState }) {
 	const isThisPlayerTurn = gameState.turnState === 'O' && !gameState.winState;
 	const isThisPlayerWinner = gameState.winState === 'O';
 	const isTie = gameState.winState === 'Tie';
 
+	const [isEditingState, setIsEditingState] = useState(false);
+	const [newNicknameState, setNewNicknameState] = useState(gameState.playerOne?.nickname);
+
+	const tryToEditNickname = () => {
+		if (
+			gameState.gameMode === 'local' ||
+			(gameState.gameMode === 'remote' && gameState.playerOne?.id === gameState.userPlayer.id)
+		) {
+			setIsEditingState(true);
+		}
+	};
+
+	const nameSubmit = async () => {
+		setIsEditingState(false);
+		if (newNicknameState?.length >= 3 && newNicknameState?.length <= 30) {
+			const apiFunc = gameState.gameMode === 'local' ? 'renameLocal' : 'renameRemote';
+			const newGameState = await apiCallsHandler[apiFunc]({
+				...gameState,
+				playerOne: {
+					...gameState.playerOne,
+					nickname: newNicknameState,
+				},
+			});
+			newGameState && setGameState(newGameState);
+		}
+	};
+
+	const inputHandler = e => {
+		const keyCode = e.keyCode;
+		if (keyCode === 27) {
+			setIsEditingState(false);
+		} else if (keyCode === 13) {
+			nameSubmit();
+		}
+	};
+
 	return (
 		<PlayerOneStatsContainer>
 			<PlayerOneNameContainer shouldShowBG={isThisPlayerTurn || isThisPlayerWinner} />
-			<PlayerOneName>{gameState?.playerOne?.nickname}</PlayerOneName>
+			{isEditingState ? (
+				<NameTextBoxContaier onSubmit={nameSubmit}>
+					<NicknameInputBox
+						onChange={e => setNewNicknameState(e.target.value)}
+						onKeyDown={e => inputHandler(e)}
+						defaultValue={gameState.playerOne?.nickname}
+					/>
+				</NameTextBoxContaier>
+			) : (
+				<PlayerOneName onClick={tryToEditNickname}>{gameState?.playerOne?.nickname}</PlayerOneName>
+			)}
 			<PlayerOneScore>{gameState?.playerOne?.winCount}</PlayerOneScore>
 			{isThisPlayerWinner && <WinnerLabel player='one' />}
 			{isTie && <TieLabel player='two' />}

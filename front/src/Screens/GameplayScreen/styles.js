@@ -147,6 +147,39 @@ export const RestartButton = styled.img`
 	margin-left: ${({ theme }) => theme.calcSizeUnits(1.13)};
 	${({ theme }) => theme.customStyles.nonSelectable}
 `;
+
+export const NicknameInputBox = styled.input`
+	width: ${({ theme }) => theme.calcSizeUnits(4)};
+	background-color: ${({ theme }) => theme.colors.nicknameInputBox.BG};
+	margin-left: ${({ theme }) => theme.calcSizeUnits(0.1)};
+	border: 0px;
+	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
+	font-size: ${({ theme }) => theme.sizes.text.L};
+	font-family: 'Crete Round', serif;
+	color: ${({ theme }) => theme.colors.nicknameInputBox.text};
+	padding: ${({ theme }) => theme.calcSizeUnits(0.1)};
+	padding-left: ${({ theme }) => theme.calcSizeUnits(0.2)};
+	box-sizing: border-box;
+	outline: none;
+	letter-spacing: ${({ theme }) => theme.calcSizeUnits(0.007)};
+	&::selection {
+		color: ${({ theme }) => theme.colors.nicknameInputBox.selectedText};
+		background-color: ${({ theme }) => theme.colors.nicknameInputBox.selectedBG};
+	}
+	&::placeholder {
+		color: ${({ theme }) => theme.colors.modalsPlaceholderText};
+	}
+`;
+NicknameInputBox.defaultProps = {
+	type: 'text',
+	spellCheck: false,
+};
+
+export const NameTextBoxContaier = styled.div`
+	height: 33%;
+	margin-top: ${({ theme }) => theme.calcSizeUnits(-0.7)};
+`;
+
 // export const TileContainer = styled.div`
 // 	width: ${calcSizeUnits(2.5)};
 // 	height: ${calcSizeUnits(2.5)};
