@@ -45,9 +45,11 @@ export const NameUnderline = styled.div`
 
 export const ParagraphContainer = styled.div`
 	grid-column: 1 / 21;
-	grid-row: 5 / 11;
+	grid-row: 4 / 11;
 	font-family: sans-serif;
-	font-size: ${({ theme }) => theme.sizes.text.M};
+	font-size: ${({ theme }) => theme.calcSizeUnits(0.34)};
 	color: ${({ theme }) => theme.colors.aboutParagraphText};
 	text-align: left;
+	padding-top: ${({ theme }) => theme.calcSizeUnits(0.3)};
+	white-space: nowrap;
 `;

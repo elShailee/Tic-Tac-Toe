@@ -14,14 +14,19 @@ export default function AboutMe() {
 			<NameUnderline />
 			<NameContainer />
 			<ParagraphContainer>
-				{addSpace(28)} Lorem ipsum dolor sit amet,
+				{addSpace(29)} I'm a 25 y/o developer from Bet-Shemesh.
 				<br />
-				{addSpace(25)} Lorem ipsum dolor sit amet,
+				{addSpace(27)} I enjoy music and art, and loved being a youth
 				<br />
-				{addSpace(20)}
-				Lorem ipsum dolor sit amet,
-				<br /> Lorem ipsum dolor sit amet,
-				<br /> Lorem ipsum dolor sit amet,
+				{addSpace(23)} guide (informal education) for five years.
+				<br />
+				For the last two years I am studying CS at the Open University
+				<br />
+				of Israel, and learning to program.
+				<br />
+				Learning alone and with friend was alot of fun, but now I'm
+				<br />
+				looking forward to work with good people on a great product!
 			</ParagraphContainer>
 			<ProfileImage />
 		</AboutContainer>
