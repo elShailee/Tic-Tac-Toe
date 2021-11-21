@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const AdvancedContainer = styled.div`
 	grid-column: 21/37;
 	grid-row: 27/37;
+	width: 93.75%;
+	margin-left: ${({ theme }) => theme.calcSizeUnits(0.21)};
 	padding: ${({ theme }) => theme.sizes.padding.S};
 	display: grid;
 	grid-template-columns: repeat(8, 1fr);
@@ -21,7 +23,11 @@ const GeneralButton = styled.div`
   ${({ theme }) => theme.customStyles.clickable}
 	font-size: ${({ theme }) => theme.sizes.text.L};
 	font-family: 'Crete Round', serif;
+	color: ${({ theme }) => theme.colors.advancedButtonText};
 	${({ theme }) => theme.customStyles.borderShading(theme)}
+	border-width:${({ theme }) => theme.sizes.border.L};
+	background-repeat: no-repeat;
+	background-position: center;
 `;
 
 export const InviteButton = styled(GeneralButton)`
@@ -29,25 +35,26 @@ export const InviteButton = styled(GeneralButton)`
 	grid-column: span 4;
 	background-color: ${({ theme }) => theme.colors.inviteButton};
 	${({ theme }) => theme.customStyles.highlighted}
+	color: ${({ theme }) => theme.colors.inviteButtonText};
 `;
 
 export const UsedInviteButton = styled(GeneralButton)`
 	grid-row: span 2;
 	grid-column: span 4;
 	background-color: ${({ theme }) => theme.colors.usedInviteButton};
-	font-size: ${({ theme }) => theme.sizes.text.M};
+	font-size: ${({ theme }) => theme.calcSizeUnits(0.4)};
 	cursor: default;
+	color: ${({ theme }) => theme.colors.inviteButtonText};
 `;
 
 export const ChangeThemesButton = styled(GeneralButton)`
 	background-color: ${({ theme }) => theme.colors.changeThemesButton};
 	background-image: url(${({ theme }) => theme.images.themeIcon});
-	background-repeat: no-repeat;
-	background-position: center;
 	background-size: ${({ theme }) => theme.calcSizeUnits(1)};
-	border: ${({ theme }) => theme.sizes.padding.S} solid ${({ theme }) => theme.colors.changeThemesButtonBorder};
+	border: ${({ theme }) => theme.sizes.border.L} solid ${({ theme }) => theme.colors.changeThemesButtonBorder};
 	grid-row: 1/3;
 	grid-column: 7/9;
+	${({ theme }) => theme.customStyles.highlighted}
 `;
 
 export const GithubButton = styled.a`
@@ -55,26 +62,52 @@ export const GithubButton = styled.a`
 	background-image: url(${({ theme }) => theme.images.githubIcon});
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: ${({ theme }) => theme.calcSizeUnits(1.75)};
-	border: ${({ theme }) => theme.sizes.padding.S} solid ${({ theme }) => theme.colors.githubButtonBorder};
-	border-width: ${({ theme }) => theme.sizes.padding.S};
-	grid-row: 3 / 6;
-	grid-column: 6 / 9;
+	background-size: ${({ theme }) => theme.calcSizeUnits(1.1)};
+	border: ${({ theme }) => theme.sizes.border.L};
+	grid-row: 3 / 5;
+	grid-column: 4 / 6;
 	${({ theme }) => theme.customStyles.highlighted}
 	padding: ${({ theme }) => theme.sizes.padding.S};
 	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
 	${({ theme }) => theme.customStyles.centerItems}
 	${({ theme }) => theme.customStyles.nonSelectable}
   ${({ theme }) => theme.customStyles.clickable}
+	${({ theme }) => theme.customStyles.borderShading(theme)}
 `;
 
 export const ExitGameButton = styled(GeneralButton)`
 	background-color: ${({ theme }) => theme.colors.exitButtonBG};
 	background-image: url(${({ theme }) => theme.images.exitIcon});
 	${({ theme }) => theme.customStyles.highlighted}
-	background-repeat: no-repeat;
-	background-position: center;
 	background-size: ${({ theme }) => theme.calcSizeUnits(0.8)};
 	grid-row: 1/3;
 	grid-column: 5/7;
+`;
+
+export const ResumeButton = styled(GeneralButton)`
+	background-color: ${({ theme }) => theme.colors.resumeButton};
+	background-image: url(${({ theme }) => theme.images.CVIcon});
+	background-size: ${({ theme }) => theme.calcSizeUnits(1.75)};
+	grid-row: 3 / 6;
+	grid-column: 6 / 9;
+	${({ theme }) => theme.customStyles.highlighted}
+`;
+
+export const ConnectionToggleButton = styled(GeneralButton)`
+	background-color: ${({ theme }) => theme.colors.connectionToggleButton};
+	grid-row: 5 / 6;
+	grid-column: 1 / 6;
+	${({ theme }) => theme.customStyles.highlighted}
+	font-size: ${({ theme }) => theme.sizes.text.M};
+	padding: 0;
+	color: ${({ theme }) => theme.colors.inviteButtonText};
+`;
+
+export const LogsButton = styled(GeneralButton)`
+	background-color: ${({ theme }) => theme.colors.logsButton};
+	color: ${({ theme }) => theme.colors.logsButtonText};
+	grid-row: 3 / 5;
+	grid-column: 1 / 4;
+	${({ theme }) => theme.customStyles.highlighted}
+	line-height: 100%;
 `;

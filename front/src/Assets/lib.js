@@ -29,7 +29,10 @@ import lightThemeIcon from 'Assets/Images/light_theme_icon.svg';
 import darkExitIcon from 'Assets/Images/dark_exit_icon.svg';
 import lightExitIcon from 'Assets/Images/light_exit_icon.svg';
 import profilePic from 'Assets/Images/profile-pic.png';
-import githubIcon from 'Assets/Images/github_icon.svg';
+import lightGithubIcon from 'Assets/Images/light_github_icon.svg';
+import darkGithubIcon from 'Assets/Images/dark_github_icon.svg';
+import lightCVIcon from 'Assets/Images/light_cv_icon.svg';
+import darkCVIcon from 'Assets/Images/dark_cv_icon.svg';
 
 const lib = {
 	darkBG,
@@ -63,7 +66,10 @@ const lib = {
 	darkExitIcon,
 	lightExitIcon,
 	profilePic,
-	githubIcon,
+	lightGithubIcon,
+	darkGithubIcon,
+	lightCVIcon,
+	darkCVIcon,
 };
 
 export default lib;

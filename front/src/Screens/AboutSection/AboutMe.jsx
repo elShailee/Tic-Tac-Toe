@@ -16,9 +16,9 @@ export default function AboutMe() {
 			<ParagraphContainer>
 				{addSpace(29)} I'm a 25 y/o developer from Bet-Shemesh.
 				<br />
-				{addSpace(27)} I enjoy music and art, and loved being a youth
+				{addSpace(27)} I enjoy music and art, and loved being a Youth
 				<br />
-				{addSpace(23)} guide (informal education) for five years.
+				{addSpace(22)} Guide (informal education) for five years.
 				<br />
 				For the last two years I am studying CS at the Open University
 				<br />

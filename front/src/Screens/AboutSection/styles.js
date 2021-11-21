@@ -7,6 +7,8 @@ export const AboutContainer = styled.div`
 	display: grid;
 	grid-template-columns: repeat(20, 1fr);
 	grid-template-rows: repeat(10, 1fr);
+	margin-top: ${({ theme }) => theme.calcSizeUnits(-0.07)};
+	margin-left: ${({ theme }) => theme.calcSizeUnits(0.2)};
 `;
 
 export const ProfileImage = styled.div`

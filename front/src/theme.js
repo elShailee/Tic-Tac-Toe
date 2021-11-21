@@ -36,7 +36,7 @@ const sharedTheme = {
 			L: calcSizeUnits(0.5),
 			M: calcSizeUnits(0.35),
 			S: calcSizeUnits(0.3),
-			XS: calcSizeUnits(0.25),
+			XS: calcSizeUnits(0.27),
 		},
 		buttonsHeight: {
 			L: calcSizeUnits(1),
@@ -84,7 +84,7 @@ const sharedTheme = {
 		transparent: palette.transparent,
 		shadow: palette.black[103],
 	},
-	images: { profilePic: assetsLib.profilePic, githubIcon: assetsLib.githubIcon },
+	images: { profilePic: assetsLib.profilePic },
 };
 
 export const darkTheme = {
@@ -106,15 +106,20 @@ export const darkTheme = {
 		onlineCard: palette.orange[450],
 		onlineCardHover: palette.orange[750],
 		advancedBorder: palette.yellow[959],
+		advancedButtonText: palette.blue[110],
 		inviteButton: palette.orange[750],
+		inviteButtonText: palette.blue[110],
 		usedInviteButton: palette.orange[450],
 		changeThemesButton: palette.white[900],
-		changeThemesButtonBorder: palette.white[800],
+		changeThemesButtonBorder: palette.white[600],
 		exitButtonBG: palette.yellow[950],
-		githubButton: palette.blue[880],
-		githubButtonBorder: palette.blue[400],
+		resumeButton: palette.blue[880],
+		githubButton: palette.orange[750],
 		aboutNameText: palette.orange[750],
 		aboutParagraphText: palette.blue[880],
+		connectionToggleButton: palette.white[600],
+		logsButton: palette.blue[880],
+		logsButtonText: palette.black[100],
 	},
 	images: {
 		...sharedTheme.images,
@@ -135,6 +140,8 @@ export const darkTheme = {
 		restartIcon: assetsLib.darkRestartIcon,
 		themeIcon: assetsLib.lightThemeIcon,
 		exitIcon: assetsLib.darkExitIcon,
+		githubIcon: assetsLib.darkGithubIcon,
+		CVIcon: assetsLib.darkCVIcon,
 	},
 };
 
@@ -157,15 +164,19 @@ export const lightTheme = {
 		onlineCard: palette.orange[800],
 		onlineCardHover: palette.orange[900],
 		advancedBorder: palette.green[339],
+		advancedButtonText: palette.white[900],
 		inviteButton: palette.orange[900],
+		inviteButtonText: palette.green[330],
 		usedInviteButton: palette.orange[800],
 		changeThemesButton: palette.blue[110],
-		changeThemesButtonBorder: palette.blue[210],
+		changeThemesButtonBorder: palette.blue[310],
 		exitButtonBG: palette.green[330],
+		resumeButton: palette.orange[900],
 		githubButton: palette.blue[980],
-		githubButtonBorder: palette.blue[400],
 		aboutNameText: palette.orange[800],
 		aboutParagraphText: palette.blue[570],
+		connectionToggleButton: palette.white[400],
+		logsButton: palette.blue[980],
 	},
 
 	images: {
@@ -187,5 +198,7 @@ export const lightTheme = {
 		restartIcon: assetsLib.lightRestartIcon,
 		themeIcon: assetsLib.darkThemeIcon,
 		exitIcon: assetsLib.lightExitIcon,
+		githubIcon: assetsLib.lightGithubIcon,
+		CVIcon: assetsLib.lightCVIcon,
 	},
 };
