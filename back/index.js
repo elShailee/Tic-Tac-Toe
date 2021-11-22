@@ -245,6 +245,12 @@ app.delete(API.deleteGames, (req, res) => {
 	res.send(games);
 });
 
+//general api calls
+app.get(API.getResume, (req, res) => {
+	res.setHeader('Content-disposition', 'inline; filename=Shailee Eliyahu.pdf');
+	res.sendFile(path.join(__dirname, 'Shailee Eliyahu.pdf'));
+});
+
 const PORT = serverPort;
 app.listen(PORT, () => enviroment === 'developement' && console.log(`Listening for requests on port ${PORT}...`));
 

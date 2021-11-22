@@ -15,7 +15,7 @@ export const AdvancedContainer = styled.div`
 	box-sizing: border-box;
 `;
 
-const GeneralButton = styled.div`
+const GeneralButton = styled.a`
 	padding: ${({ theme }) => theme.sizes.padding.S};
 	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
 	${({ theme }) => theme.customStyles.centerItems}
@@ -57,22 +57,13 @@ export const ChangeThemesButton = styled(GeneralButton)`
 	${({ theme }) => theme.customStyles.highlighted}
 `;
 
-export const GithubButton = styled.a`
+export const GithubButton = styled(GeneralButton)`
 	background-color: ${({ theme }) => theme.colors.githubButton};
 	background-image: url(${({ theme }) => theme.images.githubIcon});
-	background-repeat: no-repeat;
-	background-position: center;
 	background-size: ${({ theme }) => theme.calcSizeUnits(1.1)};
-	border: ${({ theme }) => theme.sizes.border.L};
 	grid-row: 3 / 5;
 	grid-column: 4 / 6;
 	${({ theme }) => theme.customStyles.highlighted}
-	padding: ${({ theme }) => theme.sizes.padding.S};
-	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
-	${({ theme }) => theme.customStyles.centerItems}
-	${({ theme }) => theme.customStyles.nonSelectable}
-  ${({ theme }) => theme.customStyles.clickable}
-	${({ theme }) => theme.customStyles.borderShading(theme)}
 `;
 
 export const ExitGameButton = styled(GeneralButton)`

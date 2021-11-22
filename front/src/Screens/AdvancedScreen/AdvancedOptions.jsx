@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { getInviteLink } from 'Utils/axiosFuncs';
+import apiCallsHandler, { getInviteLink } from 'Utils/axiosFuncs';
+
 import {
 	AdvancedContainer,
 	InviteButton,
@@ -44,7 +45,7 @@ export default function AdvancedOptions({ gameState, setGameState, changeThemes 
 			{isPlaying && <ExitGameButton title='Exit Game' onClick={() => setGameState({})} />}
 			<ChangeThemesButton title='Change Themes' onClick={changeThemes} />
 			<GithubButton target='_blank' href='https://github.com/elShailee/Tic-Tac-Toe' />
-			<ResumeButton title='Download Resume' />
+			<ResumeButton target='_blank' onClick={apiCallsHandler.getResume} title='Check Out My Resume' />
 			{/* <LogsButton>Game Logs</LogsButton>
 			<ConnectionToggleButton>Switch to WebSocket</ConnectionToggleButton> */}
 		</AdvancedContainer>
