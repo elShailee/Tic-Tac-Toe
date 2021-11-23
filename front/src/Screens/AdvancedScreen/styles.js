@@ -92,6 +92,9 @@ export const ConnectionToggleButton = styled(GeneralButton)`
 	font-size: ${({ theme }) => theme.sizes.text.M};
 	padding: 0;
 	color: ${({ theme }) => theme.colors.inviteButtonText};
+
+	font-size: ${({ theme }) => theme.sizes.text.XXS};
+	white-space: nowrap; // just remove once button is implemented
 `;
 
 export const LogsButton = styled(GeneralButton)`

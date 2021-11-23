@@ -37,6 +37,7 @@ const sharedTheme = {
 			M: calcSizeUnits(0.35),
 			S: calcSizeUnits(0.3),
 			XS: calcSizeUnits(0.27),
+			XXS: calcSizeUnits(0.24),
 		},
 		buttonsHeight: {
 			L: calcSizeUnits(1),

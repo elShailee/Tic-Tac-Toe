@@ -258,8 +258,12 @@ app.listen(PORT, () => enviroment === 'developement' && console.log(`Listening f
 |   Frontend App    |
 \------------------*/
 
+app.get('/', function (req, res) {
+	res.redirect('http://Shailee-Eliyahu.com/Tic-Tac-Toe');
+});
+
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('/', function (req, res) {
+app.get('/tic-tac-toe', function (req, res) {
 	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
