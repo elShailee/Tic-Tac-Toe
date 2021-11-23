@@ -1,46 +1,54 @@
-import { useState } from 'react';
-import { AppContainer } from './styles';
+import { useMemo, useState } from 'react';
+import { AppContainer, GameContainer, RightShadow, LeftShadow, TopShadow, BotShadow } from './styles';
+import Game from 'Screens/GameplayScreen/Game';
 import { enviroment } from 'envSelector';
-import DevelopemetToolbar from './DemelopementToolbar';
-import GameplayScreen from 'Screens/GameplayScreen/GameplayScreen';
-import HomeScreen from 'Screens/HomeScreen/HomeScreen';
+import DevelopemetToolbar from './DevelopementToolbar';
+import { ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme } from 'theme';
+import { checkForGameJoining } from 'Utils/axiosFuncs';
 
 function App() {
-	// const blankBoard = [
-	// 	[false, false, false],
-	// 	[false, false, false],
-	// 	[false, false, false],
-	// ];
-	// const blankGameState = {
-	// 	boardState: blankBoard,
-	// 	winState: false,
-	// 	gameMode: 'local',
-	// 	startingPlayer: 'X',
-	// 	isBlankGame: true,
-	// };
-	// const [gameState, setGameState] = useState(blankGameState);
-	// const [loadIdState, setLoadIdState] = useState('');
-
-	// const stateObject = {
-	// 	blankBoard,
-	// 	blankGameState,
-	// 	gameState,
-	// 	setGameState,
-	// 	loadIdState,
-	// 	setLoadIdState,
-	// };
-
+	const [themeState, setThemeState] = useState('light');
 	const [gameState, setGameState] = useState({});
 
+	useMemo(() => {
+		checkForGameJoining(setGameState);
+	}, []);
+
+	const getCurrentTheme = () => {
+		if (themeState === 'light') {
+			return lightTheme;
+		} else if (themeState === 'dark') {
+			return darkTheme;
+		} else {
+			console.log('No valid theme state is selected att App.js.');
+		}
+	};
+
+	const changeThemes = () => {
+		if (themeState === 'light') {
+			setThemeState('dark');
+		} else if (themeState === 'dark') {
+			setThemeState('light');
+		}
+	};
+
 	return (
-		<AppContainer>
-			{enviroment === 'developement' && <DevelopemetToolbar gameState={gameState} setGameState={setGameState} />}
-			{gameState.gameId ? (
-				<GameplayScreen gameState={gameState} setGameState={setGameState} />
-			) : (
-				<HomeScreen setGameState={setGameState} />
-			)}
-		</AppContainer>
+		<ThemeProvider theme={getCurrentTheme}>
+			<AppContainer>
+				<GameContainer>
+					<LeftShadow />
+					<TopShadow />
+					<Game gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
+					<BotShadow />
+					<RightShadow />
+				</GameContainer>
+
+				{enviroment === 'developement' && (
+					<DevelopemetToolbar gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
+				)}
+			</AppContainer>
+		</ThemeProvider>
 	);
 }
 

@@ -88,10 +88,12 @@ const validateLocal = req => {
 		playerOne: Joi.object({
 			nickname: Joi.string().required(),
 			winCount: Joi.number().required(),
+			mark: Joi.string().valid('X', 'O').required(),
 		}).required(),
 		playerTwo: Joi.object({
 			nickname: Joi.string().required(),
 			winCount: Joi.number().required(),
+			mark: Joi.string().valid('X', 'O').required(),
 		}).required(),
 	})
 		.required()
