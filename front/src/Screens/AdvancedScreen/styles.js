@@ -101,4 +101,6 @@ export const LogsButton = styled(GeneralButton)`
 	grid-column: 1 / 4;
 	${({ theme }) => theme.customStyles.highlighted}
 	line-height: 100%;
+
+	font-size: ${({ theme }) => theme.sizes.text.M}; // just remove once button is implemented
 `;

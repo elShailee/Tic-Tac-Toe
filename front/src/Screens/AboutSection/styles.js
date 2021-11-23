@@ -49,7 +49,8 @@ export const ParagraphContainer = styled.div`
 	grid-column: 1 / 21;
 	grid-row: 4 / 11;
 	font-family: sans-serif;
-	font-size: ${({ theme }) => theme.calcSizeUnits(0.34)};
+	font-size: ${({ theme }) =>
+		navigator.userAgent.indexOf('Chrome') !== -1 ? theme.calcSizeUnits(0.34) : theme.calcSizeUnits(0.3)};
 	color: ${({ theme }) => theme.colors.aboutParagraphText};
 	text-align: left;
 	padding-top: ${({ theme }) => theme.calcSizeUnits(0.3)};

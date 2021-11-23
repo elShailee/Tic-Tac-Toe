@@ -9,8 +9,8 @@ import {
 	ExitGameButton,
 	GithubButton,
 	ResumeButton,
-	// LogsButton,
-	// ConnectionToggleButton,
+	LogsButton,
+	ConnectionToggleButton,
 } from './styles';
 
 export default function AdvancedOptions({ gameState, setGameState, changeThemes }) {
@@ -46,8 +46,8 @@ export default function AdvancedOptions({ gameState, setGameState, changeThemes 
 			<ChangeThemesButton title='Change Themes' onClick={changeThemes} />
 			<GithubButton target='_blank' href='https://github.com/elShailee/Tic-Tac-Toe' />
 			<ResumeButton target='_blank' onClick={apiCallsHandler.getResume} title='Check Out My Resume' />
-			{/* <LogsButton>Game Logs</LogsButton>
-			<ConnectionToggleButton>Switch to WebSocket</ConnectionToggleButton> */}
+			<LogsButton>Game Logs (Coming Soon)</LogsButton>
+			<ConnectionToggleButton>Switch to WebSocket (CominSoon)</ConnectionToggleButton>
 		</AdvancedContainer>
 	);
 }
