@@ -12,6 +12,7 @@ node_modules
 /build
 env.js
 /env_backups
+/docs
 
 # misc
 .DS_Store

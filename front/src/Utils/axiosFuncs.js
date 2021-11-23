@@ -108,5 +108,5 @@ export const checkForGameJoining = async setGameState => {
 };
 
 export const getInviteLink = gameId => {
-	return frontBaseUrl + '/?game=' + gameId;
+	return frontBaseUrl + '/Tic-Tac-Toe/?game=' + gameId;
 };

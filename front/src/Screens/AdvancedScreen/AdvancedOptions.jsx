@@ -27,18 +27,20 @@ export default function AdvancedOptions({ gameState, setGameState, changeThemes 
 	const isPlaying = gameState.gameMode === 'local' || (gameState.gameMode === 'remote' && gameState.userPlayer);
 
 	const copyLink = async () => {
-		navigator.clipboard.writeText(getInviteLink(gameState.gameId));
 		setDidJustCopyLinkState(true);
 		setTimeout(() => {
 			setDidJustCopyLinkState(false);
-		}, 3000);
+		}, 10000);
 	};
 
 	return (
 		<AdvancedContainer>
 			{isInvitingPossible &&
 				(didJustCopyLinkState ? (
-					<UsedInviteButton onClick={copyLink}>Link Copied to Clipboard!</UsedInviteButton>
+					<UsedInviteButton
+						onFocus={e => e.target.setSelectionRange(0, e.target.value.length)}
+						defaultValue={getInviteLink(gameState.gameId)}
+					/>
 				) : (
 					<InviteButton onClick={copyLink}>Invite a friend!</InviteButton>
 				))}

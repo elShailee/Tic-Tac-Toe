@@ -41,7 +41,12 @@ export default function OnlineGameJoinModal({ unselectMode, gameState, setGameSt
 		<ModalBG>
 			<OnlineGameStartCard>
 				<BackButtonContainer>
-					<BackButton onClick={unselectMode}>
+					<BackButton
+						onClick={() => {
+							unselectMode();
+							setGameState({});
+						}}
+					>
 						<LeftArrowIcon src={theme.images.backArrow} />
 						Back
 					</BackButton>

@@ -56,3 +56,7 @@ export const ParagraphContainer = styled.div`
 	padding-top: ${({ theme }) => theme.calcSizeUnits(0.3)};
 	white-space: nowrap;
 `;
+
+export const TextLine = styled.div`
+	padding-left: ${({ theme, margin }) => theme.calcSizeUnits(margin * 0.095)};
+`;

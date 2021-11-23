@@ -38,14 +38,26 @@ export const InviteButton = styled(GeneralButton)`
 	color: ${({ theme }) => theme.colors.inviteButtonText};
 `;
 
-export const UsedInviteButton = styled(GeneralButton)`
+export const UsedInviteButton = styled.input`
+	outline: none;
+	padding: ${({ theme }) => theme.sizes.padding.S};
+	border-radius: ${({ theme }) => theme.sizes.borderRadius.L};
+	${({ theme }) => theme.customStyles.centerItems}
+	font-size: ${({ theme }) => theme.sizes.text.L};
+	font-family: 'Crete Round', serif;
+	${({ theme }) => theme.customStyles.borderShading(theme)}
+	border-width:${({ theme }) => theme.sizes.border.L};
 	grid-row: span 2;
 	grid-column: span 4;
-	background-color: ${({ theme }) => theme.colors.usedInviteButton};
+	background-color: ${({ theme }) => theme.colors.inviteButton};
 	font-size: ${({ theme }) => theme.calcSizeUnits(0.4)};
-	cursor: default;
 	color: ${({ theme }) => theme.colors.inviteButtonText};
 `;
+UsedInviteButton.defaultProps = {
+	type: 'text',
+	readOnly: true,
+	autoFocus: true,
+};
 
 export const ChangeThemesButton = styled(GeneralButton)`
 	background-color: ${({ theme }) => theme.colors.changeThemesButton};
