@@ -7,7 +7,6 @@ import HomeScreen from 'Screens/HomeScreen/HomeScreen';
 import apiCallsHandler from 'Utils/axiosFuncs';
 import AdvancedOptions from 'Screens/AdvancedScreen/AdvancedOptions';
 import AboutMe from '../AboutSection/AboutMe';
-// import PlayersScores from './PlayersScores';
 
 export default function Game({ gameState, setGameState, changeThemes }) {
 	let numOfPlayers = 0;
@@ -32,21 +31,6 @@ export default function Game({ gameState, setGameState, changeThemes }) {
 		return () => clearInterval(interval);
 	}, [gameState, setGameState]);
 
-	// const resetGameState = async () => {
-	// 	const newGameState = await apiCallsHandler.resetGame(gameState);
-	// 	newGameState && setGameState(newGameState);
-	// };
-
-	// const leaveRemote = async () => {
-	// 	const newGameState = await apiCallsHandler.leaveRemote(gameState);
-	// 	newGameState && setGameState({});
-	// };
-
-	// const deleteLocal = async () => {
-	// 	const newGameState = await apiCallsHandler.deleteLocal(gameState);
-	// 	newGameState && setGameState(newGameState);
-	// };
-
 	return (
 		<GameContainer>
 			<TitleContainer>Tic Tac Toe</TitleContainer>
@@ -57,27 +41,6 @@ export default function Game({ gameState, setGameState, changeThemes }) {
 			<AboutMe />
 			<AdvancedOptions gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
 			<HomeScreen gameState={gameState} setGameState={setGameState} isJoining={isJoining} />
-			{/* <GameGrid gameState={gameState} setGameState={setGameState} />
-			<DataUtilsContainer>
-				{'Player Turn: ' + gameState.turnState}
-				<br />
-				<br />
-
-				{'Win State: ' + (gameState.winState || 'awaiting results...')}
-				<br />
-				<br />
-				<button onClick={resetGameState}>Reset Board State</button>
-				<br />
-
-				{'Game ID: '}
-				<input type='text' defaultValue={gameState.gameId} readOnly disabled />
-				<br />
-
-				{gameState.gameMode === 'local' && <button onClick={deleteLocal}>{'Delete Game'}</button>}
-				{gameState.gameMode === 'local' && <button onClick={() => setGameState({})}>{'Save&Exit'}</button>}
-				{gameState.gameMode === 'remote' && <button onClick={leaveRemote}>{'Leave Game'}</button>}
-			</DataUtilsContainer>
-			<PlayersScores gameState={gameState} setGameState={setGameState} /> */}
 		</GameContainer>
 	);
 }
