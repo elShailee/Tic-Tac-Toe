@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { switchThemes } from 'Redux/Slices/themeSlice';
 import apiCallsHandler, { getInviteLink } from 'Utils/axiosFuncs';
 
 import {
@@ -13,7 +15,8 @@ import {
 	ConnectionToggleButton,
 } from './styles';
 
-export default function AdvancedOptions({ gameState, setGameState, changeThemes }) {
+export default function AdvancedOptions({ gameState, setGameState }) {
+	const dispatch = useDispatch();
 	const [didJustCopyLinkState, setDidJustCopyLinkState] = useState(false);
 
 	let numOfPlayers = 0;
@@ -45,7 +48,7 @@ export default function AdvancedOptions({ gameState, setGameState, changeThemes 
 					<InviteButton onClick={copyLink}>Invite a friend!</InviteButton>
 				))}
 			{isPlaying && <ExitGameButton title='Exit Game' onClick={() => setGameState({})} />}
-			<ChangeThemesButton title='Change Themes' onClick={changeThemes} />
+			<ChangeThemesButton title='Change Themes' onClick={() => dispatch(switchThemes())} />
 			<GithubButton target='_blank' href='https://github.com/elShailee/Tic-Tac-Toe' />
 			<ResumeButton target='_blank' onClick={apiCallsHandler.getResume} title='Check Out My Resume' />
 			<LogsButton>Game Logs (Coming Soon)</LogsButton>

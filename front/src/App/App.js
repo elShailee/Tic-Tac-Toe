@@ -6,9 +6,10 @@ import DevelopemetToolbar from './DevelopementToolbar';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from 'theme';
 import { checkForGameJoining } from 'Utils/axiosFuncs';
+import { useSelector } from 'react-redux';
 
 function App() {
-	const [themeState, setThemeState] = useState('light');
+	const theme = useSelector(state => state.theme.themeState);
 	const [gameState, setGameState] = useState({});
 
 	useMemo(() => {
@@ -16,20 +17,12 @@ function App() {
 	}, []);
 
 	const getCurrentTheme = () => {
-		if (themeState === 'light') {
+		if (theme === 'light') {
 			return lightTheme;
-		} else if (themeState === 'dark') {
+		} else if (theme === 'dark') {
 			return darkTheme;
 		} else {
 			console.log('No valid theme state is selected att App.js.');
-		}
-	};
-
-	const changeThemes = () => {
-		if (themeState === 'light') {
-			setThemeState('dark');
-		} else if (themeState === 'dark') {
-			setThemeState('light');
 		}
 	};
 
@@ -39,14 +32,12 @@ function App() {
 				<GameContainer>
 					<LeftShadow />
 					<TopShadow />
-					<Game gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
+					<Game gameState={gameState} setGameState={setGameState} />
 					<BotShadow />
 					<RightShadow />
 				</GameContainer>
 
-				{enviroment === 'developement' && (
-					<DevelopemetToolbar gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
-				)}
+				{enviroment === 'developement' && <DevelopemetToolbar gameState={gameState} setGameState={setGameState} />}
 			</AppContainer>
 		</ThemeProvider>
 	);

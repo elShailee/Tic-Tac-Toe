@@ -1,7 +1,7 @@
 import palette from 'palette';
 import assetsLib from 'Assets/lib';
 
-const sizeUnit = `min(calc(100vh / 18), calc(100vw / 18))`;
+const sizeUnit = `calc(100vmin / 18)`;
 export const calcSizeUnits = num => `calc(${num} * ${sizeUnit})`;
 
 const sharedTheme = {

@@ -8,7 +8,7 @@ import apiCallsHandler from 'Utils/axiosFuncs';
 import AdvancedOptions from 'Screens/AdvancedScreen/AdvancedOptions';
 import AboutMe from '../AboutSection/AboutMe';
 
-export default function Game({ gameState, setGameState, changeThemes }) {
+export default function Game({ gameState, setGameState }) {
 	let numOfPlayers = 0;
 	if (gameState.playerOne) {
 		numOfPlayers++;
@@ -39,7 +39,7 @@ export default function Game({ gameState, setGameState, changeThemes }) {
 			{gameState?.gameId && !isJoining && <PlayerTwoStats gameState={gameState} setGameState={setGameState} />}
 
 			<AboutMe />
-			<AdvancedOptions gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
+			<AdvancedOptions gameState={gameState} setGameState={setGameState} />
 			<HomeScreen gameState={gameState} setGameState={setGameState} isJoining={isJoining} />
 		</GameContainer>
 	);
