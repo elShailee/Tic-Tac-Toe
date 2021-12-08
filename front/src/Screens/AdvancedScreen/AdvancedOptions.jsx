@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { switchConnectionMode } from 'Redux/Slices/networkSlice';
 import { switchThemes } from 'Redux/Slices/themeSlice';
 import apiCallsHandler, { getInviteLink } from 'Utils/axiosFuncs';
 
@@ -36,6 +37,8 @@ export default function AdvancedOptions({ gameState, setGameState }) {
 		}, 10000);
 	};
 
+	const connectionMode = useSelector(state => state.network.connectionMode);
+
 	return (
 		<AdvancedContainer>
 			{isInvitingPossible &&
@@ -52,7 +55,9 @@ export default function AdvancedOptions({ gameState, setGameState }) {
 			<GithubButton target='_blank' href='https://github.com/elShailee/Tic-Tac-Toe' />
 			<ResumeButton target='_blank' onClick={apiCallsHandler.getResume} title='Check Out My Resume' />
 			<LogsButton>Game Logs (Coming Soon)</LogsButton>
-			<ConnectionToggleButton>Switch to WebSocket (CominSoon)</ConnectionToggleButton>
+			<ConnectionToggleButton onClick={() => dispatch(switchConnectionMode())}>
+				Connect via {connectionMode === 'polling' ? 'WebSocket' : 'Polling'}!
+			</ConnectionToggleButton>
 		</AdvancedContainer>
 	);
 }

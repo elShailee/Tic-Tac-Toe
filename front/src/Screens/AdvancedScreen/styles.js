@@ -101,12 +101,9 @@ export const ConnectionToggleButton = styled(GeneralButton)`
 	grid-row: 5 / 6;
 	grid-column: 1 / 6;
 	${({ theme }) => theme.customStyles.highlighted}
-	font-size: ${({ theme }) => theme.sizes.text.M};
+	font-size: ${({ theme }) => theme.sizes.text.S};
 	padding: 0;
 	color: ${({ theme }) => theme.colors.inviteButtonText};
-
-	font-size: ${({ theme }) => theme.sizes.text.XXS};
-	white-space: nowrap; // just remove once button is implemented
 `;
 
 export const LogsButton = styled(GeneralButton)`
