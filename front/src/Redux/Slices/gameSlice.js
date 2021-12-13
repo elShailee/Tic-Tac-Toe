@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { clone } from 'Utils/utilFuncs';
 export const gameSlice = createSlice({
 	name: 'game',
 	initialState: {
@@ -13,6 +14,5 @@ export const gameSlice = createSlice({
 
 export const { setGameState } = gameSlice.actions;
 
-export const gameStateSelector = state => state.game.gameState;
-
+export const gameStateSelector = state => clone(state.game.gameState);
 export default gameSlice.reducer;

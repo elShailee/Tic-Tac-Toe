@@ -7,12 +7,11 @@ import { darkTheme, lightTheme } from 'theme';
 import { checkForGameJoining } from 'Utils/axiosFuncs';
 import { useDispatch, useSelector } from 'react-redux';
 import { gameStateSelector, setGameState as gameStateReducer } from 'Redux/Slices/gameSlice';
-import { clone } from 'Utils/utilFuncs';
 
 function App() {
 	const dispatch = useDispatch();
 	const theme = useSelector(state => state.theme.themeState);
-	const gameState = clone(useSelector(gameStateSelector));
+	const gameState = useSelector(gameStateSelector);
 	const setGameState = state => dispatch(gameStateReducer(state));
 
 	if (!gameState?.gameId) checkForGameJoining(setGameState);
