@@ -1,11 +1,14 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
 import { TileContainer, TileMark } from './styles';
-import apiCallsHandler from 'Utils/axiosFuncs';
+import networkHandlers from 'Utils/networkUtils/networkHandlers';
 import { getGameWinner, getOppositeMark } from 'Utils/gameUtils';
+import { useSelector } from 'react-redux';
+import { connectionModeSelector } from 'Redux/Slices/networkSlice';
 
 export default function Tile({ gameState, setGameState, row, col }) {
 	const theme = useTheme();
+	const connectionState = useSelector(connectionModeSelector);
 
 	const cellValue = gameState.boardState[row][col];
 	let cellMark = false;
@@ -28,14 +31,16 @@ export default function Tile({ gameState, setGameState, row, col }) {
 				gameStateAfterMove.winState = getGameWinner(gameStateAfterMove.boardState);
 
 				let newGameState = null;
-				if (gameState.gameMode === 'local') {
-					newGameState = await apiCallsHandler.moveLocal(gameStateAfterMove);
-				}
-				if (gameState.gameMode === 'remote') {
-					newGameState = await apiCallsHandler.moveRemote(gameStateAfterMove);
-				}
+				if (connectionState === 'polling') {
+					if (gameState.gameMode === 'local') {
+						newGameState = await networkHandlers.polling.moveLocal(gameStateAfterMove);
+					}
+					if (gameState.gameMode === 'remote') {
+						newGameState = await networkHandlers.polling.moveRemote(gameStateAfterMove);
+					}
 
-				newGameState && setGameState(newGameState);
+					newGameState && setGameState(newGameState);
+				}
 			}
 		}
 	};

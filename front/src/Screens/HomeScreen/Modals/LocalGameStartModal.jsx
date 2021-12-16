@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from 'styled-components';
-import apiCallsHandler from 'Utils/axiosFuncs';
+import networkHandlers from 'Utils/networkUtils/networkHandlers';
 import { randomizeMark } from 'Utils/gameUtils';
 import {
 	LocalGameStartCard,
@@ -15,20 +15,25 @@ import {
 	LocalSelectedMarkImage,
 	LocalSelectedRandomMark,
 } from './styles';
+import { useSelector } from 'react-redux';
+import { connectionModeSelector } from 'Redux/Slices/networkSlice';
 
 export default function LocalGameStartModal({ unselectMode, setGameState }) {
 	const theme = useTheme();
 	const [selectedMarkState, setSelectedMarkState] = useState('?');
+	const connectionState = useSelector(connectionModeSelector);
 
 	const createLocalGame = async () => {
 		const startingPlayer = selectedMarkState !== '?' ? selectedMarkState : randomizeMark();
-		const newGameState = await apiCallsHandler.createLocal({
-			startingPlayer,
-			gameMode: 'local',
-			playerOne: { nickname: 'Player1', winCount: 0, mark: 'O' },
-			playerTwo: { nickname: 'Player2', winCount: 0, mark: 'X' },
-		});
-		newGameState && setGameState(newGameState);
+		if (connectionState === 'polling') {
+			const newGameState = await networkHandlers.polling.createLocal({
+				startingPlayer,
+				gameMode: 'local',
+				playerOne: { nickname: 'Player1', winCount: 0, mark: 'O' },
+				playerTwo: { nickname: 'Player2', winCount: 0, mark: 'X' },
+			});
+			newGameState && setGameState(newGameState);
+		}
 		unselectMode();
 	};
 

@@ -14,5 +14,6 @@ export const networkSlice = createSlice({
 });
 
 export const { switchConnectionMode } = networkSlice.actions;
+export const connectionModeSelector = state => state.network.connectionMode;
 
 export default networkSlice.reducer;

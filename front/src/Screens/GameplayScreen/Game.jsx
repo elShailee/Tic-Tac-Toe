@@ -4,11 +4,15 @@ import { GameContainer, TitleContainer } from './styles';
 import PlayerOneStats from './PlayerOneStats';
 import PlayerTwoStats from './PlayerTwoStats';
 import HomeScreen from 'Screens/HomeScreen/HomeScreen';
-import apiCallsHandler from 'Utils/axiosFuncs';
+import networkHandlers from 'Utils/networkUtils/networkHandlers';
 import AdvancedOptions from 'Screens/AdvancedScreen/AdvancedOptions';
 import AboutMe from '../AboutSection/AboutMe';
+import { useSelector } from 'react-redux';
+import { connectionModeSelector } from 'Redux/Slices/networkSlice';
 
 export default function Game({ gameState, setGameState }) {
+	const connectionState = useSelector(connectionModeSelector);
+
 	let numOfPlayers = 0;
 	if (gameState.playerOne) {
 		numOfPlayers++;
@@ -21,15 +25,15 @@ export default function Game({ gameState, setGameState }) {
 	useEffect(() => {
 		const refreshRemote = async () => {
 			if (gameState.gameMode === 'remote' && gameState.userPlayer) {
-				const newGameState = await apiCallsHandler.refreshRemote(gameState);
+				const newGameState = await networkHandlers.polling.refreshRemote(gameState);
 				newGameState && setGameState(newGameState);
 				!newGameState && setGameState({});
 			}
 		};
 
-		const interval = setInterval(refreshRemote, 250);
-		return () => clearInterval(interval);
-	}, [gameState, setGameState]);
+		const interval = connectionState === 'polling' && setInterval(refreshRemote, 250);
+		return () => interval && clearInterval(interval);
+	}, [gameState, setGameState, connectionState]);
 
 	return (
 		<GameContainer>

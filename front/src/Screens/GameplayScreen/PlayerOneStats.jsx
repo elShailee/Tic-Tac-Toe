@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import apiCallsHandler from 'Utils/axiosFuncs';
+import { useSelector } from 'react-redux';
+import { connectionModeSelector } from 'Redux/Slices/networkSlice';
+import networkHandlers from 'Utils/networkUtils/networkHandlers';
 import {
 	PlayerOneStatsContainer,
 	PlayerOneNameContainer,
@@ -18,6 +20,7 @@ export default function PlayerOneStats({ gameState, setGameState }) {
 
 	const [isEditingState, setIsEditingState] = useState(false);
 	const [newNicknameState, setNewNicknameState] = useState(gameState.playerOne?.nickname);
+	const connectionState = useSelector(connectionModeSelector);
 
 	const tryToEditNickname = () => {
 		if (
@@ -31,15 +34,17 @@ export default function PlayerOneStats({ gameState, setGameState }) {
 	const nameSubmit = async () => {
 		setIsEditingState(false);
 		if (newNicknameState?.length >= 3 && newNicknameState?.length <= 30) {
-			const apiFunc = gameState.gameMode === 'local' ? 'renameLocal' : 'renameRemote';
-			const newGameState = await apiCallsHandler[apiFunc]({
-				...gameState,
-				playerOne: {
-					...gameState.playerOne,
-					nickname: newNicknameState,
-				},
-			});
-			newGameState && setGameState(newGameState);
+			if (connectionState === 'polling') {
+				const apiFunc = gameState.gameMode === 'local' ? 'renameLocal' : 'renameRemote';
+				const newGameState = await networkHandlers.polling[apiFunc]({
+					...gameState,
+					playerOne: {
+						...gameState.playerOne,
+						nickname: newNicknameState,
+					},
+				});
+				newGameState && setGameState(newGameState);
+			}
 		}
 	};
 

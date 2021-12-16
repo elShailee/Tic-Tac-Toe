@@ -4,6 +4,7 @@ const enviroment = CONSTS.enviroment;
 
 module.exports = {
 	enviroment,
-	serverPort: CONSTS[enviroment].port,
+	pollingPort: CONSTS[enviroment].pollingPort,
+	socketPort: CONSTS[enviroment].socketPort,
 	API: CONSTS[enviroment].API,
 };

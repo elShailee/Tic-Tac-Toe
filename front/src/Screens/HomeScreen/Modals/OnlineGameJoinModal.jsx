@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { connectionModeSelector } from 'Redux/Slices/networkSlice';
 import { useTheme } from 'styled-components';
-import apiCallsHandler from 'Utils/axiosFuncs';
+import networkHandlers from 'Utils/networkUtils/networkHandlers';
 import {
 	OnlineGameStartCard,
 	ModalBG,
@@ -17,20 +19,23 @@ import {
 export default function OnlineGameJoinModal({ unselectMode, gameState, setGameState }) {
 	const theme = useTheme();
 	const [nicknameState, setNicknameState] = useState('');
+	const connectionState = useSelector(connectionModeSelector);
 
 	const joinRemoteGame = async () => {
 		if (nicknameState?.length >= 3 && nicknameState?.length <= 30) {
-			const newGameState = await apiCallsHandler.joinRemote({
-				gameId: gameState.gameId,
-				gameMode: 'remote',
-				userPlayer: {
-					nickname: nicknameState || 'JoiningPlayer',
-					winCount: 0,
-				},
-			});
-			if (newGameState) {
-				setGameState(newGameState);
-				unselectMode();
+			if (connectionState === 'polling') {
+				const newGameState = await networkHandlers.polling.joinRemote({
+					gameId: gameState.gameId,
+					gameMode: 'remote',
+					userPlayer: {
+						nickname: nicknameState || 'JoiningPlayer',
+						winCount: 0,
+					},
+				});
+				if (newGameState) {
+					setGameState(newGameState);
+					unselectMode();
+				}
 			}
 		} else {
 			setNicknameState(false);

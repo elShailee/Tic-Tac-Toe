@@ -1,15 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { connectionModeSelector } from 'Redux/Slices/networkSlice';
 import { useTheme } from 'styled-components';
-import apiCallsHandler from 'Utils/axiosFuncs';
+import networkHandlers from 'Utils/networkUtils/networkHandlers';
 import { GameBoardContainer, RestartButton } from './styles';
 import Tile from './Tile';
 
 export default function GameBoard({ gameState, setGameState }) {
 	const theme = useTheme();
+	const connectionState = useSelector(connectionModeSelector);
 
 	const resetGameState = async () => {
-		const newGameState = await apiCallsHandler.resetGame(gameState);
-		newGameState && setGameState(newGameState);
+		if (connectionState === 'polling') {
+			const newGameState = await networkHandlers.polling.resetGame(gameState);
+			newGameState && setGameState(newGameState);
+		}
 	};
 
 	return (

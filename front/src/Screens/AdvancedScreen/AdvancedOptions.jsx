@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { connectionModeSelector } from 'Redux/Slices/networkSlice';
 import { switchConnectionMode } from 'Redux/Slices/networkSlice';
 import { switchThemes } from 'Redux/Slices/themeSlice';
-import apiCallsHandler, { getInviteLink } from 'Utils/axiosFuncs';
+import networkHandlers from 'Utils/networkUtils/networkHandlers';
 
 import {
 	AdvancedContainer,
@@ -19,6 +20,7 @@ import {
 export default function AdvancedOptions({ gameState, setGameState }) {
 	const dispatch = useDispatch();
 	const [didJustCopyLinkState, setDidJustCopyLinkState] = useState(false);
+	const connectionState = useSelector(connectionModeSelector);
 
 	let numOfPlayers = 0;
 	if (gameState.playerOne) {
@@ -37,15 +39,13 @@ export default function AdvancedOptions({ gameState, setGameState }) {
 		}, 10000);
 	};
 
-	const connectionMode = useSelector(state => state.network.connectionMode);
-
 	return (
 		<AdvancedContainer>
 			{isInvitingPossible &&
 				(didJustCopyLinkState ? (
 					<UsedInviteButton
 						onFocus={e => e.target.setSelectionRange(0, e.target.value.length)}
-						defaultValue={getInviteLink(gameState.gameId)}
+						defaultValue={connectionState === 'polling' && networkHandlers.polling.getInviteLink(gameState.gameId)}
 					/>
 				) : (
 					<InviteButton onClick={copyLink}>Invite a friend!</InviteButton>
@@ -53,10 +53,14 @@ export default function AdvancedOptions({ gameState, setGameState }) {
 			{isPlaying && <ExitGameButton title='Exit Game' onClick={() => setGameState({})} />}
 			<ChangeThemesButton title='Change Themes' onClick={() => dispatch(switchThemes())} />
 			<GithubButton target='_blank' href='https://github.com/elShailee/Tic-Tac-Toe' />
-			<ResumeButton target='_blank' onClick={apiCallsHandler.getResume} title='Check Out My Resume' />
+			<ResumeButton
+				target='_blank'
+				onClick={connectionState === 'polling' && networkHandlers.polling.getResume}
+				title='Check Out My Resume'
+			/>
 			<LogsButton>Game Logs (Coming Soon)</LogsButton>
 			<ConnectionToggleButton onClick={() => dispatch(switchConnectionMode())}>
-				Connect via {connectionMode === 'polling' ? 'WebSocket' : 'Polling'}!
+				Connect via {connectionState === 'polling' ? 'WebSocket' : 'Polling'}!
 			</ConnectionToggleButton>
 		</AdvancedContainer>
 	);

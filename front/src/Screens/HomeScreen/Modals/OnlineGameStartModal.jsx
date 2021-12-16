@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useTheme } from 'styled-components';
-import apiCallsHandler from 'Utils/axiosFuncs';
+import networkHandlers from 'Utils/networkUtils/networkHandlers';
 import { getOppositeMark, randomizeMark } from 'Utils/gameUtils';
 import {
 	OnlineGameStartCard,
@@ -24,6 +25,7 @@ import {
 	BigColon,
 	StartingPlayerSelection,
 } from './styles';
+import { connectionModeSelector } from 'Redux/Slices/networkSlice';
 
 export default function OnlineGameStartModal({ unselectMode, setGameState }) {
 	const theme = useTheme();
@@ -31,6 +33,7 @@ export default function OnlineGameStartModal({ unselectMode, setGameState }) {
 	const [startingPlayerState, setStartingPlayerState] = useState('?');
 	const [nicknameState, setNicknameState] = useState('');
 	const [showMoreState, setShowMoreState] = useState(false);
+	const connectionState = useSelector(connectionModeSelector);
 
 	const createRemoteGame = async () => {
 		if (nicknameState?.length >= 3 && nicknameState?.length <= 30) {
@@ -38,12 +41,14 @@ export default function OnlineGameStartModal({ unselectMode, setGameState }) {
 			const actualStartingPlayer = startingPlayerState !== '?' ? startingPlayerState : randomizeStartingPlayer();
 			const startingMark = actualStartingPlayer === 'you' ? userMark : getOppositeMark(userMark);
 
-			const newGameState = await apiCallsHandler.createRemote({
-				startingPlayer: startingMark,
-				gameMode: 'remote',
-				userPlayer: { nickname: nicknameState, mark: userMark, winCount: 0 },
-			});
-			newGameState && setGameState(newGameState);
+			if (connectionState === 'polling') {
+				const newGameState = await networkHandlers.polling.createRemote({
+					startingPlayer: startingMark,
+					gameMode: 'remote',
+					userPlayer: { nickname: nicknameState, mark: userMark, winCount: 0 },
+				});
+				newGameState && setGameState(newGameState);
+			}
 			unselectMode();
 		} else {
 			setNicknameState(false);

@@ -3,14 +3,16 @@ const moment = require('moment');
 const createUuid = require('./Utils/uuidGenerator');
 const { getOppositeMark } = require('./Utils/utilFuncs');
 const games = require('./games');
-const { enviroment, serverPort, API } = require('./envSelector');
+const { enviroment, pollingPort, socketPort, API } = require('./envSelector');
 const validations = require('./Utils/validations');
 const path = require('path');
 const cors = require('cors');
 const { makePlayerLeave } = require('./Utils/gameActions');
+const { WebSocketServer } = require('ws');
+const HTTP = require('http');
 
 /*----------------*\
-|   Backend App    |
+|   Polling App    |
 \-----------------*/
 const app = express();
 
@@ -85,14 +87,12 @@ app.post(API.moveLocal + ':gameId', validations.moveLocal, (req, res) => {
 	res.status(201).send(games[gameId]);
 });
 
-//
 app.delete(API.deleteLocal + ':gameId', validations.deleteLocal, (req, res) => {
 	const { gameId } = req.params;
 	delete games[gameId];
 	res.send({});
 });
 
-//
 app.post(API.renameLocal + ':gameId', validations.renameLocal, (req, res) => {
 	const { gameId } = req.params;
 	const { playerOne, playerTwo } = req.body;
@@ -251,8 +251,39 @@ app.get(API.getResume, (req, res) => {
 	res.sendFile(path.join(__dirname, 'Shailee Eliyahu.pdf'));
 });
 
-const PORT = serverPort;
-app.listen(PORT, () => enviroment === 'developement' && console.log(`Listening for requests on port ${PORT}...`));
+app.listen(
+	pollingPort,
+	() => enviroment === 'developement' && console.log(`Listening for Polling requests on port ${pollingPort}...`),
+);
+
+/*------------------*\
+|   WebSocket App    |
+\-------------------*/
+
+const httpServer = HTTP.createServer();
+httpServer.listen(socketPort, () => console.log(`Listening for Socket requests on port ${socketPort}...`));
+const wss = new WebSocketServer({ server: httpServer });
+
+wss.on('connection', ws => {
+	console.log('connection made');
+
+	setInterval(() => {
+		const rand = Math.random();
+		if (rand <= 0.05) {
+			ws.send('random message from socket.');
+		}
+	}, 250);
+
+	ws.on('close', () => {
+		console.log('connection closed');
+		ws.close();
+	});
+
+	ws.on('message', message => {
+		const messageObject = JSON.parse(message.toString());
+		console.log(messageObject);
+	});
+});
 
 /*-----------------*\
 |   Frontend App    |
