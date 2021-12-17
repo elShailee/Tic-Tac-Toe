@@ -8,6 +8,7 @@ import networkHandlers from 'Utils/networkUtils/networkHandlers';
 import { useDispatch, useSelector } from 'react-redux';
 import { gameStateSelector, setGameState as gameStateReducer } from 'Redux/Slices/gameSlice';
 import { connectionModeSelector } from 'Redux/Slices/networkSlice';
+import { wsOperators } from 'Utils/networkUtils/socketInstance';
 
 function App() {
 	const dispatch = useDispatch();
@@ -17,7 +18,12 @@ function App() {
 	const connectionState = useSelector(connectionModeSelector);
 
 	if (connectionState === 'polling') {
-		if (!gameState?.gameId) networkHandlers.polling.checkForGameJoining(setGameState);
+		if (!gameState?.gameId) {
+			networkHandlers.polling.checkForGameJoining(setGameState);
+			wsOperators.disconnect();
+		}
+	} else if (connectionState === 'socket') {
+		wsOperators.connect(setGameState);
 	}
 
 	const getCurrentTheme = () => {

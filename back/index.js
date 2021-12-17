@@ -267,12 +267,9 @@ const wss = new WebSocketServer({ server: httpServer });
 wss.on('connection', ws => {
 	console.log('connection made');
 
-	setInterval(() => {
-		const rand = Math.random();
-		if (rand <= 0.05) {
-			ws.send('random message from socket.');
-		}
-	}, 250);
+	setTimeout(() => {
+		ws.send('put a stringified json here.');
+	}, 2000);
 
 	ws.on('close', () => {
 		console.log('connection closed');

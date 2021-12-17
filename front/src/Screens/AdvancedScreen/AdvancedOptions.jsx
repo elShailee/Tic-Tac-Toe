@@ -55,7 +55,9 @@ export default function AdvancedOptions({ gameState, setGameState }) {
 			<GithubButton target='_blank' href='https://github.com/elShailee/Tic-Tac-Toe' />
 			<ResumeButton
 				target='_blank'
-				onClick={connectionState === 'polling' && networkHandlers.polling.getResume}
+				onClick={() => {
+					if (connectionState === 'polling') networkHandlers.polling.getResume();
+				}}
 				title='Check Out My Resume'
 			/>
 			<LogsButton>Game Logs (Coming Soon)</LogsButton>
