@@ -329,7 +329,7 @@ export const NicknameInputBox = styled.input`
 `;
 NicknameInputBox.defaultProps = {
 	type: 'text',
-	placeholder: 'cool name idk',
+	placeholder: 'enter nickname',
 	spellCheck: false,
 };
 

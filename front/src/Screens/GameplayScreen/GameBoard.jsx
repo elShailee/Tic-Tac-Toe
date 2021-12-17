@@ -14,6 +14,8 @@ export default function GameBoard({ gameState, setGameState }) {
 		if (connectionState === 'polling') {
 			const newGameState = await networkHandlers.polling.resetGame(gameState);
 			newGameState && setGameState(newGameState);
+		} else if (connectionState === 'socket') {
+			networkHandlers.socket.resetGame(gameState);
 		}
 	};
 

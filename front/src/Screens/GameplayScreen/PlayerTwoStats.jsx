@@ -34,16 +34,19 @@ export default function PlayerTwoStats({ gameState, setGameState }) {
 	const nameSubmit = async () => {
 		setIsEditingState(false);
 		if (newNicknameState?.length >= 3 && newNicknameState?.length <= 30) {
+			const messageData = {
+				...gameState,
+				playerTwo: {
+					...gameState.playerTwo,
+					nickname: newNicknameState,
+				},
+			};
+			const apiFunc = gameState.gameMode === 'local' ? 'renameLocal' : 'renameRemote';
 			if (connectionState === 'polling') {
-				const apiFunc = gameState.gameMode === 'local' ? 'renameLocal' : 'renameRemote';
-				const newGameState = await networkHandlers.polling[apiFunc]({
-					...gameState,
-					playerTwo: {
-						...gameState.playerTwo,
-						nickname: newNicknameState,
-					},
-				});
+				const newGameState = await networkHandlers.polling[apiFunc]();
 				newGameState && setGameState(newGameState);
+			} else if (connectionState === 'socket') {
+				networkHandlers.socket[apiFunc](messageData);
 			}
 		}
 	};

@@ -1,18 +1,18 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { connectionModeSelector } from 'Redux/Slices/networkSlice';
+import { useDispatch } from 'react-redux';
 import { switchThemes } from 'Redux/Slices/themeSlice';
 import networkHandlers from 'Utils/networkUtils/networkHandlers';
 import { DevToolbalContainer, DevButton } from './styles';
 
 export default function DevelopementToolbar({ gameState, setGameState }) {
 	const dispatch = useDispatch();
-	const connectionState = useSelector(connectionModeSelector);
 
 	const getGames = async () => {
-		if (connectionState === 'polling') {
-			console.log(await networkHandlers.polling.getGames());
-		}
+		console.log(await networkHandlers.polling.getGames());
+	};
+
+	const getWsConnections = async () => {
+		console.log(await networkHandlers.polling.getWsConnections());
 	};
 
 	return (
@@ -21,11 +21,11 @@ export default function DevelopementToolbar({ gameState, setGameState }) {
 			<DevButton onClick={() => console.log(gameState)}>log gameState</DevButton>
 			<DevButton onClick={() => setGameState({})}>clear gameState</DevButton>
 			<DevButton onClick={getGames}>GET Games</DevButton>
+			<DevButton onClick={getWsConnections}>GET wsConnections</DevButton>
 			<DevButton
 				onClick={async () => {
-					if (connectionState === 'polling') {
-						console.log(await networkHandlers.polling.deleteGames());
-					}
+					console.log(await networkHandlers.polling.deleteGames());
+
 					setGameState({});
 				}}
 			>

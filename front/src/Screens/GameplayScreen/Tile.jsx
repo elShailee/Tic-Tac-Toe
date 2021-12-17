@@ -31,15 +31,12 @@ export default function Tile({ gameState, setGameState, row, col }) {
 				gameStateAfterMove.winState = getGameWinner(gameStateAfterMove.boardState);
 
 				let newGameState = null;
+				const apiFunc = gameState.gameMode === 'local' ? 'moveLocal' : 'moveRemote';
 				if (connectionState === 'polling') {
-					if (gameState.gameMode === 'local') {
-						newGameState = await networkHandlers.polling.moveLocal(gameStateAfterMove);
-					}
-					if (gameState.gameMode === 'remote') {
-						newGameState = await networkHandlers.polling.moveRemote(gameStateAfterMove);
-					}
-
+					newGameState = await networkHandlers.polling[apiFunc](gameStateAfterMove);
 					newGameState && setGameState(newGameState);
+				} else if (connectionState === 'socket') {
+					networkHandlers.socket[apiFunc](gameStateAfterMove);
 				}
 			}
 		}

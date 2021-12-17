@@ -23,19 +23,22 @@ export default function OnlineGameJoinModal({ unselectMode, gameState, setGameSt
 
 	const joinRemoteGame = async () => {
 		if (nicknameState?.length >= 3 && nicknameState?.length <= 30) {
+			const messageData = {
+				gameId: gameState.gameId,
+				gameMode: 'remote',
+				userPlayer: {
+					nickname: nicknameState || 'JoiningPlayer',
+					winCount: 0,
+				},
+			};
 			if (connectionState === 'polling') {
-				const newGameState = await networkHandlers.polling.joinRemote({
-					gameId: gameState.gameId,
-					gameMode: 'remote',
-					userPlayer: {
-						nickname: nicknameState || 'JoiningPlayer',
-						winCount: 0,
-					},
-				});
+				const newGameState = await networkHandlers.polling.joinRemote(messageData);
 				if (newGameState) {
 					setGameState(newGameState);
 					unselectMode();
 				}
+			} else if (connectionState === 'socket') {
+				networkHandlers.socket.joinRemote(messageData);
 			}
 		} else {
 			setNicknameState(false);

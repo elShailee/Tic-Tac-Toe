@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { connectionModeSelector } from 'Redux/Slices/networkSlice';
-import { switchConnectionMode } from 'Redux/Slices/networkSlice';
+import { switchConnectionMode, connectionModeSelector } from 'Redux/Slices/networkSlice';
 import { switchThemes } from 'Redux/Slices/themeSlice';
 import networkHandlers from 'Utils/networkUtils/networkHandlers';
 
@@ -39,24 +38,34 @@ export default function AdvancedOptions({ gameState, setGameState }) {
 		}, 10000);
 	};
 
+	const exitGame = async () => {
+		const apiAction = gameState.gameMode === 'local' ? 'deleteLocal' : 'leaveRemote';
+		if (connectionState === 'polling') {
+			const newGameState = await networkHandlers.polling[apiAction](gameState);
+			newGameState && setGameState(newGameState);
+		} else if (connectionState === 'socket') {
+			networkHandlers.socket[apiAction](gameState);
+		}
+	};
+
 	return (
 		<AdvancedContainer>
 			{isInvitingPossible &&
 				(didJustCopyLinkState ? (
 					<UsedInviteButton
 						onFocus={e => e.target.setSelectionRange(0, e.target.value.length)}
-						defaultValue={connectionState === 'polling' && networkHandlers.polling.getInviteLink(gameState.gameId)}
+						defaultValue={networkHandlers.polling.getInviteLink(gameState.gameId)}
 					/>
 				) : (
 					<InviteButton onClick={copyLink}>Invite a friend!</InviteButton>
 				))}
-			{isPlaying && <ExitGameButton title='Exit Game' onClick={() => setGameState({})} />}
+			{isPlaying && <ExitGameButton title='Exit Game' onClick={exitGame} />}
 			<ChangeThemesButton title='Change Themes' onClick={() => dispatch(switchThemes())} />
 			<GithubButton target='_blank' href='https://github.com/elShailee/Tic-Tac-Toe' />
 			<ResumeButton
 				target='_blank'
 				onClick={() => {
-					if (connectionState === 'polling') networkHandlers.polling.getResume();
+					networkHandlers.polling.getResume();
 				}}
 				title='Check Out My Resume'
 			/>

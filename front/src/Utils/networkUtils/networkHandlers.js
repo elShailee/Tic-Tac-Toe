@@ -1,8 +1,54 @@
 import axiosInstance from './axiosInstance';
+import { wsOperators } from './socketInstance';
 import { serverBaseUrl, frontBaseUrl, API, pollingPort } from 'envSelector';
 
 const networkHandlers = {
-	socket: {},
+	socket: {
+		//games calls
+		resetGame: gameState => {
+			wsOperators.send({ action: 'resetGame', data: gameState });
+		},
+
+		// local calls
+		createLocal: gameState => {
+			wsOperators.send({ action: 'createLocal', data: gameState });
+		},
+		loadLocal: gameState => {
+			wsOperators.send({ action: 'loadLocal', data: gameState });
+		},
+		moveLocal: gameState => {
+			wsOperators.send({ action: 'moveLocal', data: gameState });
+		},
+		deleteLocal: gameState => {
+			wsOperators.send({ action: 'deleteLocal', data: gameState });
+		},
+		renameLocal: gameState => {
+			wsOperators.send({ action: 'renameLocal', data: gameState });
+		},
+
+		// remote calls
+		createRemote: gameState => {
+			wsOperators.send({ action: 'createRemote', data: gameState });
+		},
+		getRemote: gameState => {
+			wsOperators.send({ action: 'getRemote', data: gameState });
+		},
+		joinRemote: gameState => {
+			wsOperators.send({ action: 'joinRemote', data: gameState });
+		},
+		refreshRemote: gameState => {
+			wsOperators.send({ action: 'refreshRemote', data: gameState });
+		},
+		moveRemote: gameState => {
+			wsOperators.send({ action: 'moveRemote', data: gameState });
+		},
+		leaveRemote: gameState => {
+			wsOperators.send({ action: 'leaveRemote', data: gameState });
+		},
+		renameRemote: gameState => {
+			wsOperators.send({ action: 'renameRemote', data: gameState });
+		},
+	},
 	polling: {
 		//games calls
 		resetGame: async gameState => {
@@ -56,6 +102,9 @@ const networkHandlers = {
 		getGames: async () => {
 			return axiosInstance.get(API.getGames);
 		},
+		getWsConnections: async () => {
+			return axiosInstance.get(API.getWsConnections);
+		},
 		deleteGames: async () => {
 			return axiosInstance.delete(API.deleteGames);
 		},
@@ -65,18 +114,13 @@ const networkHandlers = {
 			window.open(serverBaseUrl + ':' + pollingPort + API.getResume);
 		},
 
-		checkForGameJoining: async setGameState => {
-			const url_string = window.location.href;
-			const url = new URL(url_string);
-			const gameId = url.searchParams.get('game');
-			if (gameId) {
-				const newGameState = await networkHandlers.polling.getRemote({ gameId });
+		tryToJoin: async (gameId, setGameState) => {
+			const newGameState = gameId && (await networkHandlers.polling.getRemote({ gameId }));
 
-				if (newGameState === 'noGame') {
-					console.log("Error: Online Game either doesn't exist or full.");
-				} else if (newGameState?.gameMode === 'remote') {
-					setGameState(newGameState);
-				}
+			if (newGameState === 'noGame') {
+				console.log("Error: Online Game either doesn't exist or full.");
+			} else if (newGameState?.gameMode === 'remote') {
+				setGameState(newGameState);
 			}
 		},
 	},

@@ -41,13 +41,16 @@ export default function OnlineGameStartModal({ unselectMode, setGameState }) {
 			const actualStartingPlayer = startingPlayerState !== '?' ? startingPlayerState : randomizeStartingPlayer();
 			const startingMark = actualStartingPlayer === 'you' ? userMark : getOppositeMark(userMark);
 
+			const messageData = {
+				startingPlayer: startingMark,
+				gameMode: 'remote',
+				userPlayer: { nickname: nicknameState, mark: userMark, winCount: 0 },
+			};
 			if (connectionState === 'polling') {
-				const newGameState = await networkHandlers.polling.createRemote({
-					startingPlayer: startingMark,
-					gameMode: 'remote',
-					userPlayer: { nickname: nicknameState, mark: userMark, winCount: 0 },
-				});
+				const newGameState = await networkHandlers.polling.createRemote(messageData);
 				newGameState && setGameState(newGameState);
+			} else if (connectionState === 'socket') {
+				networkHandlers.socket.createRemote(messageData);
 			}
 			unselectMode();
 		} else {

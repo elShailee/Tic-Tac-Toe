@@ -17,13 +17,21 @@ function App() {
 	const setGameState = state => dispatch(gameStateReducer(state));
 	const connectionState = useSelector(connectionModeSelector);
 
+	const isJoining = () => {
+		const url_string = window.location.href;
+		const url = new URL(url_string);
+		const gameId = url.searchParams.get('game');
+		return gameId ? gameId : false;
+	};
+	if (!gameState?.gameId) {
+		const gameId = isJoining();
+		networkHandlers.polling.tryToJoin(gameId, setGameState);
+	}
+
 	if (connectionState === 'polling') {
-		if (!gameState?.gameId) {
-			networkHandlers.polling.checkForGameJoining(setGameState);
-			wsOperators.disconnect();
-		}
+		wsOperators.disconnect();
 	} else if (connectionState === 'socket') {
-		wsOperators.connect(setGameState);
+		wsOperators.connect(gameState, setGameState);
 	}
 
 	const getCurrentTheme = () => {

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const networkSlice = createSlice({
 	name: 'network',
 	initialState: {
-		connectionMode: 'polling',
+		connectionMode: 'socket',
 	},
 	reducers: {
 		switchConnectionMode: state => {

@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const games = require('../games');
+const { games } = require('../data');
 
 module.exports = {
 	resetGame: (req, res, next) => {

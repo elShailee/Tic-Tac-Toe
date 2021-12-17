@@ -25,14 +25,17 @@ export default function LocalGameStartModal({ unselectMode, setGameState }) {
 
 	const createLocalGame = async () => {
 		const startingPlayer = selectedMarkState !== '?' ? selectedMarkState : randomizeMark();
+		const messageData = {
+			startingPlayer,
+			gameMode: 'local',
+			playerOne: { nickname: 'Player1', winCount: 0, mark: 'O' },
+			playerTwo: { nickname: 'Player2', winCount: 0, mark: 'X' },
+		};
 		if (connectionState === 'polling') {
-			const newGameState = await networkHandlers.polling.createLocal({
-				startingPlayer,
-				gameMode: 'local',
-				playerOne: { nickname: 'Player1', winCount: 0, mark: 'O' },
-				playerTwo: { nickname: 'Player2', winCount: 0, mark: 'X' },
-			});
+			const newGameState = await networkHandlers.polling.createLocal(messageData);
 			newGameState && setGameState(newGameState);
+		} else if (connectionState === 'socket') {
+			networkHandlers.socket.createLocal(messageData);
 		}
 		unselectMode();
 	};
