@@ -17,6 +17,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+let siteViews = 0;
+let resumeViews = 0;
+
 //games api calls
 app.post(API.resetGame + ':gameId', validations.resetGame, (req, res) => {
 	const { gameId } = req.params;
@@ -245,8 +248,17 @@ app.delete(API.deleteGames, (req, res) => {
 	res.send(games);
 });
 
+app.get(API.getSiteViews, (req, res) => {
+	res.send({ siteViews });
+});
+
+app.get(API.getResumeViews, (req, res) => {
+	res.send({ resumeViews });
+});
+
 //general api calls
 app.get(API.getResume, (req, res) => {
+	resumeViews++;
 	res.setHeader('Content-disposition', 'inline; filename=Shailee Eliyahu.pdf');
 	res.sendFile(path.join(__dirname, 'Shailee Eliyahu.pdf'));
 });
@@ -265,5 +277,6 @@ app.get('/', function (req, res) {
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/tic-tac-toe', function (req, res) {
+	siteViews++;
 	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
