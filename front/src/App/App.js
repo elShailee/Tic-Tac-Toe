@@ -1,5 +1,12 @@
 import { useMemo, useState } from 'react';
-import { AppContainer, GameContainer, RightShadow, LeftShadow, TopShadow, BotShadow } from './styles';
+import {
+	AppContainer,
+	GameContainer,
+	RightShadow,
+	LeftShadow,
+	TopShadow,
+	BotShadow,
+} from './styles';
 import Game from 'Screens/GameplayScreen/Game';
 import { enviroment } from 'envSelector';
 import DevelopemetToolbar from './DevelopementToolbar';
@@ -45,7 +52,11 @@ function App() {
 				</GameContainer>
 
 				{enviroment === 'developement' && (
-					<DevelopemetToolbar gameState={gameState} setGameState={setGameState} changeThemes={changeThemes} />
+					<DevelopemetToolbar
+						gameState={gameState}
+						setGameState={setGameState}
+						changeThemes={changeThemes}
+					/>
 				)}
 			</AppContainer>
 		</ThemeProvider>

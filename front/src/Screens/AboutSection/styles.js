@@ -58,5 +58,5 @@ export const ParagraphContainer = styled.div`
 `;
 
 export const TextLine = styled.div`
-	padding-left: ${({ theme, margin }) => theme.calcSizeUnits(margin * 0.095)};
+	padding-left: ${({ theme, margin }) => (typeof margin === 'number' ? theme.calcSizeUnits(margin * 0.095) : 'auto')};
 `;
