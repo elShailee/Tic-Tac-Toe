@@ -1,0 +1,37 @@
+name: weird CD
+
+on:
+  push:
+    branches:
+      - 'main'
+
+env:
+  APP_NAME: Tic-Tac-Toe
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Actual Deployment of ${{env.APP_NAME}}
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_KEY }}
+          port: ${{ secrets.EC2_PORT }}
+          script: |
+            sudo pm2 delete ${{env.APP_NAME}}
+            sudo rm -rf ${{env.APP_NAME}}/
+            git clone https://github.com/elShailee/${{env.APP_NAME}}.git
+            cd ${{env.APP_NAME}}/front/
+            sudo yarn
+            sudo yarn build
+            cd ..
+            sudo mv front/build back/build
+            cd back
+            sudo yarn
+            cd ~
+            sudo rm -rf static_files/${{env.APP_NAME}}/
+            sudo mkdir -p static_files/${{env.APP_NAME}}
+            sudo mv ${{env.APP_NAME}}/back/build/static/* static_files/${{env.APP_NAME}}/
+            sudo pm2 start ${{env.APP_NAME}}/back/index.js --name ${{env.APP_NAME}}
