@@ -10,7 +10,8 @@ export const AdvancedContainer = styled.div`
 	grid-template-columns: repeat(8, 1fr);
 	grid-template-rows: repeat(5, 1fr);
 	grid-gap: ${({ theme }) => theme.sizes.padding.S};
-	border: ${({ theme }) => theme.sizes.border.XL} solid ${({ theme }) => theme.colors.advancedBorder};
+	border: ${({ theme }) => theme.sizes.border.XL} solid
+		${({ theme }) => theme.colors.advancedBorder};
 	border-radius: ${({ theme }) => theme.sizes.borderRadius.XL};
 	box-sizing: border-box;
 `;
@@ -63,7 +64,8 @@ export const ChangeThemesButton = styled(GeneralButton)`
 	background-color: ${({ theme }) => theme.colors.changeThemesButton};
 	background-image: url(${({ theme }) => theme.images.themeIcon});
 	background-size: ${({ theme }) => theme.calcSizeUnits(1)};
-	border: ${({ theme }) => theme.sizes.border.L} solid ${({ theme }) => theme.colors.changeThemesButtonBorder};
+	border: ${({ theme }) => theme.sizes.border.L} solid
+		${({ theme }) => theme.colors.changeThemesButtonBorder};
 	grid-row: 1/3;
 	grid-column: 7/9;
 	${({ theme }) => theme.customStyles.highlighted}
@@ -94,28 +96,4 @@ export const ResumeButton = styled(GeneralButton)`
 	grid-row: 3 / 6;
 	grid-column: 6 / 9;
 	${({ theme }) => theme.customStyles.highlighted}
-`;
-
-export const ConnectionToggleButton = styled(GeneralButton)`
-	background-color: ${({ theme }) => theme.colors.connectionToggleButton};
-	grid-row: 5 / 6;
-	grid-column: 1 / 6;
-	${({ theme }) => theme.customStyles.highlighted}
-	font-size: ${({ theme }) => theme.sizes.text.M};
-	padding: 0;
-	color: ${({ theme }) => theme.colors.inviteButtonText};
-
-	font-size: ${({ theme }) => theme.sizes.text.XXS};
-	white-space: nowrap; // just remove once button is implemented
-`;
-
-export const LogsButton = styled(GeneralButton)`
-	background-color: ${({ theme }) => theme.colors.logsButton};
-	color: ${({ theme }) => theme.colors.logsButtonText};
-	grid-row: 3 / 5;
-	grid-column: 1 / 4;
-	${({ theme }) => theme.customStyles.highlighted}
-	line-height: 100%;
-
-	font-size: ${({ theme }) => theme.sizes.text.M}; // just remove once button is implemented
 `;

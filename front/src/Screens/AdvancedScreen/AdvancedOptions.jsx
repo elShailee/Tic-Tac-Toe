@@ -9,8 +9,6 @@ import {
 	ExitGameButton,
 	GithubButton,
 	ResumeButton,
-	LogsButton,
-	ConnectionToggleButton,
 } from './styles';
 
 export default function AdvancedOptions({ gameState, setGameState, changeThemes }) {
@@ -23,8 +21,10 @@ export default function AdvancedOptions({ gameState, setGameState, changeThemes 
 	if (gameState.playerTwo) {
 		numOfPlayers++;
 	}
-	const isInvitingPossible = gameState?.gameMode === 'remote' && numOfPlayers === 1 && gameState?.userPlayer;
-	const isPlaying = gameState.gameMode === 'local' || (gameState.gameMode === 'remote' && gameState.userPlayer);
+	const isInvitingPossible =
+		gameState?.gameMode === 'remote' && numOfPlayers === 1 && gameState?.userPlayer;
+	const isPlaying =
+		gameState.gameMode === 'local' || (gameState.gameMode === 'remote' && gameState.userPlayer);
 
 	const copyLink = async () => {
 		setDidJustCopyLinkState(true);
@@ -47,9 +47,11 @@ export default function AdvancedOptions({ gameState, setGameState, changeThemes 
 			{isPlaying && <ExitGameButton title='Exit Game' onClick={() => setGameState({})} />}
 			<ChangeThemesButton title='Change Themes' onClick={changeThemes} />
 			<GithubButton target='_blank' href='https://github.com/elShailee/Tic-Tac-Toe' />
-			<ResumeButton target='_blank' onClick={apiCallsHandler.getResume} title='Check Out My Resume' />
-			<LogsButton>Game Logs (Coming Soon)</LogsButton>
-			<ConnectionToggleButton>Switch to WebSocket (CominSoon)</ConnectionToggleButton>
+			<ResumeButton
+				target='_blank'
+				onClick={apiCallsHandler.getResume}
+				title='Check Out My Resume'
+			/>
 		</AdvancedContainer>
 	);
 }
