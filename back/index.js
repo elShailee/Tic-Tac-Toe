@@ -288,4 +288,19 @@ app.get('/', function (req, res) {
 	res.redirect('http://Shailee-Eliyahu.com/Tic-Tac-Toe');
 });
 
-app.use(express.static(path.join(__dirname, './build')));
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/Tic-Tac-Toe/manifest.json', function (req, res) {
+	siteViews++;
+	res.sendFile(path.join(__dirname, 'build', 'manifest.json'));
+});
+
+app.get('/Tic-Tac-Toe/favicon.ico', function (req, res) {
+	siteViews++;
+	res.sendFile(path.join(__dirname, 'build', 'favicon.ico'));
+});
+
+app.get('/Tic-Tac-Toe/', function (req, res) {
+	siteViews++;
+	res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
