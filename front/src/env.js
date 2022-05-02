@@ -32,7 +32,7 @@ const CONSTS = {
 	},
 	production: {
 		serverBaseUrl: 'https://shailee-eliyahu.com',
-		serverPort: 80,
+		serverPort: 443,
 		frontBaseUrl: 'https://shailee-eliyahu.com',
 		API,
 	},
