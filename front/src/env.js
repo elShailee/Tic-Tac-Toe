@@ -31,9 +31,9 @@ const CONSTS = {
 		API,
 	},
 	production: {
-		serverBaseUrl: 'http://shailee-eliyahu.com',
+		serverBaseUrl: 'https://shailee-eliyahu.com',
 		serverPort: 80,
-		frontBaseUrl: 'http://shailee-eliyahu.com',
+		frontBaseUrl: 'https://shailee-eliyahu.com',
 		API,
 	},
 };

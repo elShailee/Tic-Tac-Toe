@@ -171,13 +171,19 @@ app.post(API.refreshRemote + ':gameId', validations.refreshRemote, (req, res) =>
 	userPlayer.lastCheckIn = moment();
 	if (games[gameId].playerOne?.id === userPlayer.id) {
 		games[gameId].playerOne = userPlayer;
-		if (games[gameId].playerTwo?.lastCheckIn && moment(moment().diff(games[gameId].playerTwo?.lastCheckIn)).seconds() > 2) {
+		if (
+			games[gameId].playerTwo?.lastCheckIn &&
+			moment(moment().diff(games[gameId].playerTwo?.lastCheckIn)).seconds() > 2
+		) {
 			makePlayerLeave({ player: games[gameId].playerTwo, gameId });
 		}
 	}
 	if (games[gameId].playerTwo?.id === userPlayer.id) {
 		games[gameId].playerTwo = userPlayer;
-		if (games[gameId].playerOne?.lastCheckIn && moment(moment().diff(games[gameId].playerOne.lastCheckIn)).seconds() > 2) {
+		if (
+			games[gameId].playerOne?.lastCheckIn &&
+			moment(moment().diff(games[gameId].playerOne.lastCheckIn)).seconds() > 2
+		) {
 			makePlayerLeave({ player: games[gameId].playerOne, gameId });
 		}
 	}
@@ -201,7 +207,12 @@ app.post(API.moveRemote + ':gameId', validations.moveRemote, (req, res) => {
 	}
 
 	if (userPlayer.mark === turnState && playerOne && playerTwo) {
-		games[gameId] = { ...games[gameId], boardState, turnState: getOppositeMark(turnState), winState };
+		games[gameId] = {
+			...games[gameId],
+			boardState,
+			turnState: getOppositeMark(turnState),
+			winState,
+		};
 		res.status(201).send({
 			...games[gameId],
 			userPlayer,
@@ -264,7 +275,10 @@ app.get(API.getResume, (req, res) => {
 });
 
 const PORT = serverPort;
-app.listen(PORT, () => enviroment === 'developement' && console.log(`Listening for requests on port ${PORT}...`));
+app.listen(
+	PORT,
+	() => enviroment === 'developement' && console.log(`Listening for requests on port ${PORT}...`),
+);
 
 /*-----------------*\
 |   Frontend App    |
@@ -274,9 +288,4 @@ app.get('/', function (req, res) {
 	res.redirect('http://Shailee-Eliyahu.com/Tic-Tac-Toe');
 });
 
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('/tic-tac-toe', function (req, res) {
-	siteViews++;
-	res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+app.use(express.static(path.join(__dirname, './build')));
