@@ -288,7 +288,7 @@ app.get('/', function (req, res) {
 	res.redirect('https://Shailee-Eliyahu.com/Tic-Tac-Toe');
 });
 
-app.use(express.static(path.join(__dirname, './build')));
+app.use(express.static(path.join(__dirname, 'build/')));
 
 app.get('/Tic-Tac-Toe/', function (req, res) {
 	siteViews++;
