@@ -1,5 +1,12 @@
 import React from 'react';
-import { AboutContainer, ProfileImage, NameContainer, NameUnderline, ParagraphContainer, TextLine } from './styles';
+import {
+	AboutContainer,
+	ProfileImage,
+	NameContainer,
+	NameUnderline,
+	ParagraphContainer,
+	TextLine,
+} from './styles';
 
 export default function AboutMe() {
 	return (
@@ -7,7 +14,7 @@ export default function AboutMe() {
 			<NameUnderline />
 			<NameContainer />
 			<ParagraphContainer>
-				<TextLine margin={29}> I'm a 25 y/o developer from Bet-Shemesh.</TextLine>
+				<TextLine margin={29}> I'm a 26 y/o developer from Bet-Shemesh.</TextLine>
 				<TextLine margin={27}> I enjoy music and art, and loved being a youth</TextLine>
 				<TextLine margin={22}> guide (informal education) for five years.</TextLine>
 				<TextLine>For the last two years I've been studying CS at the Open</TextLine>
