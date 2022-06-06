@@ -19,8 +19,8 @@ export default function AboutMe() {
 				<TextLine margin={22}> guide (informal education) for five years.</TextLine>
 				<TextLine>For the last two years I've been studying CS at the Open</TextLine>
 				<TextLine>University of Israel, and learning to program.</TextLine>
-				<TextLine>Learning alone and with friends was alot of fun, but now I'm</TextLine>
-				<TextLine>looking forward to work with good people on a great product!</TextLine>
+				{/* <TextLine>Learning alone and with friends was alot of fun, but now I'm</TextLine>
+				<TextLine>looking forward to work with good people on a great product!</TextLine> */}
 			</ParagraphContainer>
 			<ProfileImage />
 		</AboutContainer>
