@@ -1,6 +1,6 @@
 # Tic Tac Toe
 
-![grab-landing-page](https://github.com/elShailee/Tic-Tac-Toe/blob/master/docs/gameplay.png)
+![alt text](https://github.com/elShailee/Tic-Tac-Toe/blob/main/docs/gameplay.png)
 
 ## Description
 
@@ -10,7 +10,7 @@ This game was previously deployed on AWS for about a year using an EC2 instance 
 
 ### Multiplayer
 
-![grab-landing-page](https://github.com/elShailee/Tic-Tac-Toe/blob/master/docs/Homescreen.png)
+![grab-landing-page](https://github.com/elShailee/Tic-Tac-Toe/blob/main/docs/Homescreen.png)
 
 The multiplayer mode works by saving all online game sessions in memory on the server, and allowing users to invite each other to join via an invite link.<br />
 The data handling is being done via polling, which means that the client is sending requests to the server every 250ms in order to check if the game has been updated.<br />
@@ -18,7 +18,7 @@ When deployed, the performance was perfect - with no noticeable delays or loadin
 
 ### Design
 
-![grab-landing-page](https://github.com/elShailee/Tic-Tac-Toe/blob/master/docs/Homescreen_d.png)
+![grab-landing-page](https://github.com/elShailee/Tic-Tac-Toe/blob/main/docs/Homescreen_d.png)
 (Yes - it has a dark mode!)
 
 The game was designed by me using Inkscape, and coded with styled-components, with significant assistance<br />
