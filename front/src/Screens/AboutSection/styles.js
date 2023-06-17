@@ -18,10 +18,10 @@ export const ProfileImage = styled.div`
 	grid-row: 1 / 7;
 	border-radius: 50%;
 	background-image: url(${({ theme }) => theme.images.profilePic});
-	background-size: ${({ theme }) => theme.calcSizeUnits(3.5)};
+	background-size: ${({ theme }) => theme.calcSizeUnits(3.2)};
 	background-repeat: no-repeat;
 	background-position: center;
-	background-position: ${({ theme }) => theme.calcSizeUnits(-0.27)} ${({ theme }) => theme.calcSizeUnits(-0.6)};
+	background-position: ${({ theme }) => theme.calcSizeUnits(-0.1)} ${({ theme }) => theme.calcSizeUnits(-0.3)};
 `;
 
 export const NameContainer = styled.div`
